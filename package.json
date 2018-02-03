@@ -1,0 +1,36 @@
+{
+  "name": "react-native-cross",
+  "version": "1.0.0",
+  "description": "React Native for the desktop, cross compatible",
+  "main": "index.js",
+  "scripts": {
+    "run": "./node_modules/.bin/babel-node src/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kusti8/react-native-cross.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kusti8/react-native-cross/issues"
+  },
+  "homepage": "https://github.com/kusti8/react-native-cross#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "fbjs": "^0.8.16",
+    "libui-node": "0.0.12",
+    "performance-now": "^2.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-reconciler": "^0.7.0"
+  },
+  "devDependencies": {
+    "react-devtools": "^3.0.0"
+  }
+}
