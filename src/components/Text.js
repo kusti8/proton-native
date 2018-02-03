@@ -1,36 +1,46 @@
-class Text {
-  children = [];
-  
+import DesktopComponent from './DesktopComponent'
+import libui from 'libui-node'
+
+class Text extends DesktopComponent {
   constructor(root, props) {
+    super(root, props)
     this.root = root;
     this.props = props;
-
-    this.adder = this.root.doc.createP();
-  }
-
-  appendChild(child) {
-    this.children.push(child);
-  }
-
-  removeChild(child) {
-    const index = this.children.indexOf(child);
-    this.children.splice(index, 1);
-  }
-
-  update(oldProps, newProps) {
-    
-  }
-
-  renderChildren() {
-    for (let i = 0; i < this.children.length; i += 1) {
-      if (typeof this.children[i] === 'string') {
-        this.adder.addText(this.children[i]);
-      } // else { some_custom_method(); } here it's upto you how do you handle the nested components. For our example, we won't go into much details.
+    this.element = new libui.UiLabel()
+    if (props.children) {
+      this.element.text = props.children
+    }
+    if (typeof props.enabled !== 'undefined') {
+      this.element.enabled = props.enabled
+    }
+    if (typeof props.visible !== 'undefined') {
+      this.element.visible = props.visible
     }
   }
 
-  render() {
-    this.renderChildren();
+  update(oldProps, newProps) {
+    if (oldProps.enabled !== oldProps.title) {
+      this.element.enabled = newProps.enabled
+    }
+    if (newProps.visible !== oldProps.visible) {
+      this.element.visible = newProps.visible
+    }
+    if (newProps.children !== oldProps.children) {
+      this.element.text = newProps.children
+    }
+  }
+
+  render(parent) {
+    if (this.props.children) {
+      this.element.text = this.props.children
+    }
+    if (typeof parent.setChild !== 'undefined') {
+      parent.setChild(this.element)
+  } else if (typeof parent.append !== 'undefined') {
+      const stretchy = typeof this.props.stretchy === 'undefined' ? true : this.props.stretchy
+      parent.append(this.element, stretchy)
+  }
+    this.renderChildNode();
   }
 }
 

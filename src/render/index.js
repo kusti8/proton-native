@@ -1,34 +1,26 @@
-import fs from 'fs';
-import path from 'path';
 import {createElement} from '../utils/createElement';
-import Renderer from '../reconciler/';
+import DesktopRenderer from '../reconciler/';
+import {debounce} from 'lodash'
+
+export let ROOT_NODE = {}
 
 // Renders the input component
+function render(element) {
+  ROOT_NODE = createElement('ROOT')
+  const container = ROOT_NODE
 
-const roots = new Map();
-const defaultContainer = {};
-
-export const ReactDesktop = {
-  render(element, callback, container) {
-    const containerKey = typeof container === 'undefined' ? defaultContainer : container;
-    let root = roots.get(containerKey);
-    if (!root) {
-      root = Renderer.createContainer(containerKey, false, false);
-      roots.set(container, root);
-    }
-    Renderer.updateContainer(element, root, null);
-    const publicInst = Renderer.getPublicRootInstance(root);
-    return publicInst
-  },
-  unmountComponentAtNode(container) {
-    const containerKey = typeof container === 'undefined' ? defaultContainer : container;
-    const root = roots.get(containerKey);
-    if (root) {
-      Renderer.updateContainer(null, root, null, () => {
-        roots.delete(container);
-      });
-    }
-  },
+  // Returns the current fiber (flushed fiber)
+  const node = DesktopRenderer.createContainer(ROOT_NODE);
+    
+  // Schedules a top level update with current fiber and a priority level (depending upon the context)
+  DesktopRenderer.updateContainer(element, node, null);
+  ROOT_NODE.render()
+  // DesktopRenderer.injectIntoDevTools({
+  //   bundleType: 1,
+  //   version: '0.1.0',
+  //   rendererPackageName: 'custom-renderer',
+  //   findHostInstanceByFiber: DesktopRenderer.findHostInstance
+  // })
 }
 
-export default ReactDesktop;
+export default render;

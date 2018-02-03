@@ -1,156 +1,124 @@
 import emptyObject from 'fbjs/lib/emptyObject';
-import {createElement} from '../utils/createElement';
+import {createElement, getHostContextNode} from '../utils/createElement';
 
 const Reconciler = require('react-reconciler')
 
-const Renderer = Reconciler({
-  createInstance(type, props, rootContainerInstance, hostContext, internalInstanceHandle) {
-    console.log("HI")
-    return createElement(type, props, hostContext);
-  },
-
+const DesktopRenderer = Reconciler({
   appendInitialChild(parentInstance, child) {
-    console.log("HI")
+    console.log("HI1")
     if (parentInstance.appendChild) {
       parentInstance.appendChild(child);
-    } else {
-      parentInstance.win = child;
     }
   },
 
-  finalizeInitialChildren(instance, type, props, rootContainerInstance) {
-    console.log("HI")
-    return true;
+  createInstance(type, props, internalInstanceHandle) {
+    console.log("HI2")
+    return createElement(type, props);
   },
 
-  prepareUpdate(instance, type, oldProps, newProps, rootContainerInstance, hostContext) {
-    console.log("HI")
-    return newProps;
+  createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
+    console.log("HI3")
+    return text;
+  },
+
+  finalizeInitialChildren(wordElement, type, props) {
+    console.log("HI4")
+    return false;
   },
 
   getPublicInstance(inst) {
-    console.log(inst)
+    console.log("HI5")
     return inst;
   },
 
   prepareForCommit() {
+    console.log("HI6")
     // noop
   },
 
+  prepareUpdate(wordElement, type, oldProps, newProps) {
+    console.log("HI7")
+    return true;
+  },
+
   resetAfterCommit() {
-    
+    console.log("HI8")
     // noop
   },
 
   resetTextContent(wordElement) {
+    console.log("HI9")
     // noop
   },
 
   getRootHostContext(instance) {
-    return emptyObject
+    console.log(instance)
+    const a = getHostContextNode(instance)
+    return a
   },
 
   getChildHostContext(instance) {
+    console.log("HI11")
     return emptyObject;
   },
 
-  shouldSetTextContent(props) {
-    console.log('shouldSetTextContent');
-    return false;
-
-    if (typeof props.children === 'string') {
-      return true;
-    }
+  shouldSetTextContent(type, props) {
+    console.log("HI12")
     return false;
   },
 
-  resetTextContent(instance) {
-    console.log('resetTextContent');
-  },
+  now: () => {},
 
-  createTextInstance(
-    text,
-    rootContainerInstance,
-    hostContext,
-    internalInstanceHandle
-  )  {
-    console.log('createTextInstance');
-    return text;
-  },
-
-  scheduleAnimationCallback() {
-    console.log('scheduleAnimationCallback');
-  },
-
-  scheduleDeferredCallback() {
-    console.log('scheduleDeferredCallback');
-  },
+  useSyncScheduling: true,
 
   mutation: {
-    appendChild(
-      parentInstance,
-      child
-    ) {
-      console.log("HI")
+    appendChild(parentInstance, child) {
+      console.log("HI13")
       if (parentInstance.appendChild) {
-        parentInstance.appendChild(child)
-      } else {
-        parentInstance.win = child;
+        parentInstance.appendChild(child);
       }
     },
 
     appendChildToContainer(parentInstance, child) {
-      console.log("Prepare for commit")
+      console.log("HI14")
       if (parentInstance.appendChild) {
-        parentInstance.appendChild(child)
-      } else {
-        parentInstance.win = child;
+        parentInstance.appendChild(child);
       }
     },
-
-    removeChild(
-      parentInstance,
-      child
-    ) {
+    
+    removeChild(parentInstance, child) {
+      console.log("HI15")
       parentInstance.removeChild(child);
-      child.destroy();
+    },
+
+    removeChildFromContainer(parentInstance, child) {
+      console.log("HI16")
+      parentInstance.removeChild(child);
     },
   
-    removeChildFromContainer(
-      parentInstance,
-      child
-    ) {
-      parentInstance.removeChild(child);
-      child.destroy();
+    insertBefore(parentInstance, child, beforeChild) {
+      console.log("HI17")
+      // noob
     },
-
-    insertBefore(
-      parentInstance,
-      child,
-      beforeChild
-    ) {
-      console.log('insertBefore');
-      // parentInstance.insertBefore(child, beforeChild);
+  
+    commitUpdate(instance, updatePayload, type, oldProps, newProps) {
+      console.log("HI18")
+      if (typeof instance.update !== 'undefined') {
+        instance.update(oldProps, newProps)
+      }
     },
-
-    commitUpdate(instance, updatePayload, type, oldProps, newProps, internalInstanceHandle) {
-      instance.update(oldProps, newProps)
-    },
-
-    commitTextUpdate(
-      textInstance,
-      oldText,
-      newText
-    ) {
-      console.log('commitTextUpdate', oldText, newText);
+  
+    commitMount(instance, updatePayload, type, oldProps, newProps) {
+      console.log("HI19")
       // noop
-      throw new Error('commitTextUpdate should not be called');
     },
-  },
-
-  now: () => Date.now(),
-
-  useSyncScheduling: true
+  
+    commitTextUpdate(textInstance, oldText, newText) {
+      console.log("HI20")
+      console.log(newText)
+      textInstance = newText;
+    },
+  }
 })
 
-export default Renderer;
+export default DesktopRenderer;
