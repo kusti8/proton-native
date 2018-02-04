@@ -4,7 +4,8 @@
   "description": "React Native for the desktop, cross compatible",
   "main": "index.js",
   "scripts": {
-    "demo": "./node_modules/.bin/babel-node src/Demo.js"
+    "demo": "./node_modules/.bin/babel-node src/Demo.js",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write '{,!(node_modules)/**/}*.js'"
   },
   "repository": {
     "type": "git",
@@ -25,13 +26,13 @@
     "babel-preset-stage-0": "^6.24.1",
     "fbjs": "^0.8.16",
     "libui-node": "0.0.12",
-    "lodash": "^4.17.4",
     "performance-now": "^2.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-reconciler": "^0.7.0"
   },
   "devDependencies": {
+    "prettier": "^1.10.2",
     "react-devtools": "^3.0.0"
   }
 }

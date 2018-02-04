@@ -1,13 +1,23 @@
-import { App, Text, Root, Window, Button, VerticalBox, HorizontalBox } from '../components/';
-import {ROOT_NODE} from '../render/'
+import {
+  App,
+  Text,
+  Root,
+  Window,
+  Button,
+  VerticalBox,
+  HorizontalBox,
+} from '../components/';
+import { ROOT_NODE } from '../render/';
 
 function getHostContextNode(rootNode) {
   if (typeof rootNode !== undefined) {
-    return ROOT_NODE
+    return ROOT_NODE;
   } else {
-    console.warn(`${rootNode} is not an instance of officegen docx constructor.`)    
-    
-    return ROOT_NODE
+    console.warn(
+      `${rootNode} is not an instance of officegen docx constructor.`
+    );
+
+    return ROOT_NODE;
   }
 }
 
@@ -27,7 +37,4 @@ function createElement(type, props) {
   return COMPONENTS[type]() || COMPONENTS.default;
 }
 
-export {
-  createElement,
-  getHostContextNode,
-}
+export { createElement, getHostContextNode };

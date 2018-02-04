@@ -1,15 +1,14 @@
-import DesktopComponent from './DesktopComponent'
+import DesktopComponent from './DesktopComponent';
 
-class App extends DesktopComponent{
-
+class App extends DesktopComponent {
   constructor(root, props) {
-    super(root, props)
+    super(root, props);
     this.root = root;
     this.props = props;
   }
 
   render() {
-    console.log("App render")
+    console.log('App render');
     this.renderChildNode();
   }
 }
