@@ -21,7 +21,7 @@ class Button extends DesktopComponent {
 }
   
     update(oldProps, newProps) {
-      if (oldProps.enabled !== oldProps.enabled) {
+      if (newProps.enabled !== oldProps.enabled) {
         this.element.enabled = newProps.enabled
       }
       if (newProps.visible !== oldProps.visible) {
@@ -36,6 +36,8 @@ class Button extends DesktopComponent {
     }
 
   render(parent) {
+      console.log("Button render")
+      console.log(parent)
     if (this.props.children) {
         this.element.text = this.props.children
       }

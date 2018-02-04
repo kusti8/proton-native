@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 
-import { Window, App, Text, render, Button, VerticalBox } from './';
+import { Window, App, Text, render, Button, Box } from './';
 
 class A extends Component {
     state = {name: true}
   render () {
-      const textOrButton = this.state.name ? (<Text>Hello!</Text>) : (<Button onClicked={() => {}}>HI!</Button>)
     return (
       <App>
         <Window title="Hi" height={640} width={480} menuBar={true}>
-            <VerticalBox>
-                <Button onClicked={() => this.setState({name: !this.state.name})}>Hello</Button>
-                {textOrButton}
-            </VerticalBox>
+            <Box vertical={this.state.name}>
+                <Button stretchy={false} onClicked={() => this.setState({name: !this.state.name})}>Hello</Button>
+                <Text visible={true}>My name is Gustav!</Text>
+            </Box>
         </Window>
       </App>
     );

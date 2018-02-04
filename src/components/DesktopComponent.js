@@ -1,3 +1,5 @@
+import libui from 'libui-node'
+
 export default class DesktopComponent {
     constructor() {
         this.children = [];
@@ -8,15 +10,13 @@ export default class DesktopComponent {
       }
     
       removeChild(child) {
-        if (typeof this.element.setChild !== 'undefined') {
-            this.element.setChild(null)
-            child.element.destroy()
-        } else if (typeof this.element.deleteAt !== 'undefined') {
+        if (typeof this.element.setChild !== 'undefined') { // if it can only have one child, we don't need to "de-render" it
+        } else if (typeof this.element.deleteAt !== 'undefined') { // if it can have multiple ex. VerticalBox
             this.element.deleteAt(this.children.indexOf(child))
             child.element.destroy()
         }
         const index = this.children.indexOf(child);
-        this.children.slice(index, 1);
+        this.children.splice(index, 1);
         console.log("Completed delete")
       }
     

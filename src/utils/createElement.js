@@ -1,4 +1,4 @@
-import { App, Text, Root, Window, Button, VerticalBox } from '../components/';
+import { App, Text, Root, Window, Button, VerticalBox, HorizontalBox } from '../components/';
 import {ROOT_NODE} from '../render/'
 
 function getHostContextNode(rootNode) {
@@ -20,6 +20,7 @@ function createElement(type, props) {
     WINDOW: () => new Window(ROOT_NODE, props),
     BUTTON: () => new Button(ROOT_NODE, props),
     VERTICALBOX: () => new VerticalBox(ROOT_NODE, props),
+    HORIZONTALBOX: () => new HorizontalBox(ROOT_NODE, props),
     default: undefined,
   };
 

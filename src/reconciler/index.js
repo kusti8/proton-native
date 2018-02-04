@@ -1,5 +1,6 @@
 import emptyObject from 'fbjs/lib/emptyObject';
 import {createElement, getHostContextNode} from '../utils/createElement';
+import {ROOT_NODE} from '../render/'
 
 const Reconciler = require('react-reconciler')
 
@@ -77,6 +78,8 @@ const DesktopRenderer = Reconciler({
       if (parentInstance.appendChild) {
         parentInstance.appendChild(child);
       }
+      child.render(parentInstance.element) // we just added a new child, so we want to render it
+      console.log("Rendered child")
     },
 
     appendChildToContainer(parentInstance, child) {

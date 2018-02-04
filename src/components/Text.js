@@ -14,12 +14,13 @@ class Text extends DesktopComponent {
       this.element.enabled = props.enabled
     }
     if (typeof props.visible !== 'undefined') {
+      console.log(props.visible)
       this.element.visible = props.visible
     }
   }
 
   update(oldProps, newProps) {
-    if (oldProps.enabled !== oldProps.title) {
+    if (newProps.enabled !== oldProps.title) {
       this.element.enabled = newProps.enabled
     }
     if (newProps.visible !== oldProps.visible) {

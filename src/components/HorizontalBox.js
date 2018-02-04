@@ -1,12 +1,12 @@
 import DesktopComponent from './DesktopComponent'
 import libui from 'libui-node'
 
-class VerticalBox extends DesktopComponent {
+class HorizontalBox extends DesktopComponent {
   constructor(root, props) {
     super(root, props)
     this.root = root;
     this.props = props;
-    this.element = new libui.UiVerticalBox()
+    this.element = new libui.UiHorizontalBox()
 
     if (typeof props.enabled !== 'undefined') {
     this.element.enabled = props.enabled
@@ -40,4 +40,4 @@ class VerticalBox extends DesktopComponent {
   }
 }
 
-export default VerticalBox;
+export default HorizontalBox;

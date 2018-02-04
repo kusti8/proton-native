@@ -4,5 +4,6 @@ import App from './App';
 import Window from './Window'
 import Button from './Button'
 import VerticalBox from './VerticalBox'
+import HorizontalBox from './HorizontalBox'
 
-export { Root, Text, App, Window, Button, VerticalBox };
+export { Root, Text, App, Window, Button, VerticalBox, HorizontalBox };
