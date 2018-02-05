@@ -1,15 +1,16 @@
 import DesktopComponent from './DesktopComponent';
 import libui from 'libui-node';
 
-class Text extends DesktopComponent {
-  expectedProps = ['enabled', 'visible']
+class Entry extends DesktopComponent {
+  expectedProps = ['enabled', 'visible', 'readOnly']
+  expectedEvents = {'onChanged': 'text'}
   expectedChild = 'text'
 
   constructor(root, props) {
     super(root, props);
     this.root = root;
     this.props = props;
-    this.element = new libui.UiLabel();
+    this.element = new libui.UiEntry();
     this.initialProps(props)
   }
 
@@ -22,4 +23,4 @@ class Text extends DesktopComponent {
   }
 }
 
-export default Text;
+export default Entry;

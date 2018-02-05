@@ -6,6 +6,10 @@ import {
   Button,
   VerticalBox,
   HorizontalBox,
+  Entry,
+  PasswordEntry,
+  MultilineEntry,
+  ColorButton
 } from '../components/';
 import { ROOT_NODE } from '../render/';
 
@@ -31,6 +35,10 @@ function createElement(type, props) {
     BUTTON: () => new Button(ROOT_NODE, props),
     VERTICALBOX: () => new VerticalBox(ROOT_NODE, props),
     HORIZONTALBOX: () => new HorizontalBox(ROOT_NODE, props),
+    ENTRY: () => new Entry(ROOT_NODE, props),
+    PASSWORDENTRY: () => new PasswordEntry(ROOT_NODE, props),
+    MULTILINEENTRY: () => new MultilineEntry(ROOT_NODE, props),
+    COLORBUTTON: () => new ColorButton(ROOT_NODE, props),
     default: undefined,
   };
 
