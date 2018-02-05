@@ -1,6 +1,6 @@
 import DesktopComponent from './DesktopComponent';
 import libui from 'libui-node';
-import ColorConvert from '../lib/colorConverter'
+import Color from 'color'
 
 class ColorButton extends DesktopComponent {
   expectedProps = ['color']
@@ -12,15 +12,21 @@ class ColorButton extends DesktopComponent {
     this.props = props;
     this.element = new libui.UiColorButton();
     this.initialProps(props)
+    
   }
 
   convertToColor(input) {
     input = input.toLowerCase()
-    c = ColorConvert.w3color(input)
-    if (typeof caches.toRgb !== 'undefined') { // if we put in an object, there is no function
-      c = c.toRgb()
+    let alpha
+    let c = Color(input).object()
+    if (typeof c.alpha !== 'undefined') {
+      alpha = c.alpha
+    } else if (typeof c.a !== 'undefined') {
+      alpha = c.a
+    } else {
+      alpha = 1
     }
-    return new libui.Color(c.r, c.g, c.b, c.a)
+    return new libui.Color(c.r, c.g, c.b, alpha)
   }
 
   toRgbObject(colorObj) {
@@ -68,9 +74,6 @@ class ColorButton extends DesktopComponent {
   }
 
   render(parent) {
-    if (this.props.children) {
-      this.element.color = this.props.children;
-    }
     this.addParent(parent)
     this.renderChildNode();
   }

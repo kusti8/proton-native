@@ -34,13 +34,17 @@ export default class DesktopComponent {
     if (typeof parent.setChild !== 'undefined') {
       parent.setChild(this.element);
     } else if (typeof parent.append !== 'undefined') {
-      const stretchy =
-        typeof this.props.stretchy === 'undefined' ? true : this.props.stretchy;
-      parent.append(this.element, stretchy);
+      if (typeof this.specialAppend !== 'undefined') { // we have special parameters for append
+        this.specialAppend(parent)
+      } else {
+        const stretchy =
+          typeof this.props.stretchy === 'undefined' ? true : this.props.stretchy;
+        parent.append(this.element, stretchy);
+      }
     }
   }
 
-  update(oldProps, newProps) {
+  updateProps(oldProps, newProps) {
     if (typeof this.expectedProps !== 'undefined') {
       for (let prop of this.expectedProps) { // normal props
         if (newProps[prop] !== oldProps[prop] && prop in newProps) {
@@ -48,10 +52,12 @@ export default class DesktopComponent {
         }
       }
     }
+  }
 
+  updateEvents(oldProps, newProps) {
     if (typeof this.expectedEvents !== 'undefined') {
-      for (let prop of this.expectedEvents) { // event props
-        if (newProps[prop] !== oldProps[prop] && prop in newProps) {
+      for (let prop in this.expectedEvents) { // event props
+        if (prop in newProps && newProps[prop] !== oldProps[prop]) {
           if (this.expectedEvents[prop] !== '') {
             this.element[prop]( () => newProps[prop](this.element[this.expectedEvents[prop]]) );
           } else {
@@ -60,15 +66,23 @@ export default class DesktopComponent {
         }
       }
     }
+  }
 
+  updateChild(oldProps, newProps) {
     if (typeof this.expectedChild !== 'undefined') {
       if (newProps.children !== oldProps.children) { // text child
-        this.element[expectedChild] = newProps.children;
+        this.element[this.expectedChild] = newProps.children;
       }
     }
   }
 
-  initialProps(props) {
+  update(oldProps, newProps) {
+    this.updateProps(oldProps, newProps)
+    this.updateEvents(oldProps, newProps)
+    this.updateChild(oldProps, newProps)
+  }
+
+  initialNormalProps(props) {
     if (typeof props !== 'undefined') {
       if (typeof this.expectedProps !== 'undefined') {
         for (let prop of this.expectedProps) { // normal props
@@ -77,24 +91,34 @@ export default class DesktopComponent {
             }
         }
       }
+    }
+  }
 
-      if (typeof this.expectedEvents !== 'undefined') {
-        for (let prop in this.expectedEvents) { // event props
-          if (prop in props) {
-            if (this.expectedEvents[prop] !== '') {
-              this.element[prop]( () => props[prop](this.element[this.expectedEvents[prop]]) );
-            } else {
-              this.element[prop](props[prop])
-            }
+  initialEvents(props) {
+    if (typeof this.expectedEvents !== 'undefined') {
+      for (let prop in this.expectedEvents) { // event props
+        if (prop in props) {
+          if (this.expectedEvents[prop] !== '') {
+            this.element[prop]( () => props[prop](this.element[this.expectedEvents[prop]]) );
+          } else {
+            this.element[prop](props[prop])
           }
         }
       }
+    }
+  }
 
-      if (typeof this.expectedChild !== 'undefined') { // text child
-        if (props.children) {
-          this.element[this.expectedChild] = props.children;
-        }
+  initialChild(props) {
+    if (typeof this.expectedChild !== 'undefined') { // text child
+      if (props.children) {
+        this.element[this.expectedChild] = props.children;
       }
     }
+  }
+
+  initialProps(props) {
+    this.initialNormalProps(props)
+    this.initialEvents(props)
+    this.initialChild(props)
   }
 }

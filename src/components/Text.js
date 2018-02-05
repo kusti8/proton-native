@@ -14,9 +14,6 @@ class Text extends DesktopComponent {
   }
 
   render(parent) {
-    if (this.props.children) {
-      this.element.text = this.props.children;
-    }
     this.addParent(parent)
     this.renderChildNode();
   }

@@ -8,15 +8,15 @@ class A extends Component {
     return (
       <App>
         <Window name="Hi" height={640} width={480} menuBar={true}>
-          <Box vertical={this.state.name} enabled={true}>
+          <Box vertical={this.state.name} padded={true}>
             <Button
               stretchy={false}
               onClicked={() => this.setState({ name: !this.state.name })}
             >
               Hello
             </Button>
-            <ColorButton onChanged={color => console.log(color)}/>
-            <TextInput multiline={false} stretchy={true} secure={true} onChanged={text => console.log(text)}>My name is Gustav!</TextInput>
+            <ColorButton stretchy={false} color='white' onChanged={color => console.log(color)}/>
+            <TextInput multiline={false} stretchy={false} secure={true} onChanged={text => console.log(text)}>My name is Gustav!</TextInput>
           </Box>
         </Window>
       </App>

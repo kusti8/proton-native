@@ -53,7 +53,6 @@ const DesktopRenderer = Reconciler({
   },
 
   getRootHostContext(instance) {
-    console.log(instance);
     const a = getHostContextNode(instance);
     return a;
   },
