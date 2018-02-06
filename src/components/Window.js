@@ -13,14 +13,14 @@ class Window extends DesktopComponent {
       props.menuBar
     );
     this.element.onClosing(() => {
-      if (typeof this.props.onClose !== 'undefined') {
+      if (this.exists(this.props.onClose)) {
         this.props.onClose();
       }
       this.element.close();
       console.log(this.props.lastWindow);
       if (
         this.props.lastWindow === true ||
-        typeof this.props.lastWindow === 'undefined'
+        !this.exists(this.props.lastWindow)
       ) {
         libui.stopLoop();
       }
@@ -41,7 +41,7 @@ class Window extends DesktopComponent {
 
   render() {
     this.element.show();
-    this.renderChildNode(this.element);
+    this.renderChildNode(this);
   }
 }
 

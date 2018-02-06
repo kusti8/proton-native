@@ -9,5 +9,6 @@ import Entry from './Entry'
 import PasswordEntry from './PasswordEntry'
 import MultilineEntry from './MultilineEntry'
 import ColorButton from './ColorButton'
+import Form from './Form'
 
-export { Root, Text, App, Window, Button, VerticalBox, HorizontalBox, Entry, PasswordEntry, MultilineEntry, ColorButton };
+export { Root, Text, App, Window, Button, VerticalBox, HorizontalBox, Entry, PasswordEntry, MultilineEntry, ColorButton, Form };

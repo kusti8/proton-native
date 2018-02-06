@@ -19,9 +19,9 @@ class ColorButton extends DesktopComponent {
     input = input.toLowerCase()
     let alpha
     let c = Color(input).object()
-    if (typeof c.alpha !== 'undefined') {
+    if (this.exists(c.alpha)) {
       alpha = c.alpha
-    } else if (typeof c.a !== 'undefined') {
+    } else if (this.exists(c.a)) {
       alpha = c.a
     } else {
       alpha = 1
@@ -38,7 +38,7 @@ class ColorButton extends DesktopComponent {
       this.element.color = this.convertToColor(newProps.color);
     }
 
-    if (typeof this.expectedEvents !== 'undefined') {
+    if (this.exists(this.expectedEvents)) {
       for (let prop of this.expectedEvents) { // event props
         if (newProps[prop] !== oldProps[prop]) {
           this.element[prop](newProps[prop]);
@@ -48,13 +48,13 @@ class ColorButton extends DesktopComponent {
   }
 
   initialProps(props) {
-    if (typeof props !== 'undefined') {
-      if (typeof props.color !== 'undefined') {
+    if (this.exists(props)) {
+      if (this.exists(props.color)) {
         this.element.color = this.convertToColor(props.color)
       }
       }
 
-      if (typeof this.expectedEvents !== 'undefined') {
+      if (this.exists(this.expectedEvents)) {
         for (let prop in this.expectedEvents) { // event props
           if (prop in props) {
             if (this.expectedEvents[prop] !== '') {
@@ -66,7 +66,7 @@ class ColorButton extends DesktopComponent {
         }
       }
 
-      if (typeof this.expectedChild !== 'undefined') { // text child
+      if (this.exists(this.expectedChild)) { // text child
         if (props.children) {
           this.element[this.expectedChild] = props.children;
         }

@@ -14,7 +14,7 @@ class HorizontalBox extends DesktopComponent {
 
   render(parent) {
     this.addParent(parent)
-    this.renderChildNode(this.element);
+    this.renderChildNode(this);
   }
 }
 
