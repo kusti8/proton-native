@@ -1,10 +1,10 @@
 import DesktopComponent from './DesktopComponent';
 import libui from 'libui-node';
+import PropTypes from 'prop-types'
 
 class PasswordEntry extends DesktopComponent {
-  expectedProps = ['enabled', 'visible', 'readOnly']
-  expectedEvents = {'onChanged': 'text'}
-  expectedChild = 'text'
+  eventParameter = {onChanged: 'text'}
+  childName = 'text'
 
   constructor(root, props) {
     super(root, props);
@@ -18,6 +18,22 @@ class PasswordEntry extends DesktopComponent {
     this.addParent(parent)
     this.renderChildNode();
   }
+}
+
+PasswordEntry.PropTypes = {
+  enabled: PropTypes.bool,
+  visible: PropTypes.bool,
+  readOnly: PropTypes.bool,
+  onChanged: PropTypes.func,
+  children: PropTypes.string
+}
+
+PasswordEntry.defaultProps = {
+  enabled: true,
+  visible: true,
+  readOnly: false,
+  onChanged: () => {},
+  children: ''
 }
 
 export default PasswordEntry;

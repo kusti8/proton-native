@@ -1,5 +1,6 @@
 import DesktopComponent from './DesktopComponent';
 import libui from 'libui-node';
+import PropTypes from 'prop-types'
 
 class VerticalBox extends DesktopComponent {
   expectedProps = ['enabled', 'visible', 'padded']
@@ -16,6 +17,18 @@ class VerticalBox extends DesktopComponent {
     this.addParent(parent)
     this.renderChildNode(this);
   }
+}
+
+VerticalBox.PropTypes = {
+  enabled: PropTypes.bool,
+  visible: PropTypes.bool,
+  padded: PropTypes.bool
+}
+
+VerticalBox.defaultProps = {
+  enabled: true,
+  visible: true,
+  padded: false
 }
 
 export default VerticalBox;

@@ -1,8 +1,18 @@
-import libui from 'libui-node';
+import { Tab, Form } from './'
+import PropTypes from 'prop-types'
 
 export default class DesktopComponent {
-  constructor() {
+  constructor(root, props) {
     this.children = [];
+  }
+
+  setDefaults(props) {
+    for (let prop in this.constructor.defaultProps) {
+      if (!(prop in props)) {
+        this.props[prop] = this.constructor.defaultProps[prop]
+      }
+    }
+    PropTypes.checkPropTypes(this.constructor.PropTypes, this.props, 'prop', this.constructor.name);
   }
 
   exists(a) {
@@ -34,15 +44,15 @@ export default class DesktopComponent {
   }
 
   addParentAppend(parent) { // append to parent. Can be overriden
-    const stretchy =
-      !this.exists(this.props.stretchy) ? true : this.props.stretchy;
-    if (parent instanceof libui.UiForm) {
+    console.log(parent)
+    const stretchy = this.props.stretchy
+    if (parent instanceof Form) {                               // we have a form
       parent.element.append(this.props.label, this.element, stretchy)
-    } else if (parent instanceof libui.UiTab) {
-      parent.element.append(this.props.label, this.element, stretchy)
-      if (this.exists(this.props.margined)) {
-        //parent.element.setMargined()
-      }
+    } else if (parent instanceof Tab) {                         // we have a tab
+      parent.element.append(this.props.label, this.element)
+      const index = parent.children.indexOf(this)
+      const margined = this.props.margined
+      parent.element.setMargined(index, margined)
     } else {
       parent.element.append(this.element, stretchy);
     }
@@ -56,81 +66,37 @@ export default class DesktopComponent {
     }
   }
 
-  updateProps(oldProps, newProps) {
-    if (this.exists(this.expectedProps)) {
-      for (let prop of this.expectedProps) { // normal props
-        if (newProps[prop] !== oldProps[prop] && prop in newProps) {
+  update(oldProps, newProps) { // update all things, split into props, events, and children
+    for (let prop in newProps) { // normal props
+      if (oldProps[prop] !== newProps[prop]) {
+        if (typeof props[prop] === 'function') {
+          if (this.eventParameter[prop] !== '') {
+            this.element[prop]( () => newProps[prop](this.element[this.eventParameter[prop]]) );
+          } else {
+            this.element[prop](newProps[prop])
+          }
+        } else if (prop == 'children') {
+          this.element[childName] = newProps[prop]
+        } else {
           this.element[prop] = newProps[prop];
         }
       }
     }
   }
 
-  updateEvents(oldProps, newProps) {
-    if (this.exists(this.expectedEvents)) {
-      for (let prop in this.expectedEvents) { // event props
-        if (prop in newProps && newProps[prop] !== oldProps[prop]) {
-          if (this.expectedEvents[prop] !== '') {
-            this.element[prop]( () => newProps[prop](this.element[this.expectedEvents[prop]]) );
-          } else {
-            this.element[prop](newProps[prop])
-          }
-        }
-      }
-    }
-  }
-
-  updateChild(oldProps, newProps) {
-    if (this.exists(this.expectedChild)) {
-      if (newProps.children !== oldProps.children) { // text child
-        this.element[this.expectedChild] = newProps.children;
-      }
-    }
-  }
-
-  update(oldProps, newProps) { // update all things, split into props, events, and children
-    this.updateProps(oldProps, newProps)
-    this.updateEvents(oldProps, newProps)
-    this.updateChild(oldProps, newProps)
-  }
-
-  initialNormalProps(props) {
-    if (this.exists(props)) {
-      if (this.exists(this.expectedProps)) {
-        for (let prop of this.expectedProps) { // normal props
-            if (prop in props) {
-              this.element[prop] = props[prop];
-            }
-        }
-      }
-    }
-  }
-
-  initialEvents(props) {
-    if (this.exists(this.expectedEvents)) {
-      for (let prop in this.expectedEvents) { // event props
-        if (prop in props) {
-          if (this.expectedEvents[prop] !== '') {
-            this.element[prop]( () => props[prop](this.element[this.expectedEvents[prop]]) );
-          } else {
-            this.element[prop](props[prop])
-          }
-        }
-      }
-    }
-  }
-
-  initialChild(props) {
-    if (this.exists(this.expectedChild)) { // text child
-      if (props.children) {
-        this.element[this.expectedChild] = props.children;
-      }
-    }
-  }
-
   initialProps(props) { // same, but don't check for oldProps vs newProps, just set them
-    this.initialNormalProps(props)
-    this.initialEvents(props)
-    this.initialChild(props)
+    for (let prop in props) { // normal props 
+      if (typeof props[prop] === 'function') {
+        if (this.eventParameter[prop] !== '') {
+          this.element[prop]( () => props[prop](this.element[this.eventParameter[prop]]) );
+        } else {
+          this.element[prop](props[prop])
+        }
+      } else if (prop == 'children') {
+        this.element[this.childName] = props[prop]
+      } else {
+        this.element[prop] = props[prop];
+      }
+    }
   }
 }

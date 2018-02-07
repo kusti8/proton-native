@@ -1,9 +1,9 @@
 import DesktopComponent from './DesktopComponent';
 import libui from 'libui-node';
+import PropTypes from 'prop-types'
 
 class Text extends DesktopComponent {
-  expectedProps = ['enabled', 'visible']
-  expectedChild = 'text'
+  childName = 'text'
 
   constructor(root, props) {
     super(root, props);
@@ -17,6 +17,18 @@ class Text extends DesktopComponent {
     this.addParent(parent)
     this.renderChildNode();
   }
+}
+
+Text.PropTypes = {
+  enabled: PropTypes.bool,
+  visible: PropTypes.bool,
+  children: PropTypes.string
+}
+
+Text.defaultProps = {
+  enabled: true,
+  visible: true,
+  children: ''
 }
 
 export default Text;

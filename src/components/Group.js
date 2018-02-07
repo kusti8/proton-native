@@ -2,13 +2,13 @@ import DesktopComponent from './DesktopComponent';
 import libui from 'libui-node';
 import PropTypes from 'prop-types'
 
-class Tab extends DesktopComponent {
-
+class Group extends DesktopComponent {
+  
   constructor(root, props) {
     super(root, props);
     this.root = root;
     this.props = props;
-    this.element = new libui.UiTab();
+    this.element = new libui.UiGroup();
     this.initialProps(props)
   }
 
@@ -18,14 +18,18 @@ class Tab extends DesktopComponent {
   }
 }
 
-Tab.PropTypes = {
+Group.PropTypes = {
   enabled: PropTypes.bool,
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
+  margined: PropTypes.bool,
+  title: PropTypes.string
 }
 
-Tab.defaultProps = {
+Group.defaultProps = {
   enabled: true,
-  visible: true
+  visible: true,
+  margined: false,
+  title: ''
 }
 
-export default Tab;
+export default Group;

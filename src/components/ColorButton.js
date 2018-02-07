@@ -1,6 +1,7 @@
 import DesktopComponent from './DesktopComponent';
 import libui from 'libui-node';
 import Color from 'color'
+import PropTypes from 'prop-types'
 
 class ColorButton extends DesktopComponent {
   expectedProps = ['color']
@@ -77,6 +78,16 @@ class ColorButton extends DesktopComponent {
     this.addParent(parent)
     this.renderChildNode();
   }
+}
+
+ColorButton.PropTypes = {
+  color: PropTypes.string,
+  onChanged: PropTypes.func
+}
+
+ColorButton.defaultProps = {
+  color: 'black',
+  onChanged: () => {}
 }
 
 export default ColorButton;

@@ -1,8 +1,8 @@
 import DesktopComponent from './DesktopComponent';
 import libui from 'libui-node';
+import PropTypes from 'prop-types'
 
 class Form extends DesktopComponent {
-  expectedProps = ['enabled', 'visible', 'padded']
 
   constructor(root, props) {
     super(root, props);
@@ -16,6 +16,18 @@ class Form extends DesktopComponent {
     this.addParent(parent)
     this.renderChildNode(this);
   }
+}
+
+Form.PropTypes = {
+    enabled: PropTypes.bool,
+    visible: PropTypes.bool,
+    padded: PropTypes.bool
+}
+  
+Form.defaultProps = {
+    enabled: true,
+    visible: true,
+    padded: false,
 }
 
 export default Form;

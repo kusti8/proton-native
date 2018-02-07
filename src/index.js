@@ -13,5 +13,7 @@ const PasswordEntry = 'PASSWORDENTRY'
 const MultilineEntry = 'MULTILINEENTRY'
 const ColorButton = 'COLORBUTTON'
 const Form = 'FORM'
+const Tab = 'TAB'
+const Group = 'GROUP'
 
-export { render, Text, App, Window, Button, VerticalBox, HorizontalBox, Box, Entry, PasswordEntry, TextInput, MultilineEntry, ColorButton, Form };
+export { render, Text, App, Window, Button, VerticalBox, HorizontalBox, Box, Entry, PasswordEntry, TextInput, MultilineEntry, ColorButton, Form, Tab, Group };

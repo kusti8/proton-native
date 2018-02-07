@@ -10,7 +10,9 @@ import {
   PasswordEntry,
   MultilineEntry,
   ColorButton,
-  Form
+  Form,
+  Tab,
+  Group
 } from '../components/';
 import { ROOT_NODE } from '../render/';
 
@@ -41,6 +43,8 @@ function createElement(type, props) {
     MULTILINEENTRY: () => new MultilineEntry(ROOT_NODE, props),
     COLORBUTTON: () => new ColorButton(ROOT_NODE, props),
     FORM: () => new Form(ROOT_NODE, props),
+    TAB: () => new Tab(ROOT_NODE, props),
+    GROUP: () => new Group(ROOT_NODE, props),
     default: undefined,
   };
 
