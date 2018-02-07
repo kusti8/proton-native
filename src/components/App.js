@@ -1,4 +1,4 @@
-import DesktopComponent from './DesktopComponent';
+import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
 
 class App extends DesktopComponent {
   constructor(root, props) {

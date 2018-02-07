@@ -1,5 +1,5 @@
 import libui from 'libui-node';
-import DesktopComponent from './DesktopComponent';
+import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
 
 // This creates the document instance
 class Root extends DesktopComponent {

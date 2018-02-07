@@ -1,4 +1,4 @@
-import DesktopComponent from './DesktopComponent';
+import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
 import libui from 'libui-node';
 import PropTypes from 'prop-types'
 
@@ -97,7 +97,7 @@ Window.PropTypes = {
   closed: PropTypes.bool,
   onClosing: PropTypes.func,
   onPositionChanged: PropTypes.func,
-  onContentSizeChanged: PropTypes.func
+  onContentSizeChanged: PropTypes.func,
 }
 
 Window.defaultProps = {

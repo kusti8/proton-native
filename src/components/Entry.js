@@ -1,4 +1,4 @@
-import DesktopComponent from './DesktopComponent';
+import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
 import libui from 'libui-node';
 import PropTypes from 'prop-types'
 
@@ -9,7 +9,8 @@ class Entry extends DesktopComponent {
   constructor(root, props) {
     super(root, props);
     this.root = root;
-    this.props = props;
+    this.props = {...props}
+    this.setDefaults(props)
     this.element = new libui.UiEntry();
     this.initialProps(props)
   }
@@ -25,7 +26,8 @@ Entry.PropTypes = {
   visible: PropTypes.bool,
   readOnly: PropTypes.bool,
   onChanged: PropTypes.func,
-  children: PropTypes.string
+  children: PropTypes.string,
+  ...universalPropTypes
 }
 
 Entry.defaultProps = {
@@ -33,7 +35,8 @@ Entry.defaultProps = {
   visible: true,
   readOnly: false,
   onChanged: () => {},
-  children: ''
+  children: '',
+  ...universalDefaultProps
 }
 
 export default Entry;

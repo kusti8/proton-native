@@ -1,4 +1,4 @@
-import DesktopComponent from './DesktopComponent';
+import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
 import libui from 'libui-node';
 import PropTypes from 'prop-types'
 
@@ -8,7 +8,8 @@ class Text extends DesktopComponent {
   constructor(root, props) {
     super(root, props);
     this.root = root;
-    this.props = props;
+    this.props = {...props}
+    this.setDefaults(props)
     this.element = new libui.UiLabel();
     this.initialProps(props)
   }
@@ -22,13 +23,15 @@ class Text extends DesktopComponent {
 Text.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
-  children: PropTypes.string
+  children: PropTypes.string,
+  ...universalPropTypes
 }
 
 Text.defaultProps = {
   enabled: true,
   visible: true,
-  children: ''
+  children: '',
+  ...universalDefaultProps
 }
 
 export default Text;

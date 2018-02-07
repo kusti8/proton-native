@@ -1,4 +1,4 @@
-import DesktopComponent from './DesktopComponent';
+import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
 import libui from 'libui-node';
 import PropTypes from 'prop-types'
 
@@ -7,7 +7,8 @@ class HorizontalBox extends DesktopComponent {
   constructor(root, props) {
     super(root, props);
     this.root = root;
-    this.props = props;
+    this.props = {...props}
+    this.setDefaults(props)
     this.element = new libui.UiHorizontalBox();
     this.initialProps()
   }
@@ -21,13 +22,15 @@ class HorizontalBox extends DesktopComponent {
 HorizontalBox.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
-  padded: PropTypes.bool
+  padded: PropTypes.bool,
+  ...universalPropTypes
 }
 
 HorizontalBox.defaultProps = {
   enabled: true,
   visible: true,
-  padded: false
+  padded: false,
+  ...universalDefaultProps
 }
 
 export default HorizontalBox;

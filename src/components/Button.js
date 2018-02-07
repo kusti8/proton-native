@@ -1,4 +1,4 @@
-import DesktopComponent from './DesktopComponent';
+import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
 import libui from 'libui-node';
 import PropTypes from 'prop-types'
 
@@ -10,9 +10,8 @@ class Button extends DesktopComponent {
     super(root, props);
     this.root = root;
     this.props = {...props}
-    this.element = new libui.UiButton();
     this.setDefaults(props)
-    console.log(this.props)
+    this.element = new libui.UiButton();
     this.initialProps(this.props)
   }
 
@@ -27,7 +26,7 @@ Button.PropTypes = {
   visible: PropTypes.bool,
   onClicked: PropTypes.func,
   children: PropTypes.string,
-  stretchy: PropTypes.bool
+  ...universalPropTypes
 }
 
 Button.defaultProps = {
@@ -35,7 +34,9 @@ Button.defaultProps = {
   visible: true,
   onClicked: () => {},
   children: '',
-  stretchy: true
+  stretchy: true,
+  label: "",
+  ...universalDefaultProps
 }
 
 export default Button;

@@ -1,16 +1,16 @@
-import DesktopComponent from './DesktopComponent';
+import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
 import libui from 'libui-node';
 import Color from 'color'
 import PropTypes from 'prop-types'
 
 class ColorButton extends DesktopComponent {
-  expectedProps = ['color']
-  expectedEvents = {'onChanged': 'color'}
+  eventParameter = {onChanged: 'color'}
 
   constructor(root, props) {
     super(root, props);
     this.root = root;
-    this.props = props;
+    this.props = {...props};
+    this.setDefaults(props)
     this.element = new libui.UiColorButton();
     this.initialProps(props)
     
@@ -35,43 +35,39 @@ class ColorButton extends DesktopComponent {
   }
 
   update(oldProps, newProps) {
-    if (newProps.color !== oldProps.color) {
-      this.element.color = this.convertToColor(newProps.color);
-    }
-
-    if (this.exists(this.expectedEvents)) {
-      for (let prop of this.expectedEvents) { // event props
-        if (newProps[prop] !== oldProps[prop]) {
-          this.element[prop](newProps[prop]);
+    for (let prop in newProps) { // normal props
+      if (oldProps[prop] !== newProps[prop] && prop !== 'color') { // add check for color prop
+        if (typeof props[prop] === 'function') {
+          if (this.eventParameter[prop] !== '') {
+            this.element[prop]( () => newProps[prop](this.element[this.eventParameter[prop]]) );
+          } else {
+            this.element[prop](newProps[prop])
+          }
+        } else if (prop == 'children') {
+          this.element[childName] = newProps[prop]
+        } else {
+          this.element[prop] = newProps[prop];
         }
+      } else if (prop === 'color') { // add check for color prop
+        this.element[prop] = this.convertToColor(newProps[prop])
       }
     }
   }
 
-  initialProps(props) {
-    if (this.exists(props)) {
-      if (this.exists(props.color)) {
-        this.element.color = this.convertToColor(props.color)
-      }
-      }
-
-      if (this.exists(this.expectedEvents)) {
-        for (let prop in this.expectedEvents) { // event props
-          if (prop in props) {
-            if (this.expectedEvents[prop] !== '') {
-              this.element[prop]( () => props[prop](this.toRgbObject(this.element[this.expectedEvents[prop]])) );
-            } else {
-              this.element[prop](props[prop])
-            }
-          }
+  initialProps(props) { // same as desktop, except in function, convert it back to a RGBA object
+    for (let prop in props) { // normal props 
+      if (typeof props[prop] === 'function') {
+        if (this.eventParameter[prop] !== '') {
+          this.element[prop]( () => props[prop](this.toRgbObject(this.element[this.eventParameter[prop]]) ));
+        } else {
+          this.element[prop](props[prop])
         }
+      } else if (prop == 'children') {
+        this.element[this.childName] = props[prop]
+      } else {
+        this.element[prop] = props[prop];
       }
-
-      if (this.exists(this.expectedChild)) { // text child
-        if (props.children) {
-          this.element[this.expectedChild] = props.children;
-        }
-      }
+    }
   }
 
   render(parent) {
@@ -82,12 +78,14 @@ class ColorButton extends DesktopComponent {
 
 ColorButton.PropTypes = {
   color: PropTypes.string,
-  onChanged: PropTypes.func
+  onChanged: PropTypes.func,
+  ...universalPropTypes
 }
 
 ColorButton.defaultProps = {
   color: 'black',
-  onChanged: () => {}
+  onChanged: () => {},
+  ...universalDefaultProps
 }
 
 export default ColorButton;

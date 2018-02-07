@@ -1,7 +1,8 @@
 import { Tab, Form } from './'
 import PropTypes from 'prop-types'
 
-export default class DesktopComponent {
+class DesktopComponent {
+
   constructor(root, props) {
     this.children = [];
   }
@@ -100,3 +101,15 @@ export default class DesktopComponent {
     }
   }
 }
+
+export const universalPropTypes = {
+  stretchy: PropTypes.bool,
+  label: PropTypes.string
+}
+
+export const universalDefaultProps = {
+  stretchy: true,
+  label: ''
+}
+
+export default DesktopComponent
