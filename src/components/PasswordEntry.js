@@ -1,22 +1,25 @@
-import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
+import DesktopComponent, {
+  universalPropTypes,
+  universalDefaultProps,
+} from './DesktopComponent';
 import libui from 'libui-node';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 class PasswordEntry extends DesktopComponent {
-  eventParameter = {onChanged: 'text'}
-  childName = 'text'
+  eventParameter = { onChanged: 'text' };
+  childName = 'text';
 
   constructor(root, props) {
     super(root, props);
     this.root = root;
-    this.props = {...props}
-    this.setDefaults(props)
+    this.props = { ...props };
+    this.setDefaults(props);
     this.element = new libui.UiPasswordEntry();
-    this.initialProps(props)
+    this.initialProps(props);
   }
 
   render(parent) {
-    this.addParent(parent)
+    this.addParent(parent);
     this.renderChildNode();
   }
 }
@@ -27,8 +30,8 @@ PasswordEntry.PropTypes = {
   readOnly: PropTypes.bool,
   onChanged: PropTypes.func,
   children: PropTypes.string,
-  ...universalPropTypes
-}
+  ...universalPropTypes,
+};
 
 PasswordEntry.defaultProps = {
   enabled: true,
@@ -36,7 +39,7 @@ PasswordEntry.defaultProps = {
   readOnly: false,
   onChanged: () => {},
   children: '',
-  ...universalDefaultProps
-}
+  ...universalDefaultProps,
+};
 
 export default PasswordEntry;

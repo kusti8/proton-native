@@ -12,7 +12,7 @@ import {
   ColorButton,
   Form,
   Tab,
-  Group
+  Group,
 } from '../components/';
 import { ROOT_NODE } from '../render/';
 

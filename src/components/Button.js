@@ -1,22 +1,25 @@
-import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
+import DesktopComponent, {
+  universalPropTypes,
+  universalDefaultProps,
+} from './DesktopComponent';
 import libui from 'libui-node';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 class Button extends DesktopComponent {
-  eventParameter = {onClicked: 'text'}
-  childName = 'text'
+  eventParameter = { onClicked: 'text' };
+  childName = 'text';
 
   constructor(root, props) {
     super(root, props);
     this.root = root;
-    this.props = {...props}
-    this.setDefaults(props)
+    this.props = { ...props };
+    this.setDefaults(props);
     this.element = new libui.UiButton();
-    this.initialProps(this.props)
+    this.initialProps(this.props);
   }
 
   render(parent) {
-    this.addParent(parent)
+    this.addParent(parent);
     this.renderChildNode();
   }
 }
@@ -26,8 +29,8 @@ Button.PropTypes = {
   visible: PropTypes.bool,
   onClicked: PropTypes.func,
   children: PropTypes.string,
-  ...universalPropTypes
-}
+  ...universalPropTypes,
+};
 
 Button.defaultProps = {
   enabled: true,
@@ -35,8 +38,8 @@ Button.defaultProps = {
   onClicked: () => {},
   children: '',
   stretchy: true,
-  label: "",
-  ...universalDefaultProps
-}
+  label: '',
+  ...universalDefaultProps,
+};
 
 export default Button;

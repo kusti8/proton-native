@@ -1,13 +1,16 @@
-import DesktopComponent, {universalPropTypes, universalDefaultProps} from './DesktopComponent';;
+import DesktopComponent, {
+  universalPropTypes,
+  universalDefaultProps,
+} from './DesktopComponent';
 import libui from 'libui-node';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 class Window extends DesktopComponent {
   constructor(root, props) {
     super(root, props);
     this.root = root;
-    this.props = {...props};
-    this.setDefaults(props)
+    this.props = { ...props };
+    this.setDefaults(props);
     this.element = new libui.UiWindow(
       this.props.title,
       this.props.size.w,
@@ -21,22 +24,28 @@ class Window extends DesktopComponent {
         libui.stopLoop();
       }
     });
-    this.element.margined = this.props.margined
-    this.element.position.x = this.props.position.x
-    this.element.position.y = this.props.position.y
-    this.element.fullscreen = this.props.fullscreen
-    this.element.borderless = this.props.borderless
-    
+    this.element.margined = this.props.margined;
+    this.element.position.x = this.props.position.x;
+    this.element.position.y = this.props.position.y;
+    this.element.fullscreen = this.props.fullscreen;
+    this.element.borderless = this.props.borderless;
+
     if (this.props.centered) {
-      this.element.center()
+      this.element.center();
     }
 
     this.element.onPositionChanged(() => {
-      this.props.onPositionChanged({x: this.element.position.x, y: this.element.position.y})
-    })
+      this.props.onPositionChanged({
+        x: this.element.position.x,
+        y: this.element.position.y,
+      });
+    });
     this.element.onContentSizeChanged(() => {
-      this.props.onContentSizeChanged({h: this.element.position.h, w: this.element.position.w})
-    })
+      this.props.onContentSizeChanged({
+        h: this.element.position.h,
+        w: this.element.position.w,
+      });
+    });
   }
 
   update(oldProps, newProps) {
@@ -67,7 +76,7 @@ class Window extends DesktopComponent {
     // }
     if (newProps.closed !== oldProps.closed) {
       if (newProps.closed) {
-        this.element.close()
+        this.element.close();
       }
     }
   }
@@ -82,13 +91,13 @@ Window.PropTypes = {
   title: PropTypes.string,
   size: PropTypes.shape({
     h: PropTypes.number,
-    w: PropTypes.number
+    w: PropTypes.number,
   }),
   menuBar: PropTypes.bool,
   margined: PropTypes.bool,
   position: PropTypes.shape({
     x: PropTypes.number,
-    y: PropTypes.number
+    y: PropTypes.number,
   }),
   fullscreen: PropTypes.bool,
   borderless: PropTypes.bool,
@@ -98,19 +107,19 @@ Window.PropTypes = {
   onClosing: PropTypes.func,
   onPositionChanged: PropTypes.func,
   onContentSizeChanged: PropTypes.func,
-}
+};
 
 Window.defaultProps = {
   title: '',
   size: {
     h: 500,
-    w: 500
+    w: 500,
   },
   menuBar: true,
   margined: false,
   position: {
     x: 300,
-    y: 300
+    y: 300,
   },
   fullscreen: false,
   borderless: false,
@@ -119,7 +128,7 @@ Window.defaultProps = {
   closed: false,
   onClosing: () => {},
   onPositionChanged: () => {},
-  onContentSizeChanged: () => {}
-}
+  onContentSizeChanged: () => {},
+};
 
 export default Window;

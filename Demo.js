@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 
-import { Window, App, Text, render, Button, Box, TextInput, ColorButton, Form, Group } from './src/';
+import {
+  Window,
+  App,
+  Text,
+  render,
+  Button,
+  Box,
+  TextInput,
+  ColorButton,
+  Form,
+  Group,
+} from './src/';
 
 class A extends Component {
   state = { name: true };
@@ -16,7 +27,15 @@ class A extends Component {
             >
               Hello
             </Button>
-            <TextInput label="Very secret" multiline={false} stretchy={false} secure={true} onChanged={text => console.log(text)}>My name is Gustav!</TextInput>
+            <TextInput
+              label="Very secret"
+              multiline={false}
+              stretchy={false}
+              secure={true}
+              onChanged={text => console.log(text)}
+            >
+              My name is Gustav!
+            </TextInput>
           </Group>
         </Window>
       </App>

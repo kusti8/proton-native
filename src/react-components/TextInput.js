@@ -7,11 +7,11 @@ class TextInput extends Component {
     if (secure === true) {
       return <PasswordEntry {...otherProps}>{children}</PasswordEntry>;
     } else {
-        if (multiline === true) {
-            return <MultilineEntry {...otherProps}>{children}</MultilineEntry>;
-        } else {
-            return <Entry {...otherProps}>{children}</Entry>;
-        }
+      if (multiline === true) {
+        return <MultilineEntry {...otherProps}>{children}</MultilineEntry>;
+      } else {
+        return <Entry {...otherProps}>{children}</Entry>;
+      }
     }
   }
 }
