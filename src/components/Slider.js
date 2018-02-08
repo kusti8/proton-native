@@ -5,16 +5,15 @@ import DesktopComponent, {
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
 
-class Button extends DesktopComponent {
-  eventParameter = { onClicked: 'text' };
-  childName = 'text';
+class Slider extends DesktopComponent {
+  eventParameter = { onChanged: 'value' };
 
   constructor(root, props) {
     super(root, props);
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
-    this.element = new libui.UiButton();
+    this.element = new libui.UiSlider();
     this.initialProps(this.props);
   }
 
@@ -24,20 +23,20 @@ class Button extends DesktopComponent {
   }
 }
 
-Button.PropTypes = {
+Slider.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
-  onClicked: PropTypes.func,
-  children: PropTypes.string,
+  value: PropTypes.number,
+  onChanged: PropTypes.func,
   ...universalPropTypes,
 };
 
-Button.defaultProps = {
+Slider.defaultProps = {
   enabled: true,
   visible: true,
-  onClicked: () => {},
-  children: '',
+  value: 0,
+  onChanged: () => {},
   ...universalDefaultProps,
 };
 
-export default Button;
+export default Slider;

@@ -1,4 +1,4 @@
-import { Tab, Form } from './';
+import { Tab, Form, Grid } from './';
 import PropTypes from 'prop-types';
 
 class DesktopComponent {
@@ -53,7 +53,6 @@ class DesktopComponent {
 
   addParentAppend(parent) {
     // append to parent. Can be overriden
-    console.log(parent);
     const stretchy = this.props.stretchy;
     if (parent instanceof Form) {
       // we have a form
@@ -64,6 +63,19 @@ class DesktopComponent {
       const index = parent.children.indexOf(this);
       const margined = this.props.margined;
       parent.element.setMargined(index, margined);
+    } else if (parent instanceof Grid) {
+      2;
+      parent.element.append(
+        this.element,
+        this.props.column,
+        this.props.row,
+        this.props.span.x,
+        this.props.span.y,
+        this.props.expand.h,
+        this.props.align.h,
+        this.props.expand.v,
+        this.props.align.v
+      );
     } else {
       parent.element.append(this.element, stretchy);
     }
@@ -83,7 +95,7 @@ class DesktopComponent {
     for (let prop in newProps) {
       // normal props
       if (oldProps[prop] !== newProps[prop]) {
-        if (typeof props[prop] === 'function') {
+        if (typeof newProps[prop] === 'function') {
           if (this.eventParameter[prop] !== '') {
             this.element[prop](() =>
               newProps[prop](this.element[this.eventParameter[prop]])
@@ -92,7 +104,10 @@ class DesktopComponent {
             this.element[prop](newProps[prop]);
           }
         } else if (prop == 'children') {
-          this.element[childName] = newProps[prop];
+          if (this.exists(this.childName)) {
+            // prevent stray children from crashing program (like App component)
+            this.element[this.childName] = newProps[prop];
+          }
         } else {
           this.element[prop] = newProps[prop];
         }
@@ -124,11 +139,39 @@ class DesktopComponent {
 export const universalPropTypes = {
   stretchy: PropTypes.bool,
   label: PropTypes.string,
+  column: PropTypes.number,
+  row: PropTypes.number,
+  span: PropTypes.shape({
+    x: PropTypes.number,
+    y: PropTypes.number,
+  }),
+  expand: PropTypes.shape({
+    h: PropTypes.bool,
+    v: PropTypes.bool,
+  }),
+  align: PropTypes.shape({
+    h: PropTypes.bool,
+    v: PropTypes.bool,
+  }),
 };
 
 export const universalDefaultProps = {
   stretchy: true,
   label: '',
+  column: 0,
+  row: 0,
+  span: {
+    x: 1,
+    y: 1,
+  },
+  expand: {
+    h: true,
+    v: true,
+  },
+  align: {
+    h: true,
+    v: true,
+  },
 };
 
 export default DesktopComponent;

@@ -15,6 +15,10 @@ const ColorButton = 'COLORBUTTON';
 const Form = 'FORM';
 const Tab = 'TAB';
 const Group = 'GROUP';
+const Grid = 'GRID';
+const Checkbox = 'CHECKBOX';
+const Spinbox = 'SPINBOX';
+const Slider = 'SLIDER';
 
 export {
   render,
@@ -33,4 +37,8 @@ export {
   Form,
   Tab,
   Group,
+  Grid,
+  Checkbox,
+  Spinbox,
+  Slider,
 };

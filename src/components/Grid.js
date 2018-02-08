@@ -5,39 +5,34 @@ import DesktopComponent, {
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
 
-class Button extends DesktopComponent {
-  eventParameter = { onClicked: 'text' };
-  childName = 'text';
-
+class Grid extends DesktopComponent {
   constructor(root, props) {
     super(root, props);
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
-    this.element = new libui.UiButton();
-    this.initialProps(this.props);
+    this.element = new libui.UiGrid();
+    this.initialProps(props);
   }
 
   render(parent) {
     this.addParent(parent);
-    this.renderChildNode();
+    this.renderChildNode(this);
   }
 }
 
-Button.PropTypes = {
+Grid.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
-  onClicked: PropTypes.func,
-  children: PropTypes.string,
+  padded: PropTypes.bool,
   ...universalPropTypes,
 };
 
-Button.defaultProps = {
+Grid.defaultProps = {
   enabled: true,
   visible: true,
-  onClicked: () => {},
-  children: '',
+  padded: false,
   ...universalDefaultProps,
 };
 
-export default Button;
+export default Grid;

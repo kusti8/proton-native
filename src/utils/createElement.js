@@ -13,19 +13,15 @@ import {
   Form,
   Tab,
   Group,
+  Grid,
+  Checkbox,
+  Spinbox,
+  Slider,
 } from '../components/';
 import { ROOT_NODE } from '../render/';
 
 function getHostContextNode(rootNode) {
-  if (typeof rootNode !== undefined) {
-    return ROOT_NODE;
-  } else {
-    console.warn(
-      `${rootNode} is not an instance of officegen docx constructor.`
-    );
-
-    return ROOT_NODE;
-  }
+  return ROOT_NODE;
 }
 
 // Creates an element with an element type, props and a root instance
@@ -45,6 +41,10 @@ function createElement(type, props) {
     FORM: () => new Form(ROOT_NODE, props),
     TAB: () => new Tab(ROOT_NODE, props),
     GROUP: () => new Group(ROOT_NODE, props),
+    GRID: () => new Grid(ROOT_NODE, props),
+    CHECKBOX: () => new Checkbox(ROOT_NODE, props),
+    SPINBOX: () => new Spinbox(ROOT_NODE, props),
+    SLIDER: () => new Slider(ROOT_NODE, props),
     default: undefined,
   };
 

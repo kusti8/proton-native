@@ -12,6 +12,10 @@ import ColorButton from './ColorButton';
 import Form from './Form';
 import Tab from './Tab';
 import Group from './Group';
+import Grid from './Grid';
+import Checkbox from './Checkbox';
+import Spinbox from './Spinbox';
+import Slider from './Slider';
 
 export {
   Root,
@@ -28,4 +32,8 @@ export {
   Form,
   Tab,
   Group,
+  Grid,
+  Checkbox,
+  Spinbox,
+  Slider,
 };

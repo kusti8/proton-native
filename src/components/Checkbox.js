@@ -5,8 +5,8 @@ import DesktopComponent, {
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
 
-class Button extends DesktopComponent {
-  eventParameter = { onClicked: 'text' };
+class Checkbox extends DesktopComponent {
+  eventParameter = { onToggled: 'checked' };
   childName = 'text';
 
   constructor(root, props) {
@@ -14,7 +14,7 @@ class Button extends DesktopComponent {
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
-    this.element = new libui.UiButton();
+    this.element = new libui.UiCheckbox();
     this.initialProps(this.props);
   }
 
@@ -24,20 +24,22 @@ class Button extends DesktopComponent {
   }
 }
 
-Button.PropTypes = {
+Checkbox.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
-  onClicked: PropTypes.func,
+  checked: PropTypes.bool,
+  onToggled: PropTypes.func,
   children: PropTypes.string,
   ...universalPropTypes,
 };
 
-Button.defaultProps = {
+Checkbox.defaultProps = {
   enabled: true,
   visible: true,
-  onClicked: () => {},
+  checked: false,
+  onToggled: () => {},
   children: '',
   ...universalDefaultProps,
 };
 
-export default Button;
+export default Checkbox;

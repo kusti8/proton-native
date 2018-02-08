@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Entry, PasswordEntry, MultilineEntry } from '../';
 
 class TextInput extends Component {
@@ -15,5 +16,15 @@ class TextInput extends Component {
     }
   }
 }
+
+TextInput.propTypes = {
+  secure: PropTypes.bool,
+  multiline: PropTypes.bool,
+};
+
+TextInput.defaultProps = {
+  secure: false,
+  multiline: false,
+};
 
 export default TextInput;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { VerticalBox, HorizontalBox } from '../';
 
 class Box extends Component {
@@ -11,5 +12,13 @@ class Box extends Component {
     }
   }
 }
+
+Box.propTypes = {
+  vertical: PropTypes.bool,
+};
+
+Box.defaultProps = {
+  vertical: true,
+};
 
 export default Box;
