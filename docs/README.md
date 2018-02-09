@@ -1,4 +1,4 @@
-# Reactor Native
+# Proton Native
 
 > Create native desktop applications through a React syntax, on all platforms
 
@@ -11,9 +11,9 @@ On desktop, there is no such tool. You can create a GUI using something like Qt,
 Having made a very large GUI myself, it gets very cumbersome to manage all of that. 
 
 Some of you might be saying that you could do it in Electron. It's a good tool, but it brings in a lot of overhead, running a full webbrowser
-to manage a small GUI, while Reactor Native can do the same, using native tools, with a smaller size and with less resource usage.
+to manage a small GUI, while Proton Native can do the same, using native tools, with a smaller size and with less resource usage.
 
-Reactor Native does the same
+Proton Native does the same
 to desktop that React Native did to mobile. Build cross-platform apps for the desktop, all while never leaving the React eco-system. Popular
 React packages such as Redux still work.
 
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     sys.exit(app.exec_())
 ```
 
-**To this code using Reactor Native:**
+**To this code using Proton Native:**
 
 ```javascript
 import React, { Component } from 'react';
