@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-import { render, Window, App, Button } from 'reactor-native';
+import { render, Window, App, Button } from 'proton-native';
 
 class Example extends Component {
-  state = { name: true };
   render() {
     return (
       <App>
@@ -17,5 +16,4 @@ class Example extends Component {
   }
 }
 
-// This will create a file 'text.docx' in the current directory!
 render(<Example />);

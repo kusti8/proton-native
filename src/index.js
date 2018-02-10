@@ -1,5 +1,11 @@
 import render from './render';
-import { Box, TextInput, Picker, RadioButtons } from './react-components';
+import {
+  Box,
+  TextInput,
+  Picker,
+  RadioButtons,
+  Separator,
+} from './react-components';
 
 // Aliases for createElement method
 const Text = 'TEXT';
@@ -26,6 +32,7 @@ const RadioButtonItem = 'RADIOBUTTONITEM';
 const EditableCombobox = 'EDITABLECOMBOBOX';
 const VerticalSeparator = 'VERTICALSEPARATOR';
 const HorizontalSeparator = 'HORIZONTALSEPARATOR';
+const ProgressBar = 'PROGRESSBAR';
 
 export {
   render,
@@ -57,4 +64,6 @@ export {
   EditableCombobox,
   VerticalSeparator,
   HorizontalSeparator,
+  Separator,
+  ProgressBar,
 };

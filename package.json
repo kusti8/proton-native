@@ -1,22 +1,23 @@
 {
-  "name": "react-native-cross",
+  "name": "proton-native",
   "version": "1.0.0",
   "description": "React Native for the desktop, cross compatible",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
     "demo": "./node_modules/.bin/babel-node Demo.js",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write '{,!(node_modules)/**/}*.js'"
+    "prettier": "prettier --single-quote --trailing-comma es5 --write '{,!(node_modules)/**/}*.js'",
+    "build": "./node_modules/.bin/babel src -d bin"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kusti8/react-native-cross.git"
+    "url": "git+https://github.com/kusti8/proton-native.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Gustav Hansen <kusti8@gmail.com>",
+  "license": "GPLv3",
   "bugs": {
-    "url": "https://github.com/kusti8/react-native-cross/issues"
+    "url": "https://github.com/kusti8/proton-native/issues"
   },
-  "homepage": "https://github.com/kusti8/react-native-cross#readme",
+  "homepage": "https://proton-native.js.org",
   "dependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
@@ -36,5 +37,8 @@
   "devDependencies": {
     "prettier": "^1.10.2",
     "react-devtools": "^3.0.0"
-  }
+  },
+  "files": [
+    "bin"
+  ]
 }

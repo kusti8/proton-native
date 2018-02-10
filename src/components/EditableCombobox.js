@@ -12,7 +12,6 @@ class EditableCombobox extends DesktopComponent {
     super(root, props);
     this.root = root;
     this.props = { ...props };
-    console.log(props);
     this.setDefaults(props);
     this.element = new libui.UiEditableCombobox();
     this.initialProps(this.props);

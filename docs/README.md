@@ -60,27 +60,22 @@ if __name__ == '__main__':
 ```javascript
 import React, { Component } from 'react';
 
-import { render, Window, App, Button } from 'reactor-native';
+import { render, Window, App, Button } from 'proton-native';
 
 class Example extends Component {
-  state = { name: true };
   render() {
     return (
       <App>
         <Window name="Example" height={300} width={300} menuBar={false}>
-            <Button
-              stretchy={false}
-              onClicked={() => console.log("Hello")}
-            >
-              Button
-            </Button>
+          <Button stretchy={false} onClicked={() => console.log('Hello')}>
+            Button
+          </Button>
         </Window>
       </App>
     );
   }
 }
 
-// This will create a file 'text.docx' in the current directory!
 render(<Example />);
 ```
 
@@ -88,7 +83,8 @@ It is not only shorter, it is also easier to read and to edit, and can easily ut
 
 ## Features
 
-- Same syntax as React Native. Only a few component names have changed, almost everything else is the same
+- Same syntax as React Native
+- Works with existing React libraries such as Redux
 - Cross platform
 - Native components. No more Electron
 

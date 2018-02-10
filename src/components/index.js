@@ -21,6 +21,7 @@ import RadioButton from './RadioButton';
 import EditableCombobox from './EditableCombobox';
 import VerticalSeparator from './VerticalSeparator';
 import HorizontalSeparator from './HorizontalSeparator';
+import ProgressBar from './ProgressBar';
 
 export {
   Root,
@@ -46,4 +47,5 @@ export {
   EditableCombobox,
   VerticalSeparator,
   HorizontalSeparator,
+  ProgressBar,
 };

@@ -116,7 +116,7 @@ class DesktopComponent {
           }
         } else {
           if (prop !== 'selected') {
-            this.element[prop] = props[prop];
+            this.element[prop] = newProps[prop];
           }
         }
       }
@@ -129,7 +129,6 @@ class DesktopComponent {
       // normal props
       if (typeof props[prop] === 'function') {
         if (this.eventParameter[prop] !== '') {
-          console.log(prop);
           this.element[prop](() =>
             props[prop](this.element[this.eventParameter[prop]])
           );

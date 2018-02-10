@@ -1,8 +1,10 @@
 <p align="center">
   <a href="https://proton-native.js.org">
-    <img alt="proton native" src="SVG/Artboard 1.svg">
+    <img alt="proton native" src="docs/SVG/Artboard 1.svg">
   </a>
 </p>
 
-# Proton Native
-React Native for the desktop, cross compatible
+Create native desktop applications through a React syntax, on all platforms
+
+
+

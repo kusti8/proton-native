@@ -11,7 +11,6 @@ class App extends DesktopComponent {
   }
 
   render() {
-    console.log('App render');
     this.renderChildNode();
   }
 }

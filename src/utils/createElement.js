@@ -22,6 +22,7 @@ import {
   EditableCombobox,
   HorizontalSeparator,
   VerticalSeparator,
+  ProgressBar,
 } from '../components/';
 import { ROOT_NODE } from '../render/';
 
@@ -57,6 +58,7 @@ function createElement(type, props) {
     EDITABLECOMBOBOX: () => new EditableCombobox(ROOT_NODE, props),
     HORIZONTALSEPARATOR: () => new HorizontalSeparator(ROOT_NODE, props),
     VERTICALSEPARATOR: () => new VerticalSeparator(ROOT_NODE, props),
+    PROGRESSBAR: () => new ProgressBar(ROOT_NODE, props),
     default: undefined,
   };
 
