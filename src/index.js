@@ -1,5 +1,5 @@
 import render from './render';
-import { Box, TextInput } from './react-components';
+import { Box, TextInput, Picker, RadioButtons } from './react-components';
 
 // Aliases for createElement method
 const Text = 'TEXT';
@@ -19,6 +19,13 @@ const Grid = 'GRID';
 const Checkbox = 'CHECKBOX';
 const Spinbox = 'SPINBOX';
 const Slider = 'SLIDER';
+const Combobox = 'COMBOBOX';
+const ComboboxItem = 'COMBOBOXITEM';
+const RadioButton = 'RADIOBUTTON';
+const RadioButtonItem = 'RADIOBUTTONITEM';
+const EditableCombobox = 'EDITABLECOMBOBOX';
+const VerticalSeparator = 'VERTICALSEPARATOR';
+const HorizontalSeparator = 'HORIZONTALSEPARATOR';
 
 export {
   render,
@@ -41,4 +48,13 @@ export {
   Checkbox,
   Spinbox,
   Slider,
+  Combobox,
+  ComboboxItem,
+  Picker,
+  RadioButton,
+  RadioButtonItem,
+  RadioButtons,
+  EditableCombobox,
+  VerticalSeparator,
+  HorizontalSeparator,
 };

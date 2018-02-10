@@ -16,6 +16,11 @@ import Grid from './Grid';
 import Checkbox from './Checkbox';
 import Spinbox from './Spinbox';
 import Slider from './Slider';
+import Combobox from './Combobox';
+import RadioButton from './RadioButton';
+import EditableCombobox from './EditableCombobox';
+import VerticalSeparator from './VerticalSeparator';
+import HorizontalSeparator from './HorizontalSeparator';
 
 export {
   Root,
@@ -36,4 +41,9 @@ export {
   Checkbox,
   Spinbox,
   Slider,
+  Combobox,
+  RadioButton,
+  EditableCombobox,
+  VerticalSeparator,
+  HorizontalSeparator,
 };

@@ -17,6 +17,11 @@ import {
   Checkbox,
   Spinbox,
   Slider,
+  Combobox,
+  RadioButton,
+  EditableCombobox,
+  HorizontalSeparator,
+  VerticalSeparator,
 } from '../components/';
 import { ROOT_NODE } from '../render/';
 
@@ -45,6 +50,13 @@ function createElement(type, props) {
     CHECKBOX: () => new Checkbox(ROOT_NODE, props),
     SPINBOX: () => new Spinbox(ROOT_NODE, props),
     SLIDER: () => new Slider(ROOT_NODE, props),
+    COMBOBOX: () => new Combobox(ROOT_NODE, props),
+    COMBOBOXITEM: () => new Combobox.Item(ROOT_NODE, props),
+    RADIOBUTTON: () => new RadioButton(ROOT_NODE, props),
+    RADIOBUTTONITEM: () => new RadioButton.Item(ROOT_NODE, props),
+    EDITABLECOMBOBOX: () => new EditableCombobox(ROOT_NODE, props),
+    HORIZONTALSEPARATOR: () => new HorizontalSeparator(ROOT_NODE, props),
+    VERTICALSEPARATOR: () => new VerticalSeparator(ROOT_NODE, props),
     default: undefined,
   };
 

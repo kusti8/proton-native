@@ -12,6 +12,7 @@ import {
   Form,
   Grid,
   Slider,
+  Picker,
 } from './src/';
 
 class A extends Component {
@@ -31,12 +32,15 @@ class A extends Component {
             <TextInput onChanged={text => console.log(text)} row={0} column={1}>
               My name is Gustav!
             </TextInput>
-            <Slider
-              onChanged={value => console.log(value)}
-              row={0}
+            <Picker
+              editable={true}
+              onChanged={loc => console.log(loc)}
+              selected={1}
               column={2}
-              span={{ x: 3, y: 1 }}
-            />
+            >
+              <Picker.Item>Hello</Picker.Item>
+              <Picker.Item>Hi</Picker.Item>
+            </Picker>
           </Grid>
         </Window>
       </App>

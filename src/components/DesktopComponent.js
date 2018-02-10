@@ -1,4 +1,4 @@
-import { Tab, Form, Grid } from './';
+import { Tab, Form, Grid, Combobox, RadioButton, EditableCombobox } from './';
 import PropTypes from 'prop-types';
 
 class DesktopComponent {
@@ -64,7 +64,6 @@ class DesktopComponent {
       const margined = this.props.margined;
       parent.element.setMargined(index, margined);
     } else if (parent instanceof Grid) {
-      2;
       parent.element.append(
         this.element,
         this.props.column,
@@ -76,6 +75,13 @@ class DesktopComponent {
         this.props.expand.v,
         this.props.align.v
       );
+    } else if (
+      parent instanceof Combobox ||
+      parent instanceof RadioButton ||
+      parent instanceof EditableCombobox
+    ) {
+      // we assume we are a ComboBox.Item, and just append the child
+      parent.element.append(this.props.children);
     } else {
       parent.element.append(this.element, stretchy);
     }
@@ -109,7 +115,9 @@ class DesktopComponent {
             this.element[this.childName] = newProps[prop];
           }
         } else {
-          this.element[prop] = newProps[prop];
+          if (prop !== 'selected') {
+            this.element[prop] = props[prop];
+          }
         }
       }
     }
@@ -121,6 +129,7 @@ class DesktopComponent {
       // normal props
       if (typeof props[prop] === 'function') {
         if (this.eventParameter[prop] !== '') {
+          console.log(prop);
           this.element[prop](() =>
             props[prop](this.element[this.eventParameter[prop]])
           );
@@ -128,9 +137,14 @@ class DesktopComponent {
           this.element[prop](props[prop]);
         }
       } else if (prop == 'children') {
-        this.element[this.childName] = props[prop];
+        if (this.exists(this.childName)) {
+          // prevent stray children from crashing program (like App component)
+          this.element[this.childName] = props[prop];
+        }
       } else {
-        this.element[prop] = props[prop];
+        if (prop !== 'selected') {
+          this.element[prop] = props[prop];
+        }
       }
     }
   }
