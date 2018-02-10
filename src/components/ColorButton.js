@@ -15,7 +15,7 @@ class ColorButton extends DesktopComponent {
     this.props = { ...props };
     this.setDefaults(props);
     this.element = new libui.UiColorButton();
-    this.initialProps(props);
+    this.initialProps(this.props);
   }
 
   convertToColor(input) {

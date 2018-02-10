@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+Object.defineProperty(exports, '__esModule', {
+  value: true,
 });
 exports.getHostContextNode = exports.createElement = undefined;
 
@@ -94,7 +94,13 @@ function createElement(type, props) {
     PROGRESSBAR: function PROGRESSBAR() {
       return new _components.ProgressBar(_render.ROOT_NODE, props);
     },
-    default: undefined
+    MENUBAR: function MENUBAR() {
+      return new _components.MenuBar(_render.ROOT_NODE, props);
+    },
+    MENUBARITEM: function MENUBARITEM() {
+      return new _components.MenuBar.Item(_render.ROOT_NODE, props);
+    },
+    default: undefined,
   };
 
   return COMPONENTS[type]() || COMPONENTS.default;

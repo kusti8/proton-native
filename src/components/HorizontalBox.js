@@ -12,7 +12,7 @@ class HorizontalBox extends DesktopComponent {
     this.props = { ...props };
     this.setDefaults(props);
     this.element = new libui.UiHorizontalBox();
-    this.initialProps();
+    this.initialProps(this.props);
   }
 
   render(parent) {

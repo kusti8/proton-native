@@ -35,9 +35,9 @@ var _createClass = (function() {
   };
 })();
 
-var _DesktopComponent2 = require('./DesktopComponent');
+var _DesktopComponent3 = require('./DesktopComponent');
 
-var _DesktopComponent3 = _interopRequireDefault(_DesktopComponent2);
+var _DesktopComponent4 = _interopRequireDefault(_DesktopComponent3);
 
 var _libuiNode = require('libui-node');
 
@@ -89,15 +89,15 @@ function _inherits(subClass, superClass) {
       : (subClass.__proto__ = superClass);
 }
 
-var HorizontalBox = (function(_DesktopComponent) {
-  _inherits(HorizontalBox, _DesktopComponent);
+var MenuBar = (function(_DesktopComponent) {
+  _inherits(MenuBar, _DesktopComponent);
 
-  function HorizontalBox(root, props) {
-    _classCallCheck(this, HorizontalBox);
+  function MenuBar(root, props) {
+    _classCallCheck(this, MenuBar);
 
     var _this = _possibleConstructorReturn(
       this,
-      (HorizontalBox.__proto__ || Object.getPrototypeOf(HorizontalBox)).call(
+      (MenuBar.__proto__ || Object.getPrototypeOf(MenuBar)).call(
         this,
         root,
         props
@@ -107,12 +107,12 @@ var HorizontalBox = (function(_DesktopComponent) {
     _this.root = root;
     _this.props = _extends({}, props);
     _this.setDefaults(props);
-    _this.element = new _libuiNode2.default.UiHorizontalBox();
+    _this.element = new _libuiNode2.default.UiMenu(_this.props.label);
     _this.initialProps(_this.props);
     return _this;
   }
 
-  _createClass(HorizontalBox, [
+  _createClass(MenuBar, [
     {
       key: 'render',
       value: function render(parent) {
@@ -122,25 +122,82 @@ var HorizontalBox = (function(_DesktopComponent) {
     },
   ]);
 
-  return HorizontalBox;
-})(_DesktopComponent3.default);
+  return MenuBar;
+})(_DesktopComponent4.default);
 
-HorizontalBox.PropTypes = _extends(
+MenuBar.PropTypes = _extends(
   {
-    enabled: _propTypes2.default.bool,
-    visible: _propTypes2.default.bool,
-    padded: _propTypes2.default.bool,
+    label: _propTypes2.default.string,
   },
-  _DesktopComponent2.universalPropTypes
+  _DesktopComponent3.universalPropTypes
 );
 
-HorizontalBox.defaultProps = _extends(
+MenuBar.defaultProps = _extends(
   {
-    enabled: true,
-    visible: true,
-    padded: false,
+    label: '',
   },
-  _DesktopComponent2.universalDefaultProps
+  _DesktopComponent3.universalDefaultProps
 );
 
-exports.default = HorizontalBox;
+MenuBar.Item = (function(_DesktopComponent2) {
+  _inherits(Item, _DesktopComponent2);
+
+  function Item(root, props) {
+    _classCallCheck(this, Item);
+
+    var _this2 = _possibleConstructorReturn(
+      this,
+      (Item.__proto__ || Object.getPrototypeOf(Item)).call(this, root, props)
+    );
+
+    _this2.eventParameter = { onClicked: 'checked' };
+
+    _this2.root = root;
+    _this2.props = _extends({}, props);
+    _this2.setDefaults(props);
+    _this2.element = {};
+    return _this2;
+  }
+
+  _createClass(Item, [
+    {
+      key: 'render',
+      value: function render(parent) {
+        this.addParent(parent);
+        this.initialProps(this.props); // we can only set props after they have been created in addParent
+        this.renderChildNode();
+      },
+    },
+  ]);
+
+  return Item;
+})(_DesktopComponent4.default);
+
+MenuBar.Item.PropTypes = _extends(
+  {
+    children: _propTypes2.default.string,
+    checked: _propTypes2.default.bool,
+    type: _propTypes2.default.oneOf([
+      'Check',
+      'Quit',
+      'About',
+      'Preferences',
+      'Separator',
+      'Item',
+    ]),
+    onClicked: _propTypes2.default.func,
+  },
+  _DesktopComponent3.universalPropTypes
+);
+
+MenuBar.Item.defaultProps = _extends(
+  {
+    children: '',
+    checked: false,
+    type: 'Item',
+    onClicked: function onClicked() {},
+  },
+  _DesktopComponent3.universalDefaultProps
+);
+
+exports.default = MenuBar;

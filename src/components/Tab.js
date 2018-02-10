@@ -12,7 +12,7 @@ class Tab extends DesktopComponent {
     this.props = { ...props };
     this.setDefaults(props);
     this.element = new libui.UiTab();
-    this.initialProps(props);
+    this.initialProps(this.props);
   }
 
   render(parent) {

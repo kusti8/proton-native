@@ -12,7 +12,7 @@ class Grid extends DesktopComponent {
     this.props = { ...props };
     this.setDefaults(props);
     this.element = new libui.UiGrid();
-    this.initialProps(props);
+    this.initialProps(this.props);
   }
 
   render(parent) {

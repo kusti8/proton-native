@@ -11,41 +11,6 @@ class Window extends DesktopComponent {
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
-    this.element = new libui.UiWindow(
-      this.props.title,
-      this.props.size.w,
-      this.props.size.h,
-      this.props.menuBar
-    );
-    this.element.onClosing(() => {
-      this.props.onClosing();
-      this.element.close();
-      if (this.props.lastWindow) {
-        libui.stopLoop();
-      }
-    });
-    this.element.margined = this.props.margined;
-    this.element.position.x = this.props.position.x;
-    this.element.position.y = this.props.position.y;
-    this.element.fullscreen = this.props.fullscreen;
-    this.element.borderless = this.props.borderless;
-
-    if (this.props.centered) {
-      this.element.center();
-    }
-
-    this.element.onPositionChanged(() => {
-      this.props.onPositionChanged({
-        x: this.element.position.x,
-        y: this.element.position.y,
-      });
-    });
-    this.element.onContentSizeChanged(() => {
-      this.props.onContentSizeChanged({
-        h: this.element.position.h,
-        w: this.element.position.w,
-      });
-    });
   }
 
   update(oldProps, newProps) {
@@ -82,6 +47,44 @@ class Window extends DesktopComponent {
   }
 
   render() {
+    if (!this.element) {
+      // we need to create a window here so that menu can go first
+      this.element = new libui.UiWindow(
+        this.props.title,
+        this.props.size.w,
+        this.props.size.h,
+        this.props.menuBar
+      );
+      this.element.onClosing(() => {
+        this.props.onClosing();
+        this.element.close();
+        if (this.props.lastWindow) {
+          libui.stopLoop();
+        }
+      });
+      this.element.margined = this.props.margined;
+      this.element.position.x = this.props.position.x;
+      this.element.position.y = this.props.position.y;
+      this.element.fullscreen = this.props.fullscreen;
+      this.element.borderless = this.props.borderless;
+
+      if (this.props.centered) {
+        this.element.center();
+      }
+
+      this.element.onPositionChanged(() => {
+        this.props.onPositionChanged({
+          x: this.element.position.x,
+          y: this.element.position.y,
+        });
+      });
+      this.element.onContentSizeChanged(() => {
+        this.props.onContentSizeChanged({
+          h: this.element.position.h,
+          w: this.element.position.w,
+        });
+      });
+    }
     this.element.show();
     this.renderChildNode(this);
   }

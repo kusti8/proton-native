@@ -22,6 +22,7 @@ import EditableCombobox from './EditableCombobox';
 import VerticalSeparator from './VerticalSeparator';
 import HorizontalSeparator from './HorizontalSeparator';
 import ProgressBar from './ProgressBar';
+import MenuBar from './MenuBar';
 
 export {
   Root,
@@ -48,4 +49,5 @@ export {
   VerticalSeparator,
   HorizontalSeparator,
   ProgressBar,
+  MenuBar,
 };

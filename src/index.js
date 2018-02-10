@@ -5,6 +5,7 @@ import {
   Picker,
   RadioButtons,
   Separator,
+  Menu,
 } from './react-components';
 
 // Aliases for createElement method
@@ -33,6 +34,8 @@ const EditableCombobox = 'EDITABLECOMBOBOX';
 const VerticalSeparator = 'VERTICALSEPARATOR';
 const HorizontalSeparator = 'HORIZONTALSEPARATOR';
 const ProgressBar = 'PROGRESSBAR';
+const MenuBar = 'MENUBAR';
+const MenuBarItem = 'MENUBARITEM';
 
 export {
   render,
@@ -66,4 +69,7 @@ export {
   HorizontalSeparator,
   Separator,
   ProgressBar,
+  MenuBar,
+  MenuBarItem,
+  Menu,
 };

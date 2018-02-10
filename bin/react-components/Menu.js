@@ -4,20 +4,6 @@ Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 
-var _extends =
-  Object.assign ||
-  function(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
-
 var _createClass = (function() {
   function defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -35,20 +21,28 @@ var _createClass = (function() {
   };
 })();
 
-var _DesktopComponent2 = require('./DesktopComponent');
+var _react = require('react');
 
-var _DesktopComponent3 = _interopRequireDefault(_DesktopComponent2);
-
-var _libuiNode = require('libui-node');
-
-var _libuiNode2 = _interopRequireDefault(_libuiNode);
+var _react2 = _interopRequireDefault(_react);
 
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _ = require('../');
+
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};
+  for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+    target[i] = obj[i];
+  }
+  return target;
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -89,58 +83,64 @@ function _inherits(subClass, superClass) {
       : (subClass.__proto__ = superClass);
 }
 
-var HorizontalBox = (function(_DesktopComponent) {
-  _inherits(HorizontalBox, _DesktopComponent);
+var Menu = (function(_Component) {
+  _inherits(Menu, _Component);
 
-  function HorizontalBox(root, props) {
-    _classCallCheck(this, HorizontalBox);
+  function Menu() {
+    _classCallCheck(this, Menu);
 
-    var _this = _possibleConstructorReturn(
+    return _possibleConstructorReturn(
       this,
-      (HorizontalBox.__proto__ || Object.getPrototypeOf(HorizontalBox)).call(
-        this,
-        root,
-        props
-      )
+      (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments)
     );
-
-    _this.root = root;
-    _this.props = _extends({}, props);
-    _this.setDefaults(props);
-    _this.element = new _libuiNode2.default.UiHorizontalBox();
-    _this.initialProps(_this.props);
-    return _this;
   }
 
-  _createClass(HorizontalBox, [
+  _createClass(Menu, [
     {
       key: 'render',
-      value: function render(parent) {
-        this.addParent(parent);
-        this.renderChildNode(this);
+      value: function render() {
+        var _props = this.props,
+          children = _props.children,
+          otherProps = _objectWithoutProperties(_props, ['children']);
+
+        return _react2.default.createElement(_.MenuBar, otherProps, children);
       },
     },
   ]);
 
-  return HorizontalBox;
-})(_DesktopComponent3.default);
+  return Menu;
+})(_react.Component);
 
-HorizontalBox.PropTypes = _extends(
-  {
-    enabled: _propTypes2.default.bool,
-    visible: _propTypes2.default.bool,
-    padded: _propTypes2.default.bool,
-  },
-  _DesktopComponent2.universalPropTypes
-);
+Menu.Item = (function(_Component2) {
+  _inherits(Item, _Component2);
 
-HorizontalBox.defaultProps = _extends(
-  {
-    enabled: true,
-    visible: true,
-    padded: false,
-  },
-  _DesktopComponent2.universalDefaultProps
-);
+  function Item() {
+    _classCallCheck(this, Item);
 
-exports.default = HorizontalBox;
+    return _possibleConstructorReturn(
+      this,
+      (Item.__proto__ || Object.getPrototypeOf(Item)).apply(this, arguments)
+    );
+  }
+
+  _createClass(Item, [
+    {
+      key: 'render',
+      value: function render() {
+        var _props2 = this.props,
+          children = _props2.children,
+          otherProps = _objectWithoutProperties(_props2, ['children']);
+
+        return _react2.default.createElement(
+          _.MenuBarItem,
+          otherProps,
+          children
+        );
+      },
+    },
+  ]);
+
+  return Item;
+})(_react.Component);
+
+exports.default = Menu;

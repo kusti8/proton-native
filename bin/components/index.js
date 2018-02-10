@@ -1,9 +1,9 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+Object.defineProperty(exports, '__esModule', {
+  value: true,
 });
-exports.ProgressBar = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButton = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.PasswordEntry = exports.Entry = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.Root = undefined;
+exports.MenuBar = exports.ProgressBar = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButton = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.PasswordEntry = exports.Entry = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.Root = undefined;
 
 var _Root = require('./Root');
 
@@ -101,7 +101,13 @@ var _ProgressBar = require('./ProgressBar');
 
 var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _MenuBar = require('./MenuBar');
+
+var _MenuBar2 = _interopRequireDefault(_MenuBar);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
 exports.Root = _Root2.default;
 exports.Text = _Text2.default;
@@ -127,3 +133,4 @@ exports.EditableCombobox = _EditableCombobox2.default;
 exports.VerticalSeparator = _VerticalSeparator2.default;
 exports.HorizontalSeparator = _HorizontalSeparator2.default;
 exports.ProgressBar = _ProgressBar2.default;
+exports.MenuBar = _MenuBar2.default;

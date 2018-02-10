@@ -23,6 +23,7 @@ import {
   HorizontalSeparator,
   VerticalSeparator,
   ProgressBar,
+  MenuBar,
 } from '../components/';
 import { ROOT_NODE } from '../render/';
 
@@ -59,6 +60,8 @@ function createElement(type, props) {
     HORIZONTALSEPARATOR: () => new HorizontalSeparator(ROOT_NODE, props),
     VERTICALSEPARATOR: () => new VerticalSeparator(ROOT_NODE, props),
     PROGRESSBAR: () => new ProgressBar(ROOT_NODE, props),
+    MENUBAR: () => new MenuBar(ROOT_NODE, props),
+    MENUBARITEM: () => new MenuBar.Item(ROOT_NODE, props),
     default: undefined,
   };
 

@@ -1,9 +1,9 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+Object.defineProperty(exports, '__esModule', {
+  value: true,
 });
-exports.ProgressBar = exports.Separator = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButtons = exports.RadioButtonItem = exports.RadioButton = exports.Picker = exports.ComboboxItem = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.TextInput = exports.PasswordEntry = exports.Entry = exports.Box = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.render = undefined;
+exports.Menu = exports.MenuBarItem = exports.MenuBar = exports.ProgressBar = exports.Separator = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButtons = exports.RadioButtonItem = exports.RadioButton = exports.Picker = exports.ComboboxItem = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.TextInput = exports.PasswordEntry = exports.Entry = exports.Box = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.render = undefined;
 
 var _render = require('./render');
 
@@ -11,7 +11,9 @@ var _render2 = _interopRequireDefault(_render);
 
 var _reactComponents = require('./react-components');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
 // Aliases for createElement method
 var Text = 'TEXT';
@@ -39,6 +41,8 @@ var EditableCombobox = 'EDITABLECOMBOBOX';
 var VerticalSeparator = 'VERTICALSEPARATOR';
 var HorizontalSeparator = 'HORIZONTALSEPARATOR';
 var ProgressBar = 'PROGRESSBAR';
+var MenuBar = 'MENUBAR';
+var MenuBarItem = 'MENUBARITEM';
 
 exports.render = _render2.default;
 exports.Text = Text;
@@ -71,3 +75,6 @@ exports.VerticalSeparator = VerticalSeparator;
 exports.HorizontalSeparator = HorizontalSeparator;
 exports.Separator = _reactComponents.Separator;
 exports.ProgressBar = ProgressBar;
+exports.MenuBar = MenuBar;
+exports.MenuBarItem = MenuBarItem;
+exports.Menu = _reactComponents.Menu;

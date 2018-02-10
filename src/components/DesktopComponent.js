@@ -1,4 +1,12 @@
-import { Tab, Form, Grid, Combobox, RadioButton, EditableCombobox } from './';
+import {
+  Tab,
+  Form,
+  Grid,
+  Combobox,
+  RadioButton,
+  EditableCombobox,
+  MenuBar,
+} from './';
 import PropTypes from 'prop-types';
 
 class DesktopComponent {
@@ -82,6 +90,23 @@ class DesktopComponent {
     ) {
       // we assume we are a ComboBox.Item, and just append the child
       parent.element.append(this.props.children);
+    } else if (parent instanceof MenuBar) {
+      console.log('Menu item');
+      if (this.props.type === 'Item') {
+        this.element = parent.element.appendItem(this.props.children);
+      } else if (this.props.type === 'Check') {
+        this.element = parent.element.appendCheckItem(this.props.children);
+      } else if (this.props.type === 'Quit') {
+        this.element = parent.element.appendQuitItem();
+      } else if (this.props.type === 'Preferences') {
+        this.element = parent.element.appendPreferencesItem();
+      } else if (this.props.type === 'About') {
+        this.element = parent.element.appendAboutItem();
+      } else if (this.props.type === 'Separator') {
+        parent.element.appendSeparator();
+      }
+    } else if (this instanceof Menu) {
+      // we don't need to setChild with a menu
     } else {
       parent.element.append(this.element, stretchy);
     }
@@ -90,8 +115,12 @@ class DesktopComponent {
   addParent(parent) {
     // add itself to the parent
     if (this.exists(parent.element.setChild)) {
+      console.log(parent.element);
       parent.element.setChild(this.element);
-    } else if (this.exists(parent.element.append)) {
+    } else if (
+      this.exists(parent.element.append) ||
+      this.exists(parent.element.appendItem)
+    ) {
       this.addParentAppend(parent); // append itself to the parent
     }
   }

@@ -19,7 +19,6 @@
   },
   "homepage": "https://proton-native.js.org",
   "dependencies": {
-    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",

@@ -8,10 +8,11 @@ class App extends DesktopComponent {
     super(root, props);
     this.root = root;
     this.props = props;
+    this.element = {};
   }
 
   render() {
-    this.renderChildNode();
+    this.renderChildNode(this);
   }
 }
 

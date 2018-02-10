@@ -12,7 +12,7 @@ class Form extends DesktopComponent {
     this.props = { ...props };
     this.setDefaults(props);
     this.element = new libui.UiForm();
-    this.initialProps(props);
+    this.initialProps(this.props);
   }
 
   render(parent) {

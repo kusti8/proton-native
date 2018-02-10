@@ -15,7 +15,7 @@ class PasswordEntry extends DesktopComponent {
     this.props = { ...props };
     this.setDefaults(props);
     this.element = new libui.UiPasswordEntry();
-    this.initialProps(props);
+    this.initialProps(this.props);
   }
 
   render(parent) {

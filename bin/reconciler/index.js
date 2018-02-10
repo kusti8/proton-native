@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+Object.defineProperty(exports, '__esModule', {
+  value: true,
 });
 
 var _emptyObject = require('fbjs/lib/emptyObject');
@@ -12,7 +12,9 @@ var _createElement = require('../utils/createElement');
 
 var _render = require('../render/');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
 var Reconciler = require('react-reconciler');
 
@@ -27,11 +29,19 @@ var DesktopRenderer = Reconciler({
     console.log('HI2');
     return (0, _createElement.createElement)(type, props);
   },
-  createTextInstance: function createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
+  createTextInstance: function createTextInstance(
+    text,
+    rootContainerInstance,
+    internalInstanceHandle
+  ) {
     console.log('HI3');
     return text;
   },
-  finalizeInitialChildren: function finalizeInitialChildren(wordElement, type, props) {
+  finalizeInitialChildren: function finalizeInitialChildren(
+    wordElement,
+    type,
+    props
+  ) {
     console.log('HI4');
     return false;
   },
@@ -68,7 +78,6 @@ var DesktopRenderer = Reconciler({
     return false;
   },
 
-
   now: function now() {},
 
   useSyncScheduling: true,
@@ -82,7 +91,10 @@ var DesktopRenderer = Reconciler({
       child.render(parentInstance.element); // we just added a new child, so we want to render it
       console.log('Rendered child');
     },
-    appendChildToContainer: function appendChildToContainer(parentInstance, child) {
+    appendChildToContainer: function appendChildToContainer(
+      parentInstance,
+      child
+    ) {
       console.log('HI14');
       if (parentInstance.appendChild) {
         parentInstance.appendChild(child);
@@ -92,7 +104,10 @@ var DesktopRenderer = Reconciler({
       console.log('HI15');
       parentInstance.removeChild(child);
     },
-    removeChildFromContainer: function removeChildFromContainer(parentInstance, child) {
+    removeChildFromContainer: function removeChildFromContainer(
+      parentInstance,
+      child
+    ) {
       console.log('HI16');
       parentInstance.removeChild(child);
     },
@@ -100,22 +115,38 @@ var DesktopRenderer = Reconciler({
       console.log('HI17');
       // noob
     },
-    commitUpdate: function commitUpdate(instance, updatePayload, type, oldProps, newProps) {
+    commitUpdate: function commitUpdate(
+      instance,
+      updatePayload,
+      type,
+      oldProps,
+      newProps
+    ) {
       console.log('HI18');
       if (typeof instance.update !== 'undefined') {
         instance.update(oldProps, newProps);
       }
     },
-    commitMount: function commitMount(instance, updatePayload, type, oldProps, newProps) {
+    commitMount: function commitMount(
+      instance,
+      updatePayload,
+      type,
+      oldProps,
+      newProps
+    ) {
       console.log('HI19');
       // noop
     },
-    commitTextUpdate: function commitTextUpdate(textInstance, oldText, newText) {
+    commitTextUpdate: function commitTextUpdate(
+      textInstance,
+      oldText,
+      newText
+    ) {
       console.log('HI20');
       console.log(newText);
       textInstance = newText;
-    }
-  }
+    },
+  },
 });
 
 exports.default = DesktopRenderer;
