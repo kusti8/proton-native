@@ -13,7 +13,7 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window name="Example" height={500} width={500} />
+        <Window title="Example" height={500} width={500} />
       </App>
     );
   }

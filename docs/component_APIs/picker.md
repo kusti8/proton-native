@@ -11,7 +11,7 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window name="Example" height={500} width={500}>
+        <Window title="Example" height={500} width={500}>
           <Picker>
            <Picker.Item>Option 1</Picker.Item>
            <Picker.Item>Option 2</Picker.Item>

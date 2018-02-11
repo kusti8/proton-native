@@ -66,7 +66,7 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window name="Example" height={300} width={300} menuBar={false}>
+        <Window title="Example" height={300} width={300} menuBar={false}>
           <Button stretchy={false} onClicked={() => console.log('Hello')}>
             Button
           </Button>
