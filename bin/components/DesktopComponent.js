@@ -38,6 +38,8 @@ var _createClass = (function() {
 
 var _ = require('./');
 
+var _2 = require('../');
+
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -64,7 +66,7 @@ var DesktopComponent = (function() {
       key: 'setDefaults',
       value: function setDefaults(props) {
         for (var prop in this.constructor.defaultProps) {
-          if (!(prop in props)) {
+          if (!(prop in props) || !props[prop]) {
             this.props[prop] = this.constructor.defaultProps[prop];
           }
         }
@@ -162,7 +164,7 @@ var DesktopComponent = (function() {
           } else if (this.props.type === 'Separator') {
             parent.element.appendSeparator();
           }
-        } else if (this instanceof Menu) {
+        } else if (this instanceof _2.Menu) {
           // we don't need to setChild with a menu
         } else {
           parent.element.append(this.element, stretchy);

@@ -1,2 +1,7 @@
 - [Home](/)
 - [Quick start](quickstart.md)
+- Components
+    - [Window](component_APIs/window.md)
+    - [Button](component_APIs/button.md)
+    - [TextInput](component_APIs/textinput.md)
+    - [Box](component_APIs/box.md)

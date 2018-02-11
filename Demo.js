@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 
-import { Window, App, render, Menu, FontButton } from './src/';
+import { render, Window, App, Box, Button, TextInput } from './src';
 
-class A extends Component {
-  state = { value: -1 };
+class Example extends Component {
   render() {
     return (
       <App>
-        <Menu label="HI">
-          <Menu.Item onClicked={() => console.log('Hello')}>Hi</Menu.Item>
-        </Menu>
-        <Window name="Hi" height={640} width={480} margined={true}>
-          <FontButton onChanged={s => console.log(s)} />
+        <Window name="Example" height={500} width={500}>
+          <Box>
+            <Button>Hello</Button>
+            <TextInput />
+          </Box>
         </Window>
       </App>
     );
   }
 }
 
-render(<A />);
+render(<Example />);

@@ -88,6 +88,6 @@ It is not only shorter, it is also easier to read and to edit, and can easily ut
 - Cross platform
 - Native components. No more Electron
 
-## Examples TODO ADD LINK
+## Examples
 
-Check out the examples to see more.
+Check out [the examples](https://github.com/kusti8/proton-native/examples) to see more.

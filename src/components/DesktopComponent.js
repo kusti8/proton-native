@@ -7,6 +7,7 @@ import {
   EditableCombobox,
   MenuBar,
 } from './';
+import { Menu } from '../';
 import PropTypes from 'prop-types';
 
 class DesktopComponent {
@@ -16,7 +17,7 @@ class DesktopComponent {
 
   setDefaults(props) {
     for (let prop in this.constructor.defaultProps) {
-      if (!(prop in props)) {
+      if (!(prop in props) || !props[prop]) {
         this.props[prop] = this.constructor.defaultProps[prop];
       }
     }
