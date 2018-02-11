@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Window, App, render, Menu } from './src/';
+import { Window, App, render, Menu, FontButton } from './src/';
 
 class A extends Component {
   state = { value: -1 };
@@ -8,13 +8,14 @@ class A extends Component {
     return (
       <App>
         <Menu label="HI">
-          <Menu.Item>Hi</Menu.Item>
+          <Menu.Item onClicked={() => console.log('Hello')}>Hi</Menu.Item>
         </Menu>
-        <Window name="Hi" height={640} width={480} margined={true} />
+        <Window name="Hi" height={640} width={480} margined={true}>
+          <FontButton onChanged={s => console.log(s)} />
+        </Window>
       </App>
     );
   }
 }
 
-// This will create a file 'text.docx' in the current directory!
 render(<A />);

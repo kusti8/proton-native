@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-exports.Menu = exports.MenuBarItem = exports.MenuBar = exports.ProgressBar = exports.Separator = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButtons = exports.RadioButtonItem = exports.RadioButton = exports.Picker = exports.ComboboxItem = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.TextInput = exports.PasswordEntry = exports.Entry = exports.Box = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.render = undefined;
+exports.FontButton = exports.Menu = exports.MenuBarItem = exports.MenuBar = exports.ProgressBar = exports.Separator = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButtons = exports.RadioButtonItem = exports.RadioButton = exports.Picker = exports.ComboboxItem = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.TextInput = exports.PasswordEntry = exports.Entry = exports.Box = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.render = undefined;
 
 var _render = require('./render');
 
@@ -43,6 +43,7 @@ var HorizontalSeparator = 'HORIZONTALSEPARATOR';
 var ProgressBar = 'PROGRESSBAR';
 var MenuBar = 'MENUBAR';
 var MenuBarItem = 'MENUBARITEM';
+var FontButton = 'FONTBUTTON';
 
 exports.render = _render2.default;
 exports.Text = Text;
@@ -78,3 +79,4 @@ exports.ProgressBar = ProgressBar;
 exports.MenuBar = MenuBar;
 exports.MenuBarItem = MenuBarItem;
 exports.Menu = _reactComponents.Menu;
+exports.FontButton = FontButton;

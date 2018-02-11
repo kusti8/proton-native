@@ -131,7 +131,12 @@ class DesktopComponent {
       // normal props
       if (oldProps[prop] !== newProps[prop]) {
         if (typeof newProps[prop] === 'function') {
-          if (this.eventParameter[prop] !== '') {
+          if (typeof this.eventParameter[prop] === 'function') {
+            // if we don't have a property, then we use a function, so handle that
+            this.element[prop](() =>
+              newProps[prop](this.eventParameter[prop]())
+            );
+          } else if (this.eventParameter[prop] !== '') {
             this.element[prop](() =>
               newProps[prop](this.element[this.eventParameter[prop]])
             );
@@ -157,7 +162,10 @@ class DesktopComponent {
     for (let prop in props) {
       // normal props
       if (typeof props[prop] === 'function') {
-        if (this.eventParameter[prop] !== '') {
+        if (typeof this.eventParameter[prop] === 'function') {
+          // if we don't have a property, then we use a function, so handle that
+          this.element[prop](() => props[prop](this.eventParameter[prop]()));
+        } else if (this.eventParameter[prop] !== '') {
           this.element[prop](() =>
             props[prop](this.element[this.eventParameter[prop]])
           );

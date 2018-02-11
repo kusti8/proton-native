@@ -194,7 +194,12 @@ var DesktopComponent = (function() {
           // normal props
           if (oldProps[prop] !== newProps[prop]) {
             if (typeof newProps[prop] === 'function') {
-              if (_this.eventParameter[prop] !== '') {
+              if (typeof _this.eventParameter[prop] === 'function') {
+                // if we don't have a property, then we use a function, so handle that
+                _this.element[prop](function() {
+                  return newProps[prop](_this.eventParameter[prop]());
+                });
+              } else if (_this.eventParameter[prop] !== '') {
                 _this.element[prop](function() {
                   return newProps[prop](
                     _this.element[_this.eventParameter[prop]]
@@ -230,7 +235,12 @@ var DesktopComponent = (function() {
         var _loop2 = function _loop2(prop) {
           // normal props
           if (typeof props[prop] === 'function') {
-            if (_this2.eventParameter[prop] !== '') {
+            if (typeof _this2.eventParameter[prop] === 'function') {
+              // if we don't have a property, then we use a function, so handle that
+              _this2.element[prop](function() {
+                return props[prop](_this2.eventParameter[prop]());
+              });
+            } else if (_this2.eventParameter[prop] !== '') {
               _this2.element[prop](function() {
                 return props[prop](_this2.element[_this2.eventParameter[prop]]);
               });

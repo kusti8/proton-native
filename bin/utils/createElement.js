@@ -100,6 +100,9 @@ function createElement(type, props) {
     MENUBARITEM: function MENUBARITEM() {
       return new _components.MenuBar.Item(_render.ROOT_NODE, props);
     },
+    FONTBUTTON: function FONTBUTTON() {
+      return new _components.FontButton(_render.ROOT_NODE, props);
+    },
     default: undefined,
   };
 

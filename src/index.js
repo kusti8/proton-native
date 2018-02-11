@@ -36,6 +36,7 @@ const HorizontalSeparator = 'HORIZONTALSEPARATOR';
 const ProgressBar = 'PROGRESSBAR';
 const MenuBar = 'MENUBAR';
 const MenuBarItem = 'MENUBARITEM';
+const FontButton = 'FONTBUTTON';
 
 export {
   render,
@@ -72,4 +73,5 @@ export {
   MenuBar,
   MenuBarItem,
   Menu,
+  FontButton,
 };

@@ -23,6 +23,7 @@ import VerticalSeparator from './VerticalSeparator';
 import HorizontalSeparator from './HorizontalSeparator';
 import ProgressBar from './ProgressBar';
 import MenuBar from './MenuBar';
+import FontButton from './FontButton';
 
 export {
   Root,
@@ -50,4 +51,5 @@ export {
   HorizontalSeparator,
   ProgressBar,
   MenuBar,
+  FontButton,
 };

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', {
   value: true,
 });
-exports.MenuBar = exports.ProgressBar = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButton = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.PasswordEntry = exports.Entry = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.Root = undefined;
+exports.FontButton = exports.MenuBar = exports.ProgressBar = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButton = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.PasswordEntry = exports.Entry = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.Root = undefined;
 
 var _Root = require('./Root');
 
@@ -105,6 +105,10 @@ var _MenuBar = require('./MenuBar');
 
 var _MenuBar2 = _interopRequireDefault(_MenuBar);
 
+var _FontButton = require('./FontButton');
+
+var _FontButton2 = _interopRequireDefault(_FontButton);
+
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -134,3 +138,4 @@ exports.VerticalSeparator = _VerticalSeparator2.default;
 exports.HorizontalSeparator = _HorizontalSeparator2.default;
 exports.ProgressBar = _ProgressBar2.default;
 exports.MenuBar = _MenuBar2.default;
+exports.FontButton = _FontButton2.default;

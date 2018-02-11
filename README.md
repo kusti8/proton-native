@@ -5,6 +5,3 @@
 </p>
 
 Create native desktop applications through a React syntax, on all platforms
-
-
-
