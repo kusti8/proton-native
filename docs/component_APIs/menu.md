@@ -2,7 +2,7 @@
 
 The top bar on a window that can have multiple options.
 
-The menu must come outside and before the Window for it to take effect. It is made up of Menu.Items.
+The menu must come outside and before the Window for it to take effect. It is made up of Menu.Items. Menus can be embedded inside eachother to make sub-menus.
 
 ```javascript
 import React, { Component } from 'react';
