@@ -91,7 +91,6 @@ class DesktopComponent {
       // we assume we are a ComboBox.Item, and just append the child
       parent.element.append(this.props.children);
     } else if (parent instanceof MenuBar) {
-      console.log('Menu item');
       if (this.props.type === 'Item') {
         this.element = parent.element.appendItem(this.props.children);
       } else if (this.props.type === 'Check') {
@@ -115,7 +114,6 @@ class DesktopComponent {
   addParent(parent) {
     // add itself to the parent
     if (this.exists(parent.element.setChild)) {
-      console.log(parent.element);
       parent.element.setChild(this.element);
     } else if (
       this.exists(parent.element.append) ||
