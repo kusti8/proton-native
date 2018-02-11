@@ -2,6 +2,8 @@
 - [Quick start](quickstart.md)
 - Components
     - [Window](component_APIs/window.md)
+    - [Menu](component_APIs/menu.md)
     - [Button](component_APIs/button.md)
     - [TextInput](component_APIs/textinput.md)
     - [Box](component_APIs/box.md)
+    - [Separator](component_APIs/separator.md)
