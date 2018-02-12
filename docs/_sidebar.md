@@ -5,6 +5,8 @@
     - [Box](component_APIs/box.md)
     - [Button](component_APIs/button.md)
     - [Checkbox](component_APIs/checkbox.md)
+    - [ColorButton](component_APIs/color_button.md)
+    - [Form](component_APIs/form.md)
     - [Menu](component_APIs/menu.md)
         - [Menu.Item](component_APIs/menu_item.md)
     - [Picker](component_APIs/picker.md)

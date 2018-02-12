@@ -7,5 +7,5 @@
 - Cross platform
 - Native components. No more Electron
 
-[GitHub](https://github.com/kusti8/!proton-native)
+[GitHub](https://github.com/kusti8/proton-native)
 [Get Started](#Proton-Native)

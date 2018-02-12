@@ -106,7 +106,6 @@ var Entry = (function(_DesktopComponent) {
     _this.root = root;
     _this.props = _extends({}, props);
     _this.setDefaults(props);
-    console.log(_this.props);
     _this.element = new _libuiNode2.default.UiEntry();
     _this.initialProps(_this.props);
     return _this;
