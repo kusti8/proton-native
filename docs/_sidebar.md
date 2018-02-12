@@ -7,6 +7,8 @@
     - [Checkbox](component_APIs/checkbox.md)
     - [ColorButton](component_APIs/color_button.md)
     - [Form](component_APIs/form.md)
+    - [Grid](component_APIs/grid.md)
+        -[Grid Children](component_APIs/grid_components.md)
     - [Menu](component_APIs/menu.md)
         - [Menu.Item](component_APIs/menu_item.md)
     - [Picker](component_APIs/picker.md)
