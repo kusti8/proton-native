@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.getHostContextNode = exports.createElement = undefined;
 
@@ -103,7 +103,7 @@ function createElement(type, props) {
     FONTBUTTON: function FONTBUTTON() {
       return new _components.FontButton(_render.ROOT_NODE, props);
     },
-    default: undefined,
+    default: undefined
   };
 
   return COMPONENTS[type]() || COMPONENTS.default;

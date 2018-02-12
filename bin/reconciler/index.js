@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 
 var _emptyObject = require('fbjs/lib/emptyObject');
@@ -12,9 +12,7 @@ var _createElement = require('../utils/createElement');
 
 var _render = require('../render/');
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Reconciler = require('react-reconciler');
 
@@ -27,18 +25,10 @@ var DesktopRenderer = Reconciler({
   createInstance: function createInstance(type, props, internalInstanceHandle) {
     return (0, _createElement.createElement)(type, props);
   },
-  createTextInstance: function createTextInstance(
-    text,
-    rootContainerInstance,
-    internalInstanceHandle
-  ) {
+  createTextInstance: function createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
     return text;
   },
-  finalizeInitialChildren: function finalizeInitialChildren(
-    wordElement,
-    type,
-    props
-  ) {
+  finalizeInitialChildren: function finalizeInitialChildren(wordElement, type, props) {
     return false;
   },
   getPublicInstance: function getPublicInstance(inst) {
@@ -67,6 +57,7 @@ var DesktopRenderer = Reconciler({
     return false;
   },
 
+
   now: function now() {},
 
   useSyncScheduling: true,
@@ -78,10 +69,7 @@ var DesktopRenderer = Reconciler({
       }
       child.render(parentInstance.element); // we just added a new child, so we want to render it
     },
-    appendChildToContainer: function appendChildToContainer(
-      parentInstance,
-      child
-    ) {
+    appendChildToContainer: function appendChildToContainer(parentInstance, child) {
       if (parentInstance.appendChild) {
         parentInstance.appendChild(child);
       }
@@ -89,43 +77,24 @@ var DesktopRenderer = Reconciler({
     removeChild: function removeChild(parentInstance, child) {
       parentInstance.removeChild(child);
     },
-    removeChildFromContainer: function removeChildFromContainer(
-      parentInstance,
-      child
-    ) {
+    removeChildFromContainer: function removeChildFromContainer(parentInstance, child) {
       parentInstance.removeChild(child);
     },
     insertBefore: function insertBefore(parentInstance, child, beforeChild) {
       // noob
     },
-    commitUpdate: function commitUpdate(
-      instance,
-      updatePayload,
-      type,
-      oldProps,
-      newProps
-    ) {
+    commitUpdate: function commitUpdate(instance, updatePayload, type, oldProps, newProps) {
       if (typeof instance.update !== 'undefined') {
         instance.update(oldProps, newProps);
       }
     },
-    commitMount: function commitMount(
-      instance,
-      updatePayload,
-      type,
-      oldProps,
-      newProps
-    ) {
+    commitMount: function commitMount(instance, updatePayload, type, oldProps, newProps) {
       // noop
     },
-    commitTextUpdate: function commitTextUpdate(
-      textInstance,
-      oldText,
-      newText
-    ) {
+    commitTextUpdate: function commitTextUpdate(textInstance, oldText, newText) {
       textInstance = newText;
-    },
-  },
+    }
+  }
 });
 
 exports.default = DesktopRenderer;

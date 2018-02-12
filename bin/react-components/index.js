@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.Menu = exports.Separator = exports.RadioButtons = exports.Picker = exports.TextInput = exports.Box = undefined;
 
@@ -29,9 +29,7 @@ var _Menu = require('./Menu');
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.Box = _Box2.default;
 exports.TextInput = _TextInput2.default;

@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.FontButton = exports.MenuBar = exports.ProgressBar = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButton = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.PasswordEntry = exports.Entry = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.Root = undefined;
 
@@ -109,9 +109,7 @@ var _FontButton = require('./FontButton');
 
 var _FontButton2 = _interopRequireDefault(_FontButton);
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.Root = _Root2.default;
 exports.Text = _Text2.default;
