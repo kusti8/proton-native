@@ -5,7 +5,7 @@ A drop down menu where the user can pick different values.
 ```javascript
 import React, { Component } from 'react';
 
-import { render, Window, App, Menu } from 'proton-native';
+import { render, Window, App, Picker } from 'proton-native';
 
 class Example extends Component {
   render() {

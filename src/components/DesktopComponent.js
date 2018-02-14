@@ -66,7 +66,6 @@ class DesktopComponent {
     const stretchy = this.props.stretchy;
     if (parent instanceof Form) {
       // we have a form
-      console.log(stretchy);
       parent.element.append(this.props.label, this.element, stretchy);
     } else if (parent instanceof Tab) {
       // we have a tab

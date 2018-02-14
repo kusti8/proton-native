@@ -7,7 +7,7 @@ Every component has many props, which are described [here](grid_components.md) i
 ```javascript
 import React, { Component } from 'react';
 
-import { render, Window, App, Form, TextInput } from 'proton-native';
+import { render, Window, App, Grid, Button, TextInput } from 'proton-native';
 
 class Example extends Component {
   render() {

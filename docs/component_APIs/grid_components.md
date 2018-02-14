@@ -5,7 +5,7 @@ A child in a [Grid component](grid.md). Can specify the location in the grid, as
 ```javascript
 import React, { Component } from 'react';
 
-import { render, Window, App, Form, TextInput } from 'proton-native';
+import { render, Window, App, Grid, Button, TextInput } from 'proton-native';
 
 class Example extends Component {
   render() {

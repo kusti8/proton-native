@@ -5,7 +5,7 @@ A toggleable box with some text on it.
 ```javascript
 import React, { Component } from 'react';
 
-import { render, Window, App, Button } from 'proton-native';
+import { render, Window, App, Checkbox } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -28,7 +28,7 @@ render(<Example />);
 - [enabled](#enabled)
 - [visible](#visible)
 - [checked](#checked)
-- [onChecked](#onChecked)
+- [onToggled](#onToggled)
 
 ## Reference
 
