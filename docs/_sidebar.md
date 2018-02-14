@@ -22,3 +22,6 @@
     - [Tab](component_APIs/tab.md)
     - [TextInput](component_APIs/textinput.md)
     - [Window](component_APIs/window.md)
+
+- Methods
+    - [Dialog](methods/dialog.md)

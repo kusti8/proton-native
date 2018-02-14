@@ -7,6 +7,7 @@ import {
   Separator,
   Menu,
 } from './react-components';
+import { Dialog } from './components'
 
 // Aliases for createElement method
 const Text = 'TEXT';
@@ -74,4 +75,5 @@ export {
   MenuBarItem,
   Menu,
   FontButton,
+  Dialog,
 };

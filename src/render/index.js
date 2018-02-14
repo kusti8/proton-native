@@ -1,6 +1,5 @@
 import { createElement } from '../utils/createElement';
 import DesktopRenderer from '../reconciler/';
-import { debounce } from 'lodash';
 
 export let ROOT_NODE = {};
 

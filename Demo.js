@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 
-import { render, Window, App, Form, TextInput } from './src/';
+import { render, Window, App, TextInput, Dialog } from './src/';
 
 class Example extends Component {
   render() {
     return (
       <App>
         <Window title="Example" height={500} width={500}>
-          <Form>
-            <TextInput stretchy={false} label="Username" />
-            <TextInput stretchy={false} label="Password" secure={true} />
-          </Form>
+            <TextInput stretchy={false} onChanged={() => Dialog('Error', {title: "Message"})}/>
         </Window>
       </App>
     );
