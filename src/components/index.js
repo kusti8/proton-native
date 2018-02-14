@@ -24,7 +24,7 @@ import HorizontalSeparator from './HorizontalSeparator';
 import ProgressBar from './ProgressBar';
 import MenuBar from './MenuBar';
 import FontButton from './FontButton';
-import Dialog from './Dialog'
+import Dialog from './Dialog';
 
 export {
   Root,

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 var CURRENT_WINDOW = null;
 
-export { CURRENT_WINDOW }
+export { CURRENT_WINDOW };
 
 class Window extends DesktopComponent {
   constructor(root, props) {
@@ -88,7 +88,7 @@ class Window extends DesktopComponent {
           w: this.element.position.w,
         });
       });
-      CURRENT_WINDOW = this.element
+      CURRENT_WINDOW = this.element;
     }
     this.element.show();
     this.renderChildNode(this);

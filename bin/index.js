@@ -3,13 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.FontButton = exports.Menu = exports.MenuBarItem = exports.MenuBar = exports.ProgressBar = exports.Separator = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButtons = exports.RadioButtonItem = exports.RadioButton = exports.Picker = exports.ComboboxItem = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.TextInput = exports.PasswordEntry = exports.Entry = exports.Box = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.render = undefined;
+exports.Dialog = exports.FontButton = exports.Menu = exports.MenuBarItem = exports.MenuBar = exports.ProgressBar = exports.Separator = exports.HorizontalSeparator = exports.VerticalSeparator = exports.EditableCombobox = exports.RadioButtons = exports.RadioButtonItem = exports.RadioButton = exports.Picker = exports.ComboboxItem = exports.Combobox = exports.Slider = exports.Spinbox = exports.Checkbox = exports.Grid = exports.Group = exports.Tab = exports.Form = exports.ColorButton = exports.MultilineEntry = exports.TextInput = exports.PasswordEntry = exports.Entry = exports.Box = exports.HorizontalBox = exports.VerticalBox = exports.Button = exports.Window = exports.App = exports.Text = exports.render = undefined;
 
 var _render = require('./render');
 
 var _render2 = _interopRequireDefault(_render);
 
 var _reactComponents = require('./react-components');
+
+var _components = require('./components');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -78,3 +80,4 @@ exports.MenuBar = MenuBar;
 exports.MenuBarItem = MenuBarItem;
 exports.Menu = _reactComponents.Menu;
 exports.FontButton = FontButton;
+exports.Dialog = _components.Dialog;

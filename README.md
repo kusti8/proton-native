@@ -4,6 +4,12 @@
   </a>
 </p>
 
+[![npm](https://img.shields.io/npm/v/proton-native.svg)](https://www.npmjs.com/package/proton-native)
+[![npm](https://img.shields.io/npm/dm/proton-native.svg)](https://www.npmjs.com/package/proton-native)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![GPLv3 License](https://img.shields.io/github/license/kusti8/proton-native.svg)](https://github.com/kusti8/proton-native/blob/master/LICENSE)
+
 Create native desktop applications through a React syntax, on all platforms
 
 ## Features
