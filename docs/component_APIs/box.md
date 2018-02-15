@@ -1,4 +1,4 @@
-# Button
+# Box
 
 A container for multiple components that are ordered vertically or horizontally. Similar to React Native's `View`.
 
