@@ -1,4 +1,4 @@
-# Progress Bar
+# ProgressBar
 
 A bar that shows the progress in a certain task, 0-100.
 
