@@ -1,4 +1,4 @@
-# Button
+# ColorButton
 
 A button that allows the user to choose a color.
 
