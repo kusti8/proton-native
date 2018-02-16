@@ -21,6 +21,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _eventLoop = require('../eventLoop');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -93,7 +95,7 @@ var Window = function (_DesktopComponent) {
           _this2.props.onClosing();
           _this2.element.close();
           if (_this2.props.lastWindow) {
-            _libuiNode2.default.stopLoop();
+            (0, _eventLoop.stop)();
           }
         });
         this.element.margined = this.props.margined;

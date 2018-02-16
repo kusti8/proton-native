@@ -4,6 +4,7 @@ import DesktopComponent, {
 } from './DesktopComponent';
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
+import { stop } from '../eventLoop';
 
 var CURRENT_WINDOW = null;
 
@@ -63,7 +64,7 @@ class Window extends DesktopComponent {
         this.props.onClosing();
         this.element.close();
         if (this.props.lastWindow) {
-          libui.stopLoop();
+          stop();
         }
       });
       this.element.margined = this.props.margined;

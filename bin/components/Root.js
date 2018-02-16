@@ -14,6 +14,8 @@ var _DesktopComponent2 = require('./DesktopComponent');
 
 var _DesktopComponent3 = _interopRequireDefault(_DesktopComponent2);
 
+var _eventLoop = require('../eventLoop');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32,7 +34,7 @@ var Root = function (_DesktopComponent) {
     var _this = _possibleConstructorReturn(this, (Root.__proto__ || Object.getPrototypeOf(Root)).call(this));
 
     _libuiNode2.default.Ui.init();
-    _libuiNode2.default.startLoop();
+    (0, _eventLoop.start)();
     return _this;
   }
 

@@ -9,9 +9,13 @@ font.onChanged(function() {
 });
 win.setChild(font);
 win.onClosing(function() {
-  libui.stopLoop();
+  //libui.stopLoop();
 });
 
 win.show();
 
-libui.startLoop();
+libui.Ui.mainSteps()
+
+while (true) {
+  libui.Ui.mainStep(1)
+}
