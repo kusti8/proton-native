@@ -90,4 +90,4 @@ It is not only shorter, it is also easier to read and to edit, and can easily ut
 
 ## Examples
 
-Check out [the examples](https://github.com/kusti8/proton-native/examples) to see more.
+Check out [the examples](https://github.com/kusti8/proton-native/tree/master/examples) to see more.
