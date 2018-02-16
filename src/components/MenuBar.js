@@ -41,6 +41,11 @@ MenuBar.Item = class Item extends DesktopComponent {
     this.element = {};
   }
 
+  update() {
+    // noop
+    // no element
+  }
+
   render(parent) {
     this.addParent(parent);
     this.initialProps(this.props); // we can only set props after they have been created in addParent

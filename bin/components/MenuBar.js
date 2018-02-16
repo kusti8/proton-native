@@ -81,6 +81,12 @@ MenuBar.Item = function (_DesktopComponent2) {
   }
 
   _createClass(Item, [{
+    key: 'update',
+    value: function update() {
+      // noop
+      // no element
+    }
+  }, {
     key: 'render',
     value: function render(parent) {
       this.addParent(parent);

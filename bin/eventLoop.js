@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.start = start;
 exports.stop = stop;
@@ -18,24 +18,24 @@ var STARTED = false;
 var timeout = null;
 
 function start() {
-    if (STARTED) {
-        return;
-    } else {
-        STARTED = true;
-    }
-    _libuiNode2.default.Ui.mainSteps();
-    timeout = setInterval(function () {
-        return _libuiNode2.default.Ui.mainStep(1);
-    }, 16);
+  if (STARTED) {
+    return;
+  } else {
+    STARTED = true;
+  }
+  _libuiNode2.default.Ui.mainSteps();
+  timeout = setInterval(function () {
+    return _libuiNode2.default.Ui.mainStep(1);
+  }, 16);
 }
 
 function stop() {
-    if (!STARTED) {
-        return;
-    } else {
-        STARTED = false;
-    }
-    if (timeout) {
-        (0, _timers.clearInterval)(timeout);
-    }
+  if (!STARTED) {
+    return;
+  } else {
+    STARTED = false;
+  }
+  if (timeout) {
+    (0, _timers.clearInterval)(timeout);
+  }
 }
