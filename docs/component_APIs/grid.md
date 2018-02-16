@@ -1,27 +1,21 @@
 # Grid
 
-A container where there are rows and columns to align the components.
-
-Every component has many props, which are described [here](grid_components.md) in detail.
+A grid where components can be placed in rows and columns. 
 
 ```javascript
 import React, { Component } from 'react';
 
-import { render, Window, App, Grid, Button, TextInput } from 'proton-native';
+import { render, Window, App, Form, TextInput } from 'proton-native';
 
 class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Example" height={500} width={500}>
-          <Grid padded={true}>
-            <Button row={0} column={0}>
-              Hello
-            </Button>
-            <TextInput row={0} column={1}>
-              Hi
-            </TextInput>
-          </Grid>
+        <Window title="Example" size={{w: 500, h: 500}}>
+            <Form>
+                <TextInput label="Username" />
+                <TextInput label="Password" secure={true} />
+            </Form>
         </Window>
       </App>
     );
@@ -41,7 +35,7 @@ render(<Example />);
 
 ### enabled
 
-Whether the Grid is enabled.
+Whether the Form is enabled.
 
 | **Type** | **Required** |
 | --- | --- |
@@ -49,7 +43,7 @@ Whether the Grid is enabled.
 
 ### visible
 
-Whether the Grid can be seen.
+Whether the Form can be seen.
 
 | **Type** | **Required** |
 | --- | --- |

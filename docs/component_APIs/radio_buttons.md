@@ -13,7 +13,7 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Example" height={500} width={500}>
+        <Window title="Example" size={{w: 500, h: 500}}>
           <RadioButtons>
             <RadioButtons.Item>Option 1</RadioButtons.Item>
             <RadioButtons.Item>Option 2</RadioButtons.Item>

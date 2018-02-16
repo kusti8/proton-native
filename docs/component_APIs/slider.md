@@ -11,7 +11,7 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Example" height={500} width={500}>
+        <Window title="Example" size={{w: 500, h: 500}}>
             <Slider value={0} />
         </Window>
       </App>

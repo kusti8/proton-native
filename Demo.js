@@ -6,7 +6,7 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Example" height={500} width={500}>
+        <Window title="Example" size={{w: 500, h: 500}}>
             <TextInput stretchy={false} onChanged={() => Dialog('Error', {title: "Message"})}/>
         </Window>
       </App>

@@ -16,7 +16,7 @@ class Example extends Component {
          <Menu label="HI">
            <Menu.Item>Hi</Menu.Item>
          </Menu>
-        <Window title="Example" height={500} width={500} />
+        <Window title="Example" size={{w: 500, h: 500}} />
       </App>
     );
   }
