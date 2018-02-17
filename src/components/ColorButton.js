@@ -7,7 +7,7 @@ import Color from 'color';
 import PropTypes from 'prop-types';
 
 class ColorButton extends DesktopComponent {
-  eventParameter = { onChanged: 'color' };
+  eventParameter = { onChange: 'color' };
 
   constructor(root, props) {
     super(root, props);
@@ -91,13 +91,13 @@ class ColorButton extends DesktopComponent {
 
 ColorButton.PropTypes = {
   color: PropTypes.string,
-  onChanged: PropTypes.func,
+  onChange: PropTypes.func,
   ...universalPropTypes,
 };
 
 ColorButton.defaultProps = {
   color: 'black',
-  onChanged: () => {},
+  onChange: () => {},
   ...universalDefaultProps,
 };
 

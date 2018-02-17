@@ -7,7 +7,7 @@ class Example extends Component {
     return (
       <App>
         <Window title="Example" height={300} width={300} menuBar={false}>
-          <Button stretchy={false} onClicked={() => console.log('Hello')}>
+          <Button stretchy={false} onClick={() => console.log('Hello')}>
             Button
           </Button>
         </Window>

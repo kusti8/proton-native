@@ -80,8 +80,8 @@ class Window extends DesktopComponent {
         this.element.center();
       }
 
-      this.element.onPositionChanged(() => {
-        this.props.onPositionChanged({
+      this.element.onPositionChange(() => {
+        this.props.onPositionChange({
           x: this.element.position.x,
           y: this.element.position.y,
         });
@@ -117,7 +117,7 @@ Window.PropTypes = {
   lastWindow: PropTypes.bool,
   closed: PropTypes.bool,
   onClosing: PropTypes.func,
-  onPositionChanged: PropTypes.func,
+  onPositionChange: PropTypes.func,
   onContentSizeChanged: PropTypes.func,
 };
 
@@ -139,7 +139,7 @@ Window.defaultProps = {
   lastWindow: true,
   closed: false,
   onClosing: () => {},
-  onPositionChanged: () => {},
+  onPositionChange: () => {},
   onContentSizeChanged: () => {},
 };
 

@@ -34,7 +34,7 @@ render(<Example />);
 - [lastWindow](#lastWindow)
 - [closed](#closed)
 - [onClosing](#onClosing)
-- [onPositionChanged](#onPositionChanged)
+- [onPositionChange](#onPositionChange)
 - [onContentSizeChanged](#onContentSizeChanged)
 
 ## Reference
@@ -119,7 +119,7 @@ Called when the window is closed.
 | --- | --- |
 | function() | No |
 
-### onPositionChanged
+### onPositionChange
 
 Called when the window position is changed. The new position is passed as an argument, in an object.
 

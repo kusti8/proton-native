@@ -29,7 +29,7 @@ render(<Example />);
 - [children](#children)
 - [enabled](#enabled)
 - [visible](#visible)
-- [onClicked](#onClicked)
+- [onClick](#onClick)
 
 ## Reference
 
@@ -57,7 +57,7 @@ Whether the button can be seen.
 | --- | --- |
 | bool | No |
 
-### onClicked
+### onClick
 
 Called when the button is clicked.
 

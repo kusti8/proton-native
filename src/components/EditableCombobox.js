@@ -6,7 +6,7 @@ import libui from 'libui-node';
 import PropTypes from 'prop-types';
 
 class EditableCombobox extends DesktopComponent {
-  eventParameter = { onChanged: 'text' };
+  eventParameter = { onChange: 'text' };
 
   constructor(root, props) {
     super(root, props);
@@ -28,7 +28,7 @@ EditableCombobox.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   text: PropTypes.string,
-  onChanged: PropTypes.func,
+  onChange: PropTypes.func,
   ...universalPropTypes,
 };
 
@@ -36,7 +36,7 @@ EditableCombobox.defaultProps = {
   enabled: true,
   visible: true,
   text: '',
-  onChanged: () => {},
+  onChange: () => {},
   ...universalDefaultProps,
 };
 

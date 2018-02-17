@@ -12,7 +12,7 @@ class Example extends Component {
     return (
       <App>
         <Window title="Example" size={{w: 500, h: 500}}>
-            <TextInput onChanged={() => Dialog('Error', {title: "Message"})}/>
+            <TextInput onChange={() => Dialog('Error', {title: "Message"})}/>
         </Window>
       </App>
     );

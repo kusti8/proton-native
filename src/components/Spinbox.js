@@ -6,7 +6,7 @@ import libui from 'libui-node';
 import PropTypes from 'prop-types';
 
 class Spinbox extends DesktopComponent {
-  eventParameter = { onChanged: 'value' };
+  eventParameter = { onChange: 'value' };
 
   constructor(root, props) {
     super(root, props);
@@ -27,7 +27,7 @@ Spinbox.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   value: PropTypes.number,
-  onChanged: PropTypes.func,
+  onChange: PropTypes.func,
   ...universalPropTypes,
 };
 
@@ -35,7 +35,7 @@ Spinbox.defaultProps = {
   enabled: true,
   visible: true,
   value: 0,
-  onChanged: () => {},
+  onChange: () => {},
   ...universalDefaultProps,
 };
 

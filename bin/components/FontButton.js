@@ -36,7 +36,7 @@ var FontButton = function (_DesktopComponent) {
 
     var _this = _possibleConstructorReturn(this, (FontButton.__proto__ || Object.getPrototypeOf(FontButton)).call(this, root, props));
 
-    _this.eventParameter = { onChanged: function onChanged() {
+    _this.eventParameter = { onChange: function onChange() {
         return _this.element.getFont();
       } };
 
@@ -60,11 +60,11 @@ var FontButton = function (_DesktopComponent) {
 }(_DesktopComponent3.default);
 
 FontButton.PropTypes = _extends({
-  onChanged: _propTypes2.default.func
+  onChange: _propTypes2.default.func
 }, _DesktopComponent2.universalPropTypes);
 
 FontButton.defaultProps = _extends({
-  onChanged: function onChanged() {}
+  onChange: function onChange() {}
 }, _DesktopComponent2.universalDefaultProps);
 
 exports.default = FontButton;

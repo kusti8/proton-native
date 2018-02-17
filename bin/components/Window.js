@@ -110,8 +110,8 @@ var Window = function (_DesktopComponent) {
           this.element.center();
         }
 
-        this.element.onPositionChanged(function () {
-          _this2.props.onPositionChanged({
+        this.element.onPositionChange(function () {
+          _this2.props.onPositionChange({
             x: _this2.element.position.x,
             y: _this2.element.position.y
           });
@@ -150,7 +150,7 @@ Window.PropTypes = {
   lastWindow: _propTypes2.default.bool,
   closed: _propTypes2.default.bool,
   onClosing: _propTypes2.default.func,
-  onPositionChanged: _propTypes2.default.func,
+  onPositionChange: _propTypes2.default.func,
   onContentSizeChanged: _propTypes2.default.func
 };
 
@@ -172,7 +172,7 @@ Window.defaultProps = {
   lastWindow: true,
   closed: false,
   onClosing: function onClosing() {},
-  onPositionChanged: function onPositionChanged() {},
+  onPositionChange: function onPositionChange() {},
   onContentSizeChanged: function onContentSizeChanged() {}
 };
 
