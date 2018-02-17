@@ -27,7 +27,7 @@ render(<Example />);
 - [enabled](#enabled)
 - [visible](#visible)
 - [value](#value)
-- [onChanged](#onChanged)
+- [onChange](#onChange)
 
 ## Reference
 
@@ -55,7 +55,7 @@ The current value of the Slider (0-100).
 | --- | --- |
 | number | No |
 
-### onChanged
+### onChange
 
 Called when the value of the slider is changed. The current value is passed as an argument.
 

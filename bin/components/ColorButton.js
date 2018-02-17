@@ -40,7 +40,7 @@ var ColorButton = function (_DesktopComponent) {
 
     var _this = _possibleConstructorReturn(this, (ColorButton.__proto__ || Object.getPrototypeOf(ColorButton)).call(this, root, props));
 
-    _this.eventParameter = { onChanged: 'color' };
+    _this.eventParameter = { onChange: 'color' };
 
     _this.root = root;
     _this.props = _extends({}, props);
@@ -142,12 +142,12 @@ var ColorButton = function (_DesktopComponent) {
 
 ColorButton.PropTypes = _extends({
   color: _propTypes2.default.string,
-  onChanged: _propTypes2.default.func
+  onChange: _propTypes2.default.func
 }, _DesktopComponent2.universalPropTypes);
 
 ColorButton.defaultProps = _extends({
   color: 'black',
-  onChanged: function onChanged() {}
+  onChange: function onChange() {}
 }, _DesktopComponent2.universalDefaultProps);
 
 exports.default = ColorButton;

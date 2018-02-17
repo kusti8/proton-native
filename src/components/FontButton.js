@@ -6,7 +6,7 @@ import libui from 'libui-node';
 import PropTypes from 'prop-types';
 
 class FontButton extends DesktopComponent {
-  eventParameter = { onChanged: () => this.element.getFont() };
+  eventParameter = { onChange: () => this.element.getFont() };
 
   constructor(root, props) {
     super(root, props);
@@ -24,12 +24,12 @@ class FontButton extends DesktopComponent {
 }
 
 FontButton.PropTypes = {
-  onChanged: PropTypes.func,
+  onChange: PropTypes.func,
   ...universalPropTypes,
 };
 
 FontButton.defaultProps = {
-  onChanged: () => {},
+  onChange: () => {},
   ...universalDefaultProps,
 };
 

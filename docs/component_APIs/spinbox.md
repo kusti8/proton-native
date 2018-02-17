@@ -27,7 +27,7 @@ render(<Example />);
 - [enabled](#enabled)
 - [visible](#visible)
 - [value](#value)
-- [onChanged](#onChanged)
+- [onChange](#onChange)
 
 ## Reference
 
@@ -55,7 +55,7 @@ What the value of the Spinbox is set to.
 | --- | --- |
 | number | No |
 
-### onChanged
+### onChange
 
 When the Spinbox value is changed. The current value is passed as a parameter.
 

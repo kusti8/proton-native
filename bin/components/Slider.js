@@ -36,7 +36,7 @@ var Slider = function (_DesktopComponent) {
 
     var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, root, props));
 
-    _this.eventParameter = { onChanged: 'value' };
+    _this.eventParameter = { onChange: 'value' };
 
     _this.root = root;
     _this.props = _extends({}, props);
@@ -61,14 +61,14 @@ Slider.PropTypes = _extends({
   enabled: _propTypes2.default.bool,
   visible: _propTypes2.default.bool,
   value: _propTypes2.default.number,
-  onChanged: _propTypes2.default.func
+  onChange: _propTypes2.default.func
 }, _DesktopComponent2.universalPropTypes);
 
 Slider.defaultProps = _extends({
   enabled: true,
   visible: true,
   value: 0,
-  onChanged: function onChanged() {}
+  onChange: function onChange() {}
 }, _DesktopComponent2.universalDefaultProps);
 
 exports.default = Slider;

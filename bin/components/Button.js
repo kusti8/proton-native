@@ -36,7 +36,7 @@ var Button = function (_DesktopComponent) {
 
     var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, root, props));
 
-    _this.eventParameter = { onClicked: 'text' };
+    _this.eventParameter = { onClick: 'text' };
     _this.childName = 'text';
 
     _this.root = root;
@@ -61,14 +61,14 @@ var Button = function (_DesktopComponent) {
 Button.PropTypes = _extends({
   enabled: _propTypes2.default.bool,
   visible: _propTypes2.default.bool,
-  onClicked: _propTypes2.default.func,
+  onClick: _propTypes2.default.func,
   children: _propTypes2.default.string
 }, _DesktopComponent2.universalPropTypes);
 
 Button.defaultProps = _extends({
   enabled: true,
   visible: true,
-  onClicked: function onClicked() {},
+  onClick: function onClick() {},
   children: ''
 }, _DesktopComponent2.universalDefaultProps);
 

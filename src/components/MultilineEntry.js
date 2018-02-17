@@ -6,7 +6,7 @@ import libui from 'libui-node';
 import PropTypes from 'prop-types';
 
 class MultilineEntry extends DesktopComponent {
-  eventParameter = { onChanged: 'text' };
+  eventParameter = { onChange: 'text' };
   childName = 'text';
 
   constructor(root, props) {
@@ -28,7 +28,7 @@ MultilineEntry.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   readOnly: PropTypes.bool,
-  onChanged: PropTypes.func,
+  onChange: PropTypes.func,
   children: PropTypes.string,
   ...universalPropTypes,
 };
@@ -37,7 +37,7 @@ MultilineEntry.defaultProps = {
   enabled: true,
   visible: true,
   readOnly: false,
-  onChanged: () => {},
+  onChange: () => {},
   children: '',
   ...universalDefaultProps,
 };

@@ -36,7 +36,7 @@ var EditableCombobox = function (_DesktopComponent) {
 
     var _this = _possibleConstructorReturn(this, (EditableCombobox.__proto__ || Object.getPrototypeOf(EditableCombobox)).call(this, root, props));
 
-    _this.eventParameter = { onChanged: 'text' };
+    _this.eventParameter = { onChange: 'text' };
 
     _this.root = root;
     _this.props = _extends({}, props);
@@ -62,14 +62,14 @@ EditableCombobox.PropTypes = _extends({
   enabled: _propTypes2.default.bool,
   visible: _propTypes2.default.bool,
   text: _propTypes2.default.string,
-  onChanged: _propTypes2.default.func
+  onChange: _propTypes2.default.func
 }, _DesktopComponent3.universalPropTypes);
 
 EditableCombobox.defaultProps = _extends({
   enabled: true,
   visible: true,
   text: '',
-  onChanged: function onChanged() {}
+  onChange: function onChange() {}
 }, _DesktopComponent3.universalDefaultProps);
 
 EditableCombobox.Item = function (_DesktopComponent2) {

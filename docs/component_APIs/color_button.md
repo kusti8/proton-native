@@ -25,7 +25,7 @@ render(<Example />);
 ## Props
 
 - [color](#color)
-- [onChanged](#onChanged)
+- [onChange](#onChange)
 
 ## Reference
 
@@ -44,7 +44,7 @@ A full list of names can be found [here](https://www.w3schools.com/colors/colors
 | --- | --- |
 | string | No |
 
-### onClicked
+### onClick
 
 Called when the color is changed for the ColorButton. The current color is passed as an object of RGBA.
 

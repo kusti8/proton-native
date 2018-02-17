@@ -36,7 +36,7 @@ var MultilineEntry = function (_DesktopComponent) {
 
     var _this = _possibleConstructorReturn(this, (MultilineEntry.__proto__ || Object.getPrototypeOf(MultilineEntry)).call(this, root, props));
 
-    _this.eventParameter = { onChanged: 'text' };
+    _this.eventParameter = { onChange: 'text' };
     _this.childName = 'text';
 
     _this.root = root;
@@ -62,7 +62,7 @@ MultilineEntry.PropTypes = _extends({
   enabled: _propTypes2.default.bool,
   visible: _propTypes2.default.bool,
   readOnly: _propTypes2.default.bool,
-  onChanged: _propTypes2.default.func,
+  onChange: _propTypes2.default.func,
   children: _propTypes2.default.string
 }, _DesktopComponent2.universalPropTypes);
 
@@ -70,7 +70,7 @@ MultilineEntry.defaultProps = _extends({
   enabled: true,
   visible: true,
   readOnly: false,
-  onChanged: function onChanged() {},
+  onChange: function onChange() {},
   children: ''
 }, _DesktopComponent2.universalDefaultProps);
 

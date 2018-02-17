@@ -30,7 +30,7 @@ render(<Example />);
 - [readOnly](#readOnly)
 - [secure](#secure)
 - [multiline](#multiline)
-- [onChanged](#onChanged)
+- [onChange](#onChange)
 
 ## Reference
 
@@ -82,7 +82,7 @@ Whether multiple lines can be inputted into the TextInput.
 | --- | --- |
 | bool | No |
 
-### onChanged
+### onChange
 
 Called when the TextInput text is changed. The new text is passed as an argument.
 
