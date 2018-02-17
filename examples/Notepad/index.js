@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import fs from 'fs'
-import { render, Window, App, TextInput, Dialog, Menu, Box } from '../src/';
+import { render, Window, App, TextInput, Dialog, Menu, Box } from 'proton-native';
 
-class Example extends Component {
+class Notepad extends Component {
     state = {text: ''}
 
     save() {
@@ -34,4 +34,4 @@ class Example extends Component {
   }
 }
 
-render(<Example />);
+render(<Notepad />);
