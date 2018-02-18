@@ -19,8 +19,11 @@ class Notepad extends Component {
         })
     }
 
-    shouldComponentUpdate() {
-        return false;
+    shouldComponentUpdate(nextProps, nextState) {
+       if(typeof nextState.text === 'string')
+            return false // nextState is set from input
+        else 
+            return true // nextState is set from file
     }
 
     render() {
