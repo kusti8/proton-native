@@ -17,6 +17,7 @@ class Example extends Component {
           <RadioButtons>
             <RadioButtons.Item>Option 1</RadioButtons.Item>
             <RadioButtons.Item>Option 2</RadioButtons.Item>
+          </RadioButtons>
         </Window>
       </App>
     );
