@@ -1,5 +1,11 @@
 # Quickstart
 
+## Prerequisites
+
+### Linux
+
+`libgtk-3-dev`
+
 ## Install
 
 To install, simply download it from NPM:
