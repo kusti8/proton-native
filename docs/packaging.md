@@ -6,7 +6,7 @@ Currently, the node packaging/compiling world has gotten a lot more complicated 
 
 Currently, the easiest way is to simply download a [node binary](https://nodejs.org/en/download/) for your platform, copy it into your project root. Then create a shortcut/script to execute that.
 
-Make sure you have babel transpile it, because node doesn't like ES6 currently:
+Make sure you have babel transpile it, in case you use any new syntax not supported by your current version of node.
 
 `package.json`
 ```
