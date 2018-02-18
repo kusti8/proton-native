@@ -9,6 +9,7 @@ class Notepad extends Component {
         const filename = Dialog('Save')
         fs.writeFile(filename, this.state.text)
     }
+
     open() {
         const filename = Dialog('Open')
         fs.readFile(filename, (err, data) => {
@@ -17,21 +18,26 @@ class Notepad extends Component {
             this.setState({text: data})
         })
     }
-  render() {
-    return (
-      <App>
-        <Menu label="File">
-            <Menu.Item type="Item" onClicked={() => this.open()}>Open</Menu.Item>
-            <Menu.Item type="Item" onClicked={() => this.save()}>Save</Menu.Item>
-        </Menu>
-        <Window title="Notes" size={{w: 500, h: 500}}>
-            <Box>
-                <TextInput onChanged={text => this.setState({text})} multiline={true}>{this.state.text}</TextInput>
-            </Box>
-        </Window>
-      </App>
-    );
-  }
+
+    shouldComponentUpdate() {
+        return false;
+    }
+
+    render() {
+        return (
+            <App>
+                <Menu label="File">
+                    <Menu.Item type="Item" onClicked={() => this.open()}>Open</Menu.Item>
+                    <Menu.Item type="Item" onClicked={() => this.save()}>Save</Menu.Item>
+                </Menu>
+                <Window title="Notes" size={{w: 500, h: 500}}>
+                    <Box>
+                        <TextInput onChanged={text => this.setState({text})} multiline={true}>{this.state.text}</TextInput>
+                    </Box>
+                </Window>
+            </App>
+        );
+    }
 }
 
 render(<Notepad />);
