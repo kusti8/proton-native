@@ -1,7 +1,7 @@
 import { CURRENT_WINDOW } from './Window';
 import libui from 'libui-node';
 
-const getCorrectDialog = {
+const getCurrentDialog = {
   Open() {
     return libui.UiDialogs.openFile(CURRENT_WINDOW);
   },
