@@ -37,5 +37,5 @@ export default function Dialog(type, options) {
     }
   }
 
-  getCurrentDialog[type](options);
+  return getCurrentDialog[type](options);
 }
