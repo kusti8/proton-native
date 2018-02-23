@@ -32,7 +32,7 @@ And then add the following to your `package.json`:
 
 ```
   "scripts": {
-    "start": "node_modules/.bin/babel-node index.js"
+    "start": "babel-node index.js"
   }
 ```
 
