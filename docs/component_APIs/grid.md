@@ -5,17 +5,21 @@ A grid where components can be placed in rows and columns.
 ```javascript
 import React, { Component } from 'react';
 
-import { render, Window, App, Form, TextInput } from 'proton-native';
+import { render, Window, App, Grid, Button, TextInput } from 'proton-native';
 
 class Example extends Component {
   render() {
     return (
       <App>
         <Window title="Example" size={{w: 500, h: 500}}>
-            <Form>
-                <TextInput label="Username" />
-                <TextInput label="Password" secure={true} />
-            </Form>
+          <Grid padded={true}>
+            <Button row={0} column={0}>
+              Hello
+            </Button>
+            <TextInput row={0} column={1}>
+              Hi
+            </TextInput>
+          </Grid>
         </Window>
       </App>
     );
