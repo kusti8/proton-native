@@ -18,6 +18,7 @@ Create native desktop applications through a React syntax, on all platforms
 - Works with existing React libraries such as Redux
 - Cross platform
 - Native components. No more Electron
+- Compatible with all normal Node.js packages
 
 ## Images
 
