@@ -61,14 +61,14 @@ Spinbox.PropTypes = _extends({
   enabled: _propTypes2.default.bool,
   visible: _propTypes2.default.bool,
   value: _propTypes2.default.number,
-  onChanged: _propTypes2.default.func
+  onChange: _propTypes2.default.func
 }, _DesktopComponent2.universalPropTypes);
 
 Spinbox.defaultProps = _extends({
   enabled: true,
   visible: true,
   value: 0,
-  onChanged: function onChanged() {}
+  onChange: function onChange() {}
 }, _DesktopComponent2.universalDefaultProps);
 
 exports.default = Spinbox;

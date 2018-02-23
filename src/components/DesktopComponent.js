@@ -10,6 +10,16 @@ import {
 import { Menu } from '../';
 import PropTypes from 'prop-types';
 
+const functionMappings = {
+  onChange: 'onChanged',
+  onClose: 'onClosing',
+  onClick: 'onClicked',
+  onToggle: 'onToggled',
+  onSelect: 'onSelected',
+  onContentSizeChange: 'onContentSizeChanged',
+  onPositionChange: 'onPositionChanged',
+};
+
 class DesktopComponent {
   constructor(root, props) {
     this.children = [];
@@ -131,17 +141,18 @@ class DesktopComponent {
       // normal props
       if (oldProps[prop] !== newProps[prop]) {
         if (typeof newProps[prop] === 'function') {
-          if (typeof this.eventParameter[prop] === 'function') {
-            // if we don't have a property, then we use a function, so handle that
-            this.element[prop](() =>
-              newProps[prop](this.eventParameter[prop]())
+          const translatedProp = functionMappings[prop]; // translate React function names in libui names
+          if (typeof this.eventParameter[translatedProp] === 'function') {
+            // if we don't have a translatedProperty, then we use a function, so handle that
+            this.element[translatedProp](() =>
+              newProps[prop](this.eventParameter[translatedProp]())
             );
-          } else if (this.eventParameter[prop] !== '') {
-            this.element[prop](() =>
-              newProps[prop](this.element[this.eventParameter[prop]])
+          } else if (this.eventParameter[translatedProp] !== '') {
+            this.element[translatedProp](() =>
+              newProps[prop](this.element[this.eventParameter[translatedProp]])
             );
           } else {
-            this.element[prop](newProps[prop]);
+            this.element[translatedProp](newProps[prop]);
           }
         } else if (prop == 'children') {
           if (this.exists(this.childName)) {
@@ -162,15 +173,18 @@ class DesktopComponent {
     for (let prop in props) {
       // normal props
       if (typeof props[prop] === 'function') {
-        if (typeof this.eventParameter[prop] === 'function') {
+        const translatedProp = functionMappings[prop]; // translate React function names in libui names
+        if (typeof this.eventParameter[translatedProp] === 'function') {
           // if we don't have a property, then we use a function, so handle that
-          this.element[prop](() => props[prop](this.eventParameter[prop]()));
-        } else if (this.eventParameter[prop] !== '') {
-          this.element[prop](() =>
-            props[prop](this.element[this.eventParameter[prop]])
+          this.element[translatedProp](() =>
+            props[prop](this.eventParameter[translatedProp]())
+          );
+        } else if (this.eventParameter[translatedProp] !== '') {
+          this.element[translatedProp](() =>
+            props[prop](this.element[this.eventParameter[translatedProp]])
           );
         } else {
-          this.element[prop](props[prop]);
+          this.element[translatedProp](props[prop]);
         }
       } else if (prop == 'children') {
         if (this.exists(this.childName)) {

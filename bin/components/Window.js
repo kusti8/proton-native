@@ -52,7 +52,8 @@ var Window = function (_DesktopComponent) {
   _createClass(Window, [{
     key: 'update',
     value: function update(oldProps, newProps) {
-      if (!this.exists(this.element)) // if we haven't defined it yet, don't set props
+      if (!this.exists(this.element))
+        // if we haven't defined it yet, don't set props
         return;
       if (newProps.title !== oldProps.title) {
         this.element.title = newProps.title;
@@ -94,7 +95,7 @@ var Window = function (_DesktopComponent) {
         // we need to create a window here so that menu can go first
         this.element = new _libuiNode2.default.UiWindow(this.props.title, this.props.size.w, this.props.size.h, this.props.menuBar);
         this.element.onClosing(function () {
-          _this2.props.onClosing();
+          _this2.props.onClose();
           _this2.element.close();
           if (_this2.props.lastWindow) {
             (0, _eventLoop.stop)();
@@ -111,13 +112,13 @@ var Window = function (_DesktopComponent) {
         }
 
         this.element.onPositionChanged(function () {
-          _this2.props.onPositionChanged({
+          _this2.props.onPositionChange({
             x: _this2.element.position.x,
             y: _this2.element.position.y
           });
         });
         this.element.onContentSizeChanged(function () {
-          _this2.props.onContentSizeChanged({
+          _this2.props.onContentSizeChange({
             h: _this2.element.position.h,
             w: _this2.element.position.w
           });
@@ -149,9 +150,9 @@ Window.PropTypes = {
   //centered: PropTypes.bool,
   lastWindow: _propTypes2.default.bool,
   closed: _propTypes2.default.bool,
-  onClosing: _propTypes2.default.func,
-  onPositionChanged: _propTypes2.default.func,
-  onContentSizeChanged: _propTypes2.default.func
+  onClose: _propTypes2.default.func,
+  onPositionChange: _propTypes2.default.func,
+  onContentSizeChange: _propTypes2.default.func
 };
 
 Window.defaultProps = {
@@ -171,9 +172,9 @@ Window.defaultProps = {
   //centered: true,
   lastWindow: true,
   closed: false,
-  onClosing: function onClosing() {},
-  onPositionChanged: function onPositionChanged() {},
-  onContentSizeChanged: function onContentSizeChanged() {}
+  onClose: function onClose() {},
+  onPositionChange: function onPositionChange() {},
+  onContentSizeChange: function onContentSizeChange() {}
 };
 
 exports.default = Window;

@@ -27,7 +27,7 @@ Slider.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   value: PropTypes.number,
-  onChanged: PropTypes.func,
+  onChange: PropTypes.func,
   ...universalPropTypes,
 };
 
@@ -35,7 +35,7 @@ Slider.defaultProps = {
   enabled: true,
   visible: true,
   value: 0,
-  onChanged: () => {},
+  onChange: () => {},
   ...universalDefaultProps,
 };
 

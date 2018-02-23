@@ -24,12 +24,12 @@ class FontButton extends DesktopComponent {
 }
 
 FontButton.PropTypes = {
-  onChanged: PropTypes.func,
+  onChange: PropTypes.func,
   ...universalPropTypes,
 };
 
 FontButton.defaultProps = {
-  onChanged: () => {},
+  onChange: () => {},
   ...universalDefaultProps,
 };
 

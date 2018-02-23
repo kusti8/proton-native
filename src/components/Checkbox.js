@@ -28,7 +28,7 @@ Checkbox.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   checked: PropTypes.bool,
-  onToggled: PropTypes.func,
+  onToggle: PropTypes.func,
   children: PropTypes.string,
   ...universalPropTypes,
 };
@@ -37,7 +37,7 @@ Checkbox.defaultProps = {
   enabled: true,
   visible: true,
   checked: false,
-  onToggled: () => {},
+  onToggle: () => {},
   children: '',
   ...universalDefaultProps,
 };

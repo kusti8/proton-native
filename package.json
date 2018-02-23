@@ -1,6 +1,6 @@
 {
   "name": "proton-native",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "React Native for the desktop, cross compatible",
   "main": "bin/index.js",
   "scripts": {

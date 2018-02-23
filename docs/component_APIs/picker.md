@@ -76,7 +76,7 @@ What text is selected/typed if the picker *is* editable.
 | --- | --- | --- |
 | bool | No | Yes |
 
-### onSelected
+### onSelect
 
 When a *non-editable* Picker is changed. The current selection is passed as an argument.
 
@@ -84,7 +84,7 @@ When a *non-editable* Picker is changed. The current selection is passed as an a
 | --- | --- | --- |
 | function(selection) | No | No |
 
-### onChanged
+### onChange
 
 When an *editable* Picker is changed. The current text is passed as an argument.
 

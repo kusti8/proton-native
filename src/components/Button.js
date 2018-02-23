@@ -27,7 +27,7 @@ class Button extends DesktopComponent {
 Button.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
-  onClicked: PropTypes.func,
+  onClick: PropTypes.func,
   children: PropTypes.string,
   ...universalPropTypes,
 };
@@ -35,7 +35,7 @@ Button.PropTypes = {
 Button.defaultProps = {
   enabled: true,
   visible: true,
-  onClicked: () => {},
+  onClick: () => {},
   children: '',
   ...universalDefaultProps,
 };

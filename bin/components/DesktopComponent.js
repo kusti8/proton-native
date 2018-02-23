@@ -21,6 +21,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var functionMappings = {
+  onChange: 'onChanged',
+  onClose: 'onClosing',
+  onClick: 'onClicked',
+  onToggle: 'onToggled',
+  onSelect: 'onSelected',
+  onContentSizeChange: 'onContentSizeChanged',
+  onPositionChange: 'onPositionChanged'
+};
+
 var DesktopComponent = function () {
   function DesktopComponent(root, props) {
     _classCallCheck(this, DesktopComponent);
@@ -132,17 +142,18 @@ var DesktopComponent = function () {
         // normal props
         if (oldProps[prop] !== newProps[prop]) {
           if (typeof newProps[prop] === 'function') {
-            if (typeof _this.eventParameter[prop] === 'function') {
-              // if we don't have a property, then we use a function, so handle that
-              _this.element[prop](function () {
-                return newProps[prop](_this.eventParameter[prop]());
+            var translatedProp = functionMappings[prop]; // translate React function names in libui names
+            if (typeof _this.eventParameter[translatedProp] === 'function') {
+              // if we don't have a translatedProperty, then we use a function, so handle that
+              _this.element[translatedProp](function () {
+                return newProps[prop](_this.eventParameter[translatedProp]());
               });
-            } else if (_this.eventParameter[prop] !== '') {
-              _this.element[prop](function () {
-                return newProps[prop](_this.element[_this.eventParameter[prop]]);
+            } else if (_this.eventParameter[translatedProp] !== '') {
+              _this.element[translatedProp](function () {
+                return newProps[prop](_this.element[_this.eventParameter[translatedProp]]);
               });
             } else {
-              _this.element[prop](newProps[prop]);
+              _this.element[translatedProp](newProps[prop]);
             }
           } else if (prop == 'children') {
             if (_this.exists(_this.childName)) {
@@ -170,17 +181,18 @@ var DesktopComponent = function () {
       var _loop2 = function _loop2(prop) {
         // normal props
         if (typeof props[prop] === 'function') {
-          if (typeof _this2.eventParameter[prop] === 'function') {
+          var translatedProp = functionMappings[prop]; // translate React function names in libui names
+          if (typeof _this2.eventParameter[translatedProp] === 'function') {
             // if we don't have a property, then we use a function, so handle that
-            _this2.element[prop](function () {
-              return props[prop](_this2.eventParameter[prop]());
+            _this2.element[translatedProp](function () {
+              return props[prop](_this2.eventParameter[translatedProp]());
             });
-          } else if (_this2.eventParameter[prop] !== '') {
-            _this2.element[prop](function () {
-              return props[prop](_this2.element[_this2.eventParameter[prop]]);
+          } else if (_this2.eventParameter[translatedProp] !== '') {
+            _this2.element[translatedProp](function () {
+              return props[prop](_this2.element[_this2.eventParameter[translatedProp]]);
             });
           } else {
-            _this2.element[prop](props[prop]);
+            _this2.element[translatedProp](props[prop]);
           }
         } else if (prop == 'children') {
           if (_this2.exists(_this2.childName)) {

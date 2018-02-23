@@ -28,7 +28,7 @@ Combobox.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   selected: PropTypes.number,
-  onSelected: PropTypes.func,
+  onSelect: PropTypes.func,
   ...universalPropTypes,
 };
 
@@ -36,7 +36,7 @@ Combobox.defaultProps = {
   enabled: true,
   visible: true,
   selected: -1,
-  onSelected: () => {},
+  onSelect: () => {},
   ...universalDefaultProps,
 };
 

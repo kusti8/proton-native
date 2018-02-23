@@ -28,7 +28,7 @@ EditableCombobox.PropTypes = {
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   text: PropTypes.string,
-  onChanged: PropTypes.func,
+  onChange: PropTypes.func,
   ...universalPropTypes,
 };
 
@@ -36,7 +36,7 @@ EditableCombobox.defaultProps = {
   enabled: true,
   visible: true,
   text: '',
-  onChanged: () => {},
+  onChange: () => {},
   ...universalDefaultProps,
 };
 

@@ -62,14 +62,14 @@ RadioButton.PropTypes = _extends({
   enabled: _propTypes2.default.bool,
   visible: _propTypes2.default.bool,
   selected: _propTypes2.default.number,
-  onSelected: _propTypes2.default.func
+  onSelect: _propTypes2.default.func
 }, _DesktopComponent3.universalPropTypes);
 
 RadioButton.defaultProps = _extends({
   enabled: true,
   visible: true,
   selected: -1,
-  onSelected: function onSelected() {}
+  onSelect: function onSelect() {}
 }, _DesktopComponent3.universalDefaultProps);
 
 RadioButton.Item = function (_DesktopComponent2) {

@@ -64,7 +64,7 @@ MenuBar.Item.PropTypes = {
     'Separator',
     'Item',
   ]),
-  onClicked: PropTypes.func,
+  onClick: PropTypes.func,
   ...universalPropTypes,
 };
 
@@ -72,7 +72,7 @@ MenuBar.Item.defaultProps = {
   children: '',
   checked: false,
   type: 'Item',
-  onClicked: () => {},
+  onClick: () => {},
   ...universalDefaultProps,
 };
 

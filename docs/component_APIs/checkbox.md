@@ -28,7 +28,7 @@ render(<Example />);
 - [enabled](#enabled)
 - [visible](#visible)
 - [checked](#checked)
-- [onToggled](#onToggled)
+- [onToggle](#onToggle)
 
 ## Reference
 
@@ -64,7 +64,7 @@ Whether the checkbox is checked or not.
 | --- | --- |
 | bool | No |
 
-### onToggled
+### onToggle
 
 Called when the checkbox is clicked. The current checkbox state is passed as an argument.
 

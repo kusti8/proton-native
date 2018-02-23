@@ -91,13 +91,13 @@ class ColorButton extends DesktopComponent {
 
 ColorButton.PropTypes = {
   color: PropTypes.string,
-  onChanged: PropTypes.func,
+  onChange: PropTypes.func,
   ...universalPropTypes,
 };
 
 ColorButton.defaultProps = {
   color: 'black',
-  onChanged: () => {},
+  onChange: () => {},
   ...universalDefaultProps,
 };
 

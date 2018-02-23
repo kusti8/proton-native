@@ -32,7 +32,7 @@ render(<Example />);
 - [enabled](#enabled)
 - [visible](#visible)
 - [selected](#selected)
-- [onSelected](#onSelected)
+- [onSelect](#onSelect)
 
 ## Reference
 
@@ -60,7 +60,7 @@ What RadioButton is selected, zero-indexed. -1 means nothing is selected.
 | --- | --- |
 | number | No |
 
-### onSelected
+### onSelect
 
 Called when a RadioButton is selected. The number selected is passed as an argument.
 

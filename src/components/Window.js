@@ -64,7 +64,7 @@ class Window extends DesktopComponent {
         this.props.menuBar
       );
       this.element.onClosing(() => {
-        this.props.onClosing();
+        this.props.onClose();
         this.element.close();
         if (this.props.lastWindow) {
           stop();
@@ -81,13 +81,13 @@ class Window extends DesktopComponent {
       }
 
       this.element.onPositionChanged(() => {
-        this.props.onPositionChanged({
+        this.props.onPositionChange({
           x: this.element.position.x,
           y: this.element.position.y,
         });
       });
       this.element.onContentSizeChanged(() => {
-        this.props.onContentSizeChanged({
+        this.props.onContentSizeChange({
           h: this.element.position.h,
           w: this.element.position.w,
         });
@@ -116,9 +116,9 @@ Window.PropTypes = {
   //centered: PropTypes.bool,
   lastWindow: PropTypes.bool,
   closed: PropTypes.bool,
-  onClosing: PropTypes.func,
-  onPositionChanged: PropTypes.func,
-  onContentSizeChanged: PropTypes.func,
+  onClose: PropTypes.func,
+  onPositionChange: PropTypes.func,
+  onContentSizeChange: PropTypes.func,
 };
 
 Window.defaultProps = {
@@ -138,9 +138,9 @@ Window.defaultProps = {
   //centered: true,
   lastWindow: true,
   closed: false,
-  onClosing: () => {},
-  onPositionChanged: () => {},
-  onContentSizeChanged: () => {},
+  onClose: () => {},
+  onPositionChange: () => {},
+  onContentSizeChange: () => {},
 };
 
 export default Window;

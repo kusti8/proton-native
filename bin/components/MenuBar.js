@@ -102,14 +102,14 @@ MenuBar.Item.PropTypes = _extends({
   children: _propTypes2.default.string,
   checked: _propTypes2.default.bool,
   type: _propTypes2.default.oneOf(['Check', 'Quit', 'About', 'Preferences', 'Separator', 'Item']),
-  onClicked: _propTypes2.default.func
+  onClick: _propTypes2.default.func
 }, _DesktopComponent3.universalPropTypes);
 
 MenuBar.Item.defaultProps = _extends({
   children: '',
   checked: false,
   type: 'Item',
-  onClicked: function onClicked() {}
+  onClick: function onClick() {}
 }, _DesktopComponent3.universalDefaultProps);
 
 exports.default = MenuBar;

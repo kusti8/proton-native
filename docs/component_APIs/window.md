@@ -33,9 +33,9 @@ render(<Example />);
 - [borderless](#borderless)
 - [lastWindow](#lastWindow)
 - [closed](#closed)
-- [onClosing](#onClosing)
-- [onPositionChanged](#onPositionChanged)
-- [onContentSizeChanged](#onContentSizeChanged)
+- [onClose](#onClose)
+- [onPositionChange](#onPositionChange)
+- [onContentSizeChange](#onContentSizeChange)
 
 ## Reference
 
@@ -111,7 +111,7 @@ Whether the window is closed. If set to closed, then the window will be closed.
 | --- | --- |
 | bool | No |
 
-### onClosing
+### onClose
 
 Called when the window is closed.
 
@@ -119,7 +119,7 @@ Called when the window is closed.
 | --- | --- |
 | function() | No |
 
-### onPositionChanged
+### onPositionChange
 
 Called when the window position is changed. The new position is passed as an argument, in an object.
 
@@ -127,7 +127,7 @@ Called when the window position is changed. The new position is passed as an arg
 | --- | --- |
 | function({x: number, y: number}) | No |
 
-## onContentSizeChanged
+## onContentSizeChange
 
 Called when the window size is changed by the user. The new size is passed as an argument, in an object.
 

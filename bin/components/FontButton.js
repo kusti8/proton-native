@@ -60,11 +60,11 @@ var FontButton = function (_DesktopComponent) {
 }(_DesktopComponent3.default);
 
 FontButton.PropTypes = _extends({
-  onChanged: _propTypes2.default.func
+  onChange: _propTypes2.default.func
 }, _DesktopComponent2.universalPropTypes);
 
 FontButton.defaultProps = _extends({
-  onChanged: function onChanged() {}
+  onChange: function onChange() {}
 }, _DesktopComponent2.universalDefaultProps);
 
 exports.default = FontButton;

@@ -62,7 +62,7 @@ Checkbox.PropTypes = _extends({
   enabled: _propTypes2.default.bool,
   visible: _propTypes2.default.bool,
   checked: _propTypes2.default.bool,
-  onToggled: _propTypes2.default.func,
+  onToggle: _propTypes2.default.func,
   children: _propTypes2.default.string
 }, _DesktopComponent2.universalPropTypes);
 
@@ -70,7 +70,7 @@ Checkbox.defaultProps = _extends({
   enabled: true,
   visible: true,
   checked: false,
-  onToggled: function onToggled() {},
+  onToggle: function onToggle() {},
   children: ''
 }, _DesktopComponent2.universalDefaultProps);
 

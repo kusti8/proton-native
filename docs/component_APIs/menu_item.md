@@ -28,7 +28,7 @@ render(<Example />);
 - [type](#type)
 - [children](#children)
 - [checked](#checked)
-- [onClicked](#onClicked)
+- [onClick](#onClick)
 
 ## Reference
 
@@ -63,7 +63,7 @@ If the type is `Check`, then set whether it is checked or not.
 | --- | --- |
 | bool | No |
 
-### onClicked
+### onClick
 
 Called when the menu item is clicked. If the type is `Check`, then it passes whether it is checked as an argument.
 
