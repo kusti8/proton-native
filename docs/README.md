@@ -92,3 +92,5 @@ It is not only shorter, it is also easier to read and to edit, and can easily ut
 ## Examples
 
 Check out [the examples](https://github.com/kusti8/proton-native/tree/master/examples) to see more.
+
+<a href="https://www.keycdn.com/"><sub><sup>Accelerated by KeyCDN</sup></sub></a>
