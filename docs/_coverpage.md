@@ -1,4 +1,4 @@
-![Proton Native](SVG/Artboard 1.svg)
+![Proton Native](http://protonnative-af51.kxcdn.com/SVG/Artboard%201.svg)
 
 > Create native desktop applications through a React syntax, on all platforms
 

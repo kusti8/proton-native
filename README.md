@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://proton-native.js.org">
-    <img alt="proton native" src="https://cdn.rawgit.com/kusti8/proton-native/master/docs/SVG/Artboard%201.svg">
+    <img alt="proton native" src="http://protonnative-af51.kxcdn.com/SVG/Artboard%201.svg">
   </a>
 </p>
 
@@ -21,7 +21,7 @@ Create native desktop applications through a React syntax, on all platforms
 
 ## Images
 
-![Windows](docs/images/windows_example.png)
+![Windows](http://protonnative-af51.kxcdn.com/images/windows_example.png)
 
 ## [Documentation](https://proton-native.js.org)
 
@@ -40,3 +40,5 @@ All contributions are welcome. Just make a PR. Below is a list of general improv
 - Clean up code
 - Make packaging easier
 - Make creating a new app easier (something similar to `create-react-app`)
+
+<a href="https://www.keycdn.com/"><sub><sup>Accelerated by KeyCDN</sup></sub></a>
