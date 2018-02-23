@@ -87,6 +87,7 @@ It is not only shorter, it is also easier to read and to edit, and can easily ut
 - Works with existing React libraries such as Redux
 - Cross platform
 - Native components. No more Electron
+- Compatible with all normal Node.js packages
 
 ## Examples
 

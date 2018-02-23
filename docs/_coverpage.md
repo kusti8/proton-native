@@ -6,6 +6,7 @@
 - Works with existing React libraries such as Redux
 - Cross platform
 - Native components. No more Electron
+- Compatible with all normal Node.js packages
 
 [GitHub](https://github.com/kusti8/proton-native)
 [Get Started](#Proton-Native)
