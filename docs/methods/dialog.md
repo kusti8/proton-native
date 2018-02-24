@@ -5,7 +5,7 @@ A method to display an alert, or a dialog to save or open a file.
 ```javascript
 import React, { Component } from 'react';
 
-import { render, Window, App, TextInput, Dialog } from './src/';
+import { render, Window, App, TextInput, Dialog } from 'proton-native';
 
 class Example extends Component {
   render() {
