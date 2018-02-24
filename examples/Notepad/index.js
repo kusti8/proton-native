@@ -22,7 +22,7 @@ class Notepad extends Component {
     shouldComponentUpdate(nextProps, nextState) {
        if(typeof nextState.text === 'string')
             return false // nextState is set from input
-        else 
+        else
             return true // nextState is set from file
     }
 
@@ -30,12 +30,12 @@ class Notepad extends Component {
         return (
             <App>
                 <Menu label="File">
-                    <Menu.Item type="Item" onClicked={() => this.open()}>Open</Menu.Item>
-                    <Menu.Item type="Item" onClicked={() => this.save()}>Save</Menu.Item>
+                    <Menu.Item type="Item" onClick={() => this.open()}>Open</Menu.Item>
+                    <Menu.Item type="Item" onClick={() => this.save()}>Save</Menu.Item>
                 </Menu>
                 <Window title="Notes" size={{w: 500, h: 500}}>
                     <Box>
-                        <TextInput onChanged={text => this.setState({text})} multiline={true}>{this.state.text}</TextInput>
+                        <TextInput onChange={text => this.setState({text})} multiline={true}>{this.state.text}</TextInput>
                     </Box>
                 </Window>
             </App>
