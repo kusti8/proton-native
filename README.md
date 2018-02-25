@@ -41,4 +41,6 @@ All contributions are welcome. Just make a PR. Below is a list of general improv
 - Make packaging easier
 - Make creating a new app easier (something similar to `create-react-app`)
 
+#### [Linux Prerequisites](./LinuxReadMe.md)
+
 <a href="https://www.keycdn.com/"><sub><sup>Accelerated by KeyCDN</sup></sub></a>
