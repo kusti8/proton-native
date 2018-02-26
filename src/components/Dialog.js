@@ -1,6 +1,29 @@
 import { CURRENT_WINDOW } from './Window';
 import libui from 'libui-node';
 
+const getCurrentDialog = {
+  Open() {
+    return libui.UiDialogs.openFile(CURRENT_WINDOW);
+  },
+  Save() {
+    return libui.UiDialogs.saveFile(CURRENT_WINDOW);
+  },
+  Message({ title, description }) {
+    return libui.UiDialogs.msgBox(
+      CURRENT_WINDOW,
+      title,
+      options
+    );
+  },
+  Error({ title, description }) {
+    return libui.UiDialogs.msgBoxError(
+      CURRENT_WINDOW,
+      title,
+      description
+    );
+  }
+}
+
 export default function Dialog(type, options) {
   if (!CURRENT_WINDOW) {
     return;
@@ -14,17 +37,5 @@ export default function Dialog(type, options) {
     }
   }
 
-  if (type == 'Open') {
-    return libui.UiDialogs.openFile(CURRENT_WINDOW);
-  } else if (type == 'Save') {
-    return libui.UiDialogs.saveFile(CURRENT_WINDOW);
-  } else if (type == 'Message') {
-    libui.UiDialogs.msgBox(CURRENT_WINDOW, options.title, options.description);
-  } else if (type == 'Error') {
-    libui.UiDialogs.msgBoxError(
-      CURRENT_WINDOW,
-      options.title,
-      options.description
-    );
-  }
+  return getCurrentDialog[type](options);
 }
