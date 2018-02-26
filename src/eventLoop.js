@@ -1,5 +1,5 @@
 import libui from 'libui-node';
-import { clearInterval } from 'timers';
+import { setInterval, clearInterval } from 'timers';
 
 var STARTED = false;
 var timeout = null;
