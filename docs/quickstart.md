@@ -4,7 +4,7 @@
 
 ### Linux
 
-`libgtk-3-dev`
+`libgtk-3-dev build-essential`
 
 ## Install
 
