@@ -51,7 +51,7 @@ class Example extends Component {
   render() { // all Components must have a render method
     return (
       <App> // you must always include App around everything
-        <Window title="Example" height={300} width={300} menuBar={false}>
+        <Window title="Example" size={{w: 300, h: 300}} menuBar={false}>
             // all your other components go here
         </Window>
       </App>
