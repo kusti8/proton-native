@@ -25,19 +25,19 @@ class EditableCombobox extends DesktopComponent {
 }
 
 EditableCombobox.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   text: PropTypes.string,
   onChange: PropTypes.func,
-  ...universalPropTypes,
 };
 
 EditableCombobox.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   text: '',
   onChange: () => {},
-  ...universalDefaultProps,
 };
 
 EditableCombobox.Item = class Item extends DesktopComponent {

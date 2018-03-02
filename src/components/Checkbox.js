@@ -25,21 +25,21 @@ class Checkbox extends DesktopComponent {
 }
 
 Checkbox.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   checked: PropTypes.bool,
   onToggle: PropTypes.func,
   children: PropTypes.string,
-  ...universalPropTypes,
 };
 
 Checkbox.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   checked: false,
   onToggle: () => {},
   children: '',
-  ...universalDefaultProps,
 };
 
 export default Checkbox;

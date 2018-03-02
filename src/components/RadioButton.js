@@ -25,19 +25,19 @@ class RadioButton extends DesktopComponent {
 }
 
 RadioButton.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   selected: PropTypes.number,
   onSelect: PropTypes.func,
-  ...universalPropTypes,
 };
 
 RadioButton.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   selected: -1,
   onSelect: () => {},
-  ...universalDefaultProps,
 };
 
 RadioButton.Item = class Item extends DesktopComponent {

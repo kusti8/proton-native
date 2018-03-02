@@ -22,17 +22,17 @@ class HorizontalBox extends DesktopComponent {
 }
 
 HorizontalBox.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   padded: PropTypes.bool,
-  ...universalPropTypes,
 };
 
 HorizontalBox.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   padded: false,
-  ...universalDefaultProps,
 };
 
 export default HorizontalBox;

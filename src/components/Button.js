@@ -25,19 +25,19 @@ class Button extends DesktopComponent {
 }
 
 Button.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.string,
-  ...universalPropTypes,
 };
 
 Button.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   onClick: () => {},
   children: '',
-  ...universalDefaultProps,
 };
 
 export default Button;

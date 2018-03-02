@@ -25,19 +25,19 @@ class Combobox extends DesktopComponent {
 }
 
 Combobox.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   selected: PropTypes.number,
   onSelect: PropTypes.func,
-  ...universalPropTypes,
 };
 
 Combobox.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   selected: -1,
   onSelect: () => {},
-  ...universalDefaultProps,
 };
 
 Combobox.Item = class Item extends DesktopComponent {

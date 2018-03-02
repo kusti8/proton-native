@@ -22,19 +22,19 @@ class Group extends DesktopComponent {
 }
 
 Group.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   margined: PropTypes.bool,
   title: PropTypes.string,
-  ...universalPropTypes,
 };
 
 Group.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   margined: false,
   title: '',
-  ...universalDefaultProps,
 };
 
 export default Group;

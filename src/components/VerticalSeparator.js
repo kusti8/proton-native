@@ -22,15 +22,15 @@ class VerticalSeparator extends DesktopComponent {
 }
 
 VerticalSeparator.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
-  ...universalPropTypes,
 };
 
 VerticalSeparator.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
-  ...universalDefaultProps,
 };
 
 export default VerticalSeparator;
