@@ -40,41 +40,41 @@ render(<Example />);
 
 Whether the user can enter their own custom text in addition to the drop down menu.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | false |
 
 ### enabled
 
 Whether the Picker is enabled.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### visible
 
 Whether the Picker can be seen.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### selected
 
 What element is selected if the picker *is not* editable.
 
-| **Type** | **Required** | **Editable** |
-| --- | --- | --- |
-| bool | No | No |
+| **Type** | **Required** | **Editable** | **Default** |
+| --- | --- | --- | --- |
+| bool | No | No | -1 |
 
 ### text
 
 What text is selected/typed if the picker *is* editable.
 
-| **Type** | **Required** | **Editable** |
-| --- | --- | --- |
-| bool | No | Yes |
+| **Type** | **Required** | **Editable** | **Default** |
+| --- | --- | --- | --- |
+| bool | No | Yes | '' |
 
 ### onSelect
 

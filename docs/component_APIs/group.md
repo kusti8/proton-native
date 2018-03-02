@@ -38,30 +38,30 @@ render(<Example />);
 
 Whether the Group is enabled.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### visible
 
 Whether the Group can be seen.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### margined
 
 Whether there is a margin inside the group.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | false |
 
 ### title
 
 The name of the group.
 
-| **Type** | **Required** |
-| --- | --- |
-| string | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| string | No | '' |

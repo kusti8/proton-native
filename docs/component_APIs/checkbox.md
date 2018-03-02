@@ -36,23 +36,23 @@ render(<Example />);
 
 The text to display next to the check box.
 
-| **Type** | **Required** |
-| --- | --- |
-| string | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| string | No | '' |
 
 ### enabled
 
 Whether the checkbox can be used.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### visible
 
 Whether the checkbox can be seen.
 
-| **Type** | **Required** |
+| **Type** | **Required** | **Default** |
 | --- | --- |
 | bool | No |
 
@@ -60,9 +60,9 @@ Whether the checkbox can be seen.
 
 Whether the checkbox is checked or not.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | false |
 
 ### onToggle
 

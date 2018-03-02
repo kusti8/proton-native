@@ -43,25 +43,25 @@ How the menu item is displayed.
 - `Separator` - a Separator between menu items. This accepts no text.
 - `Item` - a normal menu button. This is the default
 
-| **Type** | **Required** |
-| --- | --- |
-| enum('Check', 'Quit', 'About', 'Preferences', 'Separator', 'Item') | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| enum('Check', 'Quit', 'About', 'Preferences', 'Separator', 'Item') | No | 'Item' |
 
 ### children
 
 The text to display for the menu item.
 
-| **Type** | **Required** |
-| --- | --- |
-| string | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| string | No | '' |
 
 ### checked
 
 If the type is `Check`, then set whether it is checked or not. 
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | false |
 
 ### onClick
 

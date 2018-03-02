@@ -6,7 +6,7 @@ Some props can be applied to almost all components, so they are listed here.
 
 ## stretchy
 
-Whether the component should stretch to fill the available space.
+Whether the component should stretch to fill the available space. Defaults to `true`.
 
 Excluded on:
 - Tabs

@@ -43,73 +43,73 @@ render(<Example />);
 
 The title of the window. Will be shown at the top left ribbon.
 
-| **Type** | **Required** |
-| --- | --- |
-| string | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| string | No | '' |
 
 ### size
 
 How big the window is when the application is first started.
 
-| **Type** | **Required** |
-| --- | --- |
-| object {h: number, w: number} | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| object {h: number, w: number} | No | {h: 500, w: 500} |
 
 ### menuBar
 
 Whether a menubar will be shown on the top of the window.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### margined
 
 Whether all children will have a margin around them and the outer edge of the window.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | false |
 
 ### position
 
 The location where the window will be started, where (0,0) is top left.
 
-| **Type** | **Required** |
-| --- | --- |
-| object {x: number, y: number} | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| object {x: number, y: number} | No | {x: 300, y: 300} |
 
 ### fullscreen
 
 Whether the window will be fullscreen on start.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | false |
 
 ### borderless
 
 Whether the window will have a border on the inside.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | false |
 
 ## lastWindow
 
 Whether the window is the last window. If set to `true`, then the program will quit once the window is closed.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### closed
 
 Whether the window is closed. If set to closed, then the window will be closed.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | false |
 
 ### onClose
 

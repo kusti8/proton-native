@@ -35,25 +35,25 @@ render(<Example />);
 
 Whether the Slider is enabled.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### visible
 
 Whether the Slider can be seen.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### value
 
 The current value of the Slider (0-100).
 
-| **Type** | **Required** |
-| --- | --- |
-| number | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| number | No | 0 |
 
 ### onChange
 

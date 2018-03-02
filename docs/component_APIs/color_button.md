@@ -40,9 +40,9 @@ The initial color for the ColorButton. Can be passed as standard color seen in C
 
 A full list of names can be found [here](https://www.w3schools.com/colors/colors_names.asp)
 
-| **Type** | **Required** |
-| --- | --- |
-| string | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| string | No | 'black' |
 
 ### onClick
 

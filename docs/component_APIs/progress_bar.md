@@ -34,22 +34,22 @@ render(<Example />);
 
 Whether the ProgressBar is enabled.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### visible
 
 Whether the ProgressBar can be seen.
 
-| **Type** | **Required** |
-| --- | --- |
-| bool | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| bool | No | true |
 
 ### value
 
 The current value of the ProgressBar (0-100). A value of -1 indicates an indeterminate progressbar.
 
-| **Type** | **Required** |
-| --- | --- |
-| number | No |
+| **Type** | **Required** | **Default** |
+| --- | --- | --- |
+| number | No | 0 |
