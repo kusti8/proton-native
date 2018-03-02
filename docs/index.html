@@ -13,9 +13,24 @@
   <script>
     window.$docsify = {
       name: 'Proton Native',
-      repo: 'https://github.com/kusti8/proton-native',
       coverpage: true,
-      loadSidebar: true
+      loadSidebar: true,
+      plugins: [
+        function (hook) {
+          var footer = [
+            "<footer>",
+            "<div style='text-align:center'>",
+            "<img src='http://protonnative-af51.kxcdn.com/images/icon_black.svg' style='position:relative; top: 0px; padding-right: 10px;' width='5%' height='' alt='' />",
+            "Logo and graphics by <a href='https://twitter.com/elisiri_'>@elisiri_</a>",
+            "</div>",
+            "</footer>"
+          ].join('')
+
+          hook.afterEach(function (html) {
+            return html + footer
+          })
+        }
+      ]
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
