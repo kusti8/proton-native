@@ -11,6 +11,7 @@
 [![GPLv3 License](https://img.shields.io/github/license/kusti8/proton-native.svg)](https://github.com/kusti8/proton-native/blob/master/LICENSE)
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Proton-Native)
 
+
 Create native desktop applications through a React syntax, on all platforms
 
 ## Features

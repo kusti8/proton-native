@@ -8,6 +8,22 @@
 
 ## Install
 
+### Automatic 
+
+``` zsh
+# install the cli app
+npm install -g create-proton-app
+# create your project
+create-proton-app my-app
+# move to your project directory
+cd my-app
+# run your app
+npm run start
+```
+You can alternatively use `npx` if you prefer.
+
+### Manual
+
 To install, simply download it from NPM:
 `npm i -S proton-native`
 
@@ -63,3 +79,4 @@ render(<Example />); // and finally render your main component
 ```
 
 Use all your usual state and component workflow.
+
