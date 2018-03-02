@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://proton-native.js.org">
-    <img alt="proton native" src="http://protonnative-af51.kxcdn.com/SVG/Artboard%201.svg">
+    <img alt="proton native" src="docs/images/logo_black.svg">
   </a>
 </p>
 
