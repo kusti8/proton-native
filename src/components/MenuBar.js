@@ -22,13 +22,13 @@ class MenuBar extends DesktopComponent {
 }
 
 MenuBar.PropTypes = {
-  label: PropTypes.string,
   ...universalPropTypes,
+  label: PropTypes.string,
 };
 
 MenuBar.defaultProps = {
-  label: '',
   ...universalDefaultProps,
+  label: '',
 };
 
 MenuBar.Item = class Item extends DesktopComponent {

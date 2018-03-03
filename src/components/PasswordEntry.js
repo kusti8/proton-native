@@ -25,21 +25,21 @@ class PasswordEntry extends DesktopComponent {
 }
 
 PasswordEntry.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   readOnly: PropTypes.bool,
   onChange: PropTypes.func,
   children: PropTypes.string,
-  ...universalPropTypes,
 };
 
 PasswordEntry.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   readOnly: false,
   onChange: () => {},
   children: '',
-  ...universalDefaultProps,
 };
 
 export default PasswordEntry;

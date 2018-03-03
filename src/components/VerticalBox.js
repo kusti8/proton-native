@@ -22,17 +22,17 @@ class VerticalBox extends DesktopComponent {
 }
 
 VerticalBox.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   padded: PropTypes.bool,
-  ...universalPropTypes,
 };
 
 VerticalBox.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   padded: false,
-  ...universalDefaultProps,
 };
 
 export default VerticalBox;

@@ -24,19 +24,19 @@ class Slider extends DesktopComponent {
 }
 
 Slider.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   value: PropTypes.number,
   onChange: PropTypes.func,
-  ...universalPropTypes,
 };
 
 Slider.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   value: 0,
   onChange: () => {},
-  ...universalDefaultProps,
 };
 
 export default Slider;

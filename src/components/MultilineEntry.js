@@ -25,21 +25,21 @@ class MultilineEntry extends DesktopComponent {
 }
 
 MultilineEntry.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   readOnly: PropTypes.bool,
   onChange: PropTypes.func,
   children: PropTypes.string,
-  ...universalPropTypes,
 };
 
 MultilineEntry.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   readOnly: false,
   onChange: () => {},
   children: '',
-  ...universalDefaultProps,
 };
 
 export default MultilineEntry;

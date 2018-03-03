@@ -22,17 +22,17 @@ class Form extends DesktopComponent {
 }
 
 Form.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   padded: PropTypes.bool,
-  ...universalPropTypes,
 };
 
 Form.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   padded: false,
-  ...universalDefaultProps,
 };
 
 export default Form;

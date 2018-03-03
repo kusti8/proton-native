@@ -22,15 +22,15 @@ class Tab extends DesktopComponent {
 }
 
 Tab.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
-  ...universalPropTypes,
 };
 
 Tab.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
-  ...universalDefaultProps,
 };
 
 export default Tab;

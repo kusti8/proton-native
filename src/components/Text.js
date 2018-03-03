@@ -24,17 +24,17 @@ class Text extends DesktopComponent {
 }
 
 Text.PropTypes = {
+  ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
   children: PropTypes.string,
-  ...universalPropTypes,
 };
 
 Text.defaultProps = {
+  ...universalDefaultProps,
   enabled: true,
   visible: true,
   children: '',
-  ...universalDefaultProps,
 };
 
 export default Text;
