@@ -4,9 +4,11 @@ Currently, the node packaging/compiling world has gotten a lot more complicated 
 
 ## Bundle node
 
-Currently, the easiest way is to simply download a [node binary](https://nodejs.org/en/download/) for your platform, copy it into your project root. Then create a shortcut/script to execute that.
+Currently, the easiest way is to simply download a [node binary](https://nodejs.org/en/download/) for your platform, extract it, and copy it into your project root. Then create a shortcut/script to execute that.
 
 Make sure you have babel transpile it, in case you use any new syntax not supported by your current version of node.
+
+The above is explained more in detail below.
 
 `package.json`
 ```
@@ -18,7 +20,7 @@ Make sure you have babel transpile it, in case you use any new syntax not suppor
 
 (Babel also supports entire directories by just specifying the directories instead.)
 
-And then build it: `npm run build`.
+1. And then build it: `npm run build`.
 
 ### Linux + Mac
 ```
@@ -26,26 +28,26 @@ root
     - bin
         - index.js
     - package.json
-    - node
+    - node # This is the unzipped downloaded binary that you downloaded
     - start
 ```
 
-And then script contains:
+2. And then script contains:
 
 ```bash
 #!/bin/sh
 ./node bin/index.js
 ```
 
-You can then compress that into a zip file, or package it into a deb file etc. Just keep the relative file structure the same.
+3. You can then compress that into a zip file, or package it into a deb file etc. Just keep the relative file structure the same.
 
 ### Windows
 
-On Windows, you can make a shortcut to `node.exe`, and edit the target for it to execute the file.
+2. On Windows, you can make a shortcut to `node.exe`, and edit the target for it to execute the file.
 
 ![Properties](images/windows_packaging.png).
 
-Then you can make it a zip file, or create a installer using something like NSIS.
+3. Then you can make it a zip file, or create a installer using something like NSIS.
 
 ## nexe (currently not working)
 
