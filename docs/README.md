@@ -19,65 +19,11 @@ React packages such as Redux still work.
 
 **Compare this code in Qt (Python):**
 
-```python
-import sys
-from PyQt5.QtWidgets import (QWidget, QToolTip, 
-    QPushButton, QApplication)
-from PyQt5.QtGui import QFont    
-
-
-class Example(QWidget):
-    
-    def __init__(self):
-        super().__init__()
-        
-        self.initUI()
-
-    def print_hello(self):
-        print("Hello")
-        
-        
-    def initUI(self):
-        btn = QPushButton('Button', self)
-        btn.clicked.connect(self.print_hello)
-        btn.resize(btn.sizeHint())
-        btn.move(50, 50)       
-        
-        self.setGeometry(300, 300, 300, 200)
-        self.setWindowTitle('Example')    
-        self.show()
-        
-        
-if __name__ == '__main__':
-    
-    app = QApplication(sys.argv)
-    ex = Example()
-    sys.exit(app.exec_())
-```
+[python_example.py](python_example.py ':include :type=code python')
 
 **To this code using Proton Native:**
 
-```javascript
-import React, { Component } from 'react';
-
-import { render, Window, App, Button } from 'proton-native';
-
-class Example extends Component {
-  render() {
-    return (
-      <App>
-        <Window title="Example" size={{w: 300, h: 300}} menuBar={false}>
-          <Button stretchy={false} onClick={() => console.log('Hello')}>
-            Button
-          </Button>
-        </Window>
-      </App>
-    );
-  }
-}
-
-render(<Example />);
-```
+[js_example.js](js_example.js ':include :type=code jsx')
 
 It is not only shorter, it is also easier to read and to edit, and can easily utilize the power of the state.
 

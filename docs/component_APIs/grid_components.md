@@ -2,7 +2,7 @@
 
 A child in a [Grid component](grid.md). Can specify the location in the grid, as well as additional formatting.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Grid, Button, TextInput } from 'proton-native';

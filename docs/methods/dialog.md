@@ -2,7 +2,7 @@
 
 A method to display an alert, or a dialog to save or open a file.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, TextInput, Dialog } from 'proton-native';

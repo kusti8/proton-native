@@ -4,7 +4,7 @@ A choice between multiple options.
 
 Every child must be a RadioButtons.Item, that requires a string child that is the label to display to the right of the RadioButton.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, RadioButtons } from 'proton-native';

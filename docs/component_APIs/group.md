@@ -2,7 +2,7 @@
 
 A named group of components.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Group, TextInput } from 'proton-native';

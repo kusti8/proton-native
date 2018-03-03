@@ -2,7 +2,7 @@
 
 A bar that can be dragged by the user from 0-100.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Slider } from 'proton-native';

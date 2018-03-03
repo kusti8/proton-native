@@ -2,7 +2,7 @@
 
 A single item in a [Menu](menu.md).
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Menu } from 'proton-native';

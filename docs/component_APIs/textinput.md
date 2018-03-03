@@ -2,7 +2,7 @@
 
 A place for the user to type in a string.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, TextInput } from 'proton-native';

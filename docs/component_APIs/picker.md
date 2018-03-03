@@ -2,7 +2,7 @@
 
 A drop down menu where the user can pick different values.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Picker } from 'proton-native';

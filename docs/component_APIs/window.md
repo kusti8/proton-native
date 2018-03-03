@@ -4,7 +4,7 @@ The window is the basis where all other components reside.
 
 The following example creates a simple window, of size 500x500.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App } from 'proton-native';

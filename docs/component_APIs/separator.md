@@ -2,7 +2,7 @@
 
 A line to separate two components, commonly used in a Box.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Box, Button, TextInput, Separator } from 'proton-native';

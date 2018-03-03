@@ -2,7 +2,7 @@
 
 A location for the user to choose a number.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Spinbox } from 'proton-native';

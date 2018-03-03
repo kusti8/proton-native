@@ -4,7 +4,7 @@ A component with different named tabs containing other components.
 
 Each child is required to have a label prop that is displayed at the top and names the tab.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Tab, TextInput } from 'proton-native';

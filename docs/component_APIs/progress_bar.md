@@ -2,7 +2,7 @@
 
 A bar that shows the progress in a certain task, 0-100.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, ProgressBar } from 'proton-native';

@@ -4,7 +4,7 @@ A container for multiple components that are ordered vertically or horizontally.
 
 The following example holds both a Button and a TextInput that are arranged vertically
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Box, Button, TextInput } from 'proton-native';

@@ -4,7 +4,7 @@ A clickable object which registers a callback when clicked.
 
 The following example creates a simple button, with the text "This is a button".
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Button } from 'proton-native';

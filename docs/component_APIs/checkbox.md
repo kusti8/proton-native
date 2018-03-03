@@ -2,7 +2,7 @@
 
 A toggleable box with some text on it.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Checkbox } from 'proton-native';

@@ -2,7 +2,7 @@
 
 A grid where components can be placed in rows and columns. 
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, Grid, Button, TextInput } from 'proton-native';

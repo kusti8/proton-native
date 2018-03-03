@@ -2,7 +2,7 @@
 
 A button that allows the user to choose a color.
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 
 import { render, Window, App, ColorButton } from 'proton-native';
