@@ -2,6 +2,7 @@
   <a href="https://proton-native.js.org">
     <img alt="proton native" src="http://protonnative-af51.kxcdn.com/images/logo_black.svg">
   </a>
+  Logo by <a href="https://twitter.com/elisiri_">@elisiri</a>
 </p>
 
 [![npm](https://img.shields.io/npm/v/proton-native.svg)](https://www.npmjs.com/package/proton-native)
