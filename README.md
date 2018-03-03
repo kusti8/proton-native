@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://proton-native.js.org">
-    <img alt="proton native" src="http://protonnative-af51.kxcdn.com/images/logo_black.svg?">
+    <img alt="proton native" src="http://protonnative-af51.kxcdn.com/images/logo_black.svg">
   </a>
   Logo by <a href="https://twitter.com/elisiri_">@elisiri</a>
 </p>
