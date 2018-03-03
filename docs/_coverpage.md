@@ -1,4 +1,4 @@
-<img src='http://protonnative-af51.kxcdn.com/images/logo_white.svg' style='position:absolute; top:50px; left:75px;' width='8%' height='' alt='' />
+<img src='http://protonnative-af51.kxcdn.com/images/logo_white.svg' style='position:absolute; top:50px; left:75px;' width='150px' height='' alt='' />
 
 <div style='text-align:center'>
 <div style='color:white; font-size:300%; overflow:hidden; display:inline-block; text-align:left;  line-height: 120%'>
