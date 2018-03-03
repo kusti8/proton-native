@@ -14,7 +14,7 @@ The above is explained more in detail below.
 ```
   "scripts": {
     "start": "node_modules/.bin/babel-node index.js",
-    "build": "node_modules/.bin/babel index.js -d bin/index.js",
+    "build": "node_modules/.bin/babel index.js -d bin/",
   }
 ```
 
