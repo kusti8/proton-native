@@ -24,7 +24,7 @@ function start() {
     STARTED = true;
   }
   _libuiNode2.default.Ui.mainSteps();
-  timeout = setInterval(function () {
+  timeout = (0, _timers.setInterval)(function () {
     return _libuiNode2.default.Ui.mainStep(1);
   }, 16);
 }
