@@ -7,9 +7,9 @@ class Separator extends Component {
     const { vertical, children, ...otherProps } = this.props;
     if (vertical) {
       return <VerticalSeparator {...otherProps} />;
-    } else {
-      return <HorizontalSeparator {...otherProps} />;
     }
+
+    return <HorizontalSeparator {...otherProps} />;
   }
 }
 

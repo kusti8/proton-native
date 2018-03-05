@@ -7,9 +7,9 @@ class Picker extends Component {
     const { editable, children, ...otherProps } = this.props;
     if (editable) {
       return <EditableCombobox {...otherProps}>{children}</EditableCombobox>;
-    } else {
-      return <Combobox {...otherProps}>{children}</Combobox>;
     }
+
+    return <Combobox {...otherProps}>{children}</Combobox>;
   }
 }
 
