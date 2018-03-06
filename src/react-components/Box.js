@@ -5,11 +5,12 @@ import { VerticalBox, HorizontalBox } from '../';
 class Box extends Component {
   render() {
     const { vertical, children, ...otherProps } = this.props;
-    if (vertical !== false) {
+
+    if (vertical) {
       return <VerticalBox {...otherProps}>{children}</VerticalBox>;
-    } else {
-      return <HorizontalBox {...otherProps}>{children}</HorizontalBox>;
     }
+
+    return <HorizontalBox {...otherProps}>{children}</HorizontalBox>;
   }
 }
 

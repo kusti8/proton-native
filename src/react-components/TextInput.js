@@ -5,14 +5,15 @@ import { Entry, PasswordEntry, MultilineEntry } from '../';
 class TextInput extends Component {
   render() {
     const { secure, multiline, children, ...otherProps } = this.props;
-    if (secure === true) {
+
+    if (secure) {
       return <PasswordEntry {...otherProps}>{children}</PasswordEntry>;
     } else {
-      if (multiline === true) {
+      if (multiline) {
         return <MultilineEntry {...otherProps}>{children}</MultilineEntry>;
-      } else {
-        return <Entry {...otherProps}>{children}</Entry>;
       }
+
+      return <Entry {...otherProps}>{children}</Entry>;
     }
   }
 }
