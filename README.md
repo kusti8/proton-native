@@ -39,10 +39,10 @@ Examples can be found in `examples/`.
 
 All contributions are welcome. Just make a PR. Below is a list of general improvements that need to be added that I would love help with:
 
-- More examples and improve documentation
-- Add UiArea
-- Clean up code
-- Make packaging easier
-- Make creating a new app easier (something similar to `create-react-app`)
+- [ ] More examples and improve documentation
+- [ ] Add UiArea
+- [ ] Clean up code
+- [ ] Make packaging easier
+- [x] Make creating a new app easier (something similar to `create-react-app`): https://github.com/albe-rosado/create-proton-app
 
 <a href="https://www.keycdn.com/"><sub><sup>Accelerated by KeyCDN</sup></sub></a>
