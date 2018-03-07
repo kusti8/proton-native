@@ -8,7 +8,16 @@ import {
   MenuBar,
 } from './';
 import { Menu } from '../';
+import {
+  ITEM,
+  CHECK,
+  QUIT,
+  PREFERENCES,
+  ABOUT,
+  SEPARATOR
+} from '../constants/types';
 import PropTypes from 'prop-types';
+
 
 const functionMappings = {
   onChange: 'onChanged',
@@ -103,17 +112,17 @@ class DesktopComponent {
       // we assume we are a ComboBox.Item, and just append the child
       parent.element.append(this.props.children);
     } else if (parent instanceof MenuBar) {
-      if (this.props.type === 'Item') {
+      if (this.props.type === ITEM) {
         this.element = parent.element.appendItem(this.props.children);
-      } else if (this.props.type === 'Check') {
+      } else if (this.props.type === CHECK) {
         this.element = parent.element.appendCheckItem(this.props.children);
-      } else if (this.props.type === 'Quit') {
+      } else if (this.props.type === QUIT) {
         this.element = parent.element.appendQuitItem();
-      } else if (this.props.type === 'Preferences') {
+      } else if (this.props.type === PREFERENCES) {
         this.element = parent.element.appendPreferencesItem();
-      } else if (this.props.type === 'About') {
+      } else if (this.props.type === ABOUT) {
         this.element = parent.element.appendAboutItem();
-      } else if (this.props.type === 'Separator') {
+      } else if (this.props.type === SEPARATOR) {
         parent.element.appendSeparator();
       }
     } else if (this instanceof Menu) {
