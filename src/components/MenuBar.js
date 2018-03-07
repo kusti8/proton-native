@@ -2,6 +2,14 @@ import DesktopComponent, {
   universalPropTypes,
   universalDefaultProps,
 } from './DesktopComponent';
+import {
+  ITEM,
+  CHECK,
+  QUIT,
+  PREFERENCES,
+  ABOUT,
+  SEPARATOR
+} from '../constants/types';
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
 
@@ -57,12 +65,12 @@ MenuBar.Item.PropTypes = {
   children: PropTypes.string,
   checked: PropTypes.bool,
   type: PropTypes.oneOf([
-    'Check',
-    'Quit',
-    'About',
-    'Preferences',
-    'Separator',
-    'Item',
+    CHECK,
+    QUIT,
+    ABOUT,
+    PREFERENCES,
+    SEPARATOR,
+    ITEM,
   ]),
   onClick: PropTypes.func,
   ...universalPropTypes,
@@ -71,7 +79,7 @@ MenuBar.Item.PropTypes = {
 MenuBar.Item.defaultProps = {
   children: '',
   checked: false,
-  type: 'Item',
+  type: ITEM,
   onClick: () => {},
   ...universalDefaultProps,
 };

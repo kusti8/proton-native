@@ -8,9 +8,9 @@
 
 ## Install
 
-### Automatic 
+### Automatic
 
-``` bash
+```bash
 # install the cli app
 npm install -g create-proton-app
 # create your project
