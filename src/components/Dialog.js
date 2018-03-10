@@ -9,20 +9,12 @@ const getCurrentDialog = {
     return libui.UiDialogs.saveFile(CURRENT_WINDOW);
   },
   Message({ title, description }) {
-    return libui.UiDialogs.msgBox(
-      CURRENT_WINDOW,
-      title,
-      options
-    );
+    return libui.UiDialogs.msgBox(CURRENT_WINDOW, title, options);
   },
   Error({ title, description }) {
-    return libui.UiDialogs.msgBoxError(
-      CURRENT_WINDOW,
-      title,
-      description
-    );
-  }
-}
+    return libui.UiDialogs.msgBoxError(CURRENT_WINDOW, title, description);
+  },
+};
 
 export default function Dialog(type, options) {
   if (!CURRENT_WINDOW) {

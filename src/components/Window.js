@@ -19,9 +19,11 @@ class Window extends DesktopComponent {
   }
 
   update(oldProps, newProps) {
-    if (!this.exists(this.element))
+    if (!this.exists(this.element)) {
       // if we haven't defined it yet, don't set props
       return;
+    }
+
     if (newProps.title !== oldProps.title) {
       this.element.title = newProps.title;
     }

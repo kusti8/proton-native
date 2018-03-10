@@ -14,10 +14,9 @@ import {
   QUIT,
   PREFERENCES,
   ABOUT,
-  SEPARATOR
+  SEPARATOR,
 } from '../constants/types';
 import PropTypes from 'prop-types';
-
 
 const functionMappings = {
   onChange: 'onChanged',

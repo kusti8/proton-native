@@ -8,7 +8,7 @@ import {
   QUIT,
   PREFERENCES,
   ABOUT,
-  SEPARATOR
+  SEPARATOR,
 } from '../constants/types';
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
@@ -64,14 +64,7 @@ MenuBar.Item = class Item extends DesktopComponent {
 MenuBar.Item.PropTypes = {
   children: PropTypes.string,
   checked: PropTypes.bool,
-  type: PropTypes.oneOf([
-    CHECK,
-    QUIT,
-    ABOUT,
-    PREFERENCES,
-    SEPARATOR,
-    ITEM,
-  ]),
+  type: PropTypes.oneOf([CHECK, QUIT, ABOUT, PREFERENCES, SEPARATOR, ITEM]),
   onClick: PropTypes.func,
   ...universalPropTypes,
 };
