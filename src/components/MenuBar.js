@@ -73,7 +73,6 @@ MenuBar.Item.defaultProps = {
   children: '',
   checked: false,
   type: ITEM,
-  onClick: () => {},
   ...universalDefaultProps,
 };
 
