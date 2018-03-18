@@ -1,15 +1,19 @@
 {
   "name": "proton-native",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "React Native for the desktop, cross compatible",
   "main": "bin/index.js",
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --single-quote --trailing-comma es5 --write", "git add"]
+    "*.{js,json,css,md}": [
+      "prettier --single-quote --trailing-comma es5 --write",
+      "git add"
+    ]
   },
   "scripts": {
     "demo": "./node_modules/.bin/babel-node Demo.js",
     "notes": "./node_modules/.bin/babel-node examples/notes.js",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js'",
+    "prettier":
+      "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js'",
     "build": "./node_modules/.bin/babel src -d bin",
     "pub": "./node_modules/.bin/babel src -d bin && npm publish",
     "precommit": "lint-staged"
@@ -45,7 +49,5 @@
     "prettier": "^1.10.2",
     "react-devtools": "^3.0.0"
   },
-  "files": [
-    "bin"
-  ]
+  "files": ["bin"]
 }
