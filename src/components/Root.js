@@ -9,6 +9,9 @@ class Root extends DesktopComponent {
   constructor() {
     super();
     libui.startLoop();
+    libui.Ui.onShouldQuit(() => {
+      libui.stopLoop();
+    });
   }
   render() {
     this.renderChildNode();
