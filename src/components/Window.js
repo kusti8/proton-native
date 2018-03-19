@@ -4,7 +4,6 @@ import DesktopComponent, {
 } from './DesktopComponent';
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
-import { stop } from '../eventLoop';
 
 var CURRENT_WINDOW = null;
 
