@@ -25,7 +25,6 @@ const functionMappings = {
   onToggle: 'onToggled',
   onSelect: 'onSelected',
   onContentSizeChange: 'onContentSizeChanged',
-  onPositionChange: 'onPositionChanged',
 };
 
 class DesktopComponent {
