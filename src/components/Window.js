@@ -34,21 +34,12 @@ class Window extends DesktopComponent {
     if (newProps.margined !== oldProps.margined) {
       this.element.margined = newProps.margined;
     }
-    if (newProps.position !== oldProps.position) {
-      this.element.position.x = newProps.position.x;
-      this.element.position.y = newProps.position.y;
-    }
     if (newProps.fullscreen !== oldProps.fullscreen) {
       this.element.fullscreen = newProps.fullscreen;
     }
     if (newProps.borderless !== oldProps.borderless) {
       this.element.borderless = newProps.borderless;
     }
-    // if (newProps.centered !== oldProps.centered) {
-    //   if (newProps.centered) {
-    //     this.element.center()
-    //   }
-    // }
     if (newProps.closed !== oldProps.closed) {
       if (newProps.closed) {
         this.element.close();
@@ -69,12 +60,10 @@ class Window extends DesktopComponent {
         this.props.onClose();
         this.element.close();
         if (this.props.lastWindow) {
-          stop();
+          libui.stopLoop();
         }
       });
       this.element.margined = this.props.margined;
-      this.element.position.x = this.props.position.x;
-      this.element.position.y = this.props.position.y;
       this.element.fullscreen = this.props.fullscreen;
       this.element.borderless = this.props.borderless;
 
@@ -82,16 +71,10 @@ class Window extends DesktopComponent {
         this.element.center();
       }
 
-      this.element.onPositionChanged(() => {
-        this.props.onPositionChange({
-          x: this.element.position.x,
-          y: this.element.position.y,
-        });
-      });
       this.element.onContentSizeChanged(() => {
         this.props.onContentSizeChange({
-          h: this.element.position.h,
-          w: this.element.position.w,
+          h: this.element.contentSize.h,
+          w: this.element.contentSize.w,
         });
       });
       CURRENT_WINDOW = this.element;
@@ -109,17 +92,12 @@ Window.PropTypes = {
   }),
   menuBar: PropTypes.bool,
   margined: PropTypes.bool,
-  position: PropTypes.shape({
-    x: PropTypes.number,
-    y: PropTypes.number,
-  }),
   fullscreen: PropTypes.bool,
   borderless: PropTypes.bool,
   //centered: PropTypes.bool,
   lastWindow: PropTypes.bool,
   closed: PropTypes.bool,
   onClose: PropTypes.func,
-  onPositionChange: PropTypes.func,
   onContentSizeChange: PropTypes.func,
 };
 
@@ -131,17 +109,12 @@ Window.defaultProps = {
   },
   menuBar: true,
   margined: false,
-  position: {
-    x: 300,
-    y: 300,
-  },
   fullscreen: false,
   borderless: false,
   //centered: true,
   lastWindow: true,
   closed: false,
   onClose: () => {},
-  onPositionChange: () => {},
   onContentSizeChange: () => {},
 };
 
