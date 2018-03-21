@@ -95,7 +95,7 @@ Whether the window will have a border on the inside.
 | --- | --- | --- |
 | bool | No | false |
 
-## lastWindow
+### lastWindow
 
 Whether the window is the last window. If set to `true`, then the program will quit once the window is closed.
 
@@ -127,7 +127,7 @@ Called when the window position is changed. The new position is passed as an arg
 | --- | --- |
 | function({x: number, y: number}) | No |
 
-## onContentSizeChange
+### onContentSizeChange
 
 Called when the window size is changed by the user. The new size is passed as an argument, in an object.
 
