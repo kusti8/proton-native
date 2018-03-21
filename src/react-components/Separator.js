@@ -6,10 +6,10 @@ class Separator extends Component {
   render() {
     const { vertical, children, ...otherProps } = this.props;
     if (vertical) {
-      return <VerticalSeparator {...otherProps} />;
+      return React.createElement(VerticalSeparator, otherProps);
     }
 
-    return <HorizontalSeparator {...otherProps} />;
+    return React.createElement(HorizontalSeparator, otherProps);
   }
 }
 

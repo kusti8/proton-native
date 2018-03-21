@@ -7,10 +7,10 @@ class Box extends Component {
     const { vertical, children, ...otherProps } = this.props;
 
     if (vertical) {
-      return <VerticalBox {...otherProps}>{children}</VerticalBox>;
+      return React.createElement(VerticalBox, otherProps, children);
     }
 
-    return <HorizontalBox {...otherProps}>{children}</HorizontalBox>;
+    return React.createElement(HorizontalBox, otherProps, children);
   }
 }
 

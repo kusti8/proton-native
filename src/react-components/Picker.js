@@ -6,17 +6,17 @@ class Picker extends Component {
   render() {
     const { editable, children, ...otherProps } = this.props;
     if (editable) {
-      return <EditableCombobox {...otherProps}>{children}</EditableCombobox>;
+      return React.createElement(EditableCombobox, otherProps, children);
     }
 
-    return <Combobox {...otherProps}>{children}</Combobox>;
+    return React.createElement(Combobox, otherProps, children);
   }
 }
 
 Picker.Item = class Item extends Component {
   render() {
     const { children } = this.props;
-    return <ComboboxItem>{children}</ComboboxItem>;
+    return React.createElement(ComboboxItem, null, children);
   }
 };
 

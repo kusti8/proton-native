@@ -5,14 +5,14 @@ import { MenuBar, MenuBarItem } from '../';
 class Menu extends Component {
   render() {
     const { children, ...otherProps } = this.props;
-    return <MenuBar {...otherProps}>{children}</MenuBar>;
+    return React.createElement(MenuBar, otherProps, children);
   }
 }
 
 Menu.Item = class Item extends Component {
   render() {
     const { children, ...otherProps } = this.props;
-    return <MenuBarItem {...otherProps}>{children}</MenuBarItem>;
+    return React.createElement(MenuBarItem, otherProps, children);
   }
 };
 
