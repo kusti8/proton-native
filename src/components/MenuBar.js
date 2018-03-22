@@ -71,7 +71,6 @@ MenuBar.Item.PropTypes = {
 
 MenuBar.Item.defaultProps = {
   children: '',
-  checked: false,
   type: ITEM,
   ...universalDefaultProps,
 };
