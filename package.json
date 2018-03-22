@@ -1,6 +1,6 @@
 {
   "name": "proton-native",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "React Native for the desktop, cross compatible",
   "main": "bin/index.js",
   "lint-staged": {
