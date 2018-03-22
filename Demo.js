@@ -6,8 +6,8 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Example" size={{w: 500, h: 500}}>
-            <TextInput stretchy={false}/>
+        <Window title="Test" size={{ w: 500, h: 500 }} margined={true}>
+          <TextInput stretchy={false} />
         </Window>
       </App>
     );
