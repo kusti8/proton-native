@@ -37,7 +37,7 @@
     "color": "^3.0.0",
     "fbjs": "^0.8.16",
     "husky": "^0.14.3",
-    "libui-node": "kusti8/libui-node",
+    "libui-node": "^0.1.0",
     "lint-staged": "^7.0.0",
     "performance-now": "^2.1.0",
     "prop-types": "^15.6.0",
