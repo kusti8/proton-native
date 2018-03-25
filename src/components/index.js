@@ -1,7 +1,7 @@
 import Root from './Root';
 import Text from './Text';
 import App from './App';
-import Window from './Window';
+import Wind from './Wind';
 import Button from './Button';
 import VerticalBox from './VerticalBox';
 import HorizontalBox from './HorizontalBox';
@@ -25,12 +25,13 @@ import ProgressBar from './ProgressBar';
 import MenuBar from './MenuBar';
 import FontButton from './FontButton';
 import Dialog from './Dialog';
+import View from './View';
 
 export {
   Root,
   Text,
   App,
-  Window,
+  Wind,
   Button,
   VerticalBox,
   HorizontalBox,
@@ -54,4 +55,5 @@ export {
   MenuBar,
   FontButton,
   Dialog,
+  View,
 };

@@ -6,13 +6,14 @@ import {
   RadioButtons,
   Separator,
   Menu,
+  Window,
 } from './react-components';
 import { Dialog } from './components';
 
 // Aliases for createElement method
 const Text = 'TEXT';
 const App = 'APP';
-const Window = 'WINDOW';
+const Wind = 'WIND';
 const Button = 'BUTTON';
 const VerticalBox = 'VERTICALBOX';
 const HorizontalBox = 'HORIZONTALBOX';
@@ -38,12 +39,13 @@ const ProgressBar = 'PROGRESSBAR';
 const MenuBar = 'MENUBAR';
 const MenuBarItem = 'MENUBARITEM';
 const FontButton = 'FONTBUTTON';
+const View = 'VIEW';
 
 export {
   render,
   Text,
   App,
-  Window,
+  Wind,
   Button,
   VerticalBox,
   HorizontalBox,
@@ -76,4 +78,6 @@ export {
   Menu,
   FontButton,
   Dialog,
+  View,
+  Window,
 };

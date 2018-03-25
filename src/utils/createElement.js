@@ -2,7 +2,7 @@ import {
   App,
   Text,
   Root,
-  Window,
+  Wind,
   Button,
   VerticalBox,
   HorizontalBox,
@@ -25,6 +25,7 @@ import {
   ProgressBar,
   MenuBar,
   FontButton,
+  View,
 } from '../components/';
 import { ROOT_NODE } from '../render/';
 
@@ -38,7 +39,7 @@ function createElement(type, props) {
     ROOT: () => new Root(),
     TEXT: () => new Text(ROOT_NODE, props),
     APP: () => new App(ROOT_NODE, props),
-    WINDOW: () => new Window(ROOT_NODE, props),
+    WIND: () => new Wind(ROOT_NODE, props),
     BUTTON: () => new Button(ROOT_NODE, props),
     VERTICALBOX: () => new VerticalBox(ROOT_NODE, props),
     HORIZONTALBOX: () => new HorizontalBox(ROOT_NODE, props),
@@ -64,6 +65,7 @@ function createElement(type, props) {
     MENUBAR: () => new MenuBar(ROOT_NODE, props),
     MENUBARITEM: () => new MenuBar.Item(ROOT_NODE, props),
     FONTBUTTON: () => new FontButton(ROOT_NODE, props),
+    VIEW: () => new View(ROOT_NODE, props),
     default: undefined,
   };
 

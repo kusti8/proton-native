@@ -6,6 +6,7 @@ import {
   RadioButton,
   EditableCombobox,
   MenuBar,
+  View,
 } from './';
 import { Menu } from '../';
 import {
@@ -51,6 +52,17 @@ class DesktopComponent {
     return typeof a !== 'undefined';
   }
 
+  convertStyle() {
+    if (this.props.style) {
+      if ('width' in this.props.style) {
+        this.width = this.props.style.width;
+      }
+      if ('height' in this.props.style) {
+        this.height = this.props.style.height;
+      }
+    }
+  }
+
   appendChild(child) {
     // add a child to the list to be rendered
     this.children.push(child);
@@ -79,6 +91,7 @@ class DesktopComponent {
   }
 
   addParentAppend(parent) {
+    //console.log("Appending child", parent)
     // append to parent. Can be overriden
     const stretchy = this.props.stretchy;
     if (parent instanceof Form) {
@@ -125,6 +138,8 @@ class DesktopComponent {
       }
     } else if (this instanceof Menu) {
       // we don't need to setChild with a menu
+    } else if (parent instanceof View) {
+      // the parent View component handles all placing
     } else {
       parent.element.append(this.element, stretchy);
     }

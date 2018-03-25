@@ -1,4 +1,4 @@
-import { CURRENT_WINDOW } from './Window';
+import { CURRENT_WINDOW } from './Wind';
 import libui from 'libui-node';
 
 const getCurrentDialog = {

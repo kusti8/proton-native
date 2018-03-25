@@ -9,7 +9,7 @@ var CURRENT_WINDOW = null;
 
 export { CURRENT_WINDOW };
 
-class Window extends DesktopComponent {
+class Wind extends DesktopComponent {
   constructor(root, props) {
     super(root, props);
     this.root = root;
@@ -83,7 +83,7 @@ class Window extends DesktopComponent {
   }
 }
 
-Window.PropTypes = {
+Wind.PropTypes = {
   title: PropTypes.string,
   size: PropTypes.shape({
     h: PropTypes.number,
@@ -100,7 +100,7 @@ Window.PropTypes = {
   onContentSizeChange: PropTypes.func,
 };
 
-Window.defaultProps = {
+Wind.defaultProps = {
   title: '',
   size: {
     h: 500,
@@ -117,4 +117,4 @@ Window.defaultProps = {
   onContentSizeChange: () => {},
 };
 
-export default Window;
+export default Wind;
