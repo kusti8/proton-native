@@ -6,6 +6,8 @@ import {
   RadioButton,
   EditableCombobox,
   MenuBar,
+  Group,
+  Window,
 } from './';
 import { Menu } from '../';
 import {
@@ -32,7 +34,17 @@ class DesktopComponent {
     this.children = [];
   }
 
+  checkSingleChild(props) {
+    if (this instanceof Window || this instanceof Group) {
+      if (props.children && Array.isArray(props.children)) {
+        // we have multiple children
+        throw 'Window and Group only take one child!';
+      }
+    }
+  }
+
   setDefaults(props) {
+    this.checkSingleChild(props); // check for more than one child in Window and Group
     for (let prop in this.constructor.defaultProps) {
       if (!(prop in props) || typeof props[prop] === 'undefined') {
         // children can exist, but be undefined

@@ -98,6 +98,7 @@ Window.PropTypes = {
   closed: PropTypes.bool,
   onClose: PropTypes.func,
   onContentSizeChange: PropTypes.func,
+  children: PropTypes.object,
 };
 
 Window.defaultProps = {

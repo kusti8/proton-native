@@ -22,6 +22,8 @@ class Example extends Component {
 render(<Example />);
 ```
 
+> Note: Window can only have one child. To have more than one child, use boxes.
+
 ## Props
 
 * [title](#title)
