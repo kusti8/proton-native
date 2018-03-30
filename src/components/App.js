@@ -15,6 +15,15 @@ class App extends DesktopComponent {
     this.setDefaults(props);
   }
 
+  update(oldProps, newProps) {
+    if (newProps.onShouldQuit !== oldProps.onShouldQuit) {
+      libui.Ui.onShouldQuit(() => {
+        this.newProps.onShouldQuit();
+        libui.stopLoop();
+      });
+    }
+  }
+
   render() {
     libui.Ui.onShouldQuit(() => {
       this.props.onShouldQuit();
