@@ -76,6 +76,12 @@ class DesktopComponent {
       // if it can have multiple ex. VerticalBox
       this.element.deleteAt(this.children.indexOf(child));
       child.element.destroy();
+    } else if (this.exists(child.element.close)) {
+      // we have a window that we want to close
+      if (!child.closing) {
+        // we are already closing, so we don't want to do it again
+        child.element.close();
+      }
     }
     const index = this.children.indexOf(child);
     this.children.splice(index, 1);
