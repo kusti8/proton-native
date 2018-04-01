@@ -91,6 +91,10 @@ const DesktopRenderer = Reconciler({
       if (typeof instance.update !== 'undefined') {
         instance.update(oldProps, newProps);
       }
+      if (typeof instance.newSize !== 'undefined') {
+        // component resized
+        instance.newSize();
+      }
     },
 
     commitMount(instance, updatePayload, type, oldProps, newProps) {

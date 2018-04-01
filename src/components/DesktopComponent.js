@@ -61,6 +61,11 @@ class DesktopComponent {
         this.height = this.props.style.height;
       }
     }
+    return (
+      this.props.style &&
+      'width' in this.props.style &&
+      'height' in this.props.style
+    );
   }
 
   appendChild(child) {
@@ -91,7 +96,6 @@ class DesktopComponent {
   }
 
   addParentAppend(parent) {
-    //console.log("Appending child", parent)
     // append to parent. Can be overriden
     const stretchy = this.props.stretchy;
     if (parent instanceof Form) {
