@@ -25,6 +25,7 @@ import {
   ProgressBar,
   MenuBar,
   FontButton,
+  Area,
 } from '../components/';
 import { ROOT_NODE } from '../render/';
 
@@ -64,6 +65,9 @@ function createElement(type, props) {
     MENUBAR: () => new MenuBar(ROOT_NODE, props),
     MENUBARITEM: () => new MenuBar.Item(ROOT_NODE, props),
     FONTBUTTON: () => new FontButton(ROOT_NODE, props),
+    AREA: () => new Area(ROOT_NODE, props),
+    AREARECTANGLE: () => new Area.Rectangle(ROOT_NODE, props),
+    AREALINE: () => new Area.Line(ROOT_NODE, props),
     default: undefined,
   };
 

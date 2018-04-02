@@ -38,6 +38,9 @@ const ProgressBar = 'PROGRESSBAR';
 const MenuBar = 'MENUBAR';
 const MenuBarItem = 'MENUBARITEM';
 const FontButton = 'FONTBUTTON';
+const Area = 'AREA';
+const AreaRectangle = 'AREARECTANGLE';
+const AreaLine = 'AREALINE';
 
 export {
   render,
@@ -76,4 +79,7 @@ export {
   Menu,
   FontButton,
   Dialog,
+  Area,
+  AreaRectangle,
+  AreaLine,
 };
