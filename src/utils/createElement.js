@@ -68,6 +68,7 @@ function createElement(type, props) {
     AREA: () => new Area(ROOT_NODE, props),
     AREARECTANGLE: () => new Area.Rectangle(ROOT_NODE, props),
     AREALINE: () => new Area.Line(ROOT_NODE, props),
+    AREAARC: () => new Area.Arc(ROOT_NODE, props),
     default: undefined,
   };
 

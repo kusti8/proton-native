@@ -41,6 +41,7 @@ const FontButton = 'FONTBUTTON';
 const Area = 'AREA';
 const AreaRectangle = 'AREARECTANGLE';
 const AreaLine = 'AREALINE';
+const AreaArc = 'AREAARC';
 
 export {
   render,
@@ -82,4 +83,5 @@ export {
   Area,
   AreaRectangle,
   AreaLine,
+  AreaArc,
 };
