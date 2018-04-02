@@ -32,8 +32,16 @@ class View extends DesktopComponent {
 
   updateNodeSize() {
     let size;
+    if (this.parent instanceof View) {
+      return;
+    }
+
     if (this.parent instanceof Wind) {
       size = this.parent.element.contentSize;
+      this.width = size.w;
+      this.height = size.h;
+      this.node.setWidth(size.w);
+      this.node.setHeight(size.h);
     } else {
       size = libui.Ui.size(this.parent.element);
     }
@@ -58,14 +66,16 @@ class View extends DesktopComponent {
     const size = libui.Ui.size(this.children[i].element);
     this.children[i].height = size.h;
     this.children[i].width = size.w;
-    if (!this.children[i].convertStyle()) {
+    if (
+      !this.children[i].convertStyle() &&
+      !this.checkUsable(this.children[i])
+    ) {
       // we don't have a size
-      if (!this.checkUsable(this.children[i])) {
-        throw "You didn't specify a size for one of your View children";
-      }
+      //throw "You didn't specify a size for one of your View children";
+    } else {
+      this.children[i].node.setWidth(this.children[i].width);
+      this.children[i].node.setHeight(this.children[i].height);
     }
-    this.children[i].node.setWidth(this.children[i].width);
-    this.children[i].node.setHeight(this.children[i].height);
   }
 
   addAllChildren() {
@@ -105,8 +115,9 @@ class View extends DesktopComponent {
     for (let i = 0; i < this.children.length; i += 1) {
       // go through each of our children and size them
       let layout = this.children[i].node.getComputedLayout();
-      this.element.move(this.children[i].element, layout.left, layout.top);
       libui.Ui.setSize(this.children[i].element, layout.width, layout.height);
+
+      this.element.move(this.children[i].element, layout.left, layout.top);
     }
   }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render, Window, App, Box, Text, View } from './src/';
 
 class Example extends Component {
-  state = { style: { justifyContent: 'center' } };
+  state = { style: { justifyContent: 'center', padding: 8 } };
   render() {
     return (
       <App>
@@ -11,19 +11,15 @@ class Example extends Component {
             <View
               style={{
                 justifyContent: 'flex-start',
-                backgroundColor: 'red',
-                height: 100,
-                width: 100,
+                flex: 1,
               }}
             >
               <Text>Hi</Text>
             </View>
             <View
               style={{
-                justifyContent: 'flex-end',
-                backgroundColor: 'blue',
-                height: 100,
-                width: 100,
+                justifyContent: 'flex-start',
+                flex: 1,
               }}
             >
               <Text>Hello</Text>
