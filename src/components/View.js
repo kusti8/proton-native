@@ -115,9 +115,8 @@ class View extends DesktopComponent {
     for (let i = 0; i < this.children.length; i += 1) {
       // go through each of our children and size them
       let layout = this.children[i].node.getComputedLayout();
-      libui.Ui.setSize(this.children[i].element, layout.width, layout.height);
-
       this.element.move(this.children[i].element, layout.left, layout.top);
+      libui.Ui.setSize(this.children[i].element, layout.width, layout.height);
     }
   }
 
