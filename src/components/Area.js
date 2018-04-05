@@ -170,8 +170,10 @@ class AreaComponent {
     this.parent = parent;
     if (this.props.transform) {
       p.getContext().save();
-      const matrix = new libui.UiDrawMatrix();
-      matrix.setIdentity();
+      const mat = new libui.UiDrawMatrix();
+      mat.setIdentity();
+
+      // TODO add commas in arguments
 
       // rotate(deg [x y])
       // default x: 0, y: 0
@@ -180,8 +182,8 @@ class AreaComponent {
       );
       if (rotate) {
         // console.log(rotate[1], this.parseSelf(rotate[2], p), this.parseSelf(rotate[3], p, true))
-        const rad = rotate[1] * (Math.PI / 180);
-        matrix.rotate(
+        const rad = Number(rotate[1]) * (Math.PI / 180);
+        mat.rotate(
           this.parseSelf(rotate[2], p) || 0,
           this.parseSelf(rotate[3], p, true) || 0,
           rad
@@ -194,7 +196,7 @@ class AreaComponent {
         /translate\s*\(\s*([-0-9.%]+)(?:\s+([-0-9.%]+))?\s*\)/
       );
       if (translate) {
-        matrix.translate(
+        mat.translate(
           this.parseSelf(translate[1], p),
           fallback(translate[2], translate[1], v => this.parseSelf(v, p, true))
         );
@@ -212,7 +214,7 @@ class AreaComponent {
         //   scale[1],
         //   fallback(scale[2], scale[1])
         // );
-        matrix.scale(
+        mat.scale(
           fallback(scale[3], '50%', v => this.parseParent(v, p)),
           fallback(scale[4], '50%', v => this.parseParent(v, p, true)),
           scale[1],
@@ -220,7 +222,37 @@ class AreaComponent {
         );
       }
 
-      p.getContext().transform(matrix);
+      // skew(a, b [,x, y])
+      // a, b: x/y angle
+      // default x=y: 50%
+      const skew = this.props.transform.match(
+        /skew\s*\(\s*([-0-9.]+)\s*,\s*([-0-9.]+)(?:,\s*([-0-9.%]+),\s*([-0-9.%]+))?\)/
+      );
+      if (skew) {
+        const rad1 = Number(skew[1]) * (Math.PI / 180);
+        const rad2 = Number(skew[2]) * (Math.PI / 180);
+        mat.skew(
+          fallback(skew[2], '50%', v => this.parseSelf(v, p)),
+          fallback(skew[3], '50%', v => this.parseSelf(v, p, true)),
+          rad1,
+          rad2
+        );
+      }
+
+      // matrix(a, b, c, d, e, f, g)
+      const matrix = this.props.transform.match(
+        /matrix\s*\(\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*\)/
+      );
+      if (matrix) {
+        mat.setM11(matrix[1]);
+        mat.setM12(matrix[2]);
+        mat.setM21(matrix[3]);
+        mat.setM22(matrix[4]);
+        mat.setM31(matrix[5]);
+        mat.setM32(matrix[6]);
+      }
+
+      p.getContext().transform(mat);
     }
 
     var brush = buildSolidBrush(Color(this.props.color));

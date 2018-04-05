@@ -15,7 +15,7 @@ import {
 } from '../src/';
 
 class Example extends Component {
-  state = { color: 'blue', val: 0 };
+  state = { bool: false, val: 0 };
 
   render() {
     return (
@@ -40,7 +40,7 @@ class Example extends Component {
                 y="50%"
                 width="50%"
                 height="50%"
-                color={this.state.color}
+                color={this.state.bool ? 'red' : 'blue'}
               />
               <Line
                 transform={`rotate(${this.state.val * 3.6} 50% 50%)`}
@@ -63,15 +63,24 @@ class Example extends Component {
                   Math.round(this.state.val * 2.5)}, ${Math.round(
                   this.state.val * 2.5
                 )})`}
-                x="15%"
-                y="15%"
+                x="85%"
+                y="85%"
                 r="40"
+              />
+              <Rectangle
+                // transform={this.state.bool ? 'matrix(1, 2, -1, 1, 80, 80)' : ''}
+                transform={`skew(${(this.state.val / 100 - 0.5) * 2 * 30}, 0)`}
+                x="15"
+                y="15"
+                width="10%"
+                height="10%"
+                color="blue"
               />
             </Area>
             <Button
               onClick={() =>
                 this.setState({
-                  color: this.state.color === 'blue' ? 'red' : 'blue',
+                  bool: !this.state.bool,
                 })
               }
             >
