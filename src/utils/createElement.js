@@ -66,9 +66,10 @@ function createElement(type, props) {
     MENUBARITEM: () => new MenuBar.Item(ROOT_NODE, props),
     FONTBUTTON: () => new FontButton(ROOT_NODE, props),
     AREA: () => new Area(ROOT_NODE, props),
-    AREARECTANGLE: () => new Area.Rectangle(ROOT_NODE, props),
-    AREALINE: () => new Area.Line(ROOT_NODE, props),
-    AREAARC: () => new Area.Arc(ROOT_NODE, props),
+    RECTANGLE: () => new Area.Rectangle(ROOT_NODE, props),
+    LINE: () => new Area.Line(ROOT_NODE, props),
+    ARC: () => new Area.Arc(ROOT_NODE, props),
+    BEZIER: () => new Area.Bezier(ROOT_NODE, props),
     default: undefined,
   };
 

@@ -12,16 +12,15 @@
 [![GPLv3 License](https://img.shields.io/github/license/kusti8/proton-native.svg)](https://github.com/kusti8/proton-native/blob/master/LICENSE)
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Proton-Native)
 
-
 Create native desktop applications through a React syntax, on all platforms
 
 ## Features
 
-- Same syntax as React Native
-- Works with existing React libraries such as Redux
-- Cross platform
-- Native components. No more Electron
-- Compatible with all normal Node.js packages
+* Same syntax as React Native
+* Works with existing React libraries such as Redux
+* Cross platform
+* Native components. No more Electron
+* Compatible with all normal Node.js packages
 
 ## Images
 
@@ -39,10 +38,10 @@ Examples can be found in `examples/`.
 
 All contributions are welcome. Just make a PR. Below is a list of general improvements that need to be added that I would love help with:
 
-- [ ] More examples and improve documentation
-- [ ] Add UiArea
-- [ ] Clean up code
-- [ ] Make packaging easier
-- [x] Make creating a new app easier (something similar to `create-react-app`): https://github.com/albe-rosado/create-proton-app
+* [ ] More examples and improve documentation
+* [x] Add UiArea
+* [ ] Clean up code
+* [ ] Make packaging easier
+* [x] Make creating a new app easier (something similar to `create-react-app`): https://github.com/albe-rosado/create-proton-app
 
 <a href="https://www.keycdn.com/"><sub><sup>Accelerated by KeyCDN</sup></sub></a>

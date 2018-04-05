@@ -6,6 +6,7 @@ import {
   RadioButtons,
   Separator,
   Menu,
+  Circle,
 } from './react-components';
 import { Dialog } from './components';
 
@@ -39,9 +40,10 @@ const MenuBar = 'MENUBAR';
 const MenuBarItem = 'MENUBARITEM';
 const FontButton = 'FONTBUTTON';
 const Area = 'AREA';
-const AreaRectangle = 'AREARECTANGLE';
-const AreaLine = 'AREALINE';
-const AreaArc = 'AREAARC';
+const Rectangle = 'RECTANGLE';
+const Line = 'LINE';
+const Arc = 'ARC';
+const Bezier = 'BEZIER';
 
 export {
   render,
@@ -81,7 +83,9 @@ export {
   FontButton,
   Dialog,
   Area,
-  AreaRectangle,
-  AreaLine,
-  AreaArc,
+  Rectangle,
+  Line,
+  Arc,
+  Bezier,
+  Circle,
 };

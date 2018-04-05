@@ -8,13 +8,14 @@ import {
   Button,
   Slider,
   Area,
-  AreaRectangle,
-  AreaLine,
-  AreaArc,
+  Rectangle,
+  Line,
+  Arc,
+  Circle,
 } from '../src/';
 
 class Example extends Component {
-  state = { color: '0x0000ff', val: 0 };
+  state = { color: 'blue', val: 0 };
 
   render() {
     return (
@@ -32,7 +33,7 @@ class Example extends Component {
               // onMouseMove={(area, evt) => console.log(evt)}
               stretchy={false}
             >
-              <AreaRectangle
+              <Rectangle
                 transform={`translate(-50% -50%)`}
                 // transform={`scale(${(this.state.val/100.0)+0.5} ${(this.state.val/100.0)+0.5} 25 25)`}
                 x="50%"
@@ -41,28 +42,36 @@ class Example extends Component {
                 height="50%"
                 color={this.state.color}
               />
-              <AreaLine
+              <Line
                 transform={`rotate(${this.state.val * 3.6} 50% 50%)`}
                 x1="0"
                 y1="0"
                 x2="100%"
                 y2="100%"
-                color="0x00ff00"
+                color="green"
               />
-              <AreaArc
-                color={this.state.color / 2}
+              <Arc
+                color={'red'}
                 x="50%"
                 y="50%"
                 r="40%"
                 start="0"
                 sweep={this.state.val * 3.6}
               />
+              <Circle
+                color={`rgb(${255 - Math.round(this.state.val * 2.5)}, ${255 -
+                  Math.round(this.state.val * 2.5)}, ${Math.round(
+                  this.state.val * 2.5
+                )})`}
+                x="15%"
+                y="15%"
+                r="40"
+              />
             </Area>
             <Button
               onClick={() =>
                 this.setState({
-                  color:
-                    this.state.color === '0x0000ff' ? '0xff0000' : '0x0000ff',
+                  color: this.state.color === 'blue' ? 'red' : 'blue',
                 })
               }
             >

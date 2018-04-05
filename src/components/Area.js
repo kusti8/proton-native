@@ -5,6 +5,7 @@ import DesktopComponent, {
 import { Component } from 'react';
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
+import Color from 'color';
 
 class Area extends DesktopComponent {
   constructor(root, props) {
@@ -73,20 +74,15 @@ Area.defaultProps = {
   onKeyDown: (area, event) => {},
 };
 
-function buildSolidBrush(color, alpha) {
-  let component;
-
-  component = (color >> 16) & 0xff;
-  const R = component / 255;
-  component = (color >> 8) & 0xff;
-  const G = component / 255;
-  component = color & 0xff;
-  const B = component / 255;
-  const A = alpha;
-
+function buildSolidBrush(c) {
   const uiDrawBrushTypeSolid = 0;
   const brush = new libui.DrawBrush();
-  brush.color = new libui.Color(R, G, B, A);
+  brush.color = new libui.Color(
+    c.red() / 255,
+    c.green() / 255,
+    c.blue() / 255,
+    c.alpha()
+  );
   brush.type = uiDrawBrushTypeSolid;
 
   return brush;
@@ -227,7 +223,7 @@ class AreaComponent {
       p.getContext().transform(matrix);
     }
 
-    var brush = buildSolidBrush(Number(this.props.color), 1.0);
+    var brush = buildSolidBrush(Color(this.props.color));
 
     const sp = new libui.DrawStrokeParams();
 
