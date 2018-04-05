@@ -12,6 +12,7 @@ import {
   Line,
   Arc,
   Circle,
+  Path,
 } from '../src/';
 
 class Example extends Component {
@@ -70,12 +71,17 @@ class Example extends Component {
               <Rectangle
                 // transform={this.state.bool ? 'matrix(1, 2, -1, 1, 80, 80)' : ''}
                 transform={`skew(${(this.state.val / 100 - 0.5) * 2 * 30}, 0)`}
-                x="15"
+                x="30"
                 y="15"
                 width="10%"
                 height="10%"
                 color="blue"
               />
+              {/*<Path 
+                d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80"
+                // d="M10 80 Q 95 10 180 80"
+                // d="M10 10 H 90 V 90 H 10 Z"
+                color="red"/>*/}
             </Area>
             <Button
               onClick={() =>

@@ -70,6 +70,7 @@ function createElement(type, props) {
     LINE: () => new Area.Line(ROOT_NODE, props),
     ARC: () => new Area.Arc(ROOT_NODE, props),
     BEZIER: () => new Area.Bezier(ROOT_NODE, props),
+    PATH: () => new Area.Path(ROOT_NODE, props),
     default: undefined,
   };
 

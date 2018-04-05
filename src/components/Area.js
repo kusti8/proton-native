@@ -6,6 +6,7 @@ import { Component } from 'react';
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
 import Color from 'color';
+import parseSVG from 'svg-path-parser';
 
 class Area extends DesktopComponent {
   constructor(root, props) {
@@ -255,7 +256,7 @@ class AreaComponent {
       p.getContext().transform(mat);
     }
 
-    var brush = buildSolidBrush(Color(this.props.color));
+    const brush = buildSolidBrush(Color(this.props.color));
 
     const sp = new libui.DrawStrokeParams();
 
@@ -295,7 +296,7 @@ Area.Rectangle = class Rectangle extends AreaComponent {
   }
 
   draw(area, p) {
-    var path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
+    const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
     path.addRectangle(
       this.parseParent(this.props.x, p),
       this.parseParent(this.props.y, p, true),
@@ -410,7 +411,7 @@ Area.Bezier = class Bezier extends AreaComponent {
   }
 
   draw(area, p) {
-    var path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
+    const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
     path.newFigure(
       this.parseParent(this.props.x1, p),
       this.parseParent(this.props.y1, p, true)
@@ -439,6 +440,69 @@ Area.Bezier.PropTypes = {
   y2: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   cx2: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   cy2: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+};
+
+Area.Path = class Path extends AreaComponent {
+  constructor(root, props) {
+    super(root, props);
+  }
+
+  getWidth(p) {
+    return this.parseParent(fallback(this.props.height, 0), p, true);
+  }
+
+  getHeight(p) {
+    return this.parseParent(fallback(this.props.height, 0), p, true);
+  }
+
+  draw(area, p) {
+    const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
+    const commands = parseSVG(this.props.d);
+    parseSVG.makeAbsolute(commands);
+
+    for (let i = 0; i < commands.length; i++) {
+      const c = commands[i];
+      switch (c.command) {
+        case 'moveto':
+          path.newFigure(c.x, c.y);
+          break;
+
+        case 'quadratic curveto':
+          console.log("Quadratic Beziers aren't implemented!");
+        case 'horizontal lineto':
+        case 'vertical lineto':
+          path.lineTo(c.x, c.y);
+          break;
+
+        case 'curveto':
+          path.bezierTo(c.x1, c.y1, c.x2, c.y2, c.x, c.y);
+          break;
+
+        case 'smooth curveto':
+          //uses point from previous curve
+          const x1 = c.x0 - (commands[i - 1].x2 - c.x0);
+          const y1 = c.y0 - (commands[i - 1].y2 - c.y0);
+          path.bezierTo(x1, y1, c.x2, c.y2, c.x, c.y);
+          break;
+
+        case 'closepath':
+          path.closeFigure();
+          break;
+
+        default:
+          console.log('Not implemented in Path:', c);
+      }
+    }
+
+    path.end();
+
+    return path;
+  }
+};
+
+Area.Path.PropTypes = {
+  ...AreaComponentProps,
+  d: PropTypes.string,
 };
 
 export default Area;

@@ -44,6 +44,7 @@ const Rectangle = 'RECTANGLE';
 const Line = 'LINE';
 const Arc = 'ARC';
 const Bezier = 'BEZIER';
+const Path = 'PATH';
 
 export {
   render,
@@ -88,4 +89,5 @@ export {
   Arc,
   Bezier,
   Circle,
+  Path,
 };
