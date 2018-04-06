@@ -23,20 +23,57 @@ class Area extends DesktopComponent {
           }
         }
       },
-      this.props.onMouseMove,
+      (area, evt) => {
+        const down = evt.getDown();
+        const up = 0; //evt.getUp();
+        if (up) {
+          this.props.onMouseUp({
+            x: evt.getX(),
+            y: evt.getY(),
+            width: evt.getAreaWidth(),
+            height: evt.getAreaHeight(),
+            button: up,
+          });
+        } else if (down) {
+          this.props.onMouseDown({
+            x: evt.getX(),
+            y: evt.getY(),
+            width: evt.getAreaWidth(),
+            height: evt.getAreaHeight(),
+            button: down,
+          });
+        } else {
+          this.props.onMouseMove({
+            x: evt.getX(),
+            y: evt.getY(),
+            width: evt.getAreaWidth(),
+            height: evt.getAreaHeight(),
+          });
+        }
+      },
       (area, inOut) => {
         if (inOut === 0) {
-          this.props.onMouseEnter(area);
+          this.props.onMouseEnter();
         } else {
-          this.props.onMouseLeave(area);
+          this.props.onMouseLeave();
         }
       },
       function dragBroken() {},
       (area, event) => {
         if (event.getUp()) {
-          this.props.onKeyUp(area, event);
+          return this.props.onKeyUp({
+            key: event.getKey(),
+            extKey: event.getExtKey(),
+            modifierKey: event.getModifier(),
+            modifiers: event.getModifiers(),
+          });
         } else {
-          this.props.onKeyDown(area, event);
+          return this.props.onKeyDown({
+            key: event.getKey(),
+            extKey: event.getExtKey(),
+            modifierKey: event.getModifier(),
+            modifiers: event.getModifiers(),
+          });
         }
       }
     );
@@ -58,6 +95,8 @@ class Area extends DesktopComponent {
 Area.PropTypes = {
   ...universalPropTypes,
   onMouseMove: PropTypes.func,
+  onMouseUp: PropTypes.func,
+  onMouseDown: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
   onKeyUp: PropTypes.func,
@@ -70,7 +109,9 @@ Area.PropTypes = {
 
 Area.defaultProps = {
   ...universalDefaultProps,
-  onMouseMove: (area, event) => {},
+  onMouseMove: e => {},
+  onMouseUp: e => {},
+  onMouseDown: e => {},
   onMouseEnter: area => {},
   onMouseLeave: area => {},
   onKeyUp: (area, event) => {},

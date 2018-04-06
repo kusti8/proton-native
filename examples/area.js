@@ -28,11 +28,19 @@ class Example extends Component {
         <Window title="Test" size={{ w: 600, h: 600 }} margined={true}>
           <Box>
             <Area
-              // onKeyUp={(area, evt) => console.log("up", evt.getKey())}
-              // onKeyDown={(area, evt) => console.log("down", evt.getKey())}
-              // onMouseEnter={area => console.log('enter')}
-              // onMouseLeave={area => console.log('leave')}
-              // onMouseMove={(area, evt) => console.log(evt)}
+              // onKeyUp={e => {
+              //   console.log('up', e.key);
+              //   return true;
+              // }}
+              // onKeyDown={e => {
+              //   console.log('down', e.key);
+              //   return true;
+              // }}
+              // onMouseEnter={() => console.log('enter')}
+              // onMouseLeave={() => console.log('leave')}
+              // onMouseMove={e => console.log(e.x, e.y)}
+              // onMouseDown={e => console.log("down", e.button)}
+              // onMouseUp={e => console.log("up", e.button)}
               stretchy={false}
               strokeWidth="4"
             >

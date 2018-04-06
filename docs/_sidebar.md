@@ -5,6 +5,9 @@
 * Components
 
   * [App](component_APIs/app.md)
+  * [Area](component_APIs/area.md)
+    * [Props](component_APIs/area_props.md)
+    * [Rectangle](component_APIs/area_rectangle.md)
   * [Box](component_APIs/box.md)
   * [Button](component_APIs/button.md)
   * [Checkbox](component_APIs/checkbox.md)
