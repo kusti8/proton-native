@@ -7,6 +7,7 @@ import {
   Separator,
   Menu,
   Circle,
+  Area,
 } from './react-components';
 import { Dialog } from './components';
 
@@ -39,12 +40,13 @@ const ProgressBar = 'PROGRESSBAR';
 const MenuBar = 'MENUBAR';
 const MenuBarItem = 'MENUBARITEM';
 const FontButton = 'FONTBUTTON';
-const Area = 'AREA';
+const AreaInternal = 'AREA';
 const Rectangle = 'RECTANGLE';
 const Line = 'LINE';
 const Arc = 'ARC';
 const Bezier = 'BEZIER';
 const Path = 'PATH';
+const AreaGroup = 'AREAGROUP';
 
 export {
   render,
@@ -83,11 +85,13 @@ export {
   Menu,
   FontButton,
   Dialog,
-  Area,
+  AreaInternal,
   Rectangle,
   Line,
   Arc,
   Bezier,
   Circle,
   Path,
+  AreaGroup,
+  Area,
 };

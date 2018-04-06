@@ -13,10 +13,11 @@ import {
   Arc,
   Circle,
   Path,
+  AreaGroup,
 } from '../src/';
 
 class Example extends Component {
-  state = { bool: false, val: 50 };
+  state = { bool: false, val: 40 };
 
   render() {
     return (
@@ -24,7 +25,7 @@ class Example extends Component {
         <Menu>
           <Menu.Item type="Quit" />
         </Menu>
-        <Window title="Test" size={{ w: 400, h: 400 }} margined={true}>
+        <Window title="Test" size={{ w: 600, h: 600 }} margined={true}>
           <Box>
             <Area
               // onKeyUp={(area, evt) => console.log("up", evt.getKey())}
@@ -33,21 +34,30 @@ class Example extends Component {
               // onMouseLeave={area => console.log('leave')}
               // onMouseMove={(area, evt) => console.log(evt)}
               stretchy={false}
+              strokeWidth="4"
             >
+              <AreaGroup
+                stroke="black"
+                strokeWidth="10"
+                transform="translate(200, 50)"
+              >
+                <Rectangle x="0" y="0" width="100" height="100" fill="red" />
+                <Rectangle x="100" y="0" width="100" height="100" fill="blue" />
+              </AreaGroup>
               <Rectangle
                 transform={`translate(-50%, -50%)`}
                 // transform={`scale(1, 10%, 20%)`}
                 // transform={`scale(${this.state.val / 100.0 + 0.5}, ${this.state.val/100.0 +0.5}, 25, 25)`}
                 x="50%"
                 y="50%"
-                width="50%"
-                height="50%"
+                width="25%"
+                height="25%"
                 stroke="black"
-                strokeWidth="4"
+                strokeWidth="7"
                 fill={this.state.bool ? 'red' : 'blue'}
               />
               <Line
-                transform={`rotate(${this.state.val * 3.6}, 50%, 50%)`}
+                transform={`rotate(${this.state.val * 3.6})`}
                 x1="78%"
                 y1="5%"
                 x2="98%"
@@ -62,7 +72,7 @@ class Example extends Component {
                 start="0"
                 sweep={this.state.val * 3.6}
                 strokeWidth="10"
-                strokeLinecap="round"
+                strokeLinecap={this.state.bool ? 'square' : 'round'}
               />
               <Circle
                 stroke={`rgb(${255 - Math.round(this.state.val * 2.5)}, ${255 -
@@ -88,7 +98,15 @@ class Example extends Component {
                 // d="M10 80 Q 95 10 180 80"
                 // d="M10 10 H 90 V 90 H 10 Z"
                 stroke="red"
-                strokeWidth="4"
+                transform="translate(0, 100)"
+              />
+              <Rectangle
+                transform={`scale(${0.5 + this.state.val / 100}, 0, 0)`}
+                x="8%"
+                y="85%"
+                width="10%"
+                height="10%"
+                stroke="black"
               />
             </Area>
             <Button

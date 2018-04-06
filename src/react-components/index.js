@@ -5,5 +5,6 @@ import RadioButtons from './RadioButtons';
 import Separator from './Separator';
 import Menu from './Menu';
 import Circle from './Circle';
+import Area from './Area';
 
-export { Box, TextInput, Picker, RadioButtons, Separator, Menu, Circle };
+export { Box, TextInput, Picker, RadioButtons, Separator, Menu, Circle, Area };

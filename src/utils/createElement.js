@@ -71,6 +71,7 @@ function createElement(type, props) {
     ARC: () => new Area.Arc(ROOT_NODE, props),
     BEZIER: () => new Area.Bezier(ROOT_NODE, props),
     PATH: () => new Area.Path(ROOT_NODE, props),
+    AREAGROUP: () => new Area.Group(ROOT_NODE, props),
     default: undefined,
   };
 
