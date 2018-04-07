@@ -250,78 +250,82 @@ class AreaComponent {
       const mat = new libui.UiDrawMatrix();
       mat.setIdentity();
 
-      // rotate(deg [,x, y])
-      // default x: 50%, y: 50%
-      const rotate = this.props.transform.match(
-        /rotate\s*\(\s*([-0-9.]+)(?:\s*,\s*([-0-9.%]+)\s*,\s*([-0-9.%]+))?\s*\)/
-      );
-      if (rotate) {
-        const xy = this.selfToParent(
-          fallback(rotate[2], '50%', v => v),
-          fallback(rotate[3], '50%', v => v),
-          p
+      for (const transform of this.props.transform.match(/\w+\([^)]+\)/g)) {
+        // rotate(deg [,x, y])
+        // default x: 50%, y: 50%
+        const rotate = transform.match(
+          /rotate\s*\(\s*([-0-9.]+)(?:\s*,\s*([-0-9.%]+)\s*,\s*([-0-9.%]+))?\s*\)/
         );
-        const rad = Number(rotate[1]) * (Math.PI / 180);
-        mat.rotate(xy.x, xy.y, rad);
-      }
+        if (rotate) {
+          const xy = this.selfToParent(
+            fallback(rotate[2], '50%', v => v),
+            fallback(rotate[3], '50%', v => v),
+            p
+          );
+          const rad = Number(rotate[1]) * (Math.PI / 180);
+          mat.rotate(xy.x, xy.y, rad);
+        }
 
-      // translate(x [y])
-      // default y: x
-      const translate = this.props.transform.match(
-        /translate\s*\(\s*([-0-9.%]+)(?:\s*,\s*([-0-9.%]+))?\s*\)/
-      );
-      if (translate) {
-        mat.translate(
-          this.parseSelf(translate[1], p),
-          fallback(translate[2], translate[1], v => this.parseSelf(v, p, true))
+        // translate(x [y])
+        // default y: x
+        const translate = transform.match(
+          /translate\s*\(\s*([-0-9.%]+)(?:\s*,\s*([-0-9.%]+))?\s*\)/
         );
-      }
+        if (translate) {
+          mat.translate(
+            this.parseSelf(translate[1], p),
+            fallback(translate[2], translate[1], v =>
+              this.parseSelf(v, p, true)
+            )
+          );
+        }
 
-      // 1: scale(x)
-      // 2: scale(x, y)
-      // 3: scale(x, xCenter, yCenter)
-      // 4: scale(x, y, xCenter, yCenter)
-      // default y: x, xCenter=yCenter: 50%
-      const scale = this.props.transform.match(
-        /scale\s*\(([-0-9.]+)(?:(?:\s*,\s*([-0-9.]+))?(?:\s*,\s*([-0-9.%]+)\s*,\s*([-0-9.%]+))?)?\)/
-      );
-      if (scale) {
-        const xy = this.selfToParent(
-          fallback(scale[3], '50%', v => v),
-          fallback(scale[4], '50%', v => v),
-          p
+        // 1: scale(x)
+        // 2: scale(x, y)
+        // 3: scale(x, xCenter, yCenter)
+        // 4: scale(x, y, xCenter, yCenter)
+        // default y: x, xCenter=yCenter: 50%
+        const scale = transform.match(
+          /scale\s*\(([-0-9.]+)(?:(?:\s*,\s*([-0-9.]+))?(?:\s*,\s*([-0-9.%]+)\s*,\s*([-0-9.%]+))?)?\)/
         );
-        mat.scale(xy.x, xy.y, scale[1], fallback(scale[2], scale[1]));
-      }
+        if (scale) {
+          const xy = this.selfToParent(
+            fallback(scale[3], '50%', v => v),
+            fallback(scale[4], '50%', v => v),
+            p
+          );
+          mat.scale(xy.x, xy.y, scale[1], fallback(scale[2], scale[1]));
+        }
 
-      // skew(a, b [,x, y])
-      // a, b: x/y angle
-      // default x=y: 50%
-      const skew = this.props.transform.match(
-        /skew\s*\(\s*([-0-9.]+)\s*,\s*([-0-9.]+)(?:,\s*([-0-9.%]+),\s*([-0-9.%]+))?\)/
-      );
-      if (skew) {
-        const rad1 = Number(skew[1]) * (Math.PI / 180);
-        const rad2 = Number(skew[2]) * (Math.PI / 180);
-        mat.skew(
-          fallback(skew[2], '50%', v => this.parseSelf(v, p)),
-          fallback(skew[3], '50%', v => this.parseSelf(v, p, true)),
-          rad1,
-          rad2
+        // skew(a, b [,x, y])
+        // a, b: x/y angle
+        // default x=y: 50%
+        const skew = transform.match(
+          /skew\s*\(\s*([-0-9.]+)\s*,\s*([-0-9.]+)(?:,\s*([-0-9.%]+),\s*([-0-9.%]+))?\)/
         );
-      }
+        if (skew) {
+          const rad1 = Number(skew[1]) * (Math.PI / 180);
+          const rad2 = Number(skew[2]) * (Math.PI / 180);
+          mat.skew(
+            fallback(skew[2], '50%', v => this.parseSelf(v, p)),
+            fallback(skew[3], '50%', v => this.parseSelf(v, p, true)),
+            rad1,
+            rad2
+          );
+        }
 
-      // matrix(a, b, c, d, e, f, g)
-      const matrix = this.props.transform.match(
-        /matrix\s*\(\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*\)/
-      );
-      if (matrix) {
-        mat.setM11(matrix[1]);
-        mat.setM12(matrix[2]);
-        mat.setM21(matrix[3]);
-        mat.setM22(matrix[4]);
-        mat.setM31(matrix[5]);
-        mat.setM32(matrix[6]);
+        // matrix(a, b, c, d, e, f, g)
+        const matrix = transform.match(
+          /matrix\s*\(\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*\)/
+        );
+        if (matrix) {
+          mat.setM11(matrix[1]);
+          mat.setM12(matrix[2]);
+          mat.setM21(matrix[3]);
+          mat.setM22(matrix[4]);
+          mat.setM31(matrix[5]);
+          mat.setM32(matrix[6]);
+        }
       }
 
       p.getContext().transform(mat);
