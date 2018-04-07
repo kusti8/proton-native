@@ -1,11 +1,11 @@
-# Rectangle
+# Circle
 
-A rectangle to be displayed in an [Area](area.md) component.
+A circle to be displayed in an [Area](area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
 
-import { render, Window, App, Area, Rectangle } from 'proton-native';
+import { render, Window, App, Area, Circle } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -13,7 +13,7 @@ class Example extends Component {
       <App>
         <Window title="Example" size={{ w: 500, h: 500 }}>
           <Area>
-            <Rectangle x="10" y="10" width="100" height="200" fill="blue" />
+            <Circle x="50" y="50" r="10" fill="blue" />
           </Area>
         </Window>
       </App>
@@ -28,15 +28,14 @@ render(<Example />);
 
 * [x](#x)
 * [y](#y)
-* [width](#width)
-* [height](#height)
+* [r](#r)
 * (All props listed in [Area Props](area_props.md))
 
 ## Reference
 
 ### x
 
-The x coordinate of the rectangles top left corner.
+The x coordinate of the center of the cirle.
 
 | **Type**                  | **Required** |
 | ------------------------- | ------------ |
@@ -44,23 +43,15 @@ The x coordinate of the rectangles top left corner.
 
 ### y
 
-The y coordinate of the rectangles top left corner.
+The y coordinate of the center of the cirle.
 
 | **Type**                  | **Required** |
 | ------------------------- | ------------ |
 | number \| string (number) | true         |
 
-### width
+### r
 
-The width of the rectangle.
-
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
-
-### height
-
-The height of the rectangle.
+The circle's radius. Percentage values use the Area's width.
 
 | **Type**                  | **Required** |
 | ------------------------- | ------------ |

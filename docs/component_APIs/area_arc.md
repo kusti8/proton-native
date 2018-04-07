@@ -1,11 +1,11 @@
-# Rectangle
+# Arc
 
-A rectangle to be displayed in an [Area](area.md) component.
+A circular arc to be displayed in an [Area](area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
 
-import { render, Window, App, Area, Rectangle } from 'proton-native';
+import { render, Window, App, Area, Arc } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -13,7 +13,7 @@ class Example extends Component {
       <App>
         <Window title="Example" size={{ w: 500, h: 500 }}>
           <Area>
-            <Rectangle x="10" y="10" width="100" height="200" fill="blue" />
+            <Arc x="50%" y="50%" r="100" start="90" sweep="120" stroke="blue" />
           </Area>
         </Window>
       </App>
@@ -28,15 +28,16 @@ render(<Example />);
 
 * [x](#x)
 * [y](#y)
-* [width](#width)
-* [height](#height)
+* [r](#r)
+* [start](#start)
+* [sweep](#sweep)
 * (All props listed in [Area Props](area_props.md))
 
 ## Reference
 
 ### x
 
-The x coordinate of the rectangles top left corner.
+The x coordinate of the center of the arc.
 
 | **Type**                  | **Required** |
 | ------------------------- | ------------ |
@@ -44,23 +45,31 @@ The x coordinate of the rectangles top left corner.
 
 ### y
 
-The y coordinate of the rectangles top left corner.
+The y coordinate of the center of the arc.
 
 | **Type**                  | **Required** |
 | ------------------------- | ------------ |
 | number \| string (number) | true         |
 
-### width
+### r
 
-The width of the rectangle.
+The arc's radius. Percentage values use the Area's width.
 
 | **Type**                  | **Required** |
 | ------------------------- | ------------ |
 | number \| string (number) | true         |
 
-### height
+### start
 
-The height of the rectangle.
+The start angle of the arc in degrees. Value increases clockwise with `0` meaning the rightmost point ("east") of the imaginary circle.
+
+| **Type**                  | **Required** | **Default** |
+| ------------------------- | ------------ | ----------- |
+| number \| string (number) | false        | 0           |
+
+### sweep
+
+The sweep angle of the arc in degrees. Value increases clockwise.
 
 | **Type**                  | **Required** |
 | ------------------------- | ------------ |

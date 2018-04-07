@@ -1,11 +1,11 @@
-# Rectangle
+# Line
 
-A rectangle to be displayed in an [Area](area.md) component.
+A straigt line to be displayed in an [Area](area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
 
-import { render, Window, App, Area, Rectangle } from 'proton-native';
+import { render, Window, App, Area, Line } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -13,7 +13,7 @@ class Example extends Component {
       <App>
         <Window title="Example" size={{ w: 500, h: 500 }}>
           <Area>
-            <Rectangle x="10" y="10" width="100" height="200" fill="blue" />
+            <Line x1="50" y1="50" x2="100" y2="200" stroke="blue" />
           </Area>
         </Window>
       </App>
@@ -26,41 +26,41 @@ render(<Example />);
 
 ## Props
 
-* [x](#x)
-* [y](#y)
-* [width](#width)
-* [height](#height)
+* [x1](#x1)
+* [y1](#y1)
+* [x2](#x2)
+* [y2](#y2)
 * (All props listed in [Area Props](area_props.md))
 
 ## Reference
 
-### x
+### x1
 
-The x coordinate of the rectangles top left corner.
-
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
-
-### y
-
-The y coordinate of the rectangles top left corner.
+The x coordinate of the line's start point.
 
 | **Type**                  | **Required** |
 | ------------------------- | ------------ |
 | number \| string (number) | true         |
 
-### width
+### y1
 
-The width of the rectangle.
+The y coordinate of the line's start point.
 
 | **Type**                  | **Required** |
 | ------------------------- | ------------ |
 | number \| string (number) | true         |
 
-### height
+### x2
 
-The height of the rectangle.
+The x coordinate of the line's end point.
+
+| **Type**                  | **Required** |
+| ------------------------- | ------------ |
+| number \| string (number) | true         |
+
+### y2
+
+The y coordinate of the line's end point.
 
 | **Type**                  | **Required** |
 | ------------------------- | ------------ |

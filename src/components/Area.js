@@ -176,11 +176,11 @@ class AreaComponent {
   }
 
   getWidth(p) {
-    return 0;
+    return this.props.width ? this.parseParent(this.props.width, p) : 0;
   }
 
   getHeight(p) {
-    return 0;
+    return this.props.width ? this.parseParent(this.props.height, p, true) : 0;
   }
 
   // parse numbers (especially percentages with respect to the parent)
@@ -423,14 +423,6 @@ Area.Group = class AreaGroup extends AreaComponent {
     this.children.push(child);
   }
 
-  getWidth(p) {
-    return this.props.width ? this.parseParent(this.props.width, p) : 0;
-  }
-
-  getHeight(p) {
-    return this.props.width ? this.parseParent(this.props.height, p, true) : 0;
-  }
-
   draw(area, p, props) {
     for (let i = 0; i < this.children.length; i += 1) {
       if (typeof this.children[i] === 'object') {
@@ -586,14 +578,6 @@ Area.Bezier.PropTypes = {
 };
 
 Area.Path = class Path extends AreaComponent {
-  getWidth(p) {
-    return this.parseParent(fallback(this.props.height, 0), p, true);
-  }
-
-  getHeight(p) {
-    return this.parseParent(fallback(this.props.height, 0), p, true);
-  }
-
   draw(area, p) {
     const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
     const commands = parseSVG(this.props.d);
