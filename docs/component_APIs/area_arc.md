@@ -1,11 +1,11 @@
-# Arc
+# Area.Arc
 
 A circular arc to be displayed in an [Area](area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
 
-import { render, Window, App, Area, Arc } from 'proton-native';
+import { render, Window, App, Area } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -13,7 +13,14 @@ class Example extends Component {
       <App>
         <Window title="Example" size={{ w: 500, h: 500 }}>
           <Area>
-            <Arc x="50%" y="50%" r="100" start="90" sweep="120" stroke="blue" />
+            <Area.Arc
+              x="50%"
+              y="50%"
+              r="100"
+              start="90"
+              sweep="120"
+              stroke="blue"
+            />
           </Area>
         </Window>
       </App>

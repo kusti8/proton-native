@@ -1,4 +1,4 @@
-# Path
+# Area.Path
 
 A component describing a path to be displayed in an [Area](area.md) component.
 
@@ -7,7 +7,7 @@ To be able to use percentage values in transforms, the props `width` and `height
 ```jsx
 import React, { Component } from 'react';
 
-import { render, Window, App, Area, path } from 'proton-native';
+import { render, Window, App, Area } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -15,11 +15,11 @@ class Example extends Component {
       <App>
         <Window title="Example" size={{ w: 500, h: 500 }}>
           <Area>
-            <Path
+            <Area.Path
               d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80"
               stroke="red"
             />
-            <Path
+            <Area.Path
               d="M10 10 H 90 V 90 H 10 Z"
               transform="translate(250, 20)"
               stroke="blue"

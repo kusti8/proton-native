@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { AreaInternal, AreaGroup } from '../';
+import { AreaInternal } from '../';
 
 const AreaComponentPropTypes = {
   transform: PropTypes.string,
@@ -63,7 +63,7 @@ class Area extends Component {
     return React.createElement(
       AreaInternal,
       areaProps,
-      React.createElement(AreaGroup, groupProps, children)
+      React.createElement(Area.Group, groupProps, children)
     );
   }
 }

@@ -6,7 +6,6 @@ import {
   RadioButtons,
   Separator,
   Menu,
-  Circle,
   Area,
 } from './react-components';
 import { Dialog } from './components';
@@ -41,12 +40,13 @@ const MenuBar = 'MENUBAR';
 const MenuBarItem = 'MENUBARITEM';
 const FontButton = 'FONTBUTTON';
 const AreaInternal = 'AREA';
-const Rectangle = 'RECTANGLE';
-const Line = 'LINE';
-const Arc = 'ARC';
-const Bezier = 'BEZIER';
-const Path = 'PATH';
-const AreaGroup = 'AREAGROUP';
+Area.Rectangle = 'AREARECTANGLE';
+Area.Line = 'AREALINE';
+Area.Arc = 'AREAARC';
+Area.Bezier = 'AREABEZIER';
+Area.Path = 'AREAPATH';
+Area.Group = 'AREAGROUP';
+Area.Circle = 'AREACIRCLE';
 
 export {
   render,
@@ -86,12 +86,5 @@ export {
   FontButton,
   Dialog,
   AreaInternal,
-  Rectangle,
-  Line,
-  Arc,
-  Bezier,
-  Circle,
-  Path,
-  AreaGroup,
   Area,
 };

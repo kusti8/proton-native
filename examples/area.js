@@ -1,20 +1,5 @@
 import React, { Component } from 'react';
-import {
-  render,
-  Window,
-  App,
-  Box,
-  Menu,
-  Button,
-  Slider,
-  Area,
-  Rectangle,
-  Line,
-  Arc,
-  Circle,
-  Path,
-  AreaGroup,
-} from '../src/';
+import { render, Window, App, Box, Menu, Button, Slider, Area } from '../src/';
 
 class Example extends Component {
   state = { bool: false, val: 40 };
@@ -44,15 +29,27 @@ class Example extends Component {
               stretchy={false}
               strokeWidth="4"
             >
-              <AreaGroup
+              <Area.Group
                 stroke="black"
                 strokeWidth="10"
                 transform="translate(200, 50)"
               >
-                <Rectangle x="0" y="0" width="100" height="100" fill="red" />
-                <Rectangle x="100" y="0" width="100" height="100" fill="blue" />
-              </AreaGroup>
-              <Rectangle
+                <Area.Rectangle
+                  x="0"
+                  y="0"
+                  width="100"
+                  height="100"
+                  fill="red"
+                />
+                <Area.Rectangle
+                  x="100"
+                  y="0"
+                  width="100"
+                  height="100"
+                  fill="blue"
+                />
+              </Area.Group>
+              <Area.Rectangle
                 transform={`translate(-50%, -50%)`}
                 // transform={`scale(1, 10%, 20%)`}
                 // transform={`scale(${this.state.val / 100.0 + 0.5}, ${this.state.val/100.0 +0.5}, 25, 25)`}
@@ -64,7 +61,7 @@ class Example extends Component {
                 strokeWidth="7"
                 fill={this.state.bool ? 'red' : 'blue'}
               />
-              <Line
+              <Area.Line
                 transform={`rotate(${this.state.val * 3.6})`}
                 x1="78%"
                 y1="5%"
@@ -72,7 +69,7 @@ class Example extends Component {
                 y2="25%"
                 stroke="green"
               />
-              <Arc
+              <Area.Arc
                 stroke={'red'}
                 x="50%"
                 y="50%"
@@ -82,16 +79,17 @@ class Example extends Component {
                 strokeWidth="10"
                 strokeLinecap={this.state.bool ? 'square' : 'round'}
               />
-              <Circle
+              <Area.Circle
                 stroke={`rgb(${255 - Math.round(this.state.val * 2.5)}, ${255 -
                   Math.round(this.state.val * 2.5)}, ${Math.round(
                   this.state.val * 2.5
                 )})`}
+                strokeWidth="4"
                 x="85%"
                 y="85%"
                 r="40"
               />
-              <Rectangle
+              <Area.Rectangle
                 // transform={this.state.bool ? 'matrix(1, 2, -1, 1, 80, 80)' : ''}
                 transform={`skew(${(this.state.val / 100 - 0.5) * 2 * 30}, 0)`}
                 x="30"
@@ -101,20 +99,33 @@ class Example extends Component {
                 stroke="blue"
                 fill="lime"
               />
-              <Path
+              <Area.Path
                 d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80"
                 // d="M10 80 Q 95 10 180 80"
                 // d="M10 10 H 90 V 90 H 10 Z"
                 stroke="red"
                 transform="translate(0, 100)"
               />
-              <Rectangle
+              <Area.Rectangle
                 transform={`scale(${0.5 + this.state.val / 100}, 0, 0)`}
                 x="8%"
                 y="85%"
                 width="10%"
                 height="10%"
                 stroke="black"
+              />
+              <Area.Bezier
+                transform="scale(0.5) translate(650, 100)"
+                stroke="black"
+                strokeWidth="8"
+                x1="100"
+                y1="250"
+                cx1="15"
+                cy1="10"
+                x2="400"
+                y2="250"
+                cx2="495"
+                cy2="5"
               />
             </Area>
             <Button

@@ -548,6 +548,41 @@ Area.Arc.defaultProps = {
   start: 0,
 };
 
+Area.Circle = class Circle extends AreaComponent {
+  getWidth(p) {
+    return 2 * this.parseParent(this.props.r, p);
+  }
+
+  getHeight(p) {
+    return getWidth(p);
+  }
+
+  draw(area, p) {
+    const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
+    path.newFigureWithArc(
+      this.parseParent(this.props.x, p),
+      this.parseParent(this.props.y, p, true),
+      this.parseParent(this.props.r, p),
+      0,
+      2 * Math.PI,
+      false
+    );
+    path.end();
+    return path;
+  }
+};
+
+Area.Circle.PropTypes = {
+  ...AreaComponentPropTypes,
+  x: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  y: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  r: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+};
+
+Area.Circle.defaultProps = {
+  ...AreaComponentDefaultProps,
+};
+
 Area.Bezier = class Bezier extends AreaComponent {
   draw(area, p) {
     const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);

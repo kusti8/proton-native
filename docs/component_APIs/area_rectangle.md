@@ -1,11 +1,11 @@
-# Rectangle
+# Area.Rectangle
 
 A rectangle to be displayed in an [Area](area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
 
-import { render, Window, App, Area, Rectangle } from 'proton-native';
+import { render, Window, App, Area } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -13,7 +13,13 @@ class Example extends Component {
       <App>
         <Window title="Example" size={{ w: 500, h: 500 }}>
           <Area>
-            <Rectangle x="10" y="10" width="100" height="200" fill="blue" />
+            <Area.Rectangle
+              x="10"
+              y="10"
+              width="100"
+              height="200"
+              fill="blue"
+            />
           </Area>
         </Window>
       </App>

@@ -1,4 +1,4 @@
-# AreaGroup
+# Area.Group
 
 A component to apply props to all it's children in an [Area](area.md) component.
 
@@ -7,7 +7,7 @@ To be able to use percentage values in transforms, the props `width` and `height
 ```jsx
 import React, { Component } from 'react';
 
-import { render, Window, App, Area, AreaGroup, Rectangle } from 'proton-native';
+import { render, Window, App, Area } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -15,14 +15,20 @@ class Example extends Component {
       <App>
         <Window title="Example" size={{ w: 500, h: 500 }}>
           <Area>
-            <AreaGroup
+            <Area.Group
               stroke="black"
               strokeWidth="10"
               transform="translate(100, 50)"
             >
-              <Rectangle x="0" y="0" width="100" height="100" fill="red" />
-              <Rectangle x="100" y="0" width="100" height="100" fill="blue" />
-            </AreaGroup>
+              <Area.Rectangle x="0" y="0" width="100" height="100" fill="red" />
+              <Area.Rectangle
+                x="100"
+                y="0"
+                width="100"
+                height="100"
+                fill="blue"
+              />
+            </Area.Group>
           </Area>
         </Window>
       </App>

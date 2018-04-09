@@ -1,11 +1,11 @@
-# Bezier
+# Area.Bezier
 
 A Bezier curve to be displayed in an [Area](area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
 
-import { render, Window, App, Area, Circle } from 'proton-native';
+import { render, Window, App, Area } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -13,7 +13,18 @@ class Example extends Component {
       <App>
         <Window title="Example" size={{ w: 500, h: 500 }}>
           <Area>
-            <Circle x="50" y="50" r="10" fill="blue" />
+            <Area.Bezier
+              stroke="black"
+              strokeWidth="8"
+              x1="100"
+              y1="250"
+              cx1="15"
+              cy1="10"
+              x2="400"
+              y2="250"
+              cx2="495"
+              cy2="5"
+            />
           </Area>
         </Window>
       </App>
