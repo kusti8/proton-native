@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render, Window, App, Box, Menu, Button, Slider, Area } from '../src/';
 
 class Example extends Component {
-  state = { bool: false, val: 40 };
+  state = { bool: false, val: 40, dragging: false, pos: { x: 10, y: 10 } };
 
   render() {
     return (
@@ -23,9 +23,25 @@ class Example extends Component {
               // }}
               // onMouseEnter={() => console.log('enter')}
               // onMouseLeave={() => console.log('leave')}
-              // onMouseMove={e => console.log(e.x, e.y)}
-              // onMouseDown={e => console.log("down", e.button)}
-              // onMouseUp={e => console.log("up", e.button)}
+              onMouseMove={e => {
+                if (e.buttons.includes(1)) {
+                  if (this.state.dragging)
+                    this.setState({ pos: { x: e.x, y: e.y } });
+                }
+              }}
+              onMouseUp={e => {
+                this.setState({ dragging: false });
+              }}
+              onMouseDown={e => {
+                if (
+                  Math.sqrt(
+                    Math.pow(this.state.pos.x - e.x, 2) +
+                      Math.pow(this.state.pos.y - e.y, 2)
+                  ) < 40
+                ) {
+                  this.setState({ dragging: true });
+                }
+              }}
               stretchy={false}
               strokeWidth="4"
             >
@@ -84,9 +100,9 @@ class Example extends Component {
                   Math.round(this.state.val * 2.5)}, ${Math.round(
                   this.state.val * 2.5
                 )})`}
-                strokeWidth="4"
-                x="85%"
-                y="85%"
+                strokeWidth="5"
+                x={this.state.pos.x}
+                y={this.state.pos.y}
                 r="40"
               />
               <Area.Rectangle

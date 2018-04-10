@@ -43,11 +43,20 @@ class Area extends DesktopComponent {
             button: down,
           });
         } else {
+          const buttons = [];
+          const held = evt.getHeld1To64();
+          if (held > 0) {
+            for (let i = 0; i <= 6; i++) {
+              if (held & Math.pow(2, i)) buttons.push(i + 1);
+              if (!(held >> (i + 1))) break;
+            }
+          }
           this.props.onMouseMove({
             x: evt.getX(),
             y: evt.getY(),
             width: evt.getAreaWidth(),
             height: evt.getAreaHeight(),
+            buttons,
           });
         }
       },

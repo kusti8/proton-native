@@ -51,11 +51,13 @@ Whether the area can be seen.
 
 Called when the mouse is moved over the area
 
-| **Type**                                                        | **Required** |
-| --------------------------------------------------------------- | ------------ |
-| function({x: number, y: number, width: number, height: number}) | No           |
+| **Type**                                                                                  | **Required** |
+| ----------------------------------------------------------------------------------------- | ------------ |
+| function({x: number, y: number, width: number, height: number, buttons: Array\<number\>}) | No           |
 
 ### onMouseUp
+
+**Not working at the moment**
 
 Called when releasing a mouse button over the area.
 
