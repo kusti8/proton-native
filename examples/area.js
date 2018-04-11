@@ -131,7 +131,7 @@ class Example extends Component {
                 stroke="black"
               />
               <Area.Bezier
-                transform="scale(0.5) translate(650, 100)"
+                transform="scale(0.5) translate(600, 70)"
                 stroke="black"
                 strokeWidth="8"
                 x1="100"
@@ -142,6 +142,14 @@ class Example extends Component {
                 y2="250"
                 cx2="495"
                 cy2="5"
+              />
+              <Area.Path
+                transform="scale(0.4) translate(50, 700)"
+                fill="#b4edb4"
+                fillRule="evenodd"
+                stroke="#7DD37D"
+                strokeWidth="8"
+                d="M231.645,236.645H8.355V13.355h223.29 V236.645z M197.914,202.914H42.086V47.086h155.828V202.914z"
               />
             </Area>
             <Button

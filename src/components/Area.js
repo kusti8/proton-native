@@ -631,7 +631,9 @@ Area.Bezier.PropTypes = {
 
 Area.Path = class Path extends AreaComponent {
   draw(area, p) {
-    const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
+    const path = new libui.UiDrawPath(
+      this.props.fillRule === 'evenodd' ? 1 : 0
+    );
     const commands = parseSVG(this.props.d);
     parseSVG.makeAbsolute(commands);
 
@@ -678,6 +680,11 @@ Area.Path = class Path extends AreaComponent {
 Area.Path.PropTypes = {
   ...AreaComponentPropTypes,
   d: PropTypes.string.isRequired,
+  fillRule: PropTypes.oneOf(['nonzero', 'evenodd']),
+};
+
+Area.Path.defaultProps = {
+  fillRule: 'nonzero',
 };
 
 export default Area;

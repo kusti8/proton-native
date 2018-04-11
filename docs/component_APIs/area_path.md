@@ -37,6 +37,7 @@ render(<Example />);
 ## Props
 
 * [d](#d)
+* [fillMode](#fillmode)
 * (All props listed in [Area Props](area_props.md))
 
 ## Reference
@@ -50,3 +51,11 @@ A warning is displayed whan an unimplemented shaped are used (Quadratic Beziers 
 | **Type** | **Required** |
 | -------- | ------------ |
 | string   | true         |
+
+### fillMode
+
+Sets the methods how to determine wheter to fill a path. Explanation [here](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule).
+
+| **Type**                   | **Required** |
+| -------------------------- | ------------ |
+| enum('nonzero', 'evenodd') | true         |
