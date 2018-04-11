@@ -74,7 +74,7 @@ How far to extend the stroke at a sharp corner when using `strokeLinejoin='miter
 
 ## transform
 
-List of transformations to apply to the component (are quite similar to SVG transformations). Example for multiple transformations: `translate(100, 100) rotate(90)`.
+List of transformations to apply to the component (are quite similar to SVG transformations). Example for multiple transformations: `transform="translate(100, 100) rotate(90)"`.
 All x and y coordinates specified in a transformation are relative _to the component itself_, meaning that `translate(-50%, 0)` will translate the component by 50% of it's own width to left.
 
 | **Type** | **Required** | **Default** |
@@ -158,13 +158,13 @@ Applies a matrix transformation. (Overwrites all other transformations.)
 Syntax:
 
 ```
-matrix(a, b, c, d, e, f, g)
+matrix(a, b, c, d, e, f)
 ```
 
 Applies the matrix:
 
 ```
-/ a c e \
-| b d f |
-\ 0 0 1 /
+/ a b 0 \
+| c d 0 |
+\ e f 1 /
 ```

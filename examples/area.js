@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render, Window, App, Box, Menu, Button, Slider, Area } from '../src/';
 
 class Example extends Component {
-  state = { bool: false, val: 40, dragging: false, pos: { x: 10, y: 10 } };
+  state = { bool: false, val: 40, dragging: false, pos: { x: 50, y: 220 } };
 
   render() {
     return (
@@ -123,9 +123,9 @@ class Example extends Component {
                 transform="translate(0, 100)"
               />
               <Area.Rectangle
-                transform={`scale(${0.5 + this.state.val / 100}, 0, 0)`}
+                transform={`scale(${0.5 + this.state.val / 100}, 50%, 50%)`}
                 x="8%"
-                y="85%"
+                y="75%"
                 width="10%"
                 height="10%"
                 stroke="black"
