@@ -303,11 +303,14 @@ class AreaComponent {
             fallback(scale[4], '50%', v => v),
             p
           );
-          // https://github.com/andlabs/libui/issues/331:
-          // mat.scale(xy.x, xy.y, scale[1], fallback(scale[2], scale[1]));
-          mat.translate(xy.x, xy.y);
-          mat.scale(0, 0, scale[1], fallback(scale[2], scale[1]));
-          mat.translate(-xy.x, -xy.y);
+          if (process.platform === 'win32') {
+            mat.scale(xy.x, xy.y, scale[1], fallback(scale[2], scale[1]));
+          } else {
+            // https://github.com/andlabs/libui/issues/331:
+            mat.translate(xy.x, xy.y);
+            mat.scale(0, 0, scale[1], fallback(scale[2], scale[1]));
+            mat.translate(-xy.x, -xy.y);
+          }
         }
 
         // skew(a, b [,x, y])

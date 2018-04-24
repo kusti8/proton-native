@@ -7,9 +7,6 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Menu>
-          <Menu.Item type="Quit" />
-        </Menu>
         <Window title="Test" size={{ w: 600, h: 600 }} margined={true}>
           <Box>
             <Area
@@ -42,7 +39,6 @@ class Example extends Component {
                   this.setState({ dragging: true });
                 }
               }}
-              stretchy={false}
               strokeWidth="4"
             >
               <Area.Group
@@ -131,7 +127,7 @@ class Example extends Component {
                 stroke="black"
               />
               <Area.Bezier
-                transform="scale(0.5) translate(600, 70)"
+                transform="scale(0.4) translate(70, 180)"
                 stroke="black"
                 strokeWidth="8"
                 x1="100"
@@ -153,6 +149,7 @@ class Example extends Component {
               />
             </Area>
             <Button
+              stretchy={false}
               onClick={() =>
                 this.setState({
                   bool: !this.state.bool,
@@ -162,6 +159,7 @@ class Example extends Component {
               Toggle
             </Button>
             <Slider
+              stretchy={false}
               value={this.state.val}
               onChange={v => this.setState({ val: v })}
             />
