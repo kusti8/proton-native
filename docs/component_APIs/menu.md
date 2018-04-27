@@ -27,32 +27,14 @@ render(<Example />);
 
 ## Props
 
-- [vertical](#vertical)
-- [enabled](#enabled)
-- [visible](#visible)
+- [label](#label)
 
 ## Reference
 
-### vertical
+### label
 
-Whether the line is vertical or horizontal.
-
-| **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | true |
-
-### enabled
-
-Whether the Separator is enabled.
+The name of the menu.
 
 | **Type** | **Required** | **Default** |
 | --- | --- | --- |
-| bool | No | true |
-
-### visible
-
-Whether the Separator can be seen.
-
-| **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | true |
+| string | No | '' |
