@@ -7,6 +7,7 @@
 `libgtk-3-dev build-essential`
 
 ## Install
+```npm install --save babel-cli babel-preset-env babel-preset-stage-0 babel-preset-react```
 
 ### Automatic
 
