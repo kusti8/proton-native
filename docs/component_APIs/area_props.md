@@ -13,6 +13,11 @@ All color properties use the CSS color syntax. Examples: "red", "#070707", "#222
 * [strokeLinejoin](#strokelinejoin)
 * [strokeMiterlimit](#strokemiterlimit)
 * [transform](#transform)
+  * [rotate](#rotate)
+  * [translate](#translate)
+  * [scale](#scale)
+  * [skew](#skew)
+  * [matrix](#matrix)
 
 ## fill
 
