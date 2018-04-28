@@ -122,7 +122,7 @@ class Example extends Component {
                 //    L 172.55 152.45
                 //    A 30 50 -45 0 1 215.1 109.9
                 //    L 315 10"
-                fill="red"
+                fill="grey"
                 transform="scale(2.2) translate(60, 90)"
               />
               <Area.Rectangle

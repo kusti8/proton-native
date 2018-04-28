@@ -670,7 +670,7 @@ Area.Path = class Path extends AreaComponent {
         default:
           // 'quadratic curveto', 'elliptical arc'
           throw new Error(
-            'Not implemented in Path - ' + c.code + ': ' + c.command
+            'Not implemented in Area.Path - ' + c.code + ': ' + c.command
           );
       }
     }
