@@ -389,7 +389,6 @@ class AreaComponent {
         sp.thickness = Number(props.strokeWidth);
         sp.miterLimit = Number(props.strokeMiterlimit);
 
-        // console.log(sp.join, sp.cap, sp.thickness, sp.miterLimit)
         p.getContext().stroke(path, strokeBrush, sp);
 
         //sp.free();
@@ -647,8 +646,7 @@ Area.Path = class Path extends AreaComponent {
           path.newFigure(c.x, c.y);
           break;
 
-        case 'quadratic curveto':
-          console.log("Quadratic Beziers aren't implemented!");
+        case 'lineto':
         case 'horizontal lineto':
         case 'vertical lineto':
           path.lineTo(c.x, c.y);
@@ -669,8 +667,13 @@ Area.Path = class Path extends AreaComponent {
           path.closeFigure();
           break;
 
+        case 'quadratic curveto':
+          throw new Error("Quadratic Beziers aren't implemented!");
+
         default:
-          console.log('Not implemented in Path:', c);
+          throw new Error(
+            'Not implemented in Path - ' + c.code + ': ' + c.command
+          );
       }
     }
 
