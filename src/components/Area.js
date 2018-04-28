@@ -667,10 +667,8 @@ Area.Path = class Path extends AreaComponent {
           path.closeFigure();
           break;
 
-        case 'quadratic curveto':
-          throw new Error("Quadratic Beziers aren't implemented!");
-
         default:
+          // 'quadratic curveto', 'elliptical arc'
           throw new Error(
             'Not implemented in Path - ' + c.code + ': ' + c.command
           );
