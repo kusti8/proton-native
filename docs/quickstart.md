@@ -10,6 +10,8 @@
 
 ### Automatic
 
+If you're on Windows, you may need to install `windows-build-tools` to compile libui-node correctly.
+
 ```bash
 # install the cli app
 npm install -g create-proton-app
@@ -20,6 +22,7 @@ cd my-app
 # run your app
 npm run start
 ```
+
 You can alternatively use `npx` if you prefer.
 
 ### Manual
