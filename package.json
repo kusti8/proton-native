@@ -22,7 +22,7 @@
     "url": "git+https://github.com/kusti8/proton-native.git"
   },
   "author": "Gustav Hansen <kusti8@gmail.com>",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kusti8/proton-native/issues"
   },
