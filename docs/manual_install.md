@@ -6,6 +6,10 @@ To install, simply download it from NPM:
 If you get an error about Python on Windows, install the build tools:
 `npm install --global --production windows-build-tools`
 
+You also need to have babel-cli and these babel-presets prepared in devDependencies
+
+```npm install --save-dev babel-cli babel-preset-env babel-preset-stage-0 babel-preset-react```
+
 Then create `.babelrc`:
 
 ```
