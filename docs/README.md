@@ -25,7 +25,7 @@ React packages such as Redux still work.
 
 [js_example.js](js_example.js ':include :type=code jsx')
 
-It is easiee to see heirarchy and what is occurring, and can easily utilize the power of the state.
+It is easier to see hierarchy and what is occurring, and can easily utilize the power of the state.
 
 ## Features
 
