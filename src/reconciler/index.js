@@ -65,8 +65,7 @@ const DesktopRenderer = Reconciler({
       if (parentInstance.appendChild) {
         parentInstance.appendChild(child);
       }
-      if (typeof child.render === 'function')
-        child.render(parentInstance.element); // we just added a new child, so we want to render it
+      if (typeof child.render === 'function') child.render(parentInstance); // we just added a new child, so we want to render it
     },
 
     appendChildToContainer(parentInstance, child) {
