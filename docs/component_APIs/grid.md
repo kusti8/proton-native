@@ -39,7 +39,7 @@ render(<Example />);
 
 ### enabled
 
-Whether the Form is enabled.
+Whether the Grid is enabled.
 
 | **Type** | **Required** | **Default** |
 | --- | --- | --- |
@@ -47,7 +47,7 @@ Whether the Form is enabled.
 
 ### visible
 
-Whether the Form can be seen.
+Whether the Grid can be seen.
 
 | **Type** | **Required** | **Default** |
 | --- | --- | --- |

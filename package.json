@@ -1,6 +1,6 @@
 {
   "name": "proton-native",
-  "version": "1.0.15",
+  "version": "1.0.18",
   "description": "React Native for the desktop, cross compatible",
   "main": "bin/index.js",
   "lint-staged": {
@@ -10,12 +10,11 @@
     ]
   },
   "scripts": {
-    "demo": "./node_modules/.bin/babel-node Demo.js",
-    "notes": "./node_modules/.bin/babel-node examples/notes.js",
+    "demo": "babel-node Demo.js",
     "prettier":
       "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js'",
-    "build": "./node_modules/.bin/babel src -d bin",
-    "pub": "./node_modules/.bin/babel src -d bin && npm publish",
+    "build": "babel src -d bin",
+    "pub": "babel src -d bin && npm publish",
     "precommit": "lint-staged"
   },
   "repository": {
@@ -23,31 +22,29 @@
     "url": "git+https://github.com/kusti8/proton-native.git"
   },
   "author": "Gustav Hansen <kusti8@gmail.com>",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/kusti8/proton-native/issues"
   },
   "homepage": "https://proton-native.js.org",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "color": "^3.0.0",
     "fbjs": "^0.8.16",
-    "husky": "^0.14.3",
     "libui-node": "^0.1.0",
-    "lint-staged": "^7.0.0",
-    "performance-now": "^2.1.0",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
     "react-reconciler": "^0.7.0"
   },
   "devDependencies": {
-    "prettier": "^1.10.2",
-    "react-devtools": "^3.0.0"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1",
+    "react-devtools": "^3.2.1"
   },
   "files": ["bin"]
 }

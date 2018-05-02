@@ -6,6 +6,8 @@ import {
   RadioButton,
   EditableCombobox,
   MenuBar,
+  Group,
+  Window,
 } from './';
 import { Menu } from '../';
 import {
@@ -32,7 +34,17 @@ class DesktopComponent {
     this.children = [];
   }
 
+  checkSingleChild(props) {
+    if (this instanceof Window || this instanceof Group) {
+      if (props.children && Array.isArray(props.children)) {
+        // we have multiple children
+        throw 'Window and Group only take one child!';
+      }
+    }
+  }
+
   setDefaults(props) {
+    this.checkSingleChild(props); // check for more than one child in Window and Group
     for (let prop in this.constructor.defaultProps) {
       if (!(prop in props) || typeof props[prop] === 'undefined') {
         // children can exist, but be undefined
@@ -64,6 +76,12 @@ class DesktopComponent {
       // if it can have multiple ex. VerticalBox
       this.element.deleteAt(this.children.indexOf(child));
       child.element.destroy();
+    } else if (this.exists(child.element.close)) {
+      // we have a window that we want to close
+      if (!child.closing) {
+        // we are already closing, so we don't want to do it again
+        child.element.close();
+      }
     }
     const index = this.children.indexOf(child);
     this.children.splice(index, 1);

@@ -22,6 +22,8 @@ class Example extends Component {
 render(<Example />);
 ```
 
+> Note: Window can only have one child. To have more than one child, use boxes.
+
 ## Props
 
 * [title](#title)
@@ -86,7 +88,7 @@ Whether the window will have a border on the inside.
 | -------- | ------------ | ----------- |
 | bool     | No           | false       |
 
-## lastWindow
+### lastWindow
 
 Whether the window is the last window. If set to `true`, then the program will quit once the window is closed.
 
@@ -110,7 +112,7 @@ Called when the window is closed.
 | ---------- | ------------ |
 | function() | No           |
 
-## onContentSizeChange
+### onContentSizeChange
 
 Called when the window size is changed by the user. The new size is passed as an argument, in an object.
 

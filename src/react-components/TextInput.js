@@ -7,14 +7,14 @@ class TextInput extends Component {
     const { secure, multiline, children, ...otherProps } = this.props;
 
     if (secure) {
-      return <PasswordEntry {...otherProps}>{children}</PasswordEntry>;
+      return React.createElement(PasswordEntry, otherProps, children);
     }
 
     if (multiline) {
-      return <MultilineEntry {...otherProps}>{children}</MultilineEntry>;
+      return React.createElement(MultilineEntry, otherProps, children);
     }
 
-    return <Entry {...otherProps}>{children}</Entry>;
+    return React.createElement(Entry, otherProps, children);
   }
 }
 

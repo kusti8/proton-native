@@ -4,7 +4,6 @@ import DesktopComponent, {
 } from './DesktopComponent';
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
-import { stop } from '../eventLoop';
 
 var CURRENT_WINDOW = null;
 
@@ -57,6 +56,7 @@ class Window extends DesktopComponent {
         this.props.menuBar
       );
       this.element.onClosing(() => {
+        this.closing = true;
         this.props.onClose();
         this.element.close();
         if (this.props.lastWindow) {
@@ -99,6 +99,7 @@ Window.PropTypes = {
   closed: PropTypes.bool,
   onClose: PropTypes.func,
   onContentSizeChange: PropTypes.func,
+  children: PropTypes.object,
 };
 
 Window.defaultProps = {
