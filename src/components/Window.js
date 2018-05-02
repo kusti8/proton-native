@@ -18,6 +18,8 @@ class Window extends DesktopComponent {
   }
 
   update(oldProps, newProps) {
+    this.props = { ...newProps };
+    this.setDefaults(newProps);
     if (!this.exists(this.element)) {
       // if we haven't defined it yet, don't set props
       return;
@@ -42,6 +44,9 @@ class Window extends DesktopComponent {
     if (newProps.closed !== oldProps.closed) {
       if (newProps.closed) {
         this.element.close();
+        if (this.props.lastWindow) {
+          libui.stopLoop();
+        }
       }
     }
   }
