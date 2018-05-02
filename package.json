@@ -34,7 +34,8 @@
     "prop-types": "^15.6.1",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
-    "react-reconciler": "^0.7.0"
+    "react-reconciler": "^0.7.0",
+    "svg-path-parser": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
