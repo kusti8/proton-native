@@ -25,6 +25,7 @@ import ProgressBar from './ProgressBar';
 import MenuBar from './MenuBar';
 import FontButton from './FontButton';
 import Dialog from './Dialog';
+import Area from './Area';
 
 export {
   Root,
@@ -54,4 +55,5 @@ export {
   MenuBar,
   FontButton,
   Dialog,
+  Area,
 };

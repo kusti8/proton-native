@@ -5,6 +5,15 @@
 * Components
 
   * [App](component_APIs/app.md)
+  * [Area](component_APIs/area.md)
+    * [Props](component_APIs/area_props.md)
+    * [Area.Group](component_APIs/area_group.md)
+    * [Area.Rectangle](component_APIs/area_rectangle.md)
+    * [Area.Line](component_APIs/area_line.md)
+    * [Area.Circle](component_APIs/area_circle.md)
+    * [Area.Arc](component_APIs/area_bezier.md)
+    * [Area.Bezier](component_APIs/area_bezier.md)
+    * [Area.Path](component_APIs/area_path.md)
   * [Box](component_APIs/box.md)
   * [Button](component_APIs/button.md)
   * [Checkbox](component_APIs/checkbox.md)

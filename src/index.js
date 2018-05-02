@@ -6,6 +6,7 @@ import {
   RadioButtons,
   Separator,
   Menu,
+  Area,
 } from './react-components';
 import { Dialog } from './components';
 
@@ -38,6 +39,14 @@ const ProgressBar = 'PROGRESSBAR';
 const MenuBar = 'MENUBAR';
 const MenuBarItem = 'MENUBARITEM';
 const FontButton = 'FONTBUTTON';
+const AreaInternal = 'AREA';
+Area.Rectangle = 'AREARECTANGLE';
+Area.Line = 'AREALINE';
+Area.Arc = 'AREAARC';
+Area.Bezier = 'AREABEZIER';
+Area.Path = 'AREAPATH';
+Area.Group = 'AREAGROUP';
+Area.Circle = 'AREACIRCLE';
 
 export {
   render,
@@ -76,4 +85,6 @@ export {
   Menu,
   FontButton,
   Dialog,
+  AreaInternal,
+  Area,
 };
