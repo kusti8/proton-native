@@ -4,7 +4,7 @@
 
 ## Why?
 
-On mobile, it used to be hard to build beatiful cross-platform apps. Then React Native came along, giving us
+On mobile, it used to be hard to build beautiful cross-platform apps. Then React Native came along, giving us
 a seamless way to build user interfaces and manage state in code, all while doing it cross platform.
 
 On desktop, there is no such tool. You can create a GUI using something like Qt, but for people who are used to the React workflow and JSX, there currently isn't an alternative.
