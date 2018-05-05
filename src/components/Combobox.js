@@ -24,7 +24,7 @@ class Combobox extends DesktopComponent {
   }
 }
 
-Combobox.PropTypes = {
+Combobox.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
@@ -56,7 +56,7 @@ Combobox.Item = class Item extends DesktopComponent {
   }
 };
 
-Combobox.Item.PropTypes = {
+Combobox.Item.propTypes = {
   children: PropTypes.string.isRequired,
 };
 

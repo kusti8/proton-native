@@ -21,7 +21,7 @@ class VerticalSeparator extends DesktopComponent {
   }
 }
 
-VerticalSeparator.PropTypes = {
+VerticalSeparator.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

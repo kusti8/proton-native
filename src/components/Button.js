@@ -24,7 +24,7 @@ class Button extends DesktopComponent {
   }
 }
 
-Button.PropTypes = {
+Button.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

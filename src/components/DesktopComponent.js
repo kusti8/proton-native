@@ -52,7 +52,7 @@ class DesktopComponent {
       }
     }
     PropTypes.checkPropTypes(
-      this.constructor.PropTypes,
+      this.constructor.propTypes,
       this.props,
       'prop',
       this.constructor.name

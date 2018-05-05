@@ -33,7 +33,7 @@ class App extends DesktopComponent {
   }
 }
 
-App.PropTypes = {
+App.propTypes = {
   onShouldQuit: PropTypes.func,
 };
 

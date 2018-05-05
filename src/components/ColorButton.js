@@ -89,7 +89,7 @@ class ColorButton extends DesktopComponent {
   }
 }
 
-ColorButton.PropTypes = {
+ColorButton.propTypes = {
   ...universalPropTypes,
   color: PropTypes.string,
   onChange: PropTypes.func,

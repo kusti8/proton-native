@@ -21,7 +21,7 @@ class Tab extends DesktopComponent {
   }
 }
 
-Tab.PropTypes = {
+Tab.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

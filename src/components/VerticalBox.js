@@ -21,7 +21,7 @@ class VerticalBox extends DesktopComponent {
   }
 }
 
-VerticalBox.PropTypes = {
+VerticalBox.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

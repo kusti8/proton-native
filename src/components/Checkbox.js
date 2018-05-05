@@ -24,7 +24,7 @@ class Checkbox extends DesktopComponent {
   }
 }
 
-Checkbox.PropTypes = {
+Checkbox.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

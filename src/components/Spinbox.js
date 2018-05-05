@@ -23,7 +23,7 @@ class Spinbox extends DesktopComponent {
   }
 }
 
-Spinbox.PropTypes = {
+Spinbox.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

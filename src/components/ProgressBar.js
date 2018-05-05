@@ -21,7 +21,7 @@ class ProgressBar extends DesktopComponent {
   }
 }
 
-ProgressBar.PropTypes = {
+ProgressBar.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
