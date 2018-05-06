@@ -23,7 +23,7 @@ class Slider extends DesktopComponent {
   }
 }
 
-Slider.PropTypes = {
+Slider.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

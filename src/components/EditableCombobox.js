@@ -24,7 +24,7 @@ class EditableCombobox extends DesktopComponent {
   }
 }
 
-EditableCombobox.PropTypes = {
+EditableCombobox.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
@@ -56,7 +56,7 @@ EditableCombobox.Item = class Item extends DesktopComponent {
   }
 };
 
-EditableCombobox.Item.PropTypes = {
+EditableCombobox.Item.propTypes = {
   children: PropTypes.string.isRequired,
 };
 

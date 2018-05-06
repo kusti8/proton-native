@@ -29,7 +29,7 @@ class MenuBar extends DesktopComponent {
   }
 }
 
-MenuBar.PropTypes = {
+MenuBar.propTypes = {
   ...universalPropTypes,
   label: PropTypes.string,
 };
@@ -61,7 +61,7 @@ MenuBar.Item = class Item extends DesktopComponent {
   }
 };
 
-MenuBar.Item.PropTypes = {
+MenuBar.Item.propTypes = {
   children: PropTypes.string,
   checked: PropTypes.bool,
   type: PropTypes.oneOf([CHECK, QUIT, ABOUT, PREFERENCES, SEPARATOR, ITEM]),

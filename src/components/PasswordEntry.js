@@ -24,7 +24,7 @@ class PasswordEntry extends DesktopComponent {
   }
 }
 
-PasswordEntry.PropTypes = {
+PasswordEntry.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

@@ -21,7 +21,7 @@ class Form extends DesktopComponent {
   }
 }
 
-Form.PropTypes = {
+Form.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

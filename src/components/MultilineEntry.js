@@ -24,7 +24,7 @@ class MultilineEntry extends DesktopComponent {
   }
 }
 
-MultilineEntry.PropTypes = {
+MultilineEntry.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

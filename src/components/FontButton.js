@@ -23,7 +23,7 @@ class FontButton extends DesktopComponent {
   }
 }
 
-FontButton.PropTypes = {
+FontButton.propTypes = {
   ...universalPropTypes,
   onChange: PropTypes.func,
 };

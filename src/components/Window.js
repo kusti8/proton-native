@@ -89,7 +89,7 @@ class Window extends DesktopComponent {
   }
 }
 
-Window.PropTypes = {
+Window.propTypes = {
   title: PropTypes.string,
   size: PropTypes.shape({
     h: PropTypes.number,
