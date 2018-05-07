@@ -1,6 +1,6 @@
 import { createElement } from '../utils/createElement';
 import DesktopRenderer from '../reconciler/';
-import connectDevtools from '../devtools';
+import { connectDevtools } from '../devtools';
 
 export let ROOT_NODE = {};
 

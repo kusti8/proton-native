@@ -10,15 +10,17 @@ const prequire = function(id) {
   throw new Error("Cannot find module '" + id + "' from parent");
 };
 
-try {
-  global.window = global;
-  WebSocket = prequire('ws');
-  connectToDevTools = prequire('react-devtools-core').connectToDevTools;
-} catch (e) {}
+if (process.env.NODE_ENV !== 'production') {
+  try {
+    global.window = global;
+    WebSocket = prequire('ws');
+    connectToDevTools = prequire('react-devtools-core').connectToDevTools;
+  } catch (e) {}
+}
 
 let ws;
 
-function connect(reconciler) {
+function connectDevtools(reconciler) {
   if (connectToDevTools && WebSocket) {
     ws = new WebSocket('ws://localhost:8097');
     connectToDevTools({ websocket: ws });
@@ -32,10 +34,13 @@ function connect(reconciler) {
 }
 
 function disconnectDevtools() {
-  if (ws) {
+  if (
+    ws &&
+    WebSocket &&
+    (ws.readyState === WebSocket.CONNECTING || ws.readyState === WebSocket.OPEN)
+  ) {
     ws.close();
   }
 }
 
-export default connect;
-export { disconnectDevtools };
+export { connectDevtools, disconnectDevtools };
