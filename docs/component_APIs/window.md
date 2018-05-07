@@ -35,7 +35,6 @@ render(<Example />);
 * [lastWindow](#lastWindow)
 * [closed](#closed)
 * [onClose](#onClose)
-* [onPositionChange](#onPositionChange)
 * [onContentSizeChange](#onContentSizeChange)
 
 ## Reference
