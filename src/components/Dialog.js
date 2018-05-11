@@ -9,7 +9,7 @@ const getCurrentDialog = {
     return libui.UiDialogs.saveFile(CURRENT_WINDOW);
   },
   Message({ title, description }) {
-    return libui.UiDialogs.msgBox(CURRENT_WINDOW, title, options);
+    return libui.UiDialogs.msgBox(CURRENT_WINDOW, title, description);
   },
   Error({ title, description }) {
     return libui.UiDialogs.msgBoxError(CURRENT_WINDOW, title, description);
