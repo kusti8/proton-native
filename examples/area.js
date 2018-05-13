@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
-import { render, Window, App, Box, Menu, Button, Slider, Area } from '../src/';
+import {
+  render,
+  Window,
+  App,
+  Box,
+  Menu,
+  Button,
+  Slider,
+  Area,
+  Text,
+} from '../src/';
 
 class Example extends Component {
   state = { bool: false, val: 40, dragging: false, pos: { x: 50, y: 220 } };
@@ -7,8 +17,9 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Test" size={{ w: 600, h: 600 }} margined={true}>
-          <Box>
+        <Window title="Test" size={{ w: 600, h: 650 }} margined={true}>
+          <Box padded>
+            <Text stretchy={false}>Try dragging the circle!</Text>
             <Area
               // onKeyUp={e => {
               //   console.log('up', e.key);

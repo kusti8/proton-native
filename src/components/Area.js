@@ -25,7 +25,7 @@ class Area extends DesktopComponent {
       },
       (area, evt) => {
         const down = evt.getDown();
-        const up = 0; //evt.getUp();
+        const up = evt.getUp();
         if (up) {
           this.props.onMouseUp({
             x: evt.getX(),
@@ -148,7 +148,7 @@ function createBrush(color, alpha) {
     color.blue() / 255,
     color.alpha() * alpha
   );
-  brush.type = 0 /*uiDrawBrushTypeSolid*/;
+  brush.type = libui.brushType.solid;
 
   return brush;
 }
@@ -391,13 +391,13 @@ class AreaComponent {
 
         p.getContext().stroke(path, strokeBrush, sp);
 
-        //sp.free();
-        //strokBrush.free();
+        sp.free();
+        strokeBrush.free();
       }
 
       if (fillBrush) {
         p.getContext().fill(path, fillBrush);
-        //fillBrush.free();
+        fillBrush.free();
       }
 
       path.freePath();
@@ -467,7 +467,7 @@ Area.Rectangle = class Rectangle extends AreaComponent {
   }
 
   draw(area, p) {
-    const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
+    const path = new libui.UiDrawPath(libui.fillMode.winding);
     path.addRectangle(
       this.parseParent(this.props.x, p),
       this.parseParent(this.props.y, p, true),
@@ -502,7 +502,7 @@ Area.Line = class Line extends AreaComponent {
   }
 
   draw(area, p) {
-    const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
+    const path = new libui.UiDrawPath(libui.fillMode.winding);
     path.newFigure(
       this.parseParent(this.props.x1, p),
       this.parseParent(this.props.y1, p, true)
@@ -535,7 +535,7 @@ Area.Arc = class Arc extends AreaComponent {
   }
 
   draw(area, p) {
-    const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
+    const path = new libui.UiDrawPath(libui.fillMode.winding);
     path.newFigureWithArc(
       this.parseParent(this.props.x, p),
       this.parseParent(this.props.y, p, true),
@@ -573,7 +573,7 @@ Area.Circle = class Circle extends AreaComponent {
   }
 
   draw(area, p) {
-    const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
+    const path = new libui.UiDrawPath(libui.fillMode.winding);
     path.newFigureWithArc(
       this.parseParent(this.props.x, p),
       this.parseParent(this.props.y, p, true),
@@ -600,7 +600,7 @@ Area.Circle.defaultProps = {
 
 Area.Bezier = class Bezier extends AreaComponent {
   draw(area, p) {
-    const path = new libui.UiDrawPath(0 /*uiDrawFillModeWinding*/);
+    const path = new libui.UiDrawPath(libui.fillMode.winding);
     path.newFigure(
       this.parseParent(this.props.x1, p),
       this.parseParent(this.props.y1, p, true)
