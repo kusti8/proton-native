@@ -21,7 +21,7 @@ class Grid extends DesktopComponent {
   }
 }
 
-Grid.PropTypes = {
+Grid.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

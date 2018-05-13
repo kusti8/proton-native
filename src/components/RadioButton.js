@@ -24,7 +24,7 @@ class RadioButton extends DesktopComponent {
   }
 }
 
-RadioButton.PropTypes = {
+RadioButton.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,
@@ -56,7 +56,7 @@ RadioButton.Item = class Item extends DesktopComponent {
   }
 };
 
-RadioButton.Item.PropTypes = {
+RadioButton.Item.propTypes = {
   children: PropTypes.string.isRequired,
 };
 

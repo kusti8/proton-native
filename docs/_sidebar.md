@@ -1,4 +1,5 @@
 * [Home](/)
+* [About](about.md)
 * [Quick start](quickstart.md)
 * [Packaging](packaging.md)
 * [Universal Props](component_APIs/universal_props.md)

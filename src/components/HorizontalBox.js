@@ -21,7 +21,7 @@ class HorizontalBox extends DesktopComponent {
   }
 }
 
-HorizontalBox.PropTypes = {
+HorizontalBox.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

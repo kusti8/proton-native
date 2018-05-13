@@ -5,6 +5,7 @@ import DesktopComponent, {
 } from './DesktopComponent';
 
 import PropTypes from 'prop-types';
+import { disconnectDevtools } from '../devtools';
 
 class App extends DesktopComponent {
   constructor(root, props) {
@@ -27,13 +28,14 @@ class App extends DesktopComponent {
   render() {
     libui.Ui.onShouldQuit(() => {
       this.props.onShouldQuit();
+      disconnectDevtools();
       libui.stopLoop();
     });
     this.renderChildNode(this);
   }
 }
 
-App.PropTypes = {
+App.propTypes = {
   onShouldQuit: PropTypes.func,
 };
 

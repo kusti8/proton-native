@@ -21,7 +21,7 @@ class HorizontalSeparator extends DesktopComponent {
   }
 }
 
-HorizontalSeparator.PropTypes = {
+HorizontalSeparator.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

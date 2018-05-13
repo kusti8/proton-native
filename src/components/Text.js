@@ -23,7 +23,7 @@ class Text extends DesktopComponent {
   }
 }
 
-Text.PropTypes = {
+Text.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

@@ -24,7 +24,7 @@ class Entry extends DesktopComponent {
   }
 }
 
-Entry.PropTypes = {
+Entry.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

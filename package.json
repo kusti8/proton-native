@@ -1,6 +1,6 @@
 {
   "name": "proton-native",
-  "version": "1.0.18",
+  "version": "1.1.3",
   "description": "React Native for the desktop, cross compatible",
   "main": "bin/index.js",
   "lint-staged": {
@@ -22,7 +22,7 @@
     "url": "git+https://github.com/kusti8/proton-native.git"
   },
   "author": "Gustav Hansen <kusti8@gmail.com>",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kusti8/proton-native/issues"
   },
@@ -32,19 +32,18 @@
     "fbjs": "^0.8.16",
     "libui-node": "^0.2.0-rc1",
     "prop-types": "^15.6.1",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
+    "react": "^16.3.2",
     "react-reconciler": "^0.7.0",
     "svg-path-parser": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "husky": "^0.14.3",
-    "lint-staged": "^7.0.0",
-    "prettier": "^1.11.1",
+    "lint-staged": "^7.1.0",
+    "prettier": "^1.12.1",
     "react-devtools": "^3.2.1"
   },
   "files": ["bin"]

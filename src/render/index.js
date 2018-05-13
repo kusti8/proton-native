@@ -1,10 +1,13 @@
 import { createElement } from '../utils/createElement';
 import DesktopRenderer from '../reconciler/';
+import { connectDevtools } from '../devtools';
 
 export let ROOT_NODE = {};
 
 // Renders the input component
 function render(element) {
+  connectDevtools(DesktopRenderer);
+
   ROOT_NODE = createElement('ROOT');
   const container = ROOT_NODE;
 
@@ -14,12 +17,6 @@ function render(element) {
   // Schedules a top level update with current fiber and a priority level (depending upon the context)
   DesktopRenderer.updateContainer(element, node, null);
   ROOT_NODE.render();
-  // DesktopRenderer.injectIntoDevTools({
-  //   bundleType: 1,
-  //   version: '0.1.0',
-  //   rendererPackageName: 'custom-renderer',
-  //   findHostInstanceByFiber: DesktopRenderer.findHostInstance
-  // })
 }
 
 export default render;

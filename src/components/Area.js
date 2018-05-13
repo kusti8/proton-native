@@ -101,7 +101,7 @@ class Area extends DesktopComponent {
   }
 }
 
-Area.PropTypes = {
+Area.propTypes = {
   ...universalPropTypes,
   onMouseMove: PropTypes.func,
   onMouseUp: PropTypes.func,
@@ -168,7 +168,7 @@ class AreaComponent {
       }
     }
     PropTypes.checkPropTypes(
-      this.constructor.PropTypes,
+      this.constructor.propTypes,
       this.props,
       'prop',
       this.constructor.name
@@ -451,7 +451,7 @@ Area.Group = class AreaGroup extends AreaComponent {
   }
 };
 
-Area.Group.PropTypes = {
+Area.Group.propTypes = {
   ...AreaComponentPropTypes,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -479,7 +479,7 @@ Area.Rectangle = class Rectangle extends AreaComponent {
   }
 };
 
-Area.Rectangle.PropTypes = {
+Area.Rectangle.propTypes = {
   ...AreaComponentPropTypes,
   x: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   y: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
@@ -517,7 +517,7 @@ Area.Line = class Line extends AreaComponent {
   }
 };
 
-Area.Line.PropTypes = {
+Area.Line.propTypes = {
   ...AreaComponentPropTypes,
   x1: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   y1: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
@@ -549,7 +549,7 @@ Area.Arc = class Arc extends AreaComponent {
   }
 };
 
-Area.Arc.PropTypes = {
+Area.Arc.propTypes = {
   ...AreaComponentPropTypes,
   x: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   y: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
@@ -587,7 +587,7 @@ Area.Circle = class Circle extends AreaComponent {
   }
 };
 
-Area.Circle.PropTypes = {
+Area.Circle.propTypes = {
   ...AreaComponentPropTypes,
   x: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   y: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
@@ -619,7 +619,7 @@ Area.Bezier = class Bezier extends AreaComponent {
   }
 };
 
-Area.Bezier.PropTypes = {
+Area.Bezier.propTypes = {
   ...AreaComponentPropTypes,
   x1: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   y1: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
@@ -681,7 +681,7 @@ Area.Path = class Path extends AreaComponent {
   }
 };
 
-Area.Path.PropTypes = {
+Area.Path.propTypes = {
   ...AreaComponentPropTypes,
   d: PropTypes.string.isRequired,
   fillRule: PropTypes.oneOf(['nonzero', 'evenodd']),

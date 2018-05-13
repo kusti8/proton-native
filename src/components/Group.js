@@ -21,7 +21,7 @@ class Group extends DesktopComponent {
   }
 }
 
-Group.PropTypes = {
+Group.propTypes = {
   ...universalPropTypes,
   enabled: PropTypes.bool,
   visible: PropTypes.bool,

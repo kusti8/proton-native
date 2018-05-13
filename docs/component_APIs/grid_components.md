@@ -67,6 +67,8 @@ How many rows/columns the component takes off.
 
 Whether the component can expand in the direction.
 
+Note: Grid expand does not work correctly when both align horizontal and align vertical are set. You must choose one so Proton Native knows which direction to expand.
+
 | **Type** | **Required** | **Default** |
 | --- | --- | --- |
 | object {h: bool, v: bool} | No | {h: true, v: true} |
