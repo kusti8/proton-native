@@ -8,6 +8,93 @@ import PropTypes from 'prop-types';
 import Color from 'color';
 import parseSVG from 'svg-path-parser';
 
+const onMouse = component => (area, evt) => {
+  const down = evt.getDown();
+  const up = evt.getUp();
+  if (up) {
+    component.props.onMouseUp({
+      x: evt.getX(),
+      y: evt.getY(),
+      width: evt.getAreaWidth(),
+      height: evt.getAreaHeight(),
+      button: up,
+    });
+  } else if (down) {
+    component.props.onMouseDown({
+      x: evt.getX(),
+      y: evt.getY(),
+      width: evt.getAreaWidth(),
+      height: evt.getAreaHeight(),
+      button: down,
+    });
+  } else {
+    const buttons = [];
+    const held = evt.getHeld1To64();
+    if (held > 0) {
+      for (let i = 0; i <= 6; i++) {
+        if (held & Math.pow(2, i)) buttons.push(i + 1);
+        if (!(held >> (i + 1))) break;
+      }
+    }
+    component.props.onMouseMove({
+      x: evt.getX(),
+      y: evt.getY(),
+      width: evt.getAreaWidth(),
+      height: evt.getAreaHeight(),
+      buttons,
+    });
+  }
+};
+
+const onKey = component => (area, event) => {
+  let extKey = event.getExtKey();
+  if (extKey) {
+    for (let k of Object.keys(libui.extKeys)) {
+      if (extKey == libui.extKeys[k]) {
+        extKey = k;
+        break;
+      }
+    }
+  }
+
+  let modifierKey = event.getModifier();
+  if (modifierKey) {
+    for (let k of Object.keys(libui.modifierKeys)) {
+      if (modifierKey == libui.modifierKeys[k]) {
+        modifierKey = k;
+        break;
+      }
+    }
+  }
+
+  let modifiers = event.getModifiers();
+  let modifiersList = [];
+
+  if (modifiers) {
+    for (let k of Object.keys(libui.modifierKeys)) {
+      if (modifiers & libui.modifierKeys[k]) {
+        modifiersList.push(k);
+      }
+    }
+  }
+
+  if (event.getUp()) {
+    return component.props.onKeyUp({
+      key: event.getKey(),
+      extKey,
+      modifierKey,
+      modifiers: modifiersList,
+    });
+  } else {
+    return component.props.onKeyDown({
+      key: event.getKey(),
+      extKey,
+      modifierKey,
+      modifiers: modifiersList,
+    });
+  }
+};
+
 class Area extends DesktopComponent {
   constructor(root, props) {
     super(root, props);
@@ -23,43 +110,7 @@ class Area extends DesktopComponent {
           }
         }
       },
-      (area, evt) => {
-        const down = evt.getDown();
-        const up = evt.getUp();
-        if (up) {
-          this.props.onMouseUp({
-            x: evt.getX(),
-            y: evt.getY(),
-            width: evt.getAreaWidth(),
-            height: evt.getAreaHeight(),
-            button: up,
-          });
-        } else if (down) {
-          this.props.onMouseDown({
-            x: evt.getX(),
-            y: evt.getY(),
-            width: evt.getAreaWidth(),
-            height: evt.getAreaHeight(),
-            button: down,
-          });
-        } else {
-          const buttons = [];
-          const held = evt.getHeld1To64();
-          if (held > 0) {
-            for (let i = 0; i <= 6; i++) {
-              if (held & Math.pow(2, i)) buttons.push(i + 1);
-              if (!(held >> (i + 1))) break;
-            }
-          }
-          this.props.onMouseMove({
-            x: evt.getX(),
-            y: evt.getY(),
-            width: evt.getAreaWidth(),
-            height: evt.getAreaHeight(),
-            buttons,
-          });
-        }
-      },
+      onMouse(this),
       (area, inOut) => {
         if (inOut === 0) {
           this.props.onMouseEnter();
@@ -68,23 +119,7 @@ class Area extends DesktopComponent {
         }
       },
       function dragBroken() {},
-      (area, event) => {
-        if (event.getUp()) {
-          return this.props.onKeyUp({
-            key: event.getKey(),
-            extKey: event.getExtKey(),
-            modifierKey: event.getModifier(),
-            modifiers: event.getModifiers(),
-          });
-        } else {
-          return this.props.onKeyDown({
-            key: event.getKey(),
-            extKey: event.getExtKey(),
-            modifierKey: event.getModifier(),
-            modifiers: event.getModifiers(),
-          });
-        }
-      }
+      onKey(this)
     );
   }
 
