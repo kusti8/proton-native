@@ -30,7 +30,7 @@
   "dependencies": {
     "color": "^3.0.0",
     "fbjs": "^0.8.16",
-    "libui-node": "^0.1.0",
+    "libui-node": "^0.2.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-reconciler": "^0.7.0",
