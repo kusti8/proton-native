@@ -8,7 +8,7 @@ import {
   Dialog,
   Menu,
   Box,
-} from 'proton-native';
+} from '../..';
 
 class Notepad extends Component {
   state = { text: '' };
