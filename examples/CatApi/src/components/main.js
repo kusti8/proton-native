@@ -22,29 +22,35 @@ class Main extends Component {
           title="CatApi (Patent Pending)"
           size={{ h: 500, w: 500 }}
           menuBar={false}
+          margined
         >
-          <Box>
-            <Form>
+          <Box padded>
+            <Form stretchy={false} padded>
               <TextInput label="ID" onChange={id => this.props.setId(id)} />
               <Picker
                 label="Size"
                 selected={sizeConsts.length - 1}
                 onSelect={index => this.props.setSize(sizeConsts[index])}
               >
-                {sizeConsts.map(s => <Picker.Item>{s}</Picker.Item>)}
+                {sizeConsts.map((s, i) => (
+                  <Picker.Item key={i}>{s}</Picker.Item>
+                ))}
               </Picker>
               <Picker
                 label="Type"
                 selected={0}
                 onSelect={index => this.props.setType(typeConsts[index])}
               >
-                {typeConsts.map(s => <Picker.Item>{s}</Picker.Item>)}
+                {typeConsts.map((s, i) => (
+                  <Picker.Item key={i}>{s}</Picker.Item>
+                ))}
               </Picker>
             </Form>
             <Button
               onClick={() => {
                 this.props.search();
               }}
+              stretchy={false}
             >
               Submit
             </Button>
