@@ -26,8 +26,13 @@ class Main extends Component {
         >
           <Box padded>
             <Form stretchy={false} padded>
-              <TextInput label="ID" onChange={id => this.props.setId(id)} />
+              <TextInput
+                stretchy={false}
+                label="ID"
+                onChange={id => this.props.setId(id)}
+              />
               <Picker
+                stretchy={false}
                 label="Size"
                 selected={sizeConsts.length - 1}
                 onSelect={index => this.props.setSize(sizeConsts[index])}
@@ -37,6 +42,7 @@ class Main extends Component {
                 ))}
               </Picker>
               <Picker
+                stretchy={false}
                 label="Type"
                 selected={0}
                 onSelect={index => this.props.setType(typeConsts[index])}
@@ -54,7 +60,9 @@ class Main extends Component {
             >
               Submit
             </Button>
-            <TextInput readOnly={true}>{this.props.url}</TextInput>
+            <TextInput stretchy={true} readOnly={true}>
+              {this.props.url}
+            </TextInput>
           </Box>
         </Window>
       </App>
