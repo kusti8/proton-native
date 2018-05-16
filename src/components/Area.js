@@ -26,6 +26,7 @@ const onMouse = component => (area, evt) => {
       width: evt.getAreaWidth(),
       height: evt.getAreaHeight(),
       button: down,
+      count: evt.getCount(),
     });
   } else {
     const buttons = [];

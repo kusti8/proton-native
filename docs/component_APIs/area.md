@@ -73,11 +73,11 @@ Called when releasing a mouse button over the area.
 
 ### onMouseDown
 
-Called when pressing a mouse button over the area.
+Called when pressing a mouse button over the area. For a double click, the second click would fire an event with `count: 2`.
 
-| **Type**                                                                        | **Required** |
-| ------------------------------------------------------------------------------- | ------------ |
-| function({x: number, y: number, width: number, height: number, button: number}) | No           |
+| **Type**                                                                                       | **Required** |
+| ---------------------------------------------------------------------------------------------- | ------------ |
+| function({x: number, y: number, width: number, height: number, button: number, count: number}) | No           |
 
 ### onMouseEnter
 
