@@ -13,11 +13,12 @@ class Slider extends DesktopComponent {
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
-    this.element = new libui.UiSlider();
+    this.element = new libui.UiSlider(this.props.min, this.props.max);
     this.initialProps(this.props);
   }
 
   render(parent) {
+    this.lastParent = parent;
     this.addParent(parent);
     this.renderChildNode();
   }
@@ -29,6 +30,8 @@ Slider.propTypes = {
   visible: PropTypes.bool,
   value: PropTypes.number,
   onChange: PropTypes.func,
+  min: PropTypes.number,
+  max: PropTypes.number,
 };
 
 Slider.defaultProps = {
@@ -37,6 +40,8 @@ Slider.defaultProps = {
   visible: true,
   value: 0,
   onChange: () => {},
+  min: 0,
+  max: 100,
 };
 
 export default Slider;

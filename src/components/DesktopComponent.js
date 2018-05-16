@@ -18,6 +18,7 @@ import {
   ABOUT,
   SEPARATOR,
 } from '../constants/types';
+import libui from 'libui-node';
 import PropTypes from 'prop-types';
 
 const functionMappings = {
@@ -85,6 +86,27 @@ class DesktopComponent {
     }
     const index = this.children.indexOf(child);
     this.children.splice(index, 1);
+  }
+
+  reparentChild(child) {
+    // we as the parent add the child to ourself again
+    child.addParent(this);
+  }
+
+  deparentChild(child) {
+    // remove it, and destroy it
+    if (this.exists(this.element.setChild)) {
+    } else if (this.exists(this.element.deleteAt)) {
+      // if it can have multiple ex. VerticalBox
+      this.element.deleteAt(this.children.indexOf(child));
+      child.element.destroy();
+    } else if (this.exists(child.element.close)) {
+      // we have a window that we want to close
+      if (!child.closing) {
+        // we are already closing, so we don't want to do it again
+        child.element.close();
+      }
+    }
   }
 
   renderChildNode(parent) {
@@ -185,7 +207,21 @@ class DesktopComponent {
             this.element[this.childName] = newProps[prop];
           }
         } else {
-          if (prop !== 'selected') {
+          if (prop === 'selected') {
+          } else if (prop === 'min' || prop === 'max') {
+            // we changed the UiSlider, so we have to remake it
+            this.props[prop] = newProps[prop];
+            for (let i = this.lastParent.children.length - 1; i >= 0; i--) {
+              // we go backwards cause otherwise we're trying to remove indexes in libui that don't exist, but still do in our local children array
+              this.lastParent.deparentChild(this.lastParent.children[i]); // we remove all the children from the parent
+            }
+
+            const index = this.lastParent.children.indexOf(this); // we store where we are in the child list
+            this.element = new libui.UiSlider(this.props.min, this.props.max); // we make a new element
+            for (let child of this.lastParent.children) {
+              this.lastParent.reparentChild(child); // add back all of the children, in the same order
+            }
+          } else {
             this.element[prop] = newProps[prop];
           }
         }
