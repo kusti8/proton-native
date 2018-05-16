@@ -339,11 +339,16 @@ class AreaComponent {
             p
           );
           if (process.platform === 'win32') {
-            mat.scale(xy.x, xy.y, scale[1], fallback(scale[2], scale[1]));
+            mat.scale(
+              xy.x,
+              xy.y,
+              Number(scale[1]),
+              fallback(scale[2], scale[1])
+            );
           } else {
             // https://github.com/andlabs/libui/issues/331:
             mat.translate(xy.x, xy.y);
-            mat.scale(0, 0, scale[1], fallback(scale[2], scale[1]));
+            mat.scale(0, 0, Number(scale[1]), fallback(scale[2], scale[1]));
             mat.translate(-xy.x, -xy.y);
           }
         }
@@ -399,25 +404,25 @@ class AreaComponent {
 
         switch (props.strokeLinecap) {
           case 'flat':
-            sp.cap = 0;
+            sp.cap = libui.lineCap.flat;
             break;
           case 'round':
-            sp.cap = 1;
+            sp.cap = libui.lineCap.round;
             break;
           case 'square':
-            sp.cap = 2;
+            sp.cap = libui.lineCap.square;
             break;
         }
 
         switch (props.strokeLinejoin) {
           case 'miter':
-            sp.join = 0;
+            sp.join = libui.lineJoin.miter;
             break;
           case 'round':
-            sp.join = 1;
+            sp.join = libui.lineJoin.round;
             break;
           case 'bevel':
-            sp.join = 2;
+            sp.join = libui.lineJoin.bevel;
             break;
         }
 
@@ -669,7 +674,9 @@ Area.Bezier.propTypes = {
 Area.Path = class Path extends AreaComponent {
   draw(area, p) {
     const path = new libui.UiDrawPath(
-      this.props.fillRule === 'evenodd' ? 1 : 0
+      this.props.fillRule === 'evenodd'
+        ? libui.fillMode.alternate
+        : libui.fillMode.winding
     );
     const commands = parseSVG(this.props.d);
     parseSVG.makeAbsolute(commands);
