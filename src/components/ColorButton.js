@@ -64,7 +64,7 @@ class ColorButton extends DesktopComponent {
         } else {
           this.element[prop] = newProps[prop];
         }
-      } else if (prop === 'color') {
+      } else if (oldProps[prop] !== newProps[prop]) {
         // add check for color prop
         this.element[prop] = this.convertToColor(newProps[prop]);
       }
