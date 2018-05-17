@@ -38,9 +38,9 @@ class ColorButton extends DesktopComponent {
 
   toColorUser(colorObj) {
     return {
-      r: colorObj.r * 255,
-      g: colorObj.g * 255,
-      b: colorObj.b * 255,
+      r: Math.round(colorObj.r * 255),
+      g: Math.round(colorObj.g * 255),
+      b: Math.round(colorObj.b * 255),
       a: colorObj.a,
     };
   }
