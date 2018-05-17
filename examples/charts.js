@@ -74,11 +74,11 @@ class Diagram extends Component {
                   width={`${w}%`}
                   height={`${this.state.heights[2 * i + 1]}%`}
                 />
-                {i < num - 2 && (
+                {i < num - 1 && (
                   <Area.Line
-                    stroke="grey"
-                    x1={`${8 + w * (4 * i + 2)}%`}
-                    x2={`${8 + w * (4 * i + 2)}%`}
+                    stroke="lightgrey"
+                    x1={`${8 + w * (2 * i + 2)}%`}
+                    x2={`${8 + w * (2 * i + 2)}%`}
                     y1="10%"
                     y2="95%"
                   />
