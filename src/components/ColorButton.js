@@ -22,7 +22,7 @@ class ColorButton extends DesktopComponent {
     this.initialProps(this.props);
   }
 
-  convertToColor(input) {
+  toColorLibui(input) {
     input = input.toLowerCase();
     let alpha;
     let c = Color(input).object();
@@ -33,11 +33,16 @@ class ColorButton extends DesktopComponent {
     } else {
       alpha = 1;
     }
-    return new libui.Color(c.r, c.g, c.b, alpha);
+    return new libui.Color(c.r / 255, c.g / 255, c.b / 255, alpha);
   }
 
-  toRgbObject(colorObj) {
-    return { r: colorObj.r, g: colorObj.g, b: colorObj.b, a: colorObj.a };
+  toColorUser(colorObj) {
+    return {
+      r: Math.round(colorObj.r * 255),
+      g: Math.round(colorObj.g * 255),
+      b: Math.round(colorObj.b * 255),
+      a: colorObj.a,
+    };
   }
 
   update(oldProps, newProps) {
@@ -51,6 +56,14 @@ class ColorButton extends DesktopComponent {
             // if we don't have a translatedProperty, then we use a function, so handle that
             this.element[translatedProp](() =>
               newProps[prop](this.eventParameter[translatedProp]())
+            );
+          } else if (this.eventParameter[translatedProp] === 'color') {
+            this.element[translatedProp](() =>
+              newProps[prop](
+                this.toColorUser(
+                  this.element[this.eventParameter[translatedProp]]
+                )
+              )
             );
           } else if (this.eventParameter[translatedProp] !== '') {
             this.element[translatedProp](() =>
@@ -66,7 +79,7 @@ class ColorButton extends DesktopComponent {
         }
       } else if (oldProps[prop] !== newProps[prop]) {
         // add check for color prop
-        this.element[prop] = this.convertToColor(newProps[prop]);
+        this.element[prop] = this.toColorLibui(newProps[prop]);
       }
     }
   }
@@ -82,6 +95,14 @@ class ColorButton extends DesktopComponent {
           this.element[translatedProp](() =>
             props[prop](this.eventParameter[translatedProp]())
           );
+        } else if (this.eventParameter[translatedProp] === 'color') {
+          this.element[translatedProp](() =>
+            props[prop](
+              this.toColorUser(
+                this.element[this.eventParameter[translatedProp]]
+              )
+            )
+          );
         } else if (this.eventParameter[translatedProp] !== '') {
           this.element[translatedProp](() =>
             props[prop](this.element[this.eventParameter[translatedProp]])
@@ -92,7 +113,7 @@ class ColorButton extends DesktopComponent {
       } else if (prop == 'children') {
         this.element[this.childName] = props[prop];
       } else if (prop === 'color') {
-        this.element[prop] = this.convertToColor(props[prop]);
+        this.element[prop] = this.toColorLibui(props[prop]);
       } else {
         this.element[prop] = props[prop];
       }
