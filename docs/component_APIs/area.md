@@ -15,7 +15,13 @@ class Example extends Component {
       <App>
         <Window title="Example" size={{ w: 500, h: 500 }}>
           <Area stroke="red" strokeWidth="10">
-            <Area.Rectangle x="10" y="10" width="100" height="200" fill="blue" />
+            <Area.Rectangle
+              x="10"
+              y="10"
+              width="100"
+              height="200"
+              fill="blue"
+            />
           </Area>
         </Window>
       </App>
@@ -67,11 +73,11 @@ Called when releasing a mouse button over the area.
 
 ### onMouseDown
 
-Called when pressing a mouse button over the area.
+Called when pressing a mouse button over the area. For a double click, the second click would fire an event with `count: 2`.
 
-| **Type**                                                                        | **Required** |
-| ------------------------------------------------------------------------------- | ------------ |
-| function({x: number, y: number, width: number, height: number, button: number}) | No           |
+| **Type**                                                                                       | **Required** |
+| ---------------------------------------------------------------------------------------------- | ------------ |
+| function({x: number, y: number, width: number, height: number, button: number, count: number}) | No           |
 
 ### onMouseEnter
 
@@ -94,15 +100,15 @@ Called when the mouse leaves the area.
 Called when pressing a key.
 Return `true` to signal that this event got handled (always returning true will disable any menu accelerators).
 
-| **Type**                                                                        | **Required** |
-| ------------------------------------------------------------------------------- | ------------ |
-| function({key: string, extKey: number, modifierKey: number, modifiers: number}) | No           |
+| **Type**                                                                                 | **Required** |
+| ---------------------------------------------------------------------------------------- | ------------ |
+| function({key: string, extKey: string, modifierKey: string, modifiers: Array\<string\>}) | No           |
 
 ### onKeyDown
 
 Called when releasing a key.
 Return `true` to signal that this event got handled (always returning true will disable any menu accelerators).
 
-| **Type**                                                                        | **Required** |
-| ------------------------------------------------------------------------------- | ------------ |
-| function({key: string, extKey: number, modifierKey: number, modifiers: number}) | No           |
+| **Type**                                                                                 | **Required** |
+| ---------------------------------------------------------------------------------------- | ------------ |
+| function({key: string, extKey: string, modifierKey: string, modifiers: Array\<string\>}) | No           |
