@@ -171,7 +171,7 @@ class Main extends Component {
             <Text stretchy={false} label="">
               Some charts: (double click to randomize)
             </Text>
-            <Box vertical={false} padded stretchy={false}>
+            <Box vertical={false} padded>
               <Diagram
                 colors={[this.state.color1a, this.state.color1b]}
                 num={5}
