@@ -210,6 +210,7 @@ class DesktopComponent {
           } else if (prop === 'min' || prop === 'max') {
             // we changed the UiSlider, so we have to remake it
             this.props[prop] = newProps[prop];
+            this.props.value = newProps.value; // save the value, so that it doesn't reset
             for (let i = this.lastParent.children.length - 1; i >= 0; i--) {
               // we go backwards cause otherwise we're trying to remove indexes in libui that don't exist, but still do in our local children array
               this.lastParent.deparentChild(this.lastParent.children[i]); // we remove all the children from the parent
@@ -220,6 +221,7 @@ class DesktopComponent {
             for (let child of this.lastParent.children) {
               this.lastParent.reparentChild(child); // add back all of the children, in the same order
             }
+            this.element.value = this.props.value; // put back the previous value, since this.element.value gets reset
           } else {
             this.element[prop] = newProps[prop];
           }
