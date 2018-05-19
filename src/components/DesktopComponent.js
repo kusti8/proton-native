@@ -99,7 +99,6 @@ class DesktopComponent {
     } else if (this.exists(this.element.deleteAt)) {
       // if it can have multiple ex. VerticalBox
       this.element.deleteAt(this.children.indexOf(child));
-      child.element.destroy();
     } else if (this.exists(child.element.close)) {
       // we have a window that we want to close
       if (!child.closing) {
