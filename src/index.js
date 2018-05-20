@@ -47,6 +47,7 @@ Area.Bezier = 'AREABEZIER';
 Area.Path = 'AREAPATH';
 Area.Group = 'AREAGROUP';
 Area.Circle = 'AREACIRCLE';
+Area.Text = 'AREATEXT';
 
 export {
   render,

@@ -73,6 +73,7 @@ function createElement(type, props) {
     AREAPATH: () => new Area.Path(ROOT_NODE, props),
     AREAGROUP: () => new Area.Group(ROOT_NODE, props),
     AREACIRCLE: () => new Area.Circle(ROOT_NODE, props),
+    AREATEXT: () => new Area.Text(ROOT_NODE, props),
     default: undefined,
   };
 

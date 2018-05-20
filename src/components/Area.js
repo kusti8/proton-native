@@ -2,7 +2,7 @@ import DesktopComponent, {
   universalPropTypes,
   universalDefaultProps,
 } from './DesktopComponent';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import libui from 'libui-node';
 import PropTypes from 'prop-types';
 import Color from 'color';
@@ -284,108 +284,105 @@ class AreaComponent {
     };
   }
 
+  applyTransforms(p) {
+    p.getContext().save();
+
+    const mat = new libui.UiDrawMatrix();
+    mat.setIdentity();
+
+    for (const transform of this.props.transform.match(/\w+\([^)]+\)/g)) {
+      // rotate(deg [,x, y])
+      // default x: 50%, y: 50%
+      const rotate = transform.match(
+        /rotate\s*\(\s*([-0-9.]+)(?:\s*,\s*([-0-9.%]+)\s*,\s*([-0-9.%]+))?\s*\)/
+      );
+      if (rotate) {
+        const xy = this.selfToParent(
+          fallback(rotate[2], '50%', v => v),
+          fallback(rotate[3], '50%', v => v),
+          p
+        );
+        const rad = Number(rotate[1]) * (Math.PI / 180);
+        mat.rotate(xy.x, xy.y, rad);
+      }
+
+      // translate(x [y])
+      // default y: x
+      const translate = transform.match(
+        /translate\s*\(\s*([-0-9.%]+)(?:\s*,\s*([-0-9.%]+))?\s*\)/
+      );
+      if (translate) {
+        mat.translate(
+          this.parseSelf(translate[1], p),
+          fallback(translate[2], translate[1], v => this.parseSelf(v, p, true))
+        );
+      }
+
+      // 1: scale(x)
+      // 2: scale(x, y)
+      // 3: scale(x, xCenter, yCenter)
+      // 4: scale(x, y, xCenter, yCenter)
+      // default y: x, xCenter=yCenter: 50%
+      const scale = transform.match(
+        /scale\s*\(([-0-9.]+)(?:(?:\s*,\s*([-0-9.]+))?(?:\s*,\s*([-0-9.%]+)\s*,\s*([-0-9.%]+))?)?\)/
+      );
+      if (scale) {
+        const xy = this.selfToParent(
+          fallback(scale[3], '50%', v => v),
+          fallback(scale[4], '50%', v => v),
+          p
+        );
+        if (process.platform === 'win32') {
+          mat.scale(xy.x, xy.y, Number(scale[1]), fallback(scale[2], scale[1]));
+        } else {
+          // https://github.com/andlabs/libui/issues/331:
+          mat.translate(xy.x, xy.y);
+          mat.scale(0, 0, Number(scale[1]), fallback(scale[2], scale[1]));
+          mat.translate(-xy.x, -xy.y);
+        }
+      }
+
+      // skew(a, b [,x, y])
+      // a, b: x/y angle
+      // default x=y: 50%
+      const skew = transform.match(
+        /skew\s*\(\s*([-0-9.]+)\s*,\s*([-0-9.]+)(?:,\s*([-0-9.%]+),\s*([-0-9.%]+))?\)/
+      );
+      if (skew) {
+        const rad1 = Number(skew[1]) * (Math.PI / 180);
+        const rad2 = Number(skew[2]) * (Math.PI / 180);
+        mat.skew(
+          fallback(skew[2], '50%', v => this.parseSelf(v, p)),
+          fallback(skew[3], '50%', v => this.parseSelf(v, p, true)),
+          rad1,
+          rad2
+        );
+      }
+
+      // matrix(a, b, c, d, e, f, g)
+      const matrix = transform.match(
+        /matrix\s*\(\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*\)/
+      );
+      if (matrix) {
+        mat.setM11(matrix[1]);
+        mat.setM12(matrix[2]);
+        mat.setM21(matrix[3]);
+        mat.setM22(matrix[4]);
+        mat.setM31(matrix[5]);
+        mat.setM32(matrix[6]);
+      }
+    }
+
+    p.getContext().transform(mat);
+  }
+
   render(parent, area, p, props) {
     this.parent = parent;
     const { children, ...appendProps } = this.props;
     props = { ...props, ...appendProps };
 
     if (this.props.transform) {
-      p.getContext().save();
-
-      const mat = new libui.UiDrawMatrix();
-      mat.setIdentity();
-
-      for (const transform of this.props.transform.match(/\w+\([^)]+\)/g)) {
-        // rotate(deg [,x, y])
-        // default x: 50%, y: 50%
-        const rotate = transform.match(
-          /rotate\s*\(\s*([-0-9.]+)(?:\s*,\s*([-0-9.%]+)\s*,\s*([-0-9.%]+))?\s*\)/
-        );
-        if (rotate) {
-          const xy = this.selfToParent(
-            fallback(rotate[2], '50%', v => v),
-            fallback(rotate[3], '50%', v => v),
-            p
-          );
-          const rad = Number(rotate[1]) * (Math.PI / 180);
-          mat.rotate(xy.x, xy.y, rad);
-        }
-
-        // translate(x [y])
-        // default y: x
-        const translate = transform.match(
-          /translate\s*\(\s*([-0-9.%]+)(?:\s*,\s*([-0-9.%]+))?\s*\)/
-        );
-        if (translate) {
-          mat.translate(
-            this.parseSelf(translate[1], p),
-            fallback(translate[2], translate[1], v =>
-              this.parseSelf(v, p, true)
-            )
-          );
-        }
-
-        // 1: scale(x)
-        // 2: scale(x, y)
-        // 3: scale(x, xCenter, yCenter)
-        // 4: scale(x, y, xCenter, yCenter)
-        // default y: x, xCenter=yCenter: 50%
-        const scale = transform.match(
-          /scale\s*\(([-0-9.]+)(?:(?:\s*,\s*([-0-9.]+))?(?:\s*,\s*([-0-9.%]+)\s*,\s*([-0-9.%]+))?)?\)/
-        );
-        if (scale) {
-          const xy = this.selfToParent(
-            fallback(scale[3], '50%', v => v),
-            fallback(scale[4], '50%', v => v),
-            p
-          );
-          if (process.platform === 'win32') {
-            mat.scale(
-              xy.x,
-              xy.y,
-              Number(scale[1]),
-              fallback(scale[2], scale[1])
-            );
-          } else {
-            // https://github.com/andlabs/libui/issues/331:
-            mat.translate(xy.x, xy.y);
-            mat.scale(0, 0, Number(scale[1]), fallback(scale[2], scale[1]));
-            mat.translate(-xy.x, -xy.y);
-          }
-        }
-
-        // skew(a, b [,x, y])
-        // a, b: x/y angle
-        // default x=y: 50%
-        const skew = transform.match(
-          /skew\s*\(\s*([-0-9.]+)\s*,\s*([-0-9.]+)(?:,\s*([-0-9.%]+),\s*([-0-9.%]+))?\)/
-        );
-        if (skew) {
-          const rad1 = Number(skew[1]) * (Math.PI / 180);
-          const rad2 = Number(skew[2]) * (Math.PI / 180);
-          mat.skew(
-            fallback(skew[2], '50%', v => this.parseSelf(v, p)),
-            fallback(skew[3], '50%', v => this.parseSelf(v, p, true)),
-            rad1,
-            rad2
-          );
-        }
-
-        // matrix(a, b, c, d, e, f, g)
-        const matrix = transform.match(
-          /matrix\s*\(\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*,\s*([-0-9.]+)\s*\)/
-        );
-        if (matrix) {
-          mat.setM11(matrix[1]);
-          mat.setM12(matrix[2]);
-          mat.setM21(matrix[3]);
-          mat.setM22(matrix[4]);
-          mat.setM31(matrix[5]);
-          mat.setM32(matrix[6]);
-        }
-      }
-
-      p.getContext().transform(mat);
+      this.applyTransforms(p);
     }
 
     const path = this.draw(area, p, props);
@@ -733,5 +730,111 @@ Area.Path.propTypes = {
 Area.Path.defaultProps = {
   fillRule: 'nonzero',
 };
+
+Area.Text = class AreaText extends AreaComponent {
+  constructor(root, props) {
+    super(root, props);
+    this.children = [];
+
+    this.str = new libui.AttributedString('');
+  }
+
+  appendChild(child) {
+    this.children.push(child);
+  }
+
+  appendText(t, ...attr) {
+    // console.log(attr)
+    if (this.parent instanceof AreaText) {
+      this.parent.appendText(t, ...attr);
+    } else {
+      if (attr) {
+        this.str.appendAttributed(t, ...attr);
+      } else {
+        this.str.appendUnattributed(t);
+      }
+    }
+  }
+
+  render(parent, area, p, props) {
+    this.parent = parent;
+    const { children, ...styles } = this.props;
+    // const { children, ...appendProps } = this.props;
+    // props = { ...props, ...appendProps };
+
+    // if (this.props.transform) {
+    //   this.applyTransforms(p);
+    // }
+
+    this.children.forEach(v => {
+      if (typeof v === 'string') {
+        const attrs = Object.keys(styles)
+          .map(k => {
+            switch (k) {
+              case 'color':
+                const color = Color(styles[k]);
+                return libui.FontAttribute.newColor(
+                  new libui.Color(
+                    color.red() / 255,
+                    color.green() / 255,
+                    color.blue() / 255,
+                    color.alpha()
+                  )
+                );
+              case 'fontSize':
+                return libui.FontAttribute.newSize(Number(styles[k]));
+            }
+          })
+          .filter(x => x);
+
+        this.appendText(v, ...attrs);
+      } else {
+        v.render(this, area, p, props);
+      }
+    });
+
+    if (!(this.parent instanceof AreaText)) {
+      const font = new libui.FontDescriptor(
+        'Georgia',
+        14,
+        libui.textWeight.normal,
+        libui.textItalic.normal,
+        libui.textStretch.normal
+      );
+      const layout = new libui.DrawTextLayout(
+        this.str,
+        font,
+        p.getAreaWidth(),
+        libui.textAlign.right
+      );
+
+      p.getContext().text(0, 0, layout);
+
+      font.free();
+      layout.free();
+    }
+
+    // if (this.props.transform) {
+    //   p.getContext().restore();
+    // }
+  }
+};
+
+// function areaProp(props, propName, componentName) {
+//   if (!(props[propName] instanceof AreaComponent)) {
+//     return new Error(
+//       'Invalid prop `' +
+//         propName +
+//         '` supplied to' +
+//         ' `' +
+//         componentName +
+//         '`. Validation failed.'
+//     );
+//   }
+// }
+
+// Area.Text.propTypes = {
+//   children: PropTypes.oneOfType([PropTypes.string, areaProp, PropTypes.arrayOf(areaProp)]),
+// }
 
 export default Area;
