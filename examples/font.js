@@ -13,14 +13,40 @@ class Example extends Component {
         >
           <Box>
             <Area>
-              <Area.Text x="10" y="100" style={{ color: 'red' }}>
-                <Area.Text style={{ color: 'red', fontSize: 20 }}>
-                  Hi!
+              <Area.Text x="10" y="20">
+                <Area.Text style={{ fontSize: 26 }}>Hi!</Area.Text>
+                {'\n'}
+                <Area.Text style={{ color: 'red' }}>
+                  Test
+                  <Area.Text style={{ fontStyle: 'italic' }}>ing</Area.Text>
                 </Area.Text>
                 {'\n'}
-                Test{'\n'}
-                <Area.Text style={{ color: 'black', fontFamily: 'Arial' }}>
-                  Sans serif
+                <Area.Text style={{ fontFamily: 'Georgia' }}>Serif</Area.Text>
+                {'\n'}
+                <Area.Text
+                  style={{
+                    color: 'white',
+                    fontFamily: 'Menlo',
+                    backgroundColor: 'black',
+                  }}
+                >
+                  Console
+                </Area.Text>
+                {'\n'}
+                <Area.Text style={{ fontWeight: 'bold' }}>
+                  A very bold statement!
+                </Area.Text>
+                {'\n'}
+                <Area.Text>
+                  This is an{' '}
+                  <Area.Text
+                    style={{
+                      textUnderline: 'suggestion',
+                      textUnderlineColor: 'spelling',
+                    }}
+                  >
+                    error
+                  </Area.Text>
                 </Area.Text>
               </Area.Text>
             </Area>

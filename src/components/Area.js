@@ -176,14 +176,19 @@ function fallback(...vals) {
   }
 }
 
-function createBrush(color, alpha) {
-  const brush = new libui.DrawBrush();
-  brush.color = new libui.Color(
+function toLibuiColor(color) {
+  return new libui.Color(
     color.red() / 255,
     color.green() / 255,
     color.blue() / 255,
-    color.alpha() * alpha
+    color.alpha()
   );
+}
+
+function createBrush(color, alpha) {
+  const brush = new libui.DrawBrush();
+  brush.color = toLibuiColor(color);
+  brush.color.alpha = brush.color.alpha * alpha;
   brush.type = libui.brushType.solid;
 
   return brush;
@@ -758,8 +763,6 @@ Area.Text = class AreaText extends AreaComponent {
   render(parent, area, p, props, parentStyle = {}) {
     this.parent = parent;
     let style = { ...parentStyle, ...this.props.style };
-    // const { children, ...appendProps } = this.props;
-    // props = { ...props, ...appendProps };
 
     // if (this.props.transform) {
     //   this.applyTransforms(p);
@@ -770,21 +773,55 @@ Area.Text = class AreaText extends AreaComponent {
 
     const attrs = Object.keys(style)
       .map(k => {
+        const v = style[k];
         switch (k) {
           case 'color':
-            const color = Color(style[k]);
-            return libui.FontAttribute.newColor(
-              new libui.Color(
-                color.red() / 255,
-                color.green() / 255,
-                color.blue() / 255,
-                color.alpha()
-              )
-            );
+            const color = Color(v);
+            return libui.FontAttribute.newColor(toLibuiColor(Color(v)));
           case 'fontSize':
-            return libui.FontAttribute.newSize(Number(style[k]));
+            return libui.FontAttribute.newSize(Number(v));
           case 'fontFamily':
-            return libui.FontAttribute.newFamily(style[k]);
+            return libui.FontAttribute.newFamily(v);
+          case 'backgroundColor':
+            return libui.FontAttribute.newBackgroundColor(
+              toLibuiColor(Color(v))
+            );
+          case 'fontStyle':
+            if (v in libui.textItalic) {
+              return libui.FontAttribute.newItalic(libui.textItalic[v]);
+            }
+            break;
+          case 'fontWeight':
+            if (typeof v === 'string' && v in libui.textWeight) {
+              return libui.FontAttribute.newWeight(libui.textWeight[v]);
+            } else if (
+              Number(v) >= libui.textWeight.minimum &&
+              Number(v) <= libui.textWeight.maximum
+            ) {
+              return libui.FontAttribute.newWeight(Number(v));
+            }
+            break;
+          case 'textStretch':
+            if (v in libui.textStretch) {
+              return libui.FontAttribute.newStretch(libui.textStretch[v]);
+            }
+            break;
+          case 'textUnderline':
+            if (v in libui.textUnderline) {
+              return libui.FontAttribute.newUnderline(libui.textUnderline[v]);
+            }
+            break;
+          case 'textUnderlineColor':
+            if (v !== 'custom' && v in libui.textUnderlineColor) {
+              return libui.FontAttribute.newUnderlineColor(
+                libui.textUnderlineColor[v]
+              );
+            } else {
+              return libui.FontAttribute.newUnderlineColor(
+                libui.textUnderlineColor[v],
+                toLibuiColor(Color(v))
+              );
+            }
         }
       })
       .filter(x => x);
@@ -798,9 +835,22 @@ Area.Text = class AreaText extends AreaComponent {
     });
 
     if (!(this.parent instanceof AreaText)) {
+      let textAlign;
+      switch (style.textAlign || 'left') {
+        case 'left':
+          textAlign = libui.textAlign.left;
+          break;
+        case 'center':
+          textAlign = libui.textAlign.center;
+          break;
+        case 'right':
+          textAlign = libui.textAlign.right;
+          break;
+      }
+
       const font = new libui.FontDescriptor(
-        'Georgia',
-        14,
+        'Arial',
+        12,
         libui.textWeight.normal,
         libui.textItalic.normal,
         libui.textStretch.normal
@@ -809,7 +859,7 @@ Area.Text = class AreaText extends AreaComponent {
         this.str,
         font,
         p.getAreaWidth() - this.parseParent(this.props.x, p, false),
-        libui.textAlign.left
+        textAlign
       );
 
       p
