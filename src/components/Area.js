@@ -744,7 +744,6 @@ Area.Text = class AreaText extends AreaComponent {
   }
 
   appendText(t, ...attr) {
-    // console.log(attr)
     if (this.parent instanceof AreaText) {
       this.parent.appendText(t, ...attr);
     } else {
@@ -756,7 +755,7 @@ Area.Text = class AreaText extends AreaComponent {
     }
   }
 
-  render(parent, area, p, props) {
+  render(parent, area, p, props, parentAttrs = []) {
     this.parent = parent;
     const { children, ...styles } = this.props;
     // const { children, ...appendProps } = this.props;
@@ -767,8 +766,9 @@ Area.Text = class AreaText extends AreaComponent {
     // }
 
     this.children.forEach(v => {
-      if (typeof v === 'string') {
-        const attrs = Object.keys(styles)
+      const attrs = [
+        ...parentAttrs,
+        ...Object.keys(styles)
           .map(k => {
             switch (k) {
               case 'color':
@@ -785,11 +785,13 @@ Area.Text = class AreaText extends AreaComponent {
                 return libui.FontAttribute.newSize(Number(styles[k]));
             }
           })
-          .filter(x => x);
+          .filter(x => x),
+      ];
 
+      if (typeof v === 'string') {
         this.appendText(v, ...attrs);
       } else {
-        v.render(this, area, p, props);
+        v.render(this, area, p, props, attrs);
       }
     });
 
