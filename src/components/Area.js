@@ -755,9 +755,9 @@ Area.Text = class AreaText extends AreaComponent {
     }
   }
 
-  render(parent, area, p, props, parentAttrs = []) {
+  render(parent, area, p, props, parentStyle = {}) {
     this.parent = parent;
-    const { children, ...styles } = this.props;
+    let style = { ...parentStyle, ...this.props.style };
     // const { children, ...appendProps } = this.props;
     // props = { ...props, ...appendProps };
 
@@ -765,33 +765,35 @@ Area.Text = class AreaText extends AreaComponent {
     //   this.applyTransforms(p);
     // }
 
-    this.children.forEach(v => {
-      const attrs = [
-        ...parentAttrs,
-        ...Object.keys(styles)
-          .map(k => {
-            switch (k) {
-              case 'color':
-                const color = Color(styles[k]);
-                return libui.FontAttribute.newColor(
-                  new libui.Color(
-                    color.red() / 255,
-                    color.green() / 255,
-                    color.blue() / 255,
-                    color.alpha()
-                  )
-                );
-              case 'fontSize':
-                return libui.FontAttribute.newSize(Number(styles[k]));
-            }
-          })
-          .filter(x => x),
-      ];
+    this.str.free();
+    this.str = new libui.AttributedString('');
 
+    const attrs = Object.keys(style)
+      .map(k => {
+        switch (k) {
+          case 'color':
+            const color = Color(style[k]);
+            return libui.FontAttribute.newColor(
+              new libui.Color(
+                color.red() / 255,
+                color.green() / 255,
+                color.blue() / 255,
+                color.alpha()
+              )
+            );
+          case 'fontSize':
+            return libui.FontAttribute.newSize(Number(style[k]));
+          case 'fontFamily':
+            return libui.FontAttribute.newFamily(style[k]);
+        }
+      })
+      .filter(x => x);
+
+    this.children.forEach(v => {
       if (typeof v === 'string') {
         this.appendText(v, ...attrs);
       } else {
-        v.render(this, area, p, props, attrs);
+        v.render(this, area, p, props, style);
       }
     });
 
@@ -806,11 +808,17 @@ Area.Text = class AreaText extends AreaComponent {
       const layout = new libui.DrawTextLayout(
         this.str,
         font,
-        p.getAreaWidth(),
-        libui.textAlign.right
+        p.getAreaWidth() - this.parseParent(this.props.x, p, false),
+        libui.textAlign.left
       );
 
-      p.getContext().text(0, 0, layout);
+      p
+        .getContext()
+        .text(
+          (this.parseParent(this.props.x, p, false): 0),
+          (this.parseParent(this.props.y, p, true): 0),
+          layout
+        );
 
       font.free();
       layout.free();

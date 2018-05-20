@@ -13,9 +13,15 @@ class Example extends Component {
         >
           <Box>
             <Area>
-              <Area.Text color="red">
-                sasad
-                <Area.Text fontSize="20">other</Area.Text>
+              <Area.Text x="10" y="100" style={{ color: 'red' }}>
+                <Area.Text style={{ color: 'red', fontSize: 20 }}>
+                  Hi!
+                </Area.Text>
+                {'\n'}
+                Test{'\n'}
+                <Area.Text style={{ color: 'black', fontFamily: 'Arial' }}>
+                  Sans serif
+                </Area.Text>
               </Area.Text>
             </Area>
           </Box>
