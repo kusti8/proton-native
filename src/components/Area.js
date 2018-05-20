@@ -866,8 +866,8 @@ Area.Text = class AreaText extends AreaComponent {
       p
         .getContext()
         .text(
-          (this.parseParent(this.props.x, p, false): 0),
-          (this.parseParent(this.props.y, p, true): 0),
+          this.parseParent(this.props.x || 0, p, false),
+          this.parseParent(this.props.y || 0, p, true),
           layout
         );
 
