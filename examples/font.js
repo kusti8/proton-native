@@ -13,8 +13,8 @@ class Example extends Component {
         >
           <Box>
             <Area>
-              <Area.Text x="10" y="20">
-                <Area.Text style={{ fontSize: 26 }}>Hi!</Area.Text>
+              <Area.Text x="10" y="20" style={{ fontSize: 14 }}>
+                <Area.Text style={{ fontSize: 32 }}>Hi!</Area.Text>
                 {'\n'}
                 <Area.Text style={{ color: 'red' }}>
                   Test

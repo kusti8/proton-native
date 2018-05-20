@@ -199,6 +199,7 @@ class AreaComponent {
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
+    this.element = {};
   }
 
   setDefaults(props) {
@@ -880,21 +881,22 @@ Area.Text = class AreaText extends AreaComponent {
   }
 };
 
-// function areaProp(props, propName, componentName) {
-//   if (!(props[propName] instanceof AreaComponent)) {
-//     return new Error(
-//       'Invalid prop `' +
-//         propName +
-//         '` supplied to' +
-//         ' `' +
-//         componentName +
-//         '`. Validation failed.'
-//     );
-//   }
-// }
+function areaProp(props, propName, componentName) {
+  const v = props[propName];
+  if (!(typeof v === 'string' || v.type === 'AREATEXT')) {
+    return new Error(
+      'Invalid prop `' +
+        propName +
+        '` supplied to' +
+        ' `' +
+        componentName +
+        '`. Has to be a string or an Area.Text component.'
+    );
+  }
+}
 
-// Area.Text.propTypes = {
-//   children: PropTypes.oneOfType([PropTypes.string, areaProp, PropTypes.arrayOf(areaProp)]),
-// }
+Area.Text.propTypes = {
+  children: PropTypes.oneOfType([areaProp, PropTypes.arrayOf(areaProp)]),
+};
 
 export default Area;
