@@ -25,6 +25,7 @@ Create native desktop applications through a React syntax, on all platforms
 ## Images
 
 ![Windows](http://protonnative-af51.kxcdn.com/images/windows_example.png)
+![CatApi](http://protonnative-af51.kxcdn.com/images/CatApi.gif)
 
 ## [Documentation](https://proton-native.js.org)
 
