@@ -2,6 +2,7 @@
 * [About](about.md)
 * [Quick start](quickstart.md)
 * [Packaging](packaging.md)
+* [Debugging](debugging.md)
 * [Universal Props](component_APIs/universal_props.md)
 * Components
 
