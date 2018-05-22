@@ -12,7 +12,7 @@ import {
 } from '../src';
 
 class Example extends Component {
-  state = { align: 'left', color: 'blue', font: false };
+  state = { align: 'left', color: 'blue', useFont: false, font: {} };
 
   render() {
     return (
@@ -25,7 +25,10 @@ class Example extends Component {
         >
           <Box vertical={false} padded>
             <Box stretchy={false} padded>
-              <FontButton stretchy={false} />
+              <FontButton
+                stretchy={false}
+                onChange={v => this.setState({ font: v })}
+              />
               <ColorButton
                 color="blue"
                 stretchy={false}
@@ -55,16 +58,21 @@ class Example extends Component {
               </Picker>
               <Checkbox
                 stretchy={false}
-                onToggle={v => this.setState({ font: v })}
+                onToggle={v => this.setState({ useFont: v })}
               >
-                {'Use Georgia instead of font button'}
+                {'Use Georgia (20pt) instead\nof font button'}
               </Checkbox>
             </Box>
             <Area>
               <Area.Text
                 x="10"
                 y="10"
-                style={{ fontSize: 14, textAlign: this.state.align }}
+                style={{
+                  textAlign: this.state.align,
+                  ...(this.state.useFont
+                    ? { fontFamily: 'Georgia', fontSize: 20 }
+                    : this.state.font),
+                }}
               >
                 <Area.Text style={{ color: this.state.color, fontSize: 32 }}>
                   Hi!

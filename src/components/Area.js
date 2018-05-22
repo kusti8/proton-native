@@ -765,10 +765,6 @@ Area.Text = class AreaText extends AreaComponent {
     this.parent = parent;
     let style = { ...parentStyle, ...this.props.style };
 
-    // if (this.props.transform) {
-    //   this.applyTransforms(p);
-    // }
-
     this.str.free();
     this.str = new libui.AttributedString('');
 
@@ -863,6 +859,10 @@ Area.Text = class AreaText extends AreaComponent {
         textAlign
       );
 
+      if (this.props.transform) {
+        this.applyTransforms(p);
+      }
+
       p
         .getContext()
         .text(
@@ -873,11 +873,11 @@ Area.Text = class AreaText extends AreaComponent {
 
       font.free();
       layout.free();
-    }
 
-    // if (this.props.transform) {
-    //   p.getContext().restore();
-    // }
+      if (this.props.transform) {
+        p.getContext().restore();
+      }
+    }
   }
 };
 
