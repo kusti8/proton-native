@@ -37,22 +37,22 @@ render(<Example />);
 
 The x coordinate of the center of the cirle.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### y
 
 The y coordinate of the center of the cirle.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### r
 
 The circle's radius. Percentage values use the Area's width.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |

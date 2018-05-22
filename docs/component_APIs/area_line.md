@@ -38,30 +38,30 @@ render(<Example />);
 
 The x coordinate of the line's start point.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### y1
 
 The y coordinate of the line's start point.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### x2
 
 The x coordinate of the line's end point.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### y2
 
 The y coordinate of the line's end point.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
