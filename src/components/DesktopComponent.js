@@ -84,6 +84,13 @@ class DesktopComponent {
         // we are already closing, so we don't want to do it again
         child.element.close();
       }
+    } else if (
+      child instanceof RadioButton.Item ||
+      child instanceof Combobox.Item ||
+      child instanceof EditableCombobox.Item
+    ) {
+      // these don't have deleteAt functions
+      this.removeChildManual(child);
     }
     const index = this.children.indexOf(child);
     this.children.splice(index, 1);
@@ -107,6 +114,36 @@ class DesktopComponent {
         child.element.close();
       }
     }
+  }
+
+  insertChild(child, beforeChild) {
+    // used in reconciler to add a new child before others
+    const beforeIndex = this.children.indexOf(beforeChild);
+    for (let i = this.children.length - 1; i >= beforeIndex; i--) {
+      // we go backwards cause otherwise we're trying to remove indexes in libui that don't exist, but still do in our local children array
+      this.deparentChild(this.children[i]); // we remove all the children from the parent
+    }
+    this.children.splice(beforeIndex, 0, child); // insert our child
+    for (let i = beforeIndex; i < this.children.length; i++) {
+      this.reparentChild(this.children[i]);
+    }
+  }
+
+  removeChildManual(child) {
+    // used for RadioButtons and Picker to delete an Item
+    const index = this.children.indexOf(child);
+    for (let i = this.lastParent.children.length - 1; i >= 0; i--) {
+      // we go backwards cause otherwise we're trying to remove indexes in libui that don't exist, but still do in our local children array
+      this.lastParent.deparentChild(this.lastParent.children[i]); // we remove all the children from the parent
+    }
+
+    this.newElement();
+
+    for (let child of this.lastParent.children) {
+      this.lastParent.reparentChild(child); // add back all of the children, in the same order
+    }
+
+    this.initialProps(this.props);
   }
 
   renderChildNode(parent) {
@@ -171,6 +208,7 @@ class DesktopComponent {
   }
 
   addParent(parent) {
+    this.lastParent = parent;
     // add itself to the parent
     if (this.exists(parent.element.setChild)) {
       parent.element.setChild(this.element);

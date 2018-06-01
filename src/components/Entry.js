@@ -14,8 +14,12 @@ class Entry extends DesktopComponent {
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
-    this.element = new libui.UiEntry();
+    this.newElement();
     this.initialProps(this.props);
+  }
+
+  newElement() {
+    this.element = new libui.UiEntry();
   }
 
   render(parent) {

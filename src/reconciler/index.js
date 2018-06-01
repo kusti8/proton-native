@@ -83,7 +83,7 @@ const DesktopRenderer = Reconciler({
     },
 
     insertBefore(parentInstance, child, beforeChild) {
-      // noob
+      parentInstance.insertChild(child, beforeChild);
     },
 
     commitUpdate(instance, updatePayload, type, oldProps, newProps) {
