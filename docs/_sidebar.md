@@ -33,6 +33,7 @@
   * [Separator](component_APIs/separator.md)
   * [Slider](component_APIs/slider.md)
   * [Spinbox](component_APIs/spinbox.md)
+  * [StyledText](component_APIs/styledtext.md)
   * [Tab](component_APIs/tab.md)
   * [Text](component_APIs/text.md)
   * [TextInput](component_APIs/textinput.md)

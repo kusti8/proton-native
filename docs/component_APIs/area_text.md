@@ -5,19 +5,21 @@ A (possibly styled) text to be displayed in an Area component. Nested `Area.Text
 ```jsx
 import React, { Component } from 'react';
 
-import { render, Window, App, Area } from 'proton-native';
+import { render, Window, App, Area, Box } from 'proton-native';
 
 class Example extends Component {
   render() {
     return (
       <App>
         <Window title="Test" size={{ w: 400, h: 400 }} margined>
-          <Area>
-            <Area.Text style={{ fontSize: 16 }}>
-              This is some text drawn onto an{' '}
-              <Area.Text style={{ color: 'red' }}>Area!</Area.Text>
-            </Area.Text>
-          </Area>
+          <Box>
+            <Area>
+              <Area.Text style={{ fontSize: 16 }}>
+                This is some text drawn onto an{' '}
+                <Area.Text style={{ color: 'red' }}>Area!</Area.Text>
+              </Area.Text>
+            </Area>
+          </Box>
         </Window>
       </App>
     );
