@@ -7,6 +7,7 @@ import {
   Separator,
   Menu,
   Area,
+  StyledText,
 } from './react-components';
 import { Dialog } from './components';
 
@@ -88,4 +89,5 @@ export {
   Dialog,
   AreaInternal,
   Area,
+  StyledText,
 };

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { AreaInternal } from '../';
 
+let HasAreaParentContext = React.createContext(false);
+
 const AreaComponentPropTypes = {
   transform: PropTypes.string,
   fill: PropTypes.string,
@@ -61,9 +63,13 @@ class Area extends Component {
       onKeyDown,
     };
     return React.createElement(
-      AreaInternal,
-      areaProps,
-      React.createElement(Area.Group, groupProps, children)
+      HasAreaParentContext.Provider,
+      { value: true },
+      React.createElement(
+        AreaInternal,
+        areaProps,
+        React.createElement(Area.Group, groupProps, children)
+      )
     );
   }
 }
@@ -75,5 +81,5 @@ Area.propTypes = {
 Area.defaultProps = {
   ...AreaComponentDefaultProps,
 };
-
+export { HasAreaParentContext };
 export default Area;

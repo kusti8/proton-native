@@ -27,7 +27,7 @@ const DesktopRenderer = Reconciler({
     return inst;
   },
 
-  prepareForCommit() {
+  prepareForCommit(hostContext) {
     // noop
   },
 
@@ -35,7 +35,7 @@ const DesktopRenderer = Reconciler({
     return true;
   },
 
-  resetAfterCommit() {
+  resetAfterCommit(hostContext) {
     // noop
   },
 
@@ -60,46 +60,48 @@ const DesktopRenderer = Reconciler({
 
   useSyncScheduling: true,
 
-  mutation: {
-    appendChild(parentInstance, child) {
-      if (parentInstance.appendChild) {
-        parentInstance.appendChild(child);
-      }
-      if (typeof child.render === 'function') child.render(parentInstance); // we just added a new child, so we want to render it
-    },
+  // MUTATION
 
-    appendChildToContainer(parentInstance, child) {
-      if (parentInstance.appendChild) {
-        parentInstance.appendChild(child);
-      }
-    },
-
-    removeChild(parentInstance, child) {
-      parentInstance.removeChild(child);
-    },
-
-    removeChildFromContainer(parentInstance, child) {
-      parentInstance.removeChild(child);
-    },
-
-    insertBefore(parentInstance, child, beforeChild) {
-      // noob
-    },
-
-    commitUpdate(instance, updatePayload, type, oldProps, newProps) {
-      if (typeof instance.update !== 'undefined') {
-        instance.update(oldProps, newProps);
-      }
-    },
-
-    commitMount(instance, updatePayload, type, oldProps, newProps) {
-      // noop
-    },
-
-    commitTextUpdate(textInstance, oldText, newText) {
-      textInstance = newText;
-    },
+  appendChild(parentInstance, child) {
+    if (parentInstance.appendChild) {
+      parentInstance.appendChild(child);
+    }
+    if (typeof child.render === 'function') child.render(parentInstance); // we just added a new child, so we want to render it
   },
+
+  appendChildToContainer(parentInstance, child) {
+    if (parentInstance.appendChild) {
+      parentInstance.appendChild(child);
+    }
+  },
+
+  removeChild(parentInstance, child) {
+    parentInstance.removeChild(child);
+  },
+
+  removeChildFromContainer(parentInstance, child) {
+    parentInstance.removeChild(child);
+  },
+
+  insertBefore(parentInstance, child, beforeChild) {
+    // noob
+  },
+
+  commitUpdate(instance, updatePayload, type, oldProps, newProps) {
+    if (typeof instance.update !== 'undefined') {
+      instance.update(oldProps, newProps);
+    }
+  },
+
+  commitMount(instance, updatePayload, type, oldProps, newProps) {
+    // noop
+  },
+
+  commitTextUpdate(textInstance, oldText, newText) {
+    textInstance = newText;
+  },
+  supportsMutation: true,
+  supportsPersistence: false,
 });
 
 export default DesktopRenderer;
