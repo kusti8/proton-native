@@ -7,6 +7,7 @@ import libui from 'libui-node';
 import PropTypes from 'prop-types';
 import Color from 'color';
 import parseSVG from 'svg-path-parser';
+import { StyledText } from '..';
 
 const onMouse = component => (area, evt) => {
   const down = evt.getDown();
@@ -883,7 +884,9 @@ Area.Text = class AreaText extends AreaComponent {
 
 function areaProp(props, propName, componentName) {
   const v = props[propName];
-  if (!(typeof v === 'string' || v.type === 'AREATEXT')) {
+  if (
+    !(typeof v === 'string' || v.type === 'AREATEXT' || v.type === StyledText)
+  ) {
     return new Error(
       'Invalid prop `' +
         propName +
