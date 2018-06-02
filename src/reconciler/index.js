@@ -61,7 +61,7 @@ const DesktopRenderer = Reconciler({
   useSyncScheduling: true,
 
   // MUTATION
-
+  
   appendChild(parentInstance, child) {
     if (parentInstance.appendChild) {
       parentInstance.appendChild(child);
@@ -84,7 +84,7 @@ const DesktopRenderer = Reconciler({
   },
 
   insertBefore(parentInstance, child, beforeChild) {
-    // noob
+    parentInstance.insertChild(child, beforeChild);
   },
 
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
@@ -100,6 +100,7 @@ const DesktopRenderer = Reconciler({
   commitTextUpdate(textInstance, oldText, newText) {
     textInstance = newText;
   },
+  
   supportsMutation: true,
   supportsPersistence: false,
 });

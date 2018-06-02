@@ -12,8 +12,12 @@ class App extends DesktopComponent {
     super(root, props);
     this.root = root;
     this.props = { ...props };
-    this.element = {};
+    this.newElement();
     this.setDefaults(props);
+  }
+
+  newElement() {
+    this.element = {};
   }
 
   update(oldProps, newProps) {

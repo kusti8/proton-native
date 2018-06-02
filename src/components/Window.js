@@ -18,6 +18,8 @@ class Window extends DesktopComponent {
     this.setDefaults(props);
   }
 
+  newElement() {}
+
   update(oldProps, newProps) {
     this.props = { ...newProps };
     this.setDefaults(newProps);

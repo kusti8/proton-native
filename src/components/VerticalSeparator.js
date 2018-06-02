@@ -11,8 +11,12 @@ class VerticalSeparator extends DesktopComponent {
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
-    this.element = new libui.UiVerticalSeparator();
+    this.newElement();
     this.initialProps(this.props);
+  }
+
+  newElement() {
+    this.element = new libui.UiVerticalSeparator();
   }
 
   render(parent) {

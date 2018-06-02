@@ -13,7 +13,36 @@ class Slider extends DesktopComponent {
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
-    this.element = new libui.UiSlider();
+    this.newElement();
+    this.initialProps(this.props);
+  }
+
+  newElement() {
+    this.element = new libui.UiSlider(this.props.min, this.props.max);
+  }
+
+  minMaxAdjusted(prop, newProps) {
+    this.props = { ...newProps };
+    for (let i = this.lastParent.children.length - 1; i >= 0; i--) {
+      // we go backwards cause otherwise we're trying to remove indexes in libui that don't exist, but still do in our local children array
+      this.lastParent.deparentChild(this.lastParent.children[i]); // we remove all the children from the parent
+    }
+
+    this.element = new libui.UiSlider(this.props.min, this.props.max); // we make a new element
+    for (let child of this.lastParent.children) {
+      this.lastParent.reparentChild(child); // add back all of the children, in the same order
+    }
+
+    if (
+      this.props.value > this.props.max ||
+      this.props.value < this.props.min
+    ) {
+      this.props.value = Math.max(
+        Math.min(this.props.value, this.props.max),
+        this.props.min
+      ); // make the value inside the range
+      this.props.onChange(this.props.value); // and trigger onChange so that the value can get updated
+    }
     this.initialProps(this.props);
   }
 
@@ -29,6 +58,8 @@ Slider.propTypes = {
   visible: PropTypes.bool,
   value: PropTypes.number,
   onChange: PropTypes.func,
+  min: PropTypes.number,
+  max: PropTypes.number,
 };
 
 Slider.defaultProps = {
@@ -37,6 +68,8 @@ Slider.defaultProps = {
   visible: true,
   value: 0,
   onChange: () => {},
+  min: 0,
+  max: 100,
 };
 
 export default Slider;

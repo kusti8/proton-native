@@ -11,8 +11,12 @@ class ProgressBar extends DesktopComponent {
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
-    this.element = new libui.UiProgressBar();
+    this.newElement();
     this.initialProps(this.props);
+  }
+
+  newElement() {
+    this.element = new libui.UiProgressBar();
   }
 
   render(parent) {

@@ -11,8 +11,12 @@ class Group extends DesktopComponent {
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
-    this.element = new libui.UiGroup();
+    this.newElement();
     this.initialProps(this.props);
+  }
+
+  newElement() {
+    this.element = new libui.UiGroup();
   }
 
   render(parent) {

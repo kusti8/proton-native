@@ -10,6 +10,9 @@ class Root extends DesktopComponent {
     super();
     libui.startLoop();
   }
+
+  newElement() {}
+
   render() {
     this.renderChildNode();
   }
