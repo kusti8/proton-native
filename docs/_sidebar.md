@@ -4,6 +4,7 @@
 * [Packaging](packaging.md)
 * [Debugging](debugging.md)
 * [Universal Props](component_APIs/universal_props.md)
+* [External Functionality](external_functionality.md)
 * Components
 
   * [App](component_APIs/app.md)
