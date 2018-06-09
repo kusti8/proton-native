@@ -853,6 +853,7 @@ Area.Text = class AreaText extends AreaComponent {
         libui.textItalic.normal,
         libui.textStretch.normal
       );
+
       const layout = new libui.DrawTextLayout(
         this.str,
         font,
@@ -867,8 +868,8 @@ Area.Text = class AreaText extends AreaComponent {
       p
         .getContext()
         .text(
-          this.parseParent(this.props.x || 0, p, false),
-          this.parseParent(this.props.y || 0, p, true),
+          this.parseParent(this.props.x, p, false),
+          this.parseParent(this.props.y, p, true),
           layout
         );
 
@@ -900,6 +901,13 @@ function areaProp(props, propName, componentName) {
 
 Area.Text.propTypes = {
   children: PropTypes.oneOfType([areaProp, PropTypes.arrayOf(areaProp)]),
+  x: PropTypes.number,
+  y: PropTypes.number,
+};
+
+Area.Text.defaultProps = {
+  x: 0,
+  y: 0,
 };
 
 export default Area;
