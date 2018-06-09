@@ -33,6 +33,8 @@ render(<Example />);
 
 _Not all fonts support all possible options_
 
+* [x](#x) (only in a top level text component)
+* [y](#y) (only in a top level text component)
 * [fontSize](#fontsize)
 * [fontFamily](#fontfamily)
 * [color](#color)
@@ -126,3 +128,19 @@ Wheter the text should be aligned to the left, center or right. **Works only on 
 | **Type**                        | **Required** |
 | ------------------------------- | ------------ |
 | enum('left', 'center', 'right') | false        |
+
+### x
+
+The x coordinate of the text's top left corner. (Only in a top level text component.)
+
+| **Type**                      | **Required** | **Default** |
+| ----------------------------- | ------------ | ----------- |
+| number &#x7c; string (number) | false        | 0           |
+
+### y
+
+The y coordinate of the text's top left corner. (Only in a top level text component.)
+
+| **Type**                      | **Required** | **Default** |
+| ----------------------------- | ------------ | ----------- |
+| number &#x7c; string (number) | false        | 0           |
