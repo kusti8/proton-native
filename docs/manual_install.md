@@ -8,7 +8,7 @@ If you get an error about Python on Windows, install the build tools:
 
 You also need to have babel-cli and these babel-presets prepared in devDependencies
 
-```npm install --save-dev babel-cli babel-preset-env babel-preset-stage-0 babel-preset-react```
+`npm install --save-dev babel-cli babel-preset-env babel-preset-stage-0 babel-preset-react`
 
 Then create `.babelrc`:
 
@@ -36,17 +36,19 @@ Now you can just run `npm run start` to run your script.
 
 A usual example starts with the following, just like any other React Native app. Most props can be set to their defaults and not be mentioned, as shown above. The Window component actually accepts many props, but only 4 have to be specified.
 
-``` javascript
+```javascript
 import React, { Component } from 'react'; // import from react
 
 import { render, Window, App } from 'proton-native'; // import the proton-native components
 
 class Example extends Component {
-  render() { // all Components must have a render method
+  render() {
+    // all Components must have a render method
     return (
-      <App> // you must always include App around everything
-        <Window title="Example" size={{w: 300, h: 300}} menuBar={false}>
-            // all your other components go here
+      <App>
+        // you must always include App around everything
+        <Window title="Example" size={{ w: 300, h: 300 }} menuBar={false}>
+          // all your other components go here
         </Window>
       </App>
     );

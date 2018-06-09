@@ -40,7 +40,7 @@
         text-decoration: none;
         transition: all 0.15s ease;
     }
-</style>    
+</style>
 
 <a href='https://github.com/kusti8/proton-native' id="but">Github</a>
 <a href='#/?id=proton-native' id="last">Get Started</a>
