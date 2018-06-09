@@ -46,38 +46,38 @@ render(<Example />);
 
 The x coordinate of the center of the arc.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### y
 
 The y coordinate of the center of the arc.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### r
 
 The arc's radius. Percentage values use the Area's width.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### start
 
 The start angle of the arc in degrees. Value increases clockwise with `0` meaning the rightmost point ("east") of the imaginary circle.
 
-| **Type**                  | **Required** | **Default** |
-| ------------------------- | ------------ | ----------- |
-| number \| string (number) | false        | 0           |
+| **Type**                      | **Required** | **Default** |
+| ----------------------------- | ------------ | ----------- |
+| number &#x7c; string (number) | false        | 0           |
 
 ### sweep
 
 The sweep angle of the arc in degrees. Value increases clockwise.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |

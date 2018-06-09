@@ -31,9 +31,9 @@ The fill color for the component.
 
 The opacity of the fill (between 0 and 1). Gets multiplied with the fill colors alpha value.
 
-| **Type**                  | **Required** | **Default** |
-| ------------------------- | ------------ | ----------- |
-| number \| string (number) | false        | 1           |
+| **Type**                      | **Required** | **Default** |
+| ----------------------------- | ------------ | ----------- |
+| number &#x7c; string (number) | false        | 1           |
 
 ## stroke
 
@@ -47,15 +47,15 @@ The stroke (line) color for the component.
 
 The opacity of the stroke (between 0 and 1). Gets multiplied with the stroke colors alpha value.
 
-| **Type**                  | **Required** | **Default** |
-| ------------------------- | ------------ | ----------- |
-| number \| string (number) | false        | 1           |
+| **Type**                      | **Required** | **Default** |
+| ----------------------------- | ------------ | ----------- |
+| number &#x7c; string (number) | false        | 1           |
 
 ## strokeWidth
 
-| **Type**                  | **Required** | **Default** |
-| ------------------------- | ------------ | ----------- |
-| number \| string (number) | false        | 1           |
+| **Type**                      | **Required** | **Default** |
+| ----------------------------- | ------------ | ----------- |
+| number &#x7c; string (number) | false        | 1           |
 
 ## strokeLinecap
 
@@ -73,9 +73,9 @@ The opacity of the stroke (between 0 and 1). Gets multiplied with the stroke col
 
 How far to extend the stroke at a sharp corner when using `strokeLinejoin='miter'`, see [here](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-miterlimit) for a more detailed explanation.
 
-| **Type**                  | **Required** | **Default** |
-| ------------------------- | ------------ | ----------- |
-| number \| string (number) | false        | 10          |
+| **Type**                      | **Required** | **Default** |
+| ----------------------------- | ------------ | ----------- |
+| number &#x7c; string (number) | false        | 10          |
 
 ## transform
 

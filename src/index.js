@@ -7,6 +7,7 @@ import {
   Separator,
   Menu,
   Area,
+  StyledText,
 } from './react-components';
 import { Dialog } from './components';
 
@@ -47,6 +48,7 @@ Area.Bezier = 'AREABEZIER';
 Area.Path = 'AREAPATH';
 Area.Group = 'AREAGROUP';
 Area.Circle = 'AREACIRCLE';
+Area.Text = 'AREATEXT';
 
 export {
   render,
@@ -87,4 +89,5 @@ export {
   Dialog,
   AreaInternal,
   Area,
+  StyledText,
 };

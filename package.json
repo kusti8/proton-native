@@ -12,7 +12,7 @@
   "scripts": {
     "demo": "babel-node Demo.js",
     "prettier":
-      "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js'",
+      "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'examples/*.js' ./**/*.md",
     "build": "babel src -d bin",
     "pub": "babel src -d bin && npm publish",
     "precommit": "lint-staged"
@@ -30,10 +30,10 @@
   "dependencies": {
     "color": "^3.0.0",
     "fbjs": "^0.8.16",
-    "libui-node": "^0.2.0",
+    "libui-node": "^0.2.1",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
-    "react-reconciler": "^0.7.0",
+    "react-reconciler": "^0.11.0",
     "svg-path-parser": "^1.1.0"
   },
   "devDependencies": {

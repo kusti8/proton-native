@@ -6,7 +6,21 @@ import libui from 'libui-node';
 import PropTypes from 'prop-types';
 
 class FontButton extends DesktopComponent {
-  eventParameter = { onChanged: () => this.element.getFont() };
+  eventParameter = {
+    onChanged: () => {
+      const f = this.element.getFont();
+      const italic = f.getItalic();
+      return {
+        fontFamily: f.getFamily(),
+        fontSize: f.getSize(),
+        fontWeight: f.getWeight(),
+        fontStyle: Object.keys(libui.textItalic).find(
+          v => libui.textItalic[v] === italic
+        ),
+        textStretch: f.getStretch(),
+      };
+    },
+  };
 
   constructor(root, props) {
     super(root, props);

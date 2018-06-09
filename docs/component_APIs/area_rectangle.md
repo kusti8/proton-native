@@ -44,30 +44,30 @@ render(<Example />);
 
 The x coordinate of the rectangles top left corner.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### y
 
 The y coordinate of the rectangles top left corner.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### width
 
 The width of the rectangle.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### height
 
 The height of the rectangle.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |

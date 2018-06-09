@@ -6,14 +6,16 @@ technologies, Proton Native allows you to use native widgets cross platform, all
 Electron.
 
 **Advantages**
- * Use native OS widgets
- * All widgets are created and handled in C, making for generally better performance (YMMV, especially in smaller apps)
- * Simple React components very similar to React Native components
- * Constantly being improved and added to
+
+* Use native OS widgets
+* All widgets are created and handled in C, making for generally better performance (YMMV, especially in smaller apps)
+* Simple React components very similar to React Native components
+* Constantly being improved and added to
 
 **Disadvantages**
- * Smaller selection of widgets than Electron
- * Smaller community since Proton Native is newer
+
+* Smaller selection of widgets than Electron
+* Smaller community since Proton Native is newer
 
 If you've been using Qt or frameworks like that successfully, then you may do so. But if you love working with React like I do,
 then Proton Native may be your best alternate to a full Electron app.
@@ -33,9 +35,9 @@ As your projects get bigger and bigger, you're going to notice more memory usage
 Under the hood, there are two main libraries that are being used.
 
 * [Libui](https://github.com/andlabs/libui)/[Libui-node](https://github.com/parro-it/libui-node)
-    * Creates the native widgets using GTK3, Cocoa, or Windows API
+  * Creates the native widgets using GTK3, Cocoa, or Windows API
 * [React-reconciler](https://github.com/facebook/react/tree/master/packages/react-reconciler)
-    * Manages state, rerendering, etc.
+  * Manages state, rerendering, etc.
 
 Each libui widget has a corresponding component in `src/components`. All of these are classes, which extend `DesktopComponent`,
 which defines many common functions such as adding children, removing them, updating props, etc. Then, in `src/index.js`, we give

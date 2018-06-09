@@ -53,62 +53,62 @@ render(<Example />);
 
 The x coordinate of the curve's start point.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### y1
 
 The y coordinate of the curve's start point.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### cx1
 
 The x coordinate of the curve's control point at the start.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### cy1
 
 The y coordinate of the curve's control point at the start.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### x2
 
 The x coordinate of the curve's end point.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### y2
 
 The y coordinate of the curve's end point.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### cx2
 
 The x coordinate of the curve's control point at the end.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
 
 ### cy2
 
 The y coordinate of the curve's control point at the end.
 
-| **Type**                  | **Required** |
-| ------------------------- | ------------ |
-| number \| string (number) | true         |
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| number &#x7c; string (number) | true         |
