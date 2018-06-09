@@ -848,7 +848,7 @@ Area.Text = class AreaText extends AreaComponent {
 
       const font = new libui.FontDescriptor(
         'Arial',
-        14,
+        12,
         libui.textWeight.normal,
         libui.textItalic.normal,
         libui.textStretch.normal

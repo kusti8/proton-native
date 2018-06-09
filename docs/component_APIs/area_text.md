@@ -53,7 +53,7 @@ The font size (in pt).
 
 | **Type** | **Required** | **Default** |
 | -------- | ------------ | ----------- |
-| number   | false        | 14          |
+| number   | false        | 12          |
 
 ### fontFamily
 
