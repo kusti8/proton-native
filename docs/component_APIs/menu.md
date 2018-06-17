@@ -2,7 +2,7 @@
 
 The top bar on a window that can have multiple options.
 
-The menu must come outside and before the Window for it to take effect. It is made up of Menu.Items. Menus can be embedded inside eachother to make sub-menus.
+The menu must come outside and before the Window for it to take effect. It is made up of Menu.Items.
 
 ```jsx
 import React, { Component } from 'react';
@@ -13,10 +13,10 @@ class Example extends Component {
   render() {
     return (
       <App>
-         <Menu label="HI">
-           <Menu.Item>Hi</Menu.Item>
-         </Menu>
-        <Window title="Example" size={{w: 500, h: 500}} />
+        <Menu label="HI">
+          <Menu.Item>Hi</Menu.Item>
+        </Menu>
+        <Window title="Example" size={{ w: 500, h: 500 }} />
       </App>
     );
   }
@@ -27,7 +27,7 @@ render(<Example />);
 
 ## Props
 
-- [label](#label)
+* [label](#label)
 
 ## Reference
 
@@ -36,5 +36,5 @@ render(<Example />);
 The name of the menu.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| string | No | '' |
+| -------- | ------------ | ----------- |
+| string   | No           | ''          |
