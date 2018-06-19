@@ -28,3 +28,8 @@ You can alternatively use `npx` if you prefer.
 ### Manual
 
 The old manual instructions are still available [here](manual_install.md)
+
+## Optional Extras
+
+If you love using TypeScript, thanks to the efforts of @khanhas, typings
+are provided through the `@types/proton-native` package.
