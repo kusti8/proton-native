@@ -98,7 +98,8 @@ class DesktopComponent {
 
   reparentChild(child) {
     // we as the parent add the child to ourself again
-    child.addParent(this);
+    //child.addParent(this);
+    child.render(this);
   }
 
   deparentChild(child) {
