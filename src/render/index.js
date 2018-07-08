@@ -16,7 +16,7 @@ function render(element) {
 
   // Schedules a top level update with current fiber and a priority level (depending upon the context)
   DesktopRenderer.updateContainer(element, node, null);
-  ROOT_NODE.render();
+  //ROOT_NODE.render();
 }
 
 export default render;
