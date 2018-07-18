@@ -74,6 +74,8 @@ function createElement(type, props) {
     AREAGROUP: () => new Area.Group(ROOT_NODE, props),
     AREACIRCLE: () => new Area.Circle(ROOT_NODE, props),
     AREATEXT: () => new Area.Text(ROOT_NODE, props),
+    AREAGRADIENT: () => new Area.Gradient(ROOT_NODE, props),
+    AREAGRADIENTSTOP: () => new Area.Gradient.Stop(ROOT_NODE, props),
     default: undefined,
   };
 

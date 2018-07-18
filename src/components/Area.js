@@ -197,20 +197,33 @@ function fallback(...vals) {
   }
 }
 
-function toLibuiColor(color) {
+function toLibuiColor(color, alpha = 1) {
   return new libui.Color(
     color.red() / 255,
     color.green() / 255,
     color.blue() / 255,
-    color.alpha()
+    color.alpha() * alpha
   );
 }
 
-function createBrush(color, alpha) {
+function createSolidBrush(color, alpha) {
   const brush = new libui.DrawBrush();
-  brush.color = toLibuiColor(color);
-  brush.color.alpha = brush.color.alpha * alpha;
+  brush.color = toLibuiColor(color, alpha);
   brush.type = libui.brushType.solid;
+
+  return brush;
+}
+
+function createGradientBrush(type, start, end, outerRadius, stops, alpha) {
+  const brush = new libui.DrawBrush();
+  brush.type = type;
+  brush.start = start;
+  brush.end = end;
+  brush.outerRadius = outerRadius;
+  brush.stops = stops.map(v => {
+    const color = toLibuiColor(v[1], alpha);
+    return new libui.BrushGradientStop(v[0], color);
+  });
 
   return brush;
 }
@@ -414,15 +427,70 @@ class AreaComponent {
 
     const path = this.draw(area, p, props);
 
+    const makeBrush = p => {
+      if (props[p] && props[p] != 'none') {
+        if (typeof props[p] === 'string') {
+          // a solid brush
+          return createSolidBrush(
+            Color(props[p]),
+            Number(props[p + 'Opacity'])
+          );
+        } else if (props[p].type == 'AREAGRADIENT') {
+          // a gradient brush
+          const gradient = props[p];
+          // props gets only checked on mounting, but the gradient component is never rendered
+          PropTypes.checkPropTypes(
+            Area.Gradient.propTypes,
+            gradient.props,
+            'prop',
+            'Area.Gradient'
+          );
+          let {
+            type,
+            x1,
+            y1,
+            x2,
+            y2,
+            r: outerRadius,
+            children,
+          } = gradient.props;
+          // optional for radial gradients
+          x2 = x2 || x1;
+          y2 = y2 || y1;
+
+          const stops = [].concat(children).map(v => {
+            PropTypes.checkPropTypes(
+              Area.Gradient.Stop.propTypes,
+              v.props,
+              'prop',
+              'Area.GradientStop'
+            );
+            let { offset } = v.props;
+            if (offset.slice(-1) == '%') {
+              offset = Number(offset.slice(0, -1)) / 100;
+            } else {
+              offset = Number(offset);
+            }
+
+            return [offset, Color(v.props.color)];
+          });
+
+          return createGradientBrush(
+            type == 'radial'
+              ? libui.brushType.radialGradient
+              : libui.brushType.linearGradient,
+            new libui.Point(x1, y1),
+            new libui.Point(x2, y2),
+            outerRadius,
+            stops,
+            Number(props[p + 'Opacity'])
+          );
+        }
+      }
+    };
+
     if (path) {
-      const fillBrush =
-        props.fill &&
-        props.fill != 'none' &&
-        createBrush(Color(props.fill), Number(props.fillOpacity));
-      const strokeBrush =
-        props.stroke &&
-        props.stroke != 'none' &&
-        createBrush(Color(props.stroke), Number(props.strokeOpacity));
+      const strokeBrush = makeBrush('stroke');
 
       if (strokeBrush) {
         const sp = new libui.DrawStrokeParams();
@@ -460,6 +528,7 @@ class AreaComponent {
         strokeBrush.free();
       }
 
+      const fillBrush = makeBrush('fill');
       if (fillBrush) {
         p.getContext().fill(path, fillBrush);
         fillBrush.free();
@@ -478,9 +547,9 @@ class AreaComponent {
 
 const AreaComponentPropTypes = {
   transform: PropTypes.string,
-  fill: PropTypes.string,
+  fill: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   fillOpacity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  stroke: PropTypes.string,
+  stroke: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   strokeOpacity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   strokeWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   strokeLinecap: PropTypes.oneOf(['flat', 'round', 'square']),
@@ -931,6 +1000,56 @@ Area.Text.propTypes = {
 Area.Text.defaultProps = {
   x: 0,
   y: 0,
+};
+
+Area.Gradient = class AreaGradient {};
+Area.Gradient.propTypes = {
+  type: function(props, propName, componentName) {
+    const v = props[propName];
+    if (v == 'radial') {
+      if (!props.r) {
+        return new Error(
+          'Invalid prop `r` supplied to' +
+            ' `' +
+            componentName +
+            '`. Needs to be defined for a radial gradient.'
+        );
+      }
+    } else if (v == 'linear') {
+      for (let p of ['x2', 'y2']) {
+        if (!props[p]) {
+          return new Error(
+            'Invalid prop `' +
+              p +
+              '` supplied to' +
+              ' `' +
+              componentName +
+              '`. Needs to be defined for a linear gradient.'
+          );
+        }
+      }
+    } else {
+      return new Error(
+        'Invalid prop `' +
+          propName +
+          '` supplied to' +
+          ' `' +
+          componentName +
+          '`. Expected either `radial` or `linear`.'
+      );
+    }
+  },
+  x1: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  y1: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  x2: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  y2: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  r: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+};
+
+Area.Gradient.Stop = class AreaGradientStop {};
+Area.Gradient.Stop.propTypes = {
+  color: PropTypes.string.isRequired,
+  offset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
 
 export default Area;

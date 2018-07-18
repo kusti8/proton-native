@@ -15,8 +15,6 @@ At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergr
 `;
 
 class Example extends Component {
-  state = { bool: false, val: 40, dragging: false, pos: { x: 50, y: 220 } };
-
   render() {
     return (
       <App>

@@ -4,28 +4,28 @@ Some props can be applied to Area itself and all Area components (for those the 
 
 All color properties use the CSS color syntax. Examples: "red", "#070707", "#222", "rgba(255, 255, 0, 1)", "hsl(0, 100%, 50%)".
 
-* [fill](#fill)
-* [fillOpacity](#fillopacity)
-* [stroke](#stroke)
-* [strokeOpacity](#strokeopacity)
-* [strokeWidth](#strokewidth)
-* [strokeLinecap](#strokelinecap)
-* [strokeLinejoin](#strokelinejoin)
-* [strokeMiterlimit](#strokemiterlimit)
-* [transform](#transform)
-  * [rotate](#rotate)
-  * [translate](#translate)
-  * [scale](#scale)
-  * [skew](#skew)
-  * [matrix](#matrix)
+- [fill](#fill)
+- [fillOpacity](#fillopacity)
+- [stroke](#stroke)
+- [strokeOpacity](#strokeopacity)
+- [strokeWidth](#strokewidth)
+- [strokeLinecap](#strokelinecap)
+- [strokeLinejoin](#strokelinejoin)
+- [strokeMiterlimit](#strokemiterlimit)
+- [transform](#transform)
+  - [rotate](#rotate)
+  - [translate](#translate)
+  - [scale](#scale)
+  - [skew](#skew)
+  - [matrix](#matrix)
 
 ## fill
 
-The fill color for the component.
+The fill color (or gradient) for the component.
 
-| **Type**       | **Required** | **Default** |
-| -------------- | ------------ | ----------- |
-| string (Color) | false        | 'none'      |
+| **Type**                            | **Required** | **Default** |
+| ----------------------------------- | ------------ | ----------- |
+| string (Color) &#x7c; Area.Gradient | false        | 'none'      |
 
 ## fillOpacity
 
@@ -37,11 +37,11 @@ The opacity of the fill (between 0 and 1). Gets multiplied with the fill colors 
 
 ## stroke
 
-The stroke (line) color for the component.
+The stroke (line) color (or gradient) for the component.
 
-| **Type**       | **Required** | **Default** |
-| -------------- | ------------ | ----------- |
-| string (Color) | false        | 'none'      |
+| **Type**                            | **Required** | **Default** |
+| ----------------------------------- | ------------ | ----------- |
+| string (Color) &#x7c; Area.Gradient | false        | 'none'      |
 
 ## strokeOpacity
 
