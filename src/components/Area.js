@@ -104,7 +104,23 @@ class Area extends DesktopComponent {
     this.props = { ...props };
     this.setDefaults(props);
 
-    this.element = new libui.UiArea(
+    const create = (draw, mouse, enter, broken, key) => {
+      if (this.props.scrolling) {
+        return new libui.UiArea(
+          draw,
+          mouse,
+          enter,
+          broken,
+          key,
+          this.props.scrolling.w,
+          this.props.scrolling.h
+        );
+      } else {
+        return new libui.UiArea(draw, mouse, enter, broken, key);
+      }
+    };
+
+    this.element = create(
       (area, p) => {
         for (let i = 0; i < this.children.length; i += 1) {
           if (typeof this.children[i] === 'object') {
@@ -151,6 +167,10 @@ Area.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
+  scrolling: PropTypes.exact({
+    w: PropTypes.number.isRequired,
+    h: PropTypes.number.isRequired,
+  }),
 };
 
 Area.defaultProps = {
@@ -243,7 +263,7 @@ class AreaComponent {
         return num;
       } else if (val.slice(-1) == '%') {
         let num = Number(val.slice(0, -1));
-        return num / 100 * (y ? p.getAreaHeight() : p.getAreaWidth());
+        return (num / 100) * (y ? p.getAreaHeight() : p.getAreaWidth());
       }
     } else if (typeof val === 'number') {
       return val;
@@ -258,7 +278,7 @@ class AreaComponent {
         return num;
       } else if (val.slice(-1) == '%') {
         let num = Number(val.slice(0, -1));
-        return num / 100 * (y ? this.getHeight(p) : this.getWidth(p));
+        return (num / 100) * (y ? this.getHeight(p) : this.getWidth(p));
       }
     } else if (typeof val === 'number') {
       return val;
@@ -854,10 +874,15 @@ Area.Text = class AreaText extends AreaComponent {
         libui.textStretch.normal
       );
 
+      const area = this.parent.parent;
+      const width = area.props.scrolling
+        ? area.props.scrolling.w
+        : p.getAreaWidth();
+
       const layout = new libui.DrawTextLayout(
         this.str,
         font,
-        p.getAreaWidth() - this.parseParent(this.props.x, p, false),
+        width - this.parseParent(this.props.x, p, false),
         textAlign
       );
 
@@ -865,13 +890,11 @@ Area.Text = class AreaText extends AreaComponent {
         this.applyTransforms(p);
       }
 
-      p
-        .getContext()
-        .text(
-          this.parseParent(this.props.x, p, false),
-          this.parseParent(this.props.y, p, true),
-          layout
-        );
+      p.getContext().text(
+        this.parseParent(this.props.x, p, false),
+        this.parseParent(this.props.y, p, true),
+        layout
+      );
 
       font.free();
       layout.free();

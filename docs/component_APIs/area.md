@@ -34,14 +34,14 @@ render(<Example />);
 
 ## Props
 
-* [visible](#visible)
-* [onMouseMove](#onMouseMove)
-* [onMouseUp](#onMouseUp)
-* [onMouseDown](#onMouseDown)
-* [onMouseEnter](#onMouseEnter)
-* [onMouseLeave](#onMouseLeave)
-* [onKeyUp](#onKeyUp)
-* [onKeyDown](#onKeyDown)
+- [visible](#visible)
+- [onMouseMove](#onMouseMove)
+- [onMouseUp](#onMouseUp)
+- [onMouseDown](#onMouseDown)
+- [onMouseEnter](#onMouseEnter)
+- [onMouseLeave](#onMouseLeave)
+- [onKeyUp](#onKeyUp)
+- [onKeyDown](#onKeyDown)
 
 ## Reference
 
@@ -112,3 +112,11 @@ Return `true` to signal that this event got handled (always returning true will 
 | **Type**                                                                                 | **Required** |
 | ---------------------------------------------------------------------------------------- | ------------ |
 | function({key: string, extKey: string, modifierKey: string, modifiers: Array\<string\>}) | No           |
+
+### scrolling
+
+If set, a scrolling area is created. The specified width and height specify the size of the inner scrolling view.
+
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| object {h: number, w: number} | No           |
