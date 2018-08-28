@@ -766,6 +766,35 @@ Area.Text = class AreaText extends AreaComponent {
     this.children.push(child);
   }
 
+  removeChild(child) {
+    if (child.children) {
+      // we recursively remove all children
+      child.children.forEach(function(w) {
+        child.removeChild(w);
+      });
+    }
+    const index = this.children.indexOf(child);
+    this.children.splice(index, 1);
+  }
+
+  update(oldProps, newProps) {
+    this.props = { ...this.props, ...newProps, ...newProps.children };
+
+    // For text nodes, `appendChild` gets called only on the initial render.
+    // `removeChild` is never called. Therefore: updating this.children manually
+    // to apply text changes...
+    const newChildren = [].concat(newProps.children).filter(Boolean);
+    for (let x in newChildren) {
+      if (
+        typeof newChildren[x] === 'string' &&
+        newChildren[x] != this.children[x]
+      ) {
+        this.children[x] = newChildren[x];
+      }
+    }
+    if (this.parent) this.getArea().queueRedrawAll();
+  }
+
   appendText(t, ...attr) {
     if (this.parent instanceof AreaText) {
       this.parent.appendText(t, ...attr);
