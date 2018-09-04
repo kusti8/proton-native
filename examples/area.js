@@ -25,7 +25,7 @@ class Example extends Component {
     this.onAreaSizeChange = this.onAreaSizeChange.bind(this);
   }
 
-  onAreaSizeChange(area, { height: areaHeight }) {
+  onAreaSizeChange({ height: areaHeight }) {
     this.setState({
       areaHeight,
     });
@@ -37,7 +37,9 @@ class Example extends Component {
         <Window title="Test" size={{ w: 600, h: 650 }} margined={true}>
           <Box padded>
             <Text stretchy={false}>Try dragging the circle!</Text>
-            <Text>{`Area height: ${this.state.areaHeight} px`}</Text>
+            <Text stretchy={false}>{`Area height: ${
+              this.state.areaHeight
+            } px`}</Text>
             <Area
               onSizeChange={this.onAreaSizeChange}
               // onKeyUp={e => {

@@ -113,7 +113,7 @@ class Area extends DesktopComponent {
         if (width !== this.width || height !== this.height) {
           this.width = width;
           this.height = height;
-          this.props.onSizeChange(area, { width, height });
+          this.props.onSizeChange({ width, height });
         }
 
         for (let i = 0; i < this.children.length; i += 1) {
@@ -169,11 +169,11 @@ Area.defaultProps = {
   onMouseMove: e => {},
   onMouseUp: e => {},
   onMouseDown: e => {},
-  onMouseEnter: area => {},
-  onMouseLeave: area => {},
-  onKeyUp: (area, event) => {},
-  onKeyDown: (area, event) => {},
-  onSizeChange: (area, event) => {},
+  onMouseEnter: () => {},
+  onMouseLeave: () => {},
+  onKeyUp: event => {},
+  onKeyDown: event => {},
+  onSizeChange: event => {},
 };
 
 function fallback(...vals) {
