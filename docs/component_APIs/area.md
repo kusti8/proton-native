@@ -118,6 +118,6 @@ Return `true` to signal that this event got handled (always returning true will 
 
 Called when the area's size has changed.
 
-| **Type**                                                      | **Required** |
-| ------------------------------------------------------------- | ------------ |
-| function(area: libui.Area, { width: number, height: number }) | No           |
+| **Type**                                    | **Required** |
+| ------------------------------------------- | ------------ |
+| function({ width: number, height: number }) | No           |
