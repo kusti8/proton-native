@@ -43,6 +43,7 @@ class Area extends Component {
       onMouseLeave,
       onKeyUp,
       onKeyDown,
+      onSizeChange,
       ...groupProps
     } = this.props;
     const areaProps = {
@@ -61,6 +62,7 @@ class Area extends Component {
       onMouseLeave,
       onKeyUp,
       onKeyDown,
+      onSizeChange,
     };
     return React.createElement(
       HasAreaParentContext.Provider,

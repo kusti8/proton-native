@@ -103,9 +103,19 @@ class Area extends DesktopComponent {
     this.root = root;
     this.props = { ...props };
     this.setDefaults(props);
+    this.width = null;
+    this.height = null;
 
     this.element = new libui.UiArea(
       (area, p) => {
+        const width = p.getAreaWidth();
+        const height = p.getAreaHeight();
+        if (width !== this.width || height !== this.height) {
+          this.width = width;
+          this.height = height;
+          this.props.onSizeChange({ width, height });
+        }
+
         for (let i = 0; i < this.children.length; i += 1) {
           if (typeof this.children[i] === 'object') {
             this.children[i].draw(this, area, p);
@@ -147,6 +157,7 @@ Area.propTypes = {
   onMouseLeave: PropTypes.func,
   onKeyUp: PropTypes.func,
   onKeyDown: PropTypes.func,
+  onSizeChange: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
@@ -158,10 +169,11 @@ Area.defaultProps = {
   onMouseMove: e => {},
   onMouseUp: e => {},
   onMouseDown: e => {},
-  onMouseEnter: area => {},
-  onMouseLeave: area => {},
-  onKeyUp: (area, event) => {},
-  onKeyDown: (area, event) => {},
+  onMouseEnter: () => {},
+  onMouseLeave: () => {},
+  onKeyUp: event => {},
+  onKeyDown: event => {},
+  onSizeChange: event => {},
 };
 
 function fallback(...vals) {

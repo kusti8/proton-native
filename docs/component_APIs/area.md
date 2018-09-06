@@ -42,6 +42,7 @@ render(<Example />);
 * [onMouseLeave](#onMouseLeave)
 * [onKeyUp](#onKeyUp)
 * [onKeyDown](#onKeyDown)
+* [onSizeChanged](#onSizeChanged)
 
 ## Reference
 
@@ -112,3 +113,11 @@ Return `true` to signal that this event got handled (always returning true will 
 | **Type**                                                                                 | **Required** |
 | ---------------------------------------------------------------------------------------- | ------------ |
 | function({key: string, extKey: string, modifierKey: string, modifiers: Array\<string\>}) | No           |
+
+### onSizeChange
+
+Called when the area's size has changed.
+
+| **Type**                                    | **Required** |
+| ------------------------------------------- | ------------ |
+| function({ width: number, height: number }) | No           |

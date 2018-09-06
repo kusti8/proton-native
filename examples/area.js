@@ -12,7 +12,24 @@ import {
 } from '../src/';
 
 class Example extends Component {
-  state = { bool: false, val: 40, dragging: false, pos: { x: 50, y: 220 } };
+  state = {
+    bool: false,
+    val: 40,
+    dragging: false,
+    pos: { x: 50, y: 220 },
+    areaHeight: '',
+  };
+
+  constructor(props) {
+    super(props);
+    this.onAreaSizeChange = this.onAreaSizeChange.bind(this);
+  }
+
+  onAreaSizeChange({ height: areaHeight }) {
+    this.setState({
+      areaHeight,
+    });
+  }
 
   render() {
     return (
@@ -20,7 +37,11 @@ class Example extends Component {
         <Window title="Test" size={{ w: 600, h: 650 }} margined={true}>
           <Box padded>
             <Text stretchy={false}>Try dragging the circle!</Text>
+            <Text stretchy={false}>{`Area height: ${
+              this.state.areaHeight
+            } px`}</Text>
             <Area
+              onSizeChange={this.onAreaSizeChange}
               // onKeyUp={e => {
               //   console.log('up', e.key);
               //   return true;
