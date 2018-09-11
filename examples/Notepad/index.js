@@ -15,7 +15,9 @@ class Notepad extends Component {
 
   save() {
     const filename = Dialog('Save');
-    fs.writeFileSync(filename, this.state.text);
+    if (filename) {
+      fs.writeFileSync(filename, this.state.text);
+    }
   }
 
   open() {
