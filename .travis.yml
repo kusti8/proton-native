@@ -1,5 +1,10 @@
 language: node_js
 
+addons:
+  apt:
+    packages:
+    - libgtk-3-dev
+
 node_js:
   - node
   - 8
