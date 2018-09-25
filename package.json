@@ -15,7 +15,8 @@
       "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'examples/*.js' ./**/*.md Demo.js",
     "build": "babel src -d bin",
     "pub": "babel src -d bin && npm publish",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "test": "npm run build"
   },
   "repository": {
     "type": "git",
