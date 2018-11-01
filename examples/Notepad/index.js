@@ -15,7 +15,9 @@ class Notepad extends Component {
 
   save() {
     const filename = Dialog('Save');
-    fs.writeFileSync(filename, this.state.text);
+    if (filename) {
+      fs.writeFileSync(filename, this.state.text);
+    }
   }
 
   open() {
@@ -27,8 +29,8 @@ class Notepad extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (typeof nextState.text === 'string')
-      return false; // nextState is set from input
+    if (typeof nextState.text === 'string') return false;
+    // nextState is set from input
     else return true; // nextState is set from file
   }
 

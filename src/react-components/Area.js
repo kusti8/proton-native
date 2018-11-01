@@ -43,6 +43,7 @@ class Area extends Component {
       onMouseLeave,
       onKeyUp,
       onKeyDown,
+      onSizeChange,
       scrolling,
       ...groupProps
     } = this.props;
@@ -62,6 +63,7 @@ class Area extends Component {
       onMouseLeave,
       onKeyUp,
       onKeyDown,
+      onSizeChange,
       scrolling,
     };
     return React.createElement(

@@ -76,10 +76,6 @@ class Window extends DesktopComponent {
       this.element.fullscreen = this.props.fullscreen;
       this.element.borderless = this.props.borderless;
 
-      if (this.props.centered) {
-        this.element.center();
-      }
-
       this.element.onContentSizeChanged(() => {
         this.props.onContentSizeChange({
           h: this.element.contentSize.h,

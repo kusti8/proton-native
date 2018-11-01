@@ -9,6 +9,7 @@ import {
   Group,
   Window,
   Slider,
+  Root,
 } from './';
 import { Menu } from '../';
 import {
@@ -71,8 +72,18 @@ class DesktopComponent {
   }
 
   removeChild(child) {
+    if (this.exists(child.children)) {
+      // we recursively remove all children
+      child.children.forEach(function(w) {
+        child.removeChild(w);
+      });
+    }
     // remove it, and destroy it
-    if (this.exists(this.element.setChild)) {
+    if (this instanceof Root) {
+      // root doesn't have any remove method
+    } else if (typeof child === 'string') {
+      // strings don't have remove methods either
+    } else if (this.exists(this.element.setChild)) {
       // if it can only have one child, we don't need to "de-render" it
     } else if (this.exists(this.element.deleteAt)) {
       // if it can have multiple ex. VerticalBox

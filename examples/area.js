@@ -12,7 +12,24 @@ import {
 } from '../src/';
 
 class Example extends Component {
-  state = { bool: false, val: 40, dragging: false, pos: { x: 50, y: 220 } };
+  state = {
+    bool: false,
+    val: 40,
+    dragging: false,
+    pos: { x: 50, y: 220 },
+    areaHeight: '',
+  };
+
+  constructor(props) {
+    super(props);
+    this.onAreaSizeChange = this.onAreaSizeChange.bind(this);
+  }
+
+  onAreaSizeChange({ height: areaHeight }) {
+    this.setState({
+      areaHeight,
+    });
+  }
 
   render() {
     return (
@@ -20,7 +37,11 @@ class Example extends Component {
         <Window title="Test" size={{ w: 600, h: 650 }} margined={true}>
           <Box padded>
             <Text stretchy={false}>Try dragging the circle!</Text>
+            <Text stretchy={false}>{`Area height: ${
+              this.state.areaHeight
+            } px`}</Text>
             <Area
+              onSizeChange={this.onAreaSizeChange}
               // onKeyUp={e => {
               //   console.log('up', e.key);
               //   return true;
@@ -122,20 +143,22 @@ class Example extends Component {
                 stroke="blue"
                 fill="lime"
               />
-              <Area.Path
-                d="M14 12v1H0v-1l.73-.58c.77-.77.81-2.55 1.19-4.42C2.69 3.23 6 2 6 2c0-.55.45-1 1-1s1 .45 1 1c0 0 3.39 1.23 4.16 5 .38 1.88.42 3.66 1.19 4.42l.66.58H14zm-7 4c1.11 0 2-.89 2-2H5c0 1.11.89 2 2 2z"
-                // d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80"
-                // d="M10 80 Q 95 10 180 80"
-                // d="M10 10 H 90 V 90 H 10 Z"
-                // d="M10 315
-                //    L 110 215
-                //    A 30 50 0 0 1 162.55 162.45
-                //    L 172.55 152.45
-                //    A 30 50 -45 0 1 215.1 109.9
-                //    L 315 10"
-                fill="grey"
-                transform="scale(2.2) translate(60, 90)"
-              />
+              {this.state.bool && (
+                <Area.Path
+                  d="M14 12v1H0v-1l.73-.58c.77-.77.81-2.55 1.19-4.42C2.69 3.23 6 2 6 2c0-.55.45-1 1-1s1 .45 1 1c0 0 3.39 1.23 4.16 5 .38 1.88.42 3.66 1.19 4.42l.66.58H14zm-7 4c1.11 0 2-.89 2-2H5c0 1.11.89 2 2 2z"
+                  // d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80"
+                  // d="M10 80 Q 95 10 180 80"
+                  // d="M10 10 H 90 V 90 H 10 Z"
+                  // d="M10 315
+                  //    L 110 215
+                  //    A 30 50 0 0 1 162.55 162.45
+                  //    L 172.55 152.45
+                  //    A 30 50 -45 0 1 215.1 109.9
+                  //    L 315 10"
+                  fill="grey"
+                  transform="scale(2.2) translate(60, 90)"
+                />
+              )}
               <Area.Rectangle
                 transform={`scale(${0.5 + this.state.val / 100}, 50%, 50%)`}
                 x="8%"
