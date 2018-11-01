@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 import { render, Window, App, Box, Menu, Area, Slider } from '../src/';
 
-const linearG = (
-  <Area.Gradient type="linear" x1="20" y1="20" x2="90" y2="90">
-    <Area.GradientStop color="red" offset="0" />
-    <Area.GradientStop color="blue" offset="100%" />
-  </Area.Gradient>
-);
+const linearGradient = Area.Gradient.createLinear(20, 20, 90, 90, {
+  0: 'red',
+  1: 'blue',
+});
+
+const radialGradient2 = Area.Gradient.createRadial(200, 50, 300, 150, 10, {
+  0: 'orange',
+  1: 'blue',
+});
 
 class Example extends Component {
   state = { v1: 250, v2: 250, v3: 100, v4: 100 };
 
   render() {
-    const radialG = (
-      <Area.Gradient
-        type="radial"
-        x1={this.state.v1}
-        y1={this.state.v2}
-        r={this.state.v3}
-      >
-        <Area.GradientStop color="orange" offset="0" />
-        <Area.GradientStop color="blue" offset="100%" />
-      </Area.Gradient>
+    const radialGradient = Area.Gradient.createRadial(
+      this.state.v1,
+      this.state.v2,
+      this.state.v3,
+      {
+        0: 'orange',
+        1: 'blue',
+      }
     );
 
     return (
@@ -34,7 +35,7 @@ class Example extends Component {
                 y="10"
                 width="100"
                 height="100"
-                fill={linearG}
+                fill={linearGradient}
                 fillOpacity={this.state.v4 / 100}
                 stroke="yellow"
                 strokeWidth="30"
@@ -45,7 +46,16 @@ class Example extends Component {
                 y="200"
                 width="100"
                 height="100"
-                stroke={radialG}
+                fill={radialGradient}
+                strokeWidth="30"
+              />
+
+              <Area.Rectangle
+                x="200"
+                y="50"
+                width="100"
+                height="100"
+                fill={radialGradient2}
                 strokeWidth="30"
               />
             </Area>

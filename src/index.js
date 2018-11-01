@@ -49,8 +49,6 @@ Area.Path = 'AREAPATH';
 Area.Group = 'AREAGROUP';
 Area.Circle = 'AREACIRCLE';
 Area.Text = 'AREATEXT';
-Area.Gradient = 'AREAGRADIENT';
-Area.GradientStop = 'AREAGRADIENTSTOP';
 
 export {
   render,
