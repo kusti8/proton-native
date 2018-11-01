@@ -35,6 +35,7 @@ render(<Example />);
 ## Props
 
 - [visible](#visible)
+- [scrolling](#scrolling)
 - [onMouseMove](#onMouseMove)
 - [onMouseUp](#onMouseUp)
 - [onMouseDown](#onMouseDown)
@@ -42,7 +43,7 @@ render(<Example />);
 - [onMouseLeave](#onMouseLeave)
 - [onKeyUp](#onKeyUp)
 - [onKeyDown](#onKeyDown)
-- [onSizeChanged](#onSizeChanged)
+- [onSizeChange](#onSizeChange)
 
 ## Reference
 
@@ -53,6 +54,14 @@ Whether the area can be seen.
 | **Type** | **Required** | **Default** |
 | -------- | ------------ | ----------- |
 | bool     | No           | true        |
+
+### scrolling
+
+If set, a scrolling area is created. The specified width and height specify the size of the inner scrolling view.
+
+| **Type**                      | **Required** |
+| ----------------------------- | ------------ |
+| object {h: number, w: number} | No           |
 
 ### onMouseMove
 
@@ -121,11 +130,3 @@ Called when the area's size has changed.
 | **Type**                                    | **Required** |
 | ------------------------------------------- | ------------ |
 | function({ width: number, height: number }) | No           |
-
-### scrolling
-
-If set, a scrolling area is created. The specified width and height specify the size of the inner scrolling view.
-
-| **Type**                      | **Required** |
-| ----------------------------- | ------------ |
-| object {h: number, w: number} | No           |
