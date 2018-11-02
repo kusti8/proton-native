@@ -483,7 +483,7 @@ class AreaComponent {
             Color(props.fill),
             Number(props.fillOpacity)
           );
-          p.getContext().fill(path, strokeBrush);
+          p.getContext().fill(path, fillBrush);
           fillBrush.free();
         }
       }

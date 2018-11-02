@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { render, Window, App, Box, Menu, Area, Slider } from '../src/';
 
-const linearGradient = Area.Gradient.createLinear(20, 20, 90, 90, {
+const linearGradient = Area.Gradient.createLinear(30, 30, 100, 100, {
   0: 'red',
   1: 'blue',
 });
 
-const radialGradient2 = Area.Gradient.createRadial(200, 50, 300, 150, 10, {
-  0: 'orange',
-  1: 'blue',
-});
-
 class Example extends Component {
-  state = { v1: 250, v2: 250, v3: 100, v4: 100 };
+  state = { v1: 250, v2: 250, v3: 80, v4: 100 };
 
   render() {
     const radialGradient = Area.Gradient.createRadial(
@@ -25,20 +20,33 @@ class Example extends Component {
       }
     );
 
+    const radialGradient2 = Area.Gradient.createRadial(
+      300,
+      100,
+      300 + (this.state.v4 - 50) * 0.7,
+      100,
+      80,
+      {
+        0: 'white',
+        1: 'black',
+      }
+    );
+
     return (
       <App>
         <Window title="Test" size={{ w: 500, h: 500 }} margined={true}>
           <Box padded>
             <Area>
               <Area.Rectangle
-                x="10"
-                y="10"
-                width="100"
-                height="100"
-                fill={linearGradient}
-                fillOpacity={this.state.v4 / 100}
-                stroke="yellow"
-                strokeWidth="30"
+                x="20"
+                y="20"
+                width="110"
+                height="110"
+                stroke={linearGradient}
+                strokeWidth="20"
+                strokeOpacity="50"
+                fill="yellow"
+                fillOpacity="30"
               />
 
               <Area.Rectangle
@@ -50,14 +58,7 @@ class Example extends Component {
                 strokeWidth="30"
               />
 
-              <Area.Rectangle
-                x="200"
-                y="50"
-                width="100"
-                height="100"
-                fill={radialGradient2}
-                strokeWidth="30"
-              />
+              <Area.Circle x="300" y="100" r="80" fill={radialGradient2} />
             </Area>
             <Slider
               min={150}
