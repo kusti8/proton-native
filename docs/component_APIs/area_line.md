@@ -1,6 +1,6 @@
 # Area.Line
 
-A straigt line to be displayed in an [Area](component_APIs/area) component.
+A straigt line to be displayed in an [Area](component_APIs/area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
@@ -30,7 +30,7 @@ render(<Example />);
 - [y1](#y1)
 - [x2](#x2)
 - [y2](#y2)
-- (All props listed in [Area Props](component_APIs/area_props))
+- (All props listed in [Area Props](component_APIs/area_props.md))
 
 ## Reference
 

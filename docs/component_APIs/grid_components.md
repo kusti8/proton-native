@@ -1,6 +1,6 @@
 # Grid Children
 
-A child in a [Grid component](grid.md). Can specify the location in the grid, as well as additional formatting.
+A child in a [Grid component](component_APIs/grid.md). Can specify the location in the grid, as well as additional formatting.
 
 ```jsx
 import React, { Component } from 'react';

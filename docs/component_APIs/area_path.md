@@ -1,6 +1,6 @@
 # Area.Path
 
-A component describing a path to be displayed in an [Area](component_APIs/area) component.
+A component describing a path to be displayed in an [Area](component_APIs/area.md) component.
 
 To be able to use percentage values in transforms, the props `width` and `height` need to be specified (they have no graphical effect).
 
@@ -38,7 +38,7 @@ render(<Example />);
 
 - [d](#d)
 - [fillMode](#fillmode)
-- (All props listed in [Area Props](component_APIs/area_props))
+- (All props listed in [Area Props](component_APIs/area_props.md))
 
 ## Reference
 

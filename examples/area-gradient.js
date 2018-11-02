@@ -46,7 +46,6 @@ class Example extends Component {
                 strokeWidth="20"
                 strokeOpacity="50"
                 fill="yellow"
-                fillOpacity="30"
               />
 
               <Area.Rectangle

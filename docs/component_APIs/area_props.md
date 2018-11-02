@@ -1,6 +1,6 @@
 # Area Props
 
-Some props can be applied to Area itself and all Area components (for those the normal [universal props](/component_APIs/universal_props) don't work). They get inherited to all corresponding children. The [AreaGroup](/component_APIs/area_group) component can be used to apply these to multiple children.
+Some props can be applied to Area itself and all Area components (for those the normal [universal props](component_APIs/universal_props.md) don't work). They get inherited to all corresponding children. The [AreaGroup](component_APIs/area_group.md) component can be used to apply these to multiple children.
 
 All color properties use the CSS color syntax. Examples: "red", "#070707", "#222", "rgba(255, 255, 0, 1)", "hsl(0, 100%, 50%)".
 

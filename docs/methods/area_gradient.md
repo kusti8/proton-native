@@ -1,6 +1,6 @@
 # Area.Gradient
 
-A class describing a gradient to be used as a fill or stroke brush in an [Area](component_APIs/area) component.
+A class describing a gradient to be used as a fill or stroke brush as a `fill` or `stroke` prop (see [Area Props](component_APIs/area_props.md#fill)).
 
 ```jsx
 import React, { Component } from 'react';

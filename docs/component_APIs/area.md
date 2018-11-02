@@ -2,7 +2,7 @@
 
 A component onto which area components like rectangles or circles can be drawn.
 
-Some props can be applied to all area components (**including Area itself** and children): see [Area Props](component_APIs/area_props).
+Some props can be applied to all area components (**including Area itself** and children): see [Area Props](component_APIs/area_props.md).
 
 ```jsx
 import React, { Component } from 'react';

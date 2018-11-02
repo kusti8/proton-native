@@ -1,6 +1,6 @@
 # Area.Arc
 
-A circular arc to be displayed in an [Area](component_APIs/area) component.
+A circular arc to be displayed in an [Area](component_APIs/area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
@@ -38,7 +38,7 @@ render(<Example />);
 - [r](#r)
 - [start](#start)
 - [sweep](#sweep)
-- (All props listed in [Area Props](component_APIs/area_props))
+- (All props listed in [Area Props](component_APIs/area_props.md))
 
 ## Reference
 

@@ -1,6 +1,6 @@
 # Area.Text
 
-A (possibly styled) text to be displayed in an [Area](component_APIs/area) component. Nested `Area.Text` components inheirit the parent's style.
+A (possibly styled) text to be displayed in an [Area](component_APIs/area.md) component. Nested `Area.Text` components inheirit the parent's style.
 
 ```jsx
 import React, { Component } from 'react';
@@ -45,7 +45,7 @@ _Not all fonts support all possible options_
 - [textUnderline](#textunderline)
 - [textUnderlineColor](#textunderlinecolor)
 - [textAlign](#textalign)
-- transform (only in a top level text component, see [Area Props](component_APIs/area_props))
+- transform (only in a top level text component, see [Area Props](component_APIs/area_props.md))
 
 ## Reference
 

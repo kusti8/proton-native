@@ -1,6 +1,6 @@
 # Area.Bezier
 
-A Bezier curve to be displayed in an [Area](component_APIs/area) component.
+A Bezier curve to be displayed in an [Area](component_APIs/area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
@@ -45,7 +45,7 @@ render(<Example />);
 - [y2](#y2)
 - [cx2](#cx2)
 - [cy2](#cy2)
-- (All props listed in [Area Props](component_APIs/area_props))
+- (All props listed in [Area Props](component_APIs/area_props.md))
 
 ## Reference
 

@@ -1,6 +1,6 @@
 # Area.Rectangle
 
-A rectangle to be displayed in an [Area](component_APIs/area) component.
+A rectangle to be displayed in an [Area](component_APIs/area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
@@ -36,7 +36,7 @@ render(<Example />);
 - [y](#y)
 - [width](#width)
 - [height](#height)
-- (All props listed in [Area Props](component_APIs/area_props))
+- (All props listed in [Area Props](component_APIs/area_props.md))
 
 ## Reference
 
