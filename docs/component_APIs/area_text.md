@@ -33,19 +33,19 @@ render(<Example />);
 
 _Not all fonts support all possible options_
 
-* [x](#x) (only in a top level text component)
-* [y](#y) (only in a top level text component)
-* [fontSize](#fontsize)
-* [fontFamily](#fontfamily)
-* [color](#color)
-* [backgroundColor](#backgroundcolor)
-* [fontStyle](#fontstyle)
-* [fontWeight](#fontweight)
-* [textStretch](#textstretch)
-* [textUnderline](#textunderline)
-* [textUnderlineColor](#textunderlinecolor)
-* [textAlign](#textalign)
-* transform (only in a top level text component, see [Area Props](area_props.md))
+- [x](#x) (only in a top level text component)
+- [y](#y) (only in a top level text component)
+- [fontSize](#fontsize)
+- [fontFamily](#fontfamily)
+- [color](#color)
+- [backgroundColor](#backgroundcolor)
+- [fontStyle](#fontstyle)
+- [fontWeight](#fontweight)
+- [textStretch](#textstretch)
+- [textUnderline](#textunderline)
+- [textUnderlineColor](#textunderlinecolor)
+- [textAlign](#textalign)
+- transform (only in a top level text component, see [Area Props](component_APIs/area_props))
 
 ## Reference
 

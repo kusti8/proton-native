@@ -1,6 +1,6 @@
 # Area.Group
 
-A component to apply props to all it's children in an [Area](area.md) component.
+A component to apply props to all it's children in an [Area](component_APIs/area) component.
 
 To be able to use percentage values in transforms, the props `width` and `height` need to be specified (they have no graphical effect).
 
@@ -41,4 +41,4 @@ render(<Example />);
 
 ## Props
 
-* All props listed in [Area Props](area_props.md)
+- All props listed in [Area Props](area_props.md)
