@@ -1,6 +1,6 @@
 # Area.Text
 
-A (possibly styled) text to be displayed in an Area component. Nested `Area.Text` components inheirit the parent's style.
+A (possibly styled) text to be displayed in an [Area](component_APIs/area) component. Nested `Area.Text` components inheirit the parent's style.
 
 ```jsx
 import React, { Component } from 'react';

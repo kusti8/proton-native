@@ -14,7 +14,6 @@
     - [Area.Bezier](component_APIs/area_bezier.md)
     - [Area.Circle](component_APIs/area_circle.md)
     - [Area.Group](component_APIs/area_group.md)
-    - [Area.Gradient](component_APIs/area_gradient.md)
     - [Area.Line](component_APIs/area_line.md)
     - [Area.Path](component_APIs/area_path.md)
     - [Area.Rectangle](component_APIs/area_rectangle.md)
@@ -42,4 +41,5 @@
   - [Window](component_APIs/window.md)
 
 - Methods
+  - [Area.Gradient](methods/area_gradient.md)
   - [Dialog](methods/dialog.md)

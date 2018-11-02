@@ -106,7 +106,7 @@ Area.Gradient = class AreaGradient {
     return brush;
   }
 
-  static createLinear(x1, y1, x2, y2, stops = {}) {
+  static createLinear(x1, y1, x2, y2, stops) {
     return AreaGradient.create({
       type: libui.brushType.linearGradient,
       x1,
