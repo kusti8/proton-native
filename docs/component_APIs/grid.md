@@ -1,6 +1,6 @@
 # Grid
 
-A grid where components can be placed in rows and columns. 
+A grid where components can be placed in rows and columns.
 
 ```jsx
 import React, { Component } from 'react';
@@ -11,7 +11,7 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Example" size={{w: 500, h: 500}}>
+        <Window title="Example" size={{ w: 500, h: 500 }}>
           <Grid padded={true}>
             <Button row={0} column={0}>
               Hello
@@ -42,21 +42,21 @@ render(<Example />);
 Whether the Grid is enabled.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | true |
+| -------- | ------------ | ----------- |
+| bool     | No           | true        |
 
 ### visible
 
 Whether the Grid can be seen.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | true |
+| -------- | ------------ | ----------- |
+| bool     | No           | true        |
 
 ### padded
 
 Whether there is padding between the components
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | false |
+| -------- | ------------ | ----------- |
+| bool     | No           | false       |

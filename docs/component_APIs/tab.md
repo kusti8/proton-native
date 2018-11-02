@@ -13,11 +13,11 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Example" size={{w: 500, h: 500}}>
-            <Tab>
-                <TextInput label="Tab1" />
-                <TextInput label="Tab2" />
-            </Tab>
+        <Window title="Example" size={{ w: 500, h: 500 }}>
+          <Tab>
+            <TextInput label="Tab1" />
+            <TextInput label="Tab2" />
+          </Tab>
         </Window>
       </App>
     );
@@ -39,13 +39,13 @@ render(<Example />);
 Whether the Tab is enabled.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | true |
+| -------- | ------------ | ----------- |
+| bool     | No           | true        |
 
 ### visible
 
 Whether the Tab can be seen.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | true |
+| -------- | ------------ | ----------- |
+| bool     | No           | true        |

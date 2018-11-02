@@ -13,7 +13,7 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Example" size={{w: 500, h: 500}}>
+        <Window title="Example" size={{ w: 500, h: 500 }}>
           <Button>This is a button</Button>
         </Window>
       </App>
@@ -38,29 +38,29 @@ render(<Example />);
 The text to display in the button.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| string | No | '' |
+| -------- | ------------ | ----------- |
+| string   | No           | ''          |
 
 ### enabled
 
 Whether the button can be clicked.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | true |
+| -------- | ------------ | ----------- |
+| bool     | No           | true        |
 
 ### visible
 
 Whether the button can be seen.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | true |
+| -------- | ------------ | ----------- |
+| bool     | No           | true        |
 
 ### onClick
 
 Called when the button is clicked.
 
-| **Type** | **Required** |
-| --- | --- |
-| function() | No |
+| **Type**   | **Required** |
+| ---------- | ------------ |
+| function() | No           |

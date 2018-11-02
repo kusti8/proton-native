@@ -22,7 +22,7 @@ render(<Example />);
 
 ## Props
 
-* [onShouldQuit](#onShouldQuit)
+- [onShouldQuit](#onShouldQuit)
 
 ## Reference
 

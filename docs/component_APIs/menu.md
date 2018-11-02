@@ -27,7 +27,7 @@ render(<Example />);
 
 ## Props
 
-* [label](#label)
+- [label](#label)
 
 ## Reference
 
