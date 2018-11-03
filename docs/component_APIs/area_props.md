@@ -29,7 +29,9 @@ The fill color (or gradient) for the component.
 
 ## fillOpacity
 
-The opacity of the fill (between 0 and 1). Gets multiplied with the fill colors alpha value.
+The opacity of the fill (between 0 and 1). Gets multiplied with the fill color's alpha value.
+
+**Ignored when using gradients**
 
 | **Type**                      | **Required** | **Default** |
 | ----------------------------- | ------------ | ----------- |
@@ -45,7 +47,9 @@ The stroke (line) color (or gradient) for the component.
 
 ## strokeOpacity
 
-The opacity of the stroke (between 0 and 1). Gets multiplied with the stroke colors alpha value.
+The opacity of the stroke (between 0 and 1). Gets multiplied with the stroke color's alpha value.
+
+**Ignored when using gradients**
 
 | **Type**                      | **Required** | **Default** |
 | ----------------------------- | ------------ | ----------- |
