@@ -25,7 +25,8 @@ class Example extends Component {
               <Area.Text>
                 {this.state.flag && (
                   <Area.Text style={{ fontStyle: 'italic' }}>
-                    Italic{'\n'}
+                    Italic
+                    {'\n'}
                   </Area.Text>
                 )}
                 {flagText}

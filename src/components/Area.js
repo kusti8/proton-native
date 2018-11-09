@@ -106,7 +106,23 @@ class Area extends DesktopComponent {
     this.width = null;
     this.height = null;
 
-    this.element = new libui.UiArea(
+    const create = (draw, mouse, enter, broken, key) => {
+      if (this.props.scrolling) {
+        return new libui.UiArea(
+          draw,
+          mouse,
+          enter,
+          broken,
+          key,
+          this.props.scrolling.w,
+          this.props.scrolling.h
+        );
+      } else {
+        return new libui.UiArea(draw, mouse, enter, broken, key);
+      }
+    };
+
+    this.element = create(
       (area, p) => {
         const width = p.getAreaWidth();
         const height = p.getAreaHeight();
@@ -162,6 +178,10 @@ Area.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
+  scrolling: PropTypes.exact({
+    w: PropTypes.number.isRequired,
+    h: PropTypes.number.isRequired,
+  }),
 };
 
 Area.defaultProps = {
@@ -189,12 +209,12 @@ function fallback(...vals) {
   }
 }
 
-function toLibuiColor(color) {
+function toLibuiColor(color, alpha = 1) {
   return new libui.Color(
     color.red() / 255,
     color.green() / 255,
     color.blue() / 255,
-    color.alpha()
+    color.alpha() * alpha
   );
 }
 
@@ -255,7 +275,7 @@ class AreaComponent {
         return num;
       } else if (val.slice(-1) == '%') {
         let num = Number(val.slice(0, -1));
-        return num / 100 * (y ? p.getAreaHeight() : p.getAreaWidth());
+        return (num / 100) * (y ? p.getAreaHeight() : p.getAreaWidth());
       }
     } else if (typeof val === 'number') {
       return val;
@@ -270,7 +290,7 @@ class AreaComponent {
         return num;
       } else if (val.slice(-1) == '%') {
         let num = Number(val.slice(0, -1));
-        return num / 100 * (y ? this.getHeight(p) : this.getWidth(p));
+        return (num / 100) * (y ? this.getHeight(p) : this.getWidth(p));
       }
     } else if (typeof val === 'number') {
       return val;
@@ -407,16 +427,7 @@ class AreaComponent {
     const path = this.drawPath(area, p, props);
 
     if (path) {
-      const fillBrush =
-        props.fill &&
-        props.fill != 'none' &&
-        createBrush(Color(props.fill), Number(props.fillOpacity));
-      const strokeBrush =
-        props.stroke &&
-        props.stroke != 'none' &&
-        createBrush(Color(props.stroke), Number(props.strokeOpacity));
-
-      if (strokeBrush) {
+      if (props.stroke && props.stroke != 'none') {
         const sp = new libui.DrawStrokeParams();
 
         switch (props.strokeLinecap) {
@@ -446,15 +457,35 @@ class AreaComponent {
         sp.thickness = Number(props.strokeWidth);
         sp.miterLimit = Number(props.strokeMiterlimit);
 
-        p.getContext().stroke(path, strokeBrush, sp);
+        if (typeof props.stroke == 'object') {
+          // gradient
+          p.getContext().stroke(path, props.stroke, sp);
+        } else {
+          // solid
+          const strokeBrush = createBrush(
+            Color(props.stroke),
+            Number(props.strokeOpacity)
+          );
+          p.getContext().stroke(path, strokeBrush, sp);
+          strokeBrush.free();
+        }
 
         sp.free();
-        strokeBrush.free();
       }
 
-      if (fillBrush) {
-        p.getContext().fill(path, fillBrush);
-        fillBrush.free();
+      if (props.fill && props.fill != 'none') {
+        if (typeof props.fill == 'object') {
+          // gradient
+          p.getContext().fill(path, props.fill);
+        } else {
+          // solid
+          const fillBrush = createBrush(
+            Color(props.fill),
+            Number(props.fillOpacity)
+          );
+          p.getContext().fill(path, fillBrush);
+          fillBrush.free();
+        }
       }
 
       path.freePath();
@@ -470,9 +501,9 @@ class AreaComponent {
 
 const AreaComponentPropTypes = {
   transform: PropTypes.string,
-  fill: PropTypes.string,
+  fill: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   fillOpacity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  stroke: PropTypes.string,
+  stroke: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   strokeOpacity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   strokeWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   strokeLinecap: PropTypes.oneOf(['flat', 'round', 'square']),
@@ -916,10 +947,15 @@ Area.Text = class AreaText extends AreaComponent {
         libui.textStretch.normal
       );
 
+      const area = this.parent.parent;
+      const width = area.props.scrolling
+        ? area.props.scrolling.w
+        : p.getAreaWidth();
+
       const layout = new libui.DrawTextLayout(
         this.str,
         font,
-        p.getAreaWidth() - this.parseParent(this.props.x, p, false),
+        width - this.parseParent(this.props.x, p, false),
         textAlign
       );
 
@@ -927,13 +963,11 @@ Area.Text = class AreaText extends AreaComponent {
         this.applyTransforms(p);
       }
 
-      p
-        .getContext()
-        .text(
-          this.parseParent(this.props.x, p, false),
-          this.parseParent(this.props.y, p, true),
-          layout
-        );
+      p.getContext().text(
+        this.parseParent(this.props.x, p, false),
+        this.parseParent(this.props.y, p, true),
+        layout
+      );
 
       font.free();
       layout.free();

@@ -1,6 +1,6 @@
 # Area.Circle
 
-A circle to be displayed in an [Area](area.md) component.
+A circle to be displayed in an [Area](component_APIs/area.md) component.
 
 ```jsx
 import React, { Component } from 'react';
@@ -26,10 +26,10 @@ render(<Example />);
 
 ## Props
 
-* [x](#x)
-* [y](#y)
-* [r](#r)
-* (All props listed in [Area Props](area_props.md))
+- [x](#x)
+- [y](#y)
+- [r](#r)
+- (All props listed in [Area Props](component_APIs/area_props.md))
 
 ## Reference
 

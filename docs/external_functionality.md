@@ -5,8 +5,8 @@ This is a list of external tools found that help common tasks. **All of these ar
 
 ## Tools
 
-* [System Tray](#System-Tray)
-* [Notifications](#Notifications)
+- [System Tray](#System-Tray)
+- [Notifications](#Notifications)
 
 ## System Tray
 

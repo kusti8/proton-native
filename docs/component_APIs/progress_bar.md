@@ -11,8 +11,8 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Example" size={{w: 500, h: 500}}>
-            <ProgressBar value={-1} />
+        <Window title="Example" size={{ w: 500, h: 500 }}>
+          <ProgressBar value={-1} />
         </Window>
       </App>
     );
@@ -35,21 +35,21 @@ render(<Example />);
 Whether the ProgressBar is enabled.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | true |
+| -------- | ------------ | ----------- |
+| bool     | No           | true        |
 
 ### visible
 
 Whether the ProgressBar can be seen.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| bool | No | true |
+| -------- | ------------ | ----------- |
+| bool     | No           | true        |
 
 ### value
 
 The current value of the ProgressBar (0-100). A value of -1 indicates an indeterminate progressbar.
 
 | **Type** | **Required** | **Default** |
-| --- | --- | --- |
-| number | No | 0 |
+| -------- | ------------ | ----------- |
+| number   | No           | 0           |
