@@ -1,6 +1,6 @@
 # Packaging
 
-Currently, through generous work of the `electron-builder` team, we have a packager for Mac and Linux with Windows support coming soon.
+Currently, through generous work of the `electron-builder` team, we have a packager for Mac, Linux and Windows.
 `create-proton-app` exposes this functionality already.
 
 To build your app: `npm run build`.
