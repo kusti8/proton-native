@@ -5,7 +5,7 @@ A named group of components.
 ```jsx
 import React, { Component } from 'react';
 
-import { render, Window, App, Group, TextInput } from 'proton-native';
+import { render, Window, App, Box, Group, TextInput } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -13,8 +13,10 @@ class Example extends Component {
       <App>
         <Window title="Example" size={{ w: 500, h: 500 }}>
           <Group title="Login">
-            <TextInput label="Username" />
-            <TextInput label="Password" secure={true} />
+            <Box>
+              <TextInput label="Username" />
+              <TextInput label="Password" secure={true} />
+            </Box>
           </Group>
         </Window>
       </App>
