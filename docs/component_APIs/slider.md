@@ -24,12 +24,12 @@ render(<Example />);
 
 ## Props
 
-- [min](#min)
-- [max](#max)
-- [enabled](#enabled)
-- [visible](#visible)
-- [value](#value)
-- [onChange](#onChange)
+* [min](#min)
+* [max](#max)
+* [enabled](#enabled)
+* [visible](#visible)
+* [value](#value)
+* [onChange](#onChange)
 
 ## Reference
 

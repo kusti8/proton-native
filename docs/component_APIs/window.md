@@ -26,16 +26,16 @@ render(<Example />);
 
 ## Props
 
-- [title](#title)
-- [size](#size)
-- [menuBar](#menuBar)
-- [margined](#margined)
-- [fullscreen](#fullscreen)
-- [borderless](#borderless)
-- [lastWindow](#lastWindow)
-- [closed](#closed)
-- [onClose](#onClose)
-- [onContentSizeChange](#onContentSizeChange)
+* [title](#title)
+* [size](#size)
+* [menuBar](#menuBar)
+* [margined](#margined)
+* [fullscreen](#fullscreen)
+* [borderless](#borderless)
+* [lastWindow](#lastWindow)
+* [closed](#closed)
+* [onClose](#onClose)
+* [onContentSizeChange](#onContentSizeChange)
 
 ## Reference
 

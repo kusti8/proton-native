@@ -24,8 +24,8 @@ render(<Example />);
 
 ## Props
 
-- [color](#color)
-- [onChange](#onChange)
+* [color](#color)
+* [onChange](#onChange)
 
 ## Reference
 
@@ -33,10 +33,10 @@ render(<Example />);
 
 The initial color for the ColorButton. Can be passed as standard color seen in CSS (a color name, hex, rgb, rgba, hsl, hsla).
 
-- RGBA: `rgba(255, 0, 0, 0.7)`
-- HSLA: `hsla(0, 100, 50, 0.7)`
-- Hex: `#FF0000`
-- Name: `red`
+* RGBA: `rgba(255, 0, 0, 0.7)`
+* HSLA: `hsla(0, 100, 50, 0.7)`
+* Hex: `#FF0000`
+* Name: `red`
 
 A full list of names can be found [here](https://www.w3schools.com/colors/colors_names.asp)
 

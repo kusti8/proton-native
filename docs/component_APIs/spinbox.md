@@ -24,10 +24,10 @@ render(<Example />);
 
 ## Props
 
-- [enabled](#enabled)
-- [visible](#visible)
-- [value](#value)
-- [onChange](#onChange)
+* [enabled](#enabled)
+* [visible](#visible)
+* [value](#value)
+* [onChange](#onChange)
 
 ## Reference
 

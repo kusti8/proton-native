@@ -32,11 +32,11 @@ render(<Example />);
 
 ## Props
 
-- [x](#x)
-- [y](#y)
-- [width](#width)
-- [height](#height)
-- (All props listed in [Area Props](component_APIs/area_props.md))
+* [x](#x)
+* [y](#y)
+* [width](#width)
+* [height](#height)
+* (All props listed in [Area Props](component_APIs/area_props.md))
 
 ## Reference
 

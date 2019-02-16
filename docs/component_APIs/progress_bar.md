@@ -24,9 +24,9 @@ render(<Example />);
 
 ## Props
 
-- [enabled](#enabled)
-- [visible](#visible)
-- [value](#value)
+* [enabled](#enabled)
+* [visible](#visible)
+* [value](#value)
 
 ## Reference
 

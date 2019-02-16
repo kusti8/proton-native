@@ -29,8 +29,8 @@ render(<Example />);
 
 ## Props
 
-- [enabled](#enabled)
-- [visible](#visible)
+* [enabled](#enabled)
+* [visible](#visible)
 
 ## Reference
 

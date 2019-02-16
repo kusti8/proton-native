@@ -275,7 +275,7 @@ class AreaComponent {
         return num;
       } else if (val.slice(-1) == '%') {
         let num = Number(val.slice(0, -1));
-        return (num / 100) * (y ? p.getAreaHeight() : p.getAreaWidth());
+        return num / 100 * (y ? p.getAreaHeight() : p.getAreaWidth());
       }
     } else if (typeof val === 'number') {
       return val;
@@ -290,7 +290,7 @@ class AreaComponent {
         return num;
       } else if (val.slice(-1) == '%') {
         let num = Number(val.slice(0, -1));
-        return (num / 100) * (y ? this.getHeight(p) : this.getWidth(p));
+        return num / 100 * (y ? this.getHeight(p) : this.getWidth(p));
       }
     } else if (typeof val === 'number') {
       return val;
@@ -963,11 +963,13 @@ Area.Text = class AreaText extends AreaComponent {
         this.applyTransforms(p);
       }
 
-      p.getContext().text(
-        this.parseParent(this.props.x, p, false),
-        this.parseParent(this.props.y, p, true),
-        layout
-      );
+      p
+        .getContext()
+        .text(
+          this.parseParent(this.props.x, p, false),
+          this.parseParent(this.props.y, p, true),
+          layout
+        );
 
       font.free();
       layout.free();

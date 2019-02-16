@@ -16,10 +16,10 @@ How `src/` works is already shown in About. Most PRs modifying `src/` will be ab
 
 Proton Native welcomes contributions to constantly improve. Contributions are accepted in the form of a PR, which has a few important points that should be followed.
 
-1. Styling is done with prettier. A git-hook has been added for convience, but any PR that isn't styled won't be accepted.
+1.  Styling is done with prettier. A git-hook has been added for convience, but any PR that isn't styled won't be accepted.
 
-2. Follow common sense. If there already exists a file similar, use it as a template. Don't make up your own style.
+2.  Follow common sense. If there already exists a file similar, use it as a template. Don't make up your own style.
 
-3. Minimize hacks. If there's a clean way to do it, do it.
+3.  Minimize hacks. If there's a clean way to do it, do it.
 
-4. **Document everything**! Even if you add a prop, it should be well documented.
+4.  **Document everything**! Even if you add a prop, it should be well documented.

@@ -26,11 +26,11 @@ render(<Example />);
 
 ## Props
 
-- [x1](#x1)
-- [y1](#y1)
-- [x2](#x2)
-- [y2](#y2)
-- (All props listed in [Area Props](component_APIs/area_props.md))
+* [x1](#x1)
+* [y1](#y1)
+* [x2](#x2)
+* [y2](#y2)
+* (All props listed in [Area Props](component_APIs/area_props.md))
 
 ## Reference
 

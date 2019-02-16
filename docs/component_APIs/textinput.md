@@ -24,13 +24,13 @@ render(<Example />);
 
 ## Props
 
-- [children](#children)
-- [enabled](#enabled)
-- [visible](#visible)
-- [readOnly](#readOnly)
-- [secure](#secure)
-- [multiline](#multiline)
-- [onChange](#onChange)
+* [children](#children)
+* [enabled](#enabled)
+* [visible](#visible)
+* [readOnly](#readOnly)
+* [secure](#secure)
+* [multiline](#multiline)
+* [onChange](#onChange)
 
 ## Reference
 

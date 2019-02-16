@@ -31,11 +31,11 @@ render(<Example />);
 
 ## Props
 
-- [column](#column)
-- [row](#row)
-- [span](#span)
-- [expand](#expand)
-- [align](#align)
+* [column](#column)
+* [row](#row)
+* [span](#span)
+* [expand](#expand)
+* [align](#align)
 
 ## Reference
 

@@ -24,8 +24,8 @@ render(<Example />);
 
 ## Arguments
 
-- [type](#type)
-- [options](#options)
+* [type](#type)
+* [options](#options)
 
 ## Reference
 
@@ -33,10 +33,10 @@ render(<Example />);
 
 What type the dialog is. The current types are:
 
-- Message - a simple message
-- Error - an error message
-- Open - open a file
-- Save - save a file
+* Message - a simple message
+* Error - an error message
+* Open - open a file
+* Save - save a file
 
 | **Type**                                 | **Required** |
 | ---------------------------------------- | ------------ |

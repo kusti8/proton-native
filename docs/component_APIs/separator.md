@@ -36,9 +36,9 @@ render(<Example />);
 
 ## Props
 
-- [vertical](#vertical)
-- [enabled](#enabled)
-- [visible](#visible)
+* [vertical](#vertical)
+* [enabled](#enabled)
+* [visible](#visible)
 
 ## Reference
 

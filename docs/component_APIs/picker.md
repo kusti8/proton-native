@@ -28,11 +28,11 @@ render(<Example />);
 
 ## Props
 
-- [editable](#editable)
-- [enabled](#enabled)
-- [visible](#visible)
-- [selected](#selected)
-- [text](#text)
+* [editable](#editable)
+* [enabled](#enabled)
+* [visible](#visible)
+* [selected](#selected)
+* [text](#text)
 
 ## Reference
 

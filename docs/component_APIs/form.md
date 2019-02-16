@@ -29,9 +29,9 @@ render(<Example />);
 
 ## Props
 
-- [enabled](#enabled)
-- [visible](#visible)
-- [padded](#padded)
+* [enabled](#enabled)
+* [visible](#visible)
+* [padded](#padded)
 
 ## Reference
 

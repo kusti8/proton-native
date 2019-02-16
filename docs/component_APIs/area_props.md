@@ -4,20 +4,20 @@ Some props can be applied to Area itself and all Area components (for those the 
 
 All color properties use the CSS color syntax. Examples: "red", "#070707", "#222", "rgba(255, 255, 0, 1)", "hsl(0, 100%, 50%)".
 
-- [fill](#fill)
-- [fillOpacity](#fillopacity)
-- [stroke](#stroke)
-- [strokeOpacity](#strokeopacity)
-- [strokeWidth](#strokewidth)
-- [strokeLinecap](#strokelinecap)
-- [strokeLinejoin](#strokelinejoin)
-- [strokeMiterlimit](#strokemiterlimit)
-- [transform](#transform)
-  - [rotate](#rotate)
-  - [translate](#translate)
-  - [scale](#scale)
-  - [skew](#skew)
-  - [matrix](#matrix)
+* [fill](#fill)
+* [fillOpacity](#fillopacity)
+* [stroke](#stroke)
+* [strokeOpacity](#strokeopacity)
+* [strokeWidth](#strokewidth)
+* [strokeLinecap](#strokelinecap)
+* [strokeLinejoin](#strokelinejoin)
+* [strokeMiterlimit](#strokemiterlimit)
+* [transform](#transform)
+  * [rotate](#rotate)
+  * [translate](#translate)
+  * [scale](#scale)
+  * [skew](#skew)
+  * [matrix](#matrix)
 
 ## fill
 

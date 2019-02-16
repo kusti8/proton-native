@@ -29,10 +29,10 @@ render(<Example />);
 
 ## Props
 
-- [vertical](#vertical)
-- [enabled](#enabled)
-- [visible](#visible)
-- [padded](#padded)
+* [vertical](#vertical)
+* [enabled](#enabled)
+* [visible](#visible)
+* [padded](#padded)
 
 ## Reference
 

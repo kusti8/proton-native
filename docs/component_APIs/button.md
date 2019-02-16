@@ -26,10 +26,10 @@ render(<Example />);
 
 ## Props
 
-- [children](#children)
-- [enabled](#enabled)
-- [visible](#visible)
-- [onClick](#onClick)
+* [children](#children)
+* [enabled](#enabled)
+* [visible](#visible)
+* [onClick](#onClick)
 
 ## Reference
 

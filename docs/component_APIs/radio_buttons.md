@@ -29,10 +29,10 @@ render(<Example />);
 
 ## Props
 
-- [enabled](#enabled)
-- [visible](#visible)
-- [selected](#selected)
-- [onSelect](#onSelect)
+* [enabled](#enabled)
+* [visible](#visible)
+* [selected](#selected)
+* [onSelect](#onSelect)
 
 ## Reference
 

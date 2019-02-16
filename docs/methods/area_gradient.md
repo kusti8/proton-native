@@ -40,9 +40,9 @@ render(<Example />);
 
 ## Static methods
 
-- [createLinear(x1, y1, x2, y2, stops)](#createlinearx1-y1-x2-y2-stops)
-- [createRadial(x, y, r, stops)](#createradialx-y-r-stops)
-- [createRadial(x, y, x_r, y_r, r, stops)](#createradialx-y-x_r-y_r-r-stops)
+* [createLinear(x1, y1, x2, y2, stops)](#createlinearx1-y1-x2-y2-stops)
+* [createRadial(x, y, r, stops)](#createradialx-y-r-stops)
+* [createRadial(x, y, x_r, y_r, r, stops)](#createradialx-y-x_r-y_r-r-stops)
 
 ## Reference
 

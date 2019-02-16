@@ -24,7 +24,7 @@ render(<Example />);
 
 ## Props
 
-- [children](#children)
+* [children](#children)
 
 ## Reference
 

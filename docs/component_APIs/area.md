@@ -34,16 +34,16 @@ render(<Example />);
 
 ## Props
 
-- [visible](#visible)
-- [scrolling](#scrolling)
-- [onMouseMove](#onMouseMove)
-- [onMouseUp](#onMouseUp)
-- [onMouseDown](#onMouseDown)
-- [onMouseEnter](#onMouseEnter)
-- [onMouseLeave](#onMouseLeave)
-- [onKeyUp](#onKeyUp)
-- [onKeyDown](#onKeyDown)
-- [onSizeChange](#onSizeChange)
+* [visible](#visible)
+* [scrolling](#scrolling)
+* [onMouseMove](#onMouseMove)
+* [onMouseUp](#onMouseUp)
+* [onMouseDown](#onMouseDown)
+* [onMouseEnter](#onMouseEnter)
+* [onMouseLeave](#onMouseLeave)
+* [onKeyUp](#onKeyUp)
+* [onKeyDown](#onKeyDown)
+* [onSizeChange](#onSizeChange)
 
 ## Reference
 

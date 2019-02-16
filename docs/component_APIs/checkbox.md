@@ -24,11 +24,11 @@ render(<Example />);
 
 ## Props
 
-- [children](#children)
-- [enabled](#enabled)
-- [visible](#visible)
-- [checked](#checked)
-- [onToggle](#onToggle)
+* [children](#children)
+* [enabled](#enabled)
+* [visible](#visible)
+* [checked](#checked)
+* [onToggle](#onToggle)
 
 ## Reference
 

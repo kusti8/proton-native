@@ -25,10 +25,10 @@ render(<Example />);
 
 ## Props
 
-- [type](#type)
-- [children](#children)
-- [checked](#checked)
-- [onClick](#onClick)
+* [type](#type)
+* [children](#children)
+* [checked](#checked)
+* [onClick](#onClick)
 
 ## Reference
 
@@ -36,12 +36,12 @@ render(<Example />);
 
 How the menu item is displayed.
 
-- `Check` - a checkable option in the menu.
-- `Quit` - a Quit button. This accepts no text.
-- `About` - an About button. This accepts no text.
-- `Preferences` - a Preferences button. This accepts no text.
-- `Separator` - a Separator between menu items. This accepts no text.
-- `Item` - a normal menu button. This is the default
+* `Check` - a checkable option in the menu.
+* `Quit` - a Quit button. This accepts no text.
+* `About` - an About button. This accepts no text.
+* `Preferences` - a Preferences button. This accepts no text.
+* `Separator` - a Separator between menu items. This accepts no text.
+* `Item` - a normal menu button. This is the default
 
 | **Type**                                                           | **Required** | **Default** |
 | ------------------------------------------------------------------ | ------------ | ----------- |

@@ -36,9 +36,9 @@ render(<Example />);
 
 ## Props
 
-- [d](#d)
-- [fillMode](#fillmode)
-- (All props listed in [Area Props](component_APIs/area_props.md))
+* [d](#d)
+* [fillMode](#fillmode)
+* (All props listed in [Area Props](component_APIs/area_props.md))
 
 ## Reference
 

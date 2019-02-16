@@ -41,4 +41,4 @@ render(<Example />);
 
 ## Props
 
-- All props listed in [Area Props](component_APIs/area_props.md)
+* All props listed in [Area Props](component_APIs/area_props.md)

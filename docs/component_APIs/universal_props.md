@@ -2,7 +2,7 @@
 
 Some props can be applied to almost all components, so they are listed here.
 
-- [stretchy](#stretchy)
+* [stretchy](#stretchy)
 
 ## stretchy
 
@@ -10,7 +10,7 @@ Whether the component should stretch to fill the available space. Defaults to `t
 
 Excluded on:
 
-- Tabs
-- Grid children
-- Combobox/RadioButton Items
-- MenuBar
+* Tabs
+* Grid children
+* Combobox/RadioButton Items
+* MenuBar

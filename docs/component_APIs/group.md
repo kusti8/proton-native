@@ -31,10 +31,10 @@ render(<Example />);
 
 ## Props
 
-- [enabled](#enabled)
-- [visible](#visible)
-- [margined](#margined)
-- [title](#title)
+* [enabled](#enabled)
+* [visible](#visible)
+* [margined](#margined)
+* [title](#title)
 
 ## Reference
 
