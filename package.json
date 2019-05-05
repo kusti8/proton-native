@@ -1,6 +1,6 @@
 {
   "name": "proton-native",
-  "version": "1.1.11",
+  "version": "2.0.0",
   "description": "React Native for the desktop, cross compatible",
   "main": "bin/index.js",
   "lint-staged": {
@@ -11,12 +11,10 @@
   },
   "scripts": {
     "demo": "babel-node Demo.js",
-    "prettier":
-      "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'examples/*.js' './**/*.md' Demo.js",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'examples/*.js' './**/*.md' Demo.js",
     "build": "babel src -d bin",
     "pub": "babel src -d bin && npm publish",
-    "precommit": "lint-staged",
-    "test": "jest"
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -27,45 +25,24 @@
   "bugs": {
     "url": "https://github.com/kusti8/proton-native/issues"
   },
-  "homepage": "https://proton-native.js.org",
+  "homepage": "https://github.com/kusti8/proton-native#readme",
   "dependencies": {
-    "color": "^3.0.0",
-    "fbjs": "^0.8.16",
-    "libui-node": "^0.2.1",
-    "prop-types": "^15.6.1",
-    "react": "^16.8.2",
-    "react-reconciler": "^0.20.0",
-    "svg-path-parser": "^1.1.0"
+    "fbjs": "^1.0.0",
+    "node-qt-napi": "github:kusti8/node-qt-napi",
+    "react": "^16.8.6",
+    "react-reconciler": "^0.20.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/node": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-decorators": "^7.0.0",
-    "@babel/plugin-proposal-do-expressions": "^7.0.0",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-    "@babel/plugin-proposal-function-bind": "^7.0.0",
-    "@babel/plugin-proposal-function-sent": "^7.0.0",
-    "@babel/plugin-proposal-json-strings": "^7.0.0",
-    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
-    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.4.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "husky": "^0.14.3",
-    "jest": "^24.1.0",
     "lint-staged": "^7.1.0",
     "prettier": "^1.12.1",
     "react-devtools": "^3.4.3"
   },
-  "files": ["bin"]
+  "files": [
+    "bin"
+  ]
 }
