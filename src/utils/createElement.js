@@ -1,19 +1,16 @@
-import { View, Window } from '../components/';
-import { ROOT_NODE } from '../render/';
-
-function getHostContextNode(rootNode) {
-  return ROOT_NODE;
-}
+import { Root, App, View, Window } from '../components/';
 
 // Creates an element with an element type, props and a root instance
 function createElement(type, props) {
   const COMPONENTS = {
-    VIEW: () => new View(ROOT_NODE, props),
-    WINDOW: () => new Window(ROOT_NODE, props),
+    ROOT: () => new Root(),
+    APP: () => new App(props),
+    VIEW: () => new View(props),
+    WINDOW: () => new Window(props),
     default: undefined,
   };
-
+  console.log('Making', type, props);
   return COMPONENTS[type]() || COMPONENTS.default;
 }
 
-export { createElement, getHostContextNode };
+export { createElement };

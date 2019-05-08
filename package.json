@@ -10,7 +10,7 @@
     ]
   },
   "scripts": {
-    "demo": "babel-node Demo.js",
+    "test": "babel-node test.js",
     "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'examples/*.js' './**/*.md' Demo.js",
     "build": "babel src -d bin",
     "pub": "babel src -d bin && npm publish",
@@ -30,13 +30,16 @@
     "fbjs": "^1.0.0",
     "node-qt-napi": "github:kusti8/node-qt-napi",
     "react": "^16.8.6",
-    "react-reconciler": "^0.20.4"
+    "react-reconciler": "^0.20.4",
+    "yoga-layout": "^1.9.3"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-stage-0": "^7.0.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.1.0",
     "prettier": "^1.12.1",

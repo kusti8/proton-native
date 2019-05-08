@@ -1,11 +1,16 @@
 import { connectDevtools } from '../devtools';
 import DesktopRenderer from '../reconciler';
+import { createElement } from '../utils/createElement';
 
-function registerComponent(name, component) {
-  connectDevtools(DesktopRenderer);
+const AppRegistry = {
+  registerComponent: (name, component) => {
+    connectDevtools(DesktopRenderer);
 
-  const container = DesktopRenderer.createContainer(window);
-  DesktopRenderer.updateContainer(element, container, null);
-}
+    const ROOT_NODE = createElement('ROOT');
 
-export default render;
+    const container = DesktopRenderer.createContainer(ROOT_NODE);
+    DesktopRenderer.updateContainer(component, container, null);
+  },
+};
+
+export default AppRegistry;

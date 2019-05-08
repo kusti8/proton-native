@@ -1,7 +1,8 @@
-import registerComponent from './render';
+import AppRegistry from './render';
 
 // Aliases for createElement method
 const Window = 'WINDOW';
 const View = 'VIEW';
+const App = 'APP';
 
-export { registerComponent, Window, View };
+export { AppRegistry, Window, View, App };
