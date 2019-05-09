@@ -13,9 +13,9 @@ export default props => {
 
   const containerProps = Container(() => {}, () => {});
 
-  setInterval(() => element.processEvents(), 0);
+  const interval = setInterval(() => element.processEvents(), 0); // fix this
 
-  const afterCommit = host => {
+  const traverseYoga = host => {
     const queue = [host];
     while (queue.length) {
       const next = queue.pop();
@@ -33,6 +33,10 @@ export default props => {
       }
       if (next) queue.push(...next.children);
     }
+  };
+
+  const afterCommit = host => {
+    traverseYoga(host);
   };
 
   return {

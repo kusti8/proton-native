@@ -63,7 +63,6 @@ export default p => {
   });
 
   const applyYoga = root => {
-    console.log(props, root);
     if (root) {
       node.calculateLayout(root.w, root.h, yoga.DIRECTION_LTR);
     }

@@ -9,7 +9,6 @@ function createElement(type, props) {
     WINDOW: () => new Window(props),
     default: undefined,
   };
-  console.log('Making', type, props);
   return COMPONENTS[type]() || COMPONENTS.default;
 }
 

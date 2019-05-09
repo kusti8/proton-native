@@ -6,7 +6,6 @@ const Reconciler = require('react-reconciler');
 
 const DesktopRenderer = Reconciler({
   appendInitialChild(parentInstance, child) {
-    console.log('Append');
     appendChild(parentInstance, child);
   },
 
@@ -75,12 +74,10 @@ const DesktopRenderer = Reconciler({
   // MUTATION
 
   appendChild(parentInstance, child) {
-    console.log('Append');
     appendChild(parentInstance, child);
   },
 
   appendChildToContainer(parentInstance, child) {
-    console.log('Append');
     appendChild(parentInstance, child);
   },
 
