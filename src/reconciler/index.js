@@ -1,5 +1,6 @@
 import emptyObject from 'fbjs/lib/emptyObject';
 import { createElement } from '../utils/createElement';
+import { ROOT_NODE } from '../render';
 
 const Reconciler = require('react-reconciler');
 
@@ -48,7 +49,7 @@ const DesktopRenderer = Reconciler({
   },
 
   resetAfterCommit(hostContext) {
-    // noop
+    hostContext.afterCommit(hostContext);
   },
 
   resetTextContent(wordElement) {
@@ -123,6 +124,7 @@ const appendChild = (container, child) => {
 const removeChild = (container, child) => {
   if (container.removeChild) {
     container.removeChild(child);
+    container.removeChild(child.node);
   } else {
     throw new Error(`Can't remove child from ${container.constructor.name}`);
   }

@@ -1,4 +1,4 @@
-export const Container = (addChild, deleteChild) => {
+export const Container = (addChild, deleteChild, inChild = addChild) => {
   const children = [];
 
   const appendChild = child => {
@@ -13,7 +13,7 @@ export const Container = (addChild, deleteChild) => {
 
     const i = children.indexOf(beforeChild);
     children.splice(i, 0, child);
-    addChild(child);
+    inChild(child, i);
   };
 
   const removeChild = child => {

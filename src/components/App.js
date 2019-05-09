@@ -3,7 +3,7 @@ import { disconnectDevtools } from '../devtools';
 import propsUpdater from '../utils/propsUpdater';
 
 export default p => {
-  const windows = [];
+  const children = [];
 
   const propTypes = {};
   const defaultProps = {};
@@ -14,19 +14,19 @@ export default p => {
   const updateProps = propsUpdater({});
 
   const appendChild = child => {
-    windows.push(child.element);
+    children.push(child);
     child.element.show();
   };
 
   const insertChild = (child, beforeChild) => {
-    if (windows.includes(child.element)) {
+    if (children.includes(child)) {
       throw new Error(`Can't add the same window twice`);
     }
-    if (!windows.includes(beforeChild.element)) {
+    if (!children.includes(beforeChild)) {
       throw new Error(`Relative element does not exist`);
     }
-    const i = windows.indexOf(beforeChild.element);
-    windows.splice(0, i, child.element);
+    const i = children.indexOf(beforeChild);
+    children.splice(0, i, child);
     child.element.show();
   };
 
@@ -34,11 +34,11 @@ export default p => {
     if (!isWindow(child)) {
       throw new Error('Child is not a window');
     }
-    if (!windows.includes(child.element)) {
+    if (!children.includes(child)) {
       throw new Error(`Can't remove a child that's not added`);
     }
-    const i = windows.indexOf(child.element);
-    windows.splice(i, 1)[0].close();
+    const i = children.indexOf(child);
+    children.splice(i, 1)[0].element.close();
   };
 
   updateProps(props);
@@ -48,5 +48,6 @@ export default p => {
     insertChild,
     removeChild,
     updateProps,
+    children,
   };
 };
