@@ -13,8 +13,13 @@ const DesktopRenderer = Reconciler({
     return createElement(type, props);
   },
 
-  createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
-    return text;
+  createTextInstance(
+    text,
+    rootContainerInstance,
+    hostContext,
+    internalInstanceHandle
+  ) {
+    return { text, type: 'text' };
   },
 
   finalizeInitialChildren(wordElement, type, props) {
@@ -90,7 +95,7 @@ const DesktopRenderer = Reconciler({
   },
 
   insertBefore(parentInstance, child, beforeChild) {
-    parentInstance.insertChild(child, beforeChild);
+    parentInstance.insertChild(child, beforeChild, parentInstance);
   },
 
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
@@ -102,7 +107,8 @@ const DesktopRenderer = Reconciler({
   },
 
   commitTextUpdate(textInstance, oldText, newText) {
-    textInstance = newText;
+    console.log('Test instance', textInstance);
+    textInstance.text = newText;
   },
 
   supportsMutation: true,
@@ -111,8 +117,8 @@ const DesktopRenderer = Reconciler({
 
 const appendChild = (container, child) => {
   if (container.appendChild) {
-    container.appendChild(child);
-    child.parent = container;
+    if (typeof child == 'object') child.parent = container;
+    container.appendChild(child, container);
   } else {
     throw new Error(`Can't append child to ${container.constructor.name}`);
   }
@@ -120,8 +126,7 @@ const appendChild = (container, child) => {
 
 const removeChild = (container, child) => {
   if (container.removeChild) {
-    container.removeChild(child);
-    container.removeChild(child.node);
+    container.removeChild(child, container);
   } else {
     throw new Error(`Can't remove child from ${container.constructor.name}`);
   }

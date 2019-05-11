@@ -1,4 +1,4 @@
-import { Root, App, View, Window } from '../components/';
+import { Root, App, View, Window, VirtualText, RootText } from '../components/';
 
 // Creates an element with an element type, props and a root instance
 function createElement(type, props) {
@@ -7,6 +7,8 @@ function createElement(type, props) {
     APP: () => new App(props),
     VIEW: () => new View(props),
     WINDOW: () => new Window(props),
+    VIRTUALTEXT: () => new VirtualText(props),
+    ROOTTEXT: () => new RootText(props),
     default: undefined,
   };
   return COMPONENTS[type]() || COMPONENTS.default;

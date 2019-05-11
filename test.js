@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 
-import { App, AppRegistry, Window, View } from './src/';
+import { App, AppRegistry, Window, View, Text } from './src/';
 
 class Example extends Component {
+  state = {
+    test: 'dsdasdsa',
+    a: false,
+  };
+  componentDidMount() {
+    setTimeout(() => this.setState({ test: 'dsawewwww' }), 3000);
+    setTimeout(() => this.setState({ a: true }), 3000);
+  }
   render() {
     return (
       <App>
@@ -25,7 +33,12 @@ class Example extends Component {
               <View style={{ backgroundColor: 'purple', height: 100 }} />
             </View>
             <View style={{ backgroundColor: 'green', flex: 1 }} />
-            <View style={{ backgroundColor: 'blue', flex: 1 }} />
+            <View style={{ backgroundColor: 'blue', flex: 1 }}>
+              <Text style={{ fontSize: '30px' }}>
+                {this.state.test}
+                {this.state.a && <Text style={{ color: 'white' }}>Hello2</Text>}
+              </Text>
+            </View>
           </View>
         </Window>
       </App>

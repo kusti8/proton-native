@@ -31,7 +31,10 @@ export default props => {
         }
         next.applyYoga(root);
       }
-      if (next) queue.push(...next.children);
+      if (next && next.type == 'fullText' && next.element.adjustSize) {
+        next.element.adjustSize();
+      }
+      if (next && next.children) queue.push(...next.children);
     }
   };
 
