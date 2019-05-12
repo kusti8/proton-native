@@ -14,10 +14,7 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window
-          onResize={size => console.log('Resize', size)}
-          style={{ backgroundColor: 'orange' }}
-        >
+        <Window>
           <View
             style={{ backgroundColor: 'red', flex: 1, margin: 30, padding: 30 }}
           >
@@ -28,13 +25,13 @@ class Example extends Component {
                 justifyContent: 'space-between',
               }}
             >
-              <View style={{ backgroundColor: 'white', height: 100 }} />
-              <View style={{ backgroundColor: 'yellow', height: 100 }} />
-              <View style={{ backgroundColor: 'purple', height: 100 }} />
+              <View style={{ backgroundColor: 'white', height: 10 }} />
+              <View style={{ backgroundColor: 'yellow', height: 10 }} />
+              <View style={{ backgroundColor: 'purple', height: 10 }} />
             </View>
             <View style={{ backgroundColor: 'green', flex: 1 }} />
             <View style={{ backgroundColor: 'blue', flex: 1 }} />
-            <Text style={{ fontSize: '70px' }}>
+            <Text style={{ fontSize: 20 }}>
               {this.state.test}
               {this.state.a && <Text style={{ color: 'white' }}>Hello2</Text>}
             </Text>

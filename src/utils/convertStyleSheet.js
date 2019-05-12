@@ -40,11 +40,18 @@ const excluded = [
   'width',
 ];
 
+const convertToPx = ['fontSize'];
+
 const convertStyleSheet = style =>
   Object.entries(style).reduce((styleString, [propName, propValue]) => {
     if (excluded.includes(propName)) {
       console.log(propName, 'excluded');
       return styleString;
+    }
+    if (convertToPx.includes(propName)) {
+      if (typeof propValue == 'number') {
+        propValue = `${propValue}px`;
+      }
     }
     propName = propName.replace(
       /([A-Z])/g,
