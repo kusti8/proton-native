@@ -5,8 +5,7 @@ import { Container } from './Container';
 import PropTypes from 'prop-types';
 import propsUpdater from '../utils/propsUpdater';
 import convertStyleSheet from '../utils/convertStyleSheet';
-import yoga, { Node } from 'yoga-layout';
-import { getYogaValueTransformer } from '../utils/yogaHelper';
+import { YogaComponent } from './YogaComponent';
 
 export default p => {
   const propTypes = {
@@ -17,40 +16,29 @@ export default p => {
   };
 
   const element = new qt.QWidget();
-  const node = Node.create();
 
   let props = { ...p };
   props = propChecker(props, propTypes, defaultProps, 'View');
 
-  const applyYogaStyle = style => {
-    for (const key in style) {
-      const transformer = getYogaValueTransformer(key);
-      const setFn = node[transformer.functionName];
-      if (setFn) {
-        const value = style[key];
-        const args = transformer.transform(value);
-        setFn.apply(node, args);
-      }
-    }
-  };
+  const yogaProps = YogaComponent(element);
 
   const containerProps = Container(
     child => {
       child.element.setParent(element);
       if (child.node) {
-        node.insertChild(child.node, node.getChildCount());
+        yogaProps.node.insertChild(child.node, yogaProps.node.getChildCount());
       }
     },
     child => {
       child.element.del();
       if (child.node) {
-        node.removeChild(child.node);
+        yogaProps.node.removeChild(child.node);
       }
     },
     (child, i) => {
       child.element.setParent(element);
       if (child.node) {
-        node.insertChild(child.node, i);
+        yogaProps.node.insertChild(child.node, i);
       }
     }
   );
@@ -58,26 +46,17 @@ export default p => {
   const updateProps = propsUpdater({
     style: style => {
       element.setStyleSheet(convertStyleSheet(style));
-      applyYogaStyle(style);
+      console.log(style, convertStyleSheet(style));
+      yogaProps.applyYogaStyle(style);
     },
   });
-
-  const applyYoga = root => {
-    if (root) {
-      node.calculateLayout(root.w, root.h, yoga.DIRECTION_LTR);
-    }
-    const layout = node.getComputedLayout();
-    element.resize(layout.width, layout.height);
-    element.move(layout.left, layout.top);
-  };
 
   updateProps(props);
 
   return {
     ...containerProps,
+    ...yogaProps,
     element,
     updateProps,
-    applyYoga,
-    node,
   };
 };

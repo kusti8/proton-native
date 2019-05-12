@@ -33,12 +33,11 @@ class Example extends Component {
               <View style={{ backgroundColor: 'purple', height: 100 }} />
             </View>
             <View style={{ backgroundColor: 'green', flex: 1 }} />
-            <View style={{ backgroundColor: 'blue', flex: 1 }}>
-              <Text style={{ fontSize: '30px' }}>
-                {this.state.test}
-                {this.state.a && <Text style={{ color: 'white' }}>Hello2</Text>}
-              </Text>
-            </View>
+            <View style={{ backgroundColor: 'blue', flex: 1 }} />
+            <Text style={{ fontSize: '70px' }}>
+              {this.state.test}
+              {this.state.a && <Text style={{ color: 'white' }}>Hello2</Text>}
+            </Text>
           </View>
         </Window>
       </App>

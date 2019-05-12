@@ -1,10 +1,10 @@
 import propChecker from '../utils/propChecker';
-import { disconnectDevtools } from '../devtools';
 import qt from 'node-qt-napi';
 import propsUpdater from '../utils/propsUpdater';
 import PropTypes from 'prop-types';
 import { TextFuncs } from './TextFuncs';
-import convertStyleSheet from '../utils/convertStyleSheet';
+import { YogaComponent } from './YogaComponent';
+import Yoga from 'yoga-layout';
 
 export default p => {
   const propTypes = {
@@ -21,9 +21,31 @@ export default p => {
 
   let styleProp = props.style;
 
+  const yogaProps = YogaComponent(element);
+
+  const measureText = (width, widthMode, height, heightMode) => {
+    if (widthMode === Yoga.MEASURE_MODE_EXACTLY) {
+      return { height: element.height() }; // TODO: is this the right measurement function?
+    }
+
+    if (widthMode === Yoga.MEASURE_MODE_AT_MOST) {
+      console.log('Used width');
+      return {
+        height: element.height(),
+        width: Math.min(width, element.width()),
+      };
+    }
+
+    return {};
+  };
+
+  yogaProps.node.setMeasureFunc((...args) => measureText(...args));
+
   const updateProps = propsUpdater({
     style: style => {
       styleProp = style;
+      yogaProps.applyYogaStyle(style);
+      yogaProps.node.markDirty();
     },
   });
 
@@ -36,6 +58,7 @@ export default p => {
 
   return {
     ...textProps,
+    ...yogaProps,
     element,
     updateProps,
     type: 'fullText',

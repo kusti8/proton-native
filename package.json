@@ -28,6 +28,7 @@
   "homepage": "https://github.com/kusti8/proton-native#readme",
   "dependencies": {
     "fbjs": "^1.0.0",
+    "lodash": "^4.17.11",
     "node-qt-napi": "github:kusti8/node-qt-napi",
     "react": "^16.8.6",
     "react-reconciler": "^0.20.4",
