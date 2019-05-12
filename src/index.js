@@ -1,5 +1,6 @@
 import AppRegistry from './render';
 import { Text } from './react-components';
+import { StyleSheet } from './misc';
 
 // Aliases for createElement method
 const Window = 'WINDOW';
@@ -8,4 +9,13 @@ const App = 'APP';
 const VirtualText = 'VIRTUALTEXT';
 const RootText = 'ROOTTEXT';
 
-export { AppRegistry, Window, View, App, RootText, VirtualText, Text };
+export {
+  AppRegistry,
+  Window,
+  View,
+  App,
+  RootText,
+  VirtualText,
+  Text,
+  StyleSheet,
+};
