@@ -10,3 +10,4 @@ addons:
       - xvfb
       - qtbase5-dev
       - build-essential
+      - qt5-default
