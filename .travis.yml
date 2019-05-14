@@ -14,6 +14,8 @@ addons:
       - build-essential
       - qt5-default
       - g++-5
+      - x11-apps
+      - imagemagick
 before_install:
   - export CXX="g++-5"
 install:
