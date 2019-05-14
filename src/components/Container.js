@@ -4,6 +4,7 @@ export const Container = (addChild, deleteChild, inChild = addChild) => {
   const appendChild = child => {
     children.push(child);
     addChild(child);
+    if (child.element) child.element.show();
   };
 
   const insertChild = (child, beforeChild) => {
@@ -13,7 +14,8 @@ export const Container = (addChild, deleteChild, inChild = addChild) => {
 
     const i = children.indexOf(beforeChild);
     children.splice(i, 0, child);
-    inChild(child, i);
+    inChild(child, i, beforeChild);
+    if (child.element) child.element.show();
   };
 
   const removeChild = child => {

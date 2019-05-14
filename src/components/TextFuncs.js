@@ -21,7 +21,6 @@ export const TextFuncs = (upText, styleProp) => {
     }
     children.push(child);
     updateText();
-    console.log('New child', child);
   };
 
   const insertChild = (child, beforeChild) => {

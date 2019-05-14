@@ -4,13 +4,15 @@ import { createElement } from '../utils/createElement';
 
 export let ROOT_NODE = {};
 
+let container = {};
+
 const AppRegistry = {
   registerComponent: (name, component) => {
     connectDevtools(DesktopRenderer);
 
     ROOT_NODE = createElement('ROOT');
 
-    const container = DesktopRenderer.createContainer(ROOT_NODE);
+    container = DesktopRenderer.createContainer(ROOT_NODE);
     DesktopRenderer.updateContainer(component, container, null);
   },
 };

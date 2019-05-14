@@ -29,7 +29,6 @@ export default p => {
     }
 
     if (widthMode === Yoga.MEASURE_MODE_AT_MOST) {
-      console.log('Used width');
       return {
         height: element.height(),
         width: Math.min(width, element.width()),

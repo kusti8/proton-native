@@ -13,7 +13,13 @@ export default props => {
 
   const containerProps = Container(() => {}, () => {});
 
-  const interval = setInterval(() => element.processEvents(), 0); // fix this
+  const quit = () => {
+    for (let i = 0; i < containerProps.children[0].children.length; i++) {
+      containerProps.children[0].children[i].element.del();
+    }
+  };
+
+  const interval = setInterval(() => element.processEvents(), 1); // fix this
 
   const traverseYoga = host => {
     const queue = [host];
@@ -46,5 +52,7 @@ export default props => {
     ...containerProps,
     element,
     afterCommit,
+    interval,
+    quit,
   };
 };

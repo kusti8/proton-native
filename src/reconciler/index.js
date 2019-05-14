@@ -95,7 +95,7 @@ const DesktopRenderer = Reconciler({
   },
 
   insertBefore(parentInstance, child, beforeChild) {
-    parentInstance.insertChild(child, beforeChild, parentInstance);
+    insertChild(parentInstance, child, beforeChild);
   },
 
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
@@ -107,7 +107,6 @@ const DesktopRenderer = Reconciler({
   },
 
   commitTextUpdate(textInstance, oldText, newText) {
-    console.log('Test instance', textInstance);
     textInstance.text = newText;
   },
 
@@ -129,6 +128,15 @@ const removeChild = (container, child) => {
     container.removeChild(child, container);
   } else {
     throw new Error(`Can't remove child from ${container.constructor.name}`);
+  }
+};
+
+const insertChild = (container, child, beforeChild) => {
+  if (container.insertChild) {
+    if (typeof child == 'object') child.parent = container;
+    container.insertChild(child, beforeChild, container);
+  } else {
+    throw new Error(`Can't append child to ${container.constructor.name}`);
   }
 };
 

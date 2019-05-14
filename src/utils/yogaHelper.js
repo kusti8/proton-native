@@ -28,23 +28,23 @@ const mixedYogaValueTransformers = {
   },
 
   border: {
-    functionName: 'setBorder',
+    functionName: '',
     transform: value => [yoga.EDGE_ALL, value],
   },
   borderTop: {
-    functionName: 'setBorder',
+    functionName: '',
     transform: value => [yoga.EDGE_TOP, value],
   },
   borderRight: {
-    functionName: 'setBorder',
+    functionName: '',
     transform: value => [yoga.EDGE_RIGHT, value],
   },
   borderBottom: {
-    functionName: 'setBorder',
+    functionName: '',
     transform: value => [yoga.EDGE_BOTTOM, value],
   },
   borderLeft: {
-    functionName: 'setBorder',
+    functionName: '',
     transform: value => [yoga.EDGE_LEFT, value],
   },
 

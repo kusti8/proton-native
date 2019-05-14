@@ -31,14 +31,11 @@ export default p => {
   };
 
   const removeChild = child => {
-    if (!isWindow(child)) {
-      throw new Error('Child is not a window');
-    }
     if (!children.includes(child)) {
       throw new Error(`Can't remove a child that's not added`);
     }
     const i = children.indexOf(child);
-    children.splice(i, 1)[0].element.close();
+    children.splice(i, 1)[0].element.del();
   };
 
   updateProps(props);

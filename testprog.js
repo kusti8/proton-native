@@ -5,16 +5,16 @@ import { App, AppRegistry, Window, View, Text } from './src/';
 class Example extends Component {
   state = {
     test: 'dsdasdsa',
-    a: false,
+    a: true,
   };
   componentDidMount() {
     setTimeout(() => this.setState({ test: 'dsawewwww' }), 3000);
-    setTimeout(() => this.setState({ a: true }), 3000);
+    setTimeout(() => this.setState({ a: false }), 3000);
   }
   render() {
     return (
       <App>
-        <Window>
+        <Window style={{ height: '50%', width: '10%' }}>
           <View
             style={{ backgroundColor: 'red', flex: 1, margin: 30, padding: 30 }}
           >
@@ -29,7 +29,9 @@ class Example extends Component {
               <View style={{ backgroundColor: 'yellow', height: 10 }} />
               <View style={{ backgroundColor: 'purple', height: 10 }} />
             </View>
-            <View style={{ backgroundColor: 'green', flex: 1 }} />
+            {this.state.a && (
+              <View style={{ backgroundColor: 'green', flex: 1 }} />
+            )}
             <View style={{ backgroundColor: 'blue', flex: 1 }} />
             <Text style={{ fontSize: 20 }}>
               {this.state.test}
@@ -37,6 +39,11 @@ class Example extends Component {
             </Text>
           </View>
         </Window>
+        {this.state.a && (
+          <Window>
+            <View style={{ backgroundColor: 'blue' }} />
+          </Window>
+        )}
       </App>
     );
   }

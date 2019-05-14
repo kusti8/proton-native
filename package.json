@@ -10,7 +10,9 @@
     ]
   },
   "scripts": {
-    "test": "babel-node test.js",
+    "test": "Xvfb :34 -screen 0, 1280x720x24 & DISPLAY=:34 jest",
+    "test-update": "Xvfb :34 -screen 0, 1280x720x24 & DISPLAY=:34 jest -u",
+    "testprog": "babel-node testprog.js",
     "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'examples/*.js' './**/*.md' Demo.js",
     "build": "babel src -d bin",
     "pub": "babel src -d bin && npm publish",
@@ -42,7 +44,10 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-stage-0": "^7.0.0",
+    "babel-jest": "^24.8.0",
     "husky": "^0.14.3",
+    "jest": "^24.8.0",
+    "jest-image-snapshot": "^2.8.1",
     "lint-staged": "^7.1.0",
     "prettier": "^1.12.1",
     "react-devtools": "^3.4.3"

@@ -31,8 +31,29 @@ export default p => {
     handlers.onResize({ w, h });
   });
 
+  const percentToSize = (width, height) => {
+    let newWidth = width;
+    let newHeight = height;
+    if (typeof width == 'string' && width[width.length - 1] == '%') {
+      newWidth = qt.desktopSize().w * (parseInt(width, 10) / 100.0);
+    }
+    if (typeof height == 'string' && height[height.length - 1] == '%') {
+      newHeight = qt.desktopSize().h * (parseInt(height, 10) / 100.0);
+    }
+    return { w: newWidth, h: newHeight };
+  };
+
   const updateProps = propsUpdater([handlers, 'onResize'], {
-    style: style => element.setStyleSheet(convertStyleSheet(style)),
+    style: style => {
+      element.setStyleSheet(convertStyleSheet(style));
+      const size = percentToSize(style.width, style.height);
+      if (size.h) {
+        element.resize(element.width(), size.h);
+      }
+      if (size.w) {
+        element.resize(size.w, element.height());
+      }
+    },
   });
 
   const containerProps = Container(

@@ -21,7 +21,6 @@ export const YogaComponent = element => {
       node.calculateLayout(root.w, root.h, yoga.DIRECTION_LTR);
     }
     const layout = node.getComputedLayout();
-    console.log(element, layout);
     element.resize(layout.width, layout.height);
     element.move(layout.left, layout.top);
   };

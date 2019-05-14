@@ -46,7 +46,6 @@ export default p => {
   const updateProps = propsUpdater({
     style: style => {
       element.setStyleSheet(convertStyleSheet(style));
-      console.log(style, convertStyleSheet(style));
       yogaProps.applyYogaStyle(style);
     },
   });
