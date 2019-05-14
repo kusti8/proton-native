@@ -8,3 +8,5 @@ addons:
   apt:
     packages:
       - xvfb
+      - qtbase5-dev
+      - build-essential
