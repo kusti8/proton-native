@@ -6,8 +6,15 @@ node_js:
   - "12"
 addons:
   apt:
+    sources:
+      - ubuntu-toolchain-r-test
     packages:
       - xvfb
       - qtbase5-dev
       - build-essential
       - qt5-default
+      - g++-5
+before_install:
+  - export CXX="g++-5"
+install:
+  - npm install
