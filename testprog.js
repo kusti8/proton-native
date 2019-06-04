@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
-import { App, AppRegistry, Window, View, Text } from './src/';
+import {
+  App,
+  AppRegistry,
+  Window,
+  View,
+  Text,
+  TouchableWithoutFeedback,
+} from './src/';
 
 class Example extends Component {
   state = {
@@ -25,7 +32,12 @@ class Example extends Component {
                 justifyContent: 'space-between',
               }}
             >
-              <View style={{ backgroundColor: 'white', height: 10 }} />
+              <TouchableWithoutFeedback
+                onPress={() => console.log('Pressed')}
+                onLongPress={() => console.log('Long pressed')}
+              >
+                <View style={{ backgroundColor: 'white', height: 10 }} />
+              </TouchableWithoutFeedback>
               <View style={{ backgroundColor: 'yellow', height: 10 }} />
               <View style={{ backgroundColor: 'purple', height: 10 }} />
             </View>

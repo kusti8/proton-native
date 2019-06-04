@@ -1,5 +1,5 @@
 import AppRegistry from './render';
-import { Text } from './react-components';
+import { Text, TouchableWithoutFeedback } from './react-components';
 import { StyleSheet } from './misc';
 
 // Aliases for createElement method
@@ -18,4 +18,5 @@ export {
   VirtualText,
   Text,
   StyleSheet,
+  TouchableWithoutFeedback,
 };

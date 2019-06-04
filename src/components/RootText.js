@@ -4,7 +4,7 @@ import propsUpdater from '../utils/propsUpdater';
 import PropTypes from 'prop-types';
 import { TextFuncs } from './TextFuncs';
 import { YogaComponent } from './YogaComponent';
-import Yoga from 'yoga-layout';
+import Yoga from 'yoga-layout-prebuilt';
 
 export default p => {
   const propTypes = {

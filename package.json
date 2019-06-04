@@ -34,7 +34,7 @@
     "node-qt-napi": "github:kusti8/node-qt-napi",
     "react": "^16.8.6",
     "react-reconciler": "^0.20.4",
-    "yoga-layout": "^1.9.3"
+    "yoga-layout-prebuilt": "^1.9.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

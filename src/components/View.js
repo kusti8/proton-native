@@ -10,9 +10,13 @@ import { YogaComponent } from './YogaComponent';
 export default p => {
   const propTypes = {
     style: PropTypes.object,
+    onResponderGrant: PropTypes.func,
+    onResponderRelease: PropTypes.func,
   };
   const defaultProps = {
     style: {},
+    onResponderGrant: () => {},
+    onResponderRelease: () => {},
   };
 
   const element = new qt.QWidget();
@@ -21,6 +25,19 @@ export default p => {
   props = propChecker(props, propTypes, defaultProps, 'View');
 
   const yogaProps = YogaComponent(element);
+
+  const handlers = {
+    onResponderGrant: props.onResponderGrant,
+    onResponderRelease: props.onResponderRelease,
+  };
+
+  element.mousePressEvent(() => {
+    handlers.onResponderGrant();
+  });
+
+  element.mouseReleaseEvent(() => {
+    handlers.onResponderRelease();
+  });
 
   const containerProps = Container(
     child => {
@@ -43,12 +60,15 @@ export default p => {
     }
   );
 
-  const updateProps = propsUpdater({
-    style: style => {
-      element.setStyleSheet(convertStyleSheet(style));
-      yogaProps.applyYogaStyle(style);
-    },
-  });
+  const updateProps = propsUpdater(
+    [handlers, 'onResponderGrant', 'onResponderRelease'],
+    {
+      style: style => {
+        element.setStyleSheet(convertStyleSheet(style));
+        yogaProps.applyYogaStyle(style);
+      },
+    }
+  );
 
   updateProps(props);
 

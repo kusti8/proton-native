@@ -1,4 +1,4 @@
-import yoga, { Node } from 'yoga-layout';
+import yoga, { Node } from 'yoga-layout-prebuilt';
 import { getYogaValueTransformer } from '../utils/yogaHelper';
 
 export const YogaComponent = element => {
