@@ -70,4 +70,4 @@ Proton Native is going to be maintained and added to for the foreseeable future.
 
 Currently, this is being run by one person, kusti8.
 
-Any future improvements are going to small, just extra widgets or yoga support currently. The workflow will stay the same.
+Any future improvements are going to be small, just extra widgets or yoga support currently. The workflow will stay the same.
