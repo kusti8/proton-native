@@ -7,6 +7,7 @@ import {
   View,
   Text,
   TouchableWithoutFeedback,
+  TouchableOpacity,
 } from './src/';
 
 class Example extends Component {
@@ -32,12 +33,13 @@ class Example extends Component {
                 justifyContent: 'space-between',
               }}
             >
-              <TouchableWithoutFeedback
+              <TouchableOpacity
                 onPress={() => console.log('Pressed')}
                 onLongPress={() => console.log('Long pressed')}
+                style={{ backgroundColor: 'gray', height: 10 }}
               >
-                <View style={{ backgroundColor: 'white', height: 10 }} />
-              </TouchableWithoutFeedback>
+                <Text>Hi</Text>
+              </TouchableOpacity>
               <View style={{ backgroundColor: 'yellow', height: 10 }} />
               <View style={{ backgroundColor: 'purple', height: 10 }} />
             </View>

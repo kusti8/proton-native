@@ -1,5 +1,9 @@
 import AppRegistry from './render';
-import { Text, TouchableWithoutFeedback } from './react-components';
+import {
+  Text,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+} from './react-components';
 import { StyleSheet } from './misc';
 
 // Aliases for createElement method
@@ -19,4 +23,5 @@ export {
   Text,
   StyleSheet,
   TouchableWithoutFeedback,
+  TouchableOpacity,
 };

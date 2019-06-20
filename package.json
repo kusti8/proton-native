@@ -13,7 +13,7 @@
     "test": "Xvfb :34 -screen 0, 1280x720x24 & DISPLAY=:34 jest",
     "test-update": "Xvfb :34 -screen 0, 1280x720x24 & DISPLAY=:34 jest -u",
     "testprog": "babel-node testprog.js",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'examples/*.js' './**/*.md' Demo.js",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'test/**/*.js' 'examples/*.js' './**/*.md' testprog.js",
     "build": "babel src -d bin",
     "pub": "babel src -d bin && npm publish",
     "precommit": "lint-staged"
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/kusti8/proton-native#readme",
   "dependencies": {
+    "color": "^3.1.2",
     "fbjs": "^1.0.0",
     "lodash": "^4.17.11",
     "node-qt-napi": "github:kusti8/node-qt-napi",

@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class TouchableWithoutFeedback extends Component {
   pressedDown = false;
   startedTime = 0;
+  static defaultProps = {
+    onPress: () => {},
+    onLongPress: () => {},
+  };
+  static propTypes = {
+    onPress: PropTypes.func,
+    onLongPress: PropTypes.func,
+  };
   onDown() {
     this.pressedDown = true;
     this.startedTime = new Date().getTime();
