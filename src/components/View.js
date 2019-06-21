@@ -64,7 +64,6 @@ export default p => {
     [handlers, 'onResponderGrant', 'onResponderRelease'],
     {
       style: style => {
-        console.log('Update style', convertStyleSheet(style));
         element.setStyleSheet(convertStyleSheet(style));
         yogaProps.applyYogaStyle(style);
       },

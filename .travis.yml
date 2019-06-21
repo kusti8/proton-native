@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "9"
+  - "9.3"
   - "10"
   - "11"
 addons:
@@ -12,10 +12,10 @@ addons:
       - qtbase5-dev
       - build-essential
       - qt5-default
-      - g++-5
+      - g++-6
       - x11-apps
       - imagemagick
 before_install:
-  - export CXX="g++-5"
+  - export CXX="g++-6"
 install:
   - npm install
