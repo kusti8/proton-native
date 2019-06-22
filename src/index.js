@@ -3,6 +3,8 @@ import {
   Text,
   TouchableWithoutFeedback,
   TouchableOpacity,
+  TouchableHighlight,
+  Button,
 } from './react-components';
 import { StyleSheet } from './misc';
 
@@ -24,4 +26,6 @@ export {
   StyleSheet,
   TouchableWithoutFeedback,
   TouchableOpacity,
+  TouchableHighlight,
+  Button,
 };
