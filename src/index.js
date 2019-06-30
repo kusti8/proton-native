@@ -8,6 +8,8 @@ import {
 } from './react-components';
 import { StyleSheet } from './misc';
 
+require('./utils/requireImpl');
+
 // Aliases for createElement method
 const Window = 'WINDOW';
 const View = 'VIEW';

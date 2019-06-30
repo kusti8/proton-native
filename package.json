@@ -31,10 +31,12 @@
   "dependencies": {
     "color": "^3.1.2",
     "fbjs": "^1.0.0",
+    "file-type": "^12.0.0",
     "lodash": "^4.17.11",
     "node-qt-napi": "github:kusti8/node-qt-napi",
     "react": "^16.8.6",
     "react-reconciler": "^0.20.4",
+    "read-chunk": "^3.2.0",
     "yoga-layout-prebuilt": "^1.9.3"
   },
   "devDependencies": {
