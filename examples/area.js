@@ -9,7 +9,7 @@ import {
   Slider,
   Area,
   Text,
-} from '../src/';
+} from 'proton-native';
 
 class Example extends Component {
   state = {
