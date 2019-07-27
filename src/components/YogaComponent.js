@@ -1,7 +1,7 @@
 import yoga, { Node } from 'yoga-layout-prebuilt';
 import { getYogaValueTransformer } from '../utils/yogaHelper';
 
-export const YogaComponent = element => {
+export const YogaComponent = (element, postApplyYoga) => {
   const node = Node.create();
 
   const applyYogaStyle = style => {
@@ -23,6 +23,9 @@ export const YogaComponent = element => {
     const layout = node.getComputedLayout();
     element.resize(layout.width, layout.height);
     element.move(layout.left, layout.top);
+    if (postApplyYoga) {
+      postApplyYoga(layout);
+    }
   };
 
   return {
