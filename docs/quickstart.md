@@ -4,7 +4,7 @@
 
 ### Linux
 
-`libgtk-3-dev build-essential`
+`libgtk-3-dev build-essential python2 pkg-config`
 
 ## Install
 
