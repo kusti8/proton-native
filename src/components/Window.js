@@ -47,11 +47,12 @@ export default p => {
     style: style => {
       element.setStyleSheet(convertStyleSheet(style));
       const size = percentToSize(style.width, style.height);
-      if (size.h) {
-        element.resize(element.width(), size.h);
-      }
-      if (size.w) {
+      if (size.h && size.w) {
+        element.resize(size.w, size.h);
+      } else if (size.w) {
         element.resize(size.w, element.height());
+      } else if (size.h) {
+        element.resize(element.width(), size.h);
       }
     },
   });

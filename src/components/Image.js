@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import propsUpdater from '../utils/propsUpdater';
 import convertStyleSheet from '../utils/convertStyleSheet';
 import { YogaComponent } from './YogaComponent';
+import fetch from 'node-fetch';
 
 export default p => {
   const propTypes = {
@@ -24,21 +25,47 @@ export default p => {
     style: {},
     onResponderGrant: () => {},
     onResponderRelease: () => {},
-    resizeMode: 'stretch',
   };
 
   const element = new qt.QLabel();
+  element.setScaledContents(false);
   const pixElement = new qt.QPixmap();
 
   let props = { ...p };
   props = propChecker(props, propTypes, defaultProps, 'Image');
 
-  let resizeMode = props.resizeMode;
+  const resizeMode = { r: props.resizeMode || 'stretch' };
 
-  const applyPixSize = (width, height, mode) => {};
+  const applyPixSize = (width, height, mode) => {
+    console.log('Set size', width, height);
+    console.log('Repeating', mode);
+    console.log(element.width(), element.height());
+    element.setAlignment(qt.Alignment.AlignLeft | qt.Alignment.AlignVCenter);
+    if (mode == 'cover') {
+      pixElement.scaled(
+        width,
+        height,
+        qt.AspectRatioMode.KeepAspectRatioByExpanding
+      );
+    } else if (mode == 'contain') {
+      pixElement.scaled(width, height, qt.AspectRatioMode.KeepAspectRatio);
+    } else if (mode == 'stretch') {
+      console.log('Scaled', width, height);
+      pixElement.scaled(width, height, qt.AspectRatioMode.IgnoreAspectRatio);
+    } else if (mode == 'center') {
+      element.setAlignment(qt.Alignment.AlignCenter);
+      pixElement.scaled(width, height, qt.AspectRatioMode.KeepAspectRatio);
+    } else if (mode == 'repeat') {
+      pixElement.scaledTile(width, height);
+    }
+    element.setPixmap(pixElement);
+    element.show();
+    element.adjustSize();
+    console.log('Pix size', pixElement.width(), pixElement.height());
+  };
 
   const yogaProps = YogaComponent(element, layout => {
-    applyPixSize(layout.width, layout.height, resizeMode);
+    applyPixSize(layout.width, layout.height, resizeMode.r);
   });
 
   const handlers = {
@@ -79,11 +106,39 @@ export default p => {
     [handlers, 'onResponderGrant', 'onResponderRelease'],
     {
       style: style => {
+        if (style.resizeMode) {
+          console.log(style);
+          resizeMode.r = style.resizeMode;
+        }
         element.setStyleSheet(convertStyleSheet(style));
         yogaProps.applyYogaStyle(style);
       },
       resizeMode: r => {
-        resizeMode = r;
+        resizeMode.r = r;
+      },
+      source: source => {
+        if (source.uri) {
+          // need to figure out what width and height work with, and also work with arrays
+          if (
+            source.uri.startsWith('http://') ||
+            source.uri.startsWith('https://') ||
+            source.uri.startsWith('ftp://')
+          ) {
+            fetch(source.uri, {
+              method: source.method || 'GET',
+              body: source.body,
+              headers: source.headers,
+            })
+              .then(out => out.buffer())
+              .then(out => {
+                pixElement.loadFromData(out);
+                element.setPixmap(pixElement);
+              });
+          } else {
+            pixElement.load(source.uri);
+            element.setPixmap(pixElement);
+          }
+        }
       },
     }
   );

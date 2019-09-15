@@ -16,6 +16,8 @@ const View = 'VIEW';
 const App = 'APP';
 const VirtualText = 'VIRTUALTEXT';
 const RootText = 'ROOTTEXT';
+const Image = 'IMAGE';
+const TextInput = 'TEXTINPUT';
 
 export {
   AppRegistry,
@@ -30,4 +32,6 @@ export {
   TouchableOpacity,
   TouchableHighlight,
   Button,
+  Image,
+  TextInput,
 };

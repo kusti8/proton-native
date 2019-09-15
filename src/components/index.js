@@ -4,5 +4,7 @@ import Window from './Window';
 import View from './View';
 import VirtualText from './VirtualText';
 import RootText from './RootText';
+import Image from './Image';
+import TextInput from './TextInput';
 
-export { App, Root, Window, View, VirtualText, RootText };
+export { App, Root, Window, View, VirtualText, RootText, Image, TextInput };
