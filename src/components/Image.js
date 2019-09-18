@@ -37,9 +37,6 @@ export default p => {
   const resizeMode = { r: props.resizeMode || 'stretch' };
 
   const applyPixSize = (width, height, mode) => {
-    console.log('Set size', width, height);
-    console.log('Repeating', mode);
-    console.log(element.width(), element.height());
     element.setAlignment(qt.Alignment.AlignLeft | qt.Alignment.AlignVCenter);
     if (mode == 'cover') {
       pixElement.scaled(
@@ -50,7 +47,6 @@ export default p => {
     } else if (mode == 'contain') {
       pixElement.scaled(width, height, qt.AspectRatioMode.KeepAspectRatio);
     } else if (mode == 'stretch') {
-      console.log('Scaled', width, height);
       pixElement.scaled(width, height, qt.AspectRatioMode.IgnoreAspectRatio);
     } else if (mode == 'center') {
       element.setAlignment(qt.Alignment.AlignCenter);
@@ -61,7 +57,6 @@ export default p => {
     element.setPixmap(pixElement);
     element.show();
     element.adjustSize();
-    console.log('Pix size', pixElement.width(), pixElement.height());
   };
 
   const yogaProps = YogaComponent(element, layout => {
@@ -107,7 +102,6 @@ export default p => {
     {
       style: style => {
         if (style.resizeMode) {
-          console.log(style);
           resizeMode.r = style.resizeMode;
         }
         element.setStyleSheet(convertStyleSheet(style));

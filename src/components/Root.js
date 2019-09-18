@@ -25,7 +25,6 @@ export default props => {
     const queue = [host];
     while (queue.length) {
       const next = queue.pop();
-      console.log(next.element);
       if (next && next.applyYoga) {
         let root = true;
         if (next.parent && next.parent.applyYoga) {
@@ -46,7 +45,6 @@ export default props => {
   };
 
   const afterCommit = host => {
-    console.log('After commit');
     traverseYoga(host);
   };
 

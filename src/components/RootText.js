@@ -19,7 +19,7 @@ export default p => {
   let props = { ...p };
   props = propChecker(props, propTypes, defaultProps, 'Text');
 
-  let styleProp = props.style;
+  const styleProp = { s: props.style };
 
   const yogaProps = YogaComponent(element);
 
@@ -42,7 +42,9 @@ export default p => {
 
   const updateProps = propsUpdater({
     style: style => {
-      styleProp = style;
+      styleProp.s = style;
+      if (style.textAlign) {
+      }
       yogaProps.applyYogaStyle(style);
       yogaProps.node.markDirty();
     },
@@ -51,7 +53,7 @@ export default p => {
   const textProps = TextFuncs(text => {
     element.setText(text);
     element.adjustSize();
-  }, styleProp);
+  }, styleProp.s);
 
   updateProps(props);
 

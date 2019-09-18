@@ -27,10 +27,9 @@ class Example extends Component {
     return (
       <App>
         <Window style={{ height: '50%', width: '10%' }}>
-          <Image
-            style={{ height: '100%', width: '100%', resizeMode: 'repeat' }}
-            source={require('/home/kusti8/Pictures/test_small.jpg')}
-          />
+          <View>
+            <Button title="Hello" onPress={() => console.log('Pressed')} />
+          </View>
         </Window>
       </App>
     );

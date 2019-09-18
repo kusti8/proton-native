@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, View } from '../';
+import { TouchableOpacity, Text } from '../';
 import PropTypes from 'prop-types';
 
 export default class Button extends Component {
@@ -18,12 +18,11 @@ export default class Button extends Component {
       <TouchableOpacity
         onPress={this.props.onPress}
         disabled={this.props.disabled}
+        style={{ ...styles.button, backgroundColor: this.props.color }}
       >
-        <View style={{ ...styles.button, backgroundColor: this.props.color }}>
-          <Text style={styles.text} disabled={this.props.disabled}>
-            {this.props.title}
-          </Text>
-        </View>
+        <Text style={styles.text} disabled={this.props.disabled}>
+          {this.props.title.toUpperCase()}
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -32,17 +31,15 @@ export default class Button extends Component {
 const styles = {
   button: {
     elevation: 4,
-    // Material design blue from https://material.google.com/style/color.html#color-color-palette
-    backgroundColor: '#2196F3',
     borderRadius: 2,
-  },
-  text: {
     justifyContent: 'center',
     alignItems: 'center',
     padding: 8,
+  },
+  text: {
     color: 'white',
     fontWeight: '500',
-    backgroundColor: 'red',
+    fontSize: 18,
   },
   buttonDisabled: {
     elevation: 0,
