@@ -19,7 +19,18 @@ export default props => {
     }
   };
 
-  const interval = setInterval(() => element.processEvents(), 1); // fix this
+  const interval = setInterval(() => {
+    for (let i = 0; i < containerProps.children[0].children.length; i++) {
+      const closed = containerProps.children[0].children[i].element.getClosed();
+      if (!closed) {
+        element.sendPostedEvents();
+        element.processEvents();
+        return;
+      }
+    }
+    quit();
+    clearInterval(interval);
+  }, 1); // fix this
 
   const traverseYoga = host => {
     const queue = [host];
