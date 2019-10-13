@@ -35,7 +35,7 @@
     "image-size": "^0.7.4",
     "lodash": "^4.17.11",
     "node-fetch": "^2.6.0",
-    "node-qt-napi": "github:kusti8/node-qt-napi",
+    "node-qt-napi": "0.0.1",
     "react": "^16.8.6",
     "react-reconciler": "^0.20.4",
     "read-chunk": "^3.2.0",
