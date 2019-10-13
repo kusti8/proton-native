@@ -15,7 +15,7 @@ export default props => {
 
   const quit = () => {
     for (let i = 0; i < containerProps.children[0].children.length; i++) {
-      containerProps.children[0].children[i].element.del();
+      containerProps.children[0].children[i].element.close();
     }
   };
 
