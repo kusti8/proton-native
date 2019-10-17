@@ -7,6 +7,7 @@ import {
   RootText,
   Image,
   TextInput,
+  PickerInternal,
 } from '../components/';
 
 // Creates an element with an element type, props and a root instance
@@ -20,6 +21,7 @@ function createElement(type, props) {
     ROOTTEXT: () => new RootText(props),
     IMAGE: () => new Image(props),
     TEXTINPUT: () => new TextInput(props),
+    PICKERINTERNAL: () => new PickerInternal(props),
     default: undefined,
   };
   return COMPONENTS[type]() || COMPONENTS.default;

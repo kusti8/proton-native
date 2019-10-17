@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   Button,
+  Picker,
 } from './react-components';
 import { StyleSheet } from './misc';
 
@@ -18,6 +19,7 @@ const VirtualText = 'VIRTUALTEXT';
 const RootText = 'ROOTTEXT';
 const Image = 'IMAGE';
 const TextInput = 'TEXTINPUT';
+const PickerInternal = 'PICKERINTERNAL';
 
 export {
   AppRegistry,
@@ -34,4 +36,6 @@ export {
   Button,
   Image,
   TextInput,
+  PickerInternal,
+  Picker,
 };

@@ -6,5 +6,16 @@ import VirtualText from './VirtualText';
 import RootText from './RootText';
 import Image from './Image';
 import TextInput from './TextInput';
+import PickerInternal from './PickerInternal';
 
-export { App, Root, Window, View, VirtualText, RootText, Image, TextInput };
+export {
+  App,
+  Root,
+  Window,
+  View,
+  VirtualText,
+  RootText,
+  Image,
+  TextInput,
+  PickerInternal,
+};

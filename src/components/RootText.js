@@ -21,24 +21,7 @@ export default p => {
 
   const styleProp = { s: props.style };
 
-  const yogaProps = YogaComponent(element);
-
-  const measureText = (width, widthMode, height, heightMode) => {
-    if (widthMode === Yoga.MEASURE_MODE_EXACTLY) {
-      return { height: element.height() }; // TODO: is this the right measurement function?
-    }
-
-    if (widthMode === Yoga.MEASURE_MODE_AT_MOST) {
-      return {
-        height: element.height(),
-        width: Math.min(width, element.width()),
-      };
-    }
-
-    return {};
-  };
-
-  yogaProps.node.setMeasureFunc((...args) => measureText(...args));
+  const yogaProps = YogaComponent(element, undefined, true);
 
   const updateProps = propsUpdater({
     style: style => {

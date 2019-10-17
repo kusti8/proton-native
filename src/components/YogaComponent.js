@@ -1,7 +1,7 @@
 import yoga, { Node } from 'yoga-layout-prebuilt';
 import { getYogaValueTransformer } from '../utils/yogaHelper';
 
-export const YogaComponent = (element, postApplyYoga) => {
+export const YogaComponent = (element, postApplyYoga, standardMeasure) => {
   const node = Node.create();
 
   const applyYogaStyle = style => {
@@ -27,6 +27,26 @@ export const YogaComponent = (element, postApplyYoga) => {
       postApplyYoga(layout);
     }
   };
+
+  if (standardMeasure) {
+    const measure = (width, widthMode, height, heightMode) => {
+      console.log(element, element.height());
+      if (widthMode === yoga.MEASURE_MODE_EXACTLY) {
+        return { height: element.height() }; // TODO: is this the right measurement function?
+      }
+
+      if (widthMode === yoga.MEASURE_MODE_AT_MOST) {
+        return {
+          height: element.height(),
+          width: Math.min(width, element.width()),
+        };
+      }
+
+      return {};
+    };
+
+    node.setMeasureFunc((...args) => measure(...args));
+  }
 
   return {
     applyYogaStyle,

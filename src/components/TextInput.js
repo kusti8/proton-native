@@ -12,19 +12,21 @@ export default p => {
     style: PropTypes.object,
     onChangeText: PropTypes.func,
     value: PropTypes.string,
+    multiline: PropTypes.bool,
   };
   const defaultProps = {
     style: {},
     onChangeText: () => {},
     value: '',
+    multiline: false,
   };
 
-  const element = new qt.QLineEdit();
+  const element = p.multiline ? new qt.QPlainTextEdit() : new qt.QLineEdit();
 
   let props = { ...p };
   props = propChecker(props, propTypes, defaultProps, 'TextInput');
 
-  const yogaProps = YogaComponent(element);
+  const yogaProps = YogaComponent(element, undefined, true);
 
   const handlers = {
     onChangeText: props.onChangeText,
