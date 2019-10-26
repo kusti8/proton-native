@@ -26,6 +26,7 @@ Create native desktop applications through a React syntax, on all platforms
 
 ![Windows](http://protonnative-af51.kxcdn.com/images/windows_example.png)
 ![CatApi](http://protonnative-af51.kxcdn.com/images/CatApi.gif)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkusti8%2Fproton-native.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkusti8%2Fproton-native?ref=badge_shield)
 
 ## [Documentation](https://proton-native.js.org)
 
@@ -46,3 +47,7 @@ All contributions are welcome. Just make a PR. Below is a list of general improv
 * [x] Make creating a new app easier (something similar to `create-react-app`): https://github.com/albe-rosado/create-proton-app
 
 <a href="https://www.keycdn.com/"><sub><sup>Accelerated by KeyCDN</sup></sub></a>
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkusti8%2Fproton-native.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkusti8%2Fproton-native?ref=badge_large)
