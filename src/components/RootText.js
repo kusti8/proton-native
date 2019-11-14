@@ -4,7 +4,6 @@ import propsUpdater from '../utils/propsUpdater';
 import PropTypes from 'prop-types';
 import { TextFuncs } from './TextFuncs';
 import { YogaComponent } from './YogaComponent';
-import Yoga from 'yoga-layout-prebuilt';
 
 export default p => {
   const propTypes = {
@@ -29,13 +28,13 @@ export default p => {
       if (style.textAlign) {
       }
       yogaProps.applyYogaStyle(style);
-      yogaProps.node.markDirty();
     },
   });
 
   const textProps = TextFuncs(text => {
     element.setText(text);
-    element.adjustSize();
+    yogaProps.node.markDirty();
+    yogaProps.f.f && yogaProps.f.f();
   }, styleProp.s);
 
   updateProps(props);

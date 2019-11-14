@@ -45,12 +45,11 @@ const toParams = state => {
 
 export const search = () => {
   return (dispatch, getState) => {
-    const BASE_URL = 'http://thecatapi.com/api/images/get?';
+    const BASE_URL = 'http://api.thecatapi.com/api/images/get?';
     const str = querystring.stringify(toParams(getState()));
     return fetch(BASE_URL + str, { redirect: 'manual' })
       .then(res => res.headers.get('location'))
       .then(url => {
-        console.log(BASE_URL + str);
         dispatch(setUrl(url));
         opn(url);
       });

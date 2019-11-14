@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import propsUpdater from '../utils/propsUpdater';
 import convertStyleSheet from '../utils/convertStyleSheet';
 import { YogaComponent } from './YogaComponent';
-import Yoga from 'yoga-layout-prebuilt';
 
 export default p => {
   const propTypes = {
@@ -33,25 +32,28 @@ export default p => {
     onValueChange: props.onValueChange,
   };
 
-  element.currentTextChangedEvent(text => {
-    handlers.onValueChange(element.currentIndex(), items[text] || text);
+  element.activatedEvent(text => {
+    handlers.onValueChange(items[text] || text, element.currentIndex());
   });
 
   const containerProps = Container(
     child => {
+      if (!child.props) return;
       element.addItem(child.props.label);
-      itemList.push(child);
+      itemList.push(child.props.label);
       items[child.props.label] = child.props.value || child.props.label;
     },
     child => {
-      element.removeItem(itemList.indexOf(child));
+      if (!child.props) return;
+      element.removeItem(itemList.indexOf(child.props.label));
       delete items[child.props.label];
-      itemList.splice(itemList.indexOf(child), 1);
+      itemList.splice(itemList.indexOf(child.props.label), 1);
     },
     (child, i) => {
+      if (!child.props) return;
       element.insertItem(i, child.props.label);
       items[child.props.label] = child.props.value || child.props.label;
-      itemList.splice(i, 0, child);
+      itemList.splice(i, 0, child.props.label);
     }
   );
 
@@ -63,13 +65,26 @@ export default p => {
     selectedValue: value => {
       element.setCurrentText(value);
     },
+    children: children => {
+      if (children.map(x => x.props.label).toString() == itemList.toString())
+        return;
+      for (let i = itemList.length - 1; i >= 0; i--) {
+        itemList.splice(i, 1);
+        element.removeItem(i);
+      }
+      Object.keys(items).forEach(item => delete items[item]);
+
+      for (let i = 0; i < children.length; i++) {
+        containerProps.appendChild(children[i]);
+      }
+
+      if (!children.length) {
+        containerProps.appendChild(children);
+      }
+    },
   });
 
   updateProps(props);
-
-  for (let i = 0; i < props.children.length; i++) {
-    containerProps.appendChild(props.children[i]);
-  }
 
   return {
     ...containerProps,

@@ -1,8 +1,12 @@
-import yoga, { Node } from 'yoga-layout-prebuilt';
+import yoga, { Node } from 'yoga-layout';
 import { getYogaValueTransformer } from '../utils/yogaHelper';
 
 export const YogaComponent = (element, postApplyYoga, standardMeasure) => {
-  const node = Node.create();
+  const config = yoga.Config.create();
+  //config.setPrintTreeFlag(true);
+  const node = Node.createWithConfig(config);
+  const f = {};
+  const oldLayout = {};
 
   const applyYogaStyle = style => {
     for (const key in style) {
@@ -16,33 +20,40 @@ export const YogaComponent = (element, postApplyYoga, standardMeasure) => {
     }
   };
 
-  const applyYoga = root => {
+  const applyYoga = (root, func) => {
+    f.f = func;
     if (root) {
-      node.calculateLayout(root.w, root.h, yoga.DIRECTION_LTR);
+      node.calculateLayout(root.w, root.h);
     }
     const layout = node.getComputedLayout();
+    const simpleLayout = {
+      width: layout.width,
+      height: layout.height,
+      left: layout.left,
+      top: layout.top,
+    };
+    let shouldUpdate = false;
+    for (const prop in simpleLayout) {
+      if (simpleLayout[prop] !== oldLayout[prop]) {
+        shouldUpdate = true;
+      }
+    }
+    if (!shouldUpdate) return;
     element.resize(layout.width, layout.height);
     element.move(layout.left, layout.top);
     if (postApplyYoga) {
       postApplyYoga(layout);
     }
+
+    Object.assign(oldLayout, simpleLayout);
   };
 
   if (standardMeasure) {
     const measure = (width, widthMode, height, heightMode) => {
-      console.log(element, element.height());
-      if (widthMode === yoga.MEASURE_MODE_EXACTLY) {
-        return { height: element.height() }; // TODO: is this the right measurement function?
-      }
-
-      if (widthMode === yoga.MEASURE_MODE_AT_MOST) {
-        return {
-          height: element.height(),
-          width: Math.min(width, element.width()),
-        };
-      }
-
-      return {};
+      return {
+        height: element.minimumSizeHint().h,
+        width: element.minimumSizeHint().w,
+      };
     };
 
     node.setMeasureFunc((...args) => measure(...args));
@@ -52,5 +63,6 @@ export const YogaComponent = (element, postApplyYoga, standardMeasure) => {
     applyYogaStyle,
     applyYoga,
     node,
+    f,
   };
 };

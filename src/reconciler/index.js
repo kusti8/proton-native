@@ -51,7 +51,7 @@ const DesktopRenderer = Reconciler({
     const diff = {};
     for (let key of propKeys) {
       if (
-        key !== 'children' && // children are already handled by react-reconciler
+        // key !== "children" && // children are already handled by react-reconciler
         oldProps[key] !== newProps[key]
       ) {
         diff[key] = newProps[key];

@@ -7,6 +7,7 @@ import RootText from './RootText';
 import Image from './Image';
 import TextInput from './TextInput';
 import PickerInternal from './PickerInternal';
+import PickerItem from './PickerItem';
 
 export {
   App,
@@ -18,4 +19,5 @@ export {
   Image,
   TextInput,
   PickerInternal,
+  PickerItem,
 };

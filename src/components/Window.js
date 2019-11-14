@@ -6,6 +6,7 @@ import propsUpdater from '../utils/propsUpdater';
 import { ROOT_NODE } from '../render';
 import PropTypes from 'prop-types';
 import convertStyleSheet from '../utils/convertStyleSheet';
+import { YogaComponent } from './YogaComponent';
 
 export default p => {
   const propTypes = {
@@ -21,6 +22,8 @@ export default p => {
 
   let props = { ...p };
   props = propChecker(props, propTypes, defaultProps, 'Window');
+
+  const yogaProps = YogaComponent(element);
 
   const handlers = {
     onResize: props.onResize,
@@ -46,6 +49,7 @@ export default p => {
   const updateProps = propsUpdater([handlers, 'onResize'], {
     style: style => {
       element.setStyleSheet(convertStyleSheet(style));
+      yogaProps.applyYogaStyle(style);
       const size = percentToSize(style.width, style.height);
       if (size.h && size.w) {
         element.resize(size.w, size.h);
@@ -58,14 +62,31 @@ export default p => {
   });
 
   const containerProps = Container(
-    child => child.element.setParent(element),
-    child => child.element.del()
+    child => {
+      child.element.setParent(element);
+      if (child.node) {
+        yogaProps.node.insertChild(child.node, yogaProps.node.getChildCount());
+      }
+    },
+    child => {
+      child.element.del();
+      if (child.node) {
+        yogaProps.node.removeChild(child.node);
+      }
+    },
+    (child, i) => {
+      child.element.setParent(element);
+      if (child.node) {
+        yogaProps.node.insertChild(child.node, i);
+      }
+    }
   );
 
   updateProps(props);
 
   return {
     ...containerProps,
+    ...yogaProps,
     element,
     updateProps,
   };

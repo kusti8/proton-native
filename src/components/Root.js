@@ -40,17 +40,25 @@ export default props => {
         let root = true;
         if (next.parent && next.parent.applyYoga) {
           root = false;
+        } else if (
+          typeof next.parent.element == 'undefined' ||
+          typeof next.parent.element.height == 'undefined'
+        ) {
+          root = {
+            h: next.element.height(),
+            w: next.element.width(),
+          };
         } else {
           root = {
             h: next.parent.element.height(),
             w: next.parent.element.width(),
           };
         }
-        next.applyYoga(root);
+        next.applyYoga(root, () => traverseYoga(host));
       }
-      if (next && next.type == 'fullText' && next.element.adjustSize) {
-        next.element.adjustSize();
-      }
+      // if (next && next.type == 'fullText' && next.element.adjustSize) {
+      //   next.element.adjustSize();
+      // }
       if (next && next.children) queue.push(...next.children);
     }
   };

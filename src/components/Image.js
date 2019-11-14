@@ -20,6 +20,7 @@ export default p => {
       'repeat',
       'center',
     ]),
+    source: PropTypes.object,
   };
   const defaultProps = {
     style: {},
@@ -35,6 +36,7 @@ export default p => {
   props = propChecker(props, propTypes, defaultProps, 'Image');
 
   const resizeMode = { r: props.resizeMode || 'stretch' };
+  const pixSize = {};
 
   const applyPixSize = (width, height, mode) => {
     element.setAlignment(qt.Alignment.AlignLeft | qt.Alignment.AlignVCenter);
@@ -60,7 +62,11 @@ export default p => {
   };
 
   const yogaProps = YogaComponent(element, layout => {
-    applyPixSize(layout.width, layout.height, resizeMode.r);
+    pixSize.width = layout.width;
+    pixSize.height = layout.height;
+    pixSize.resizeMode = resizeMode.r;
+    if (!pixElement.isNull())
+      applyPixSize(layout.width, layout.height, resizeMode.r);
   });
 
   const handlers = {
@@ -127,7 +133,9 @@ export default p => {
               .then(out => {
                 pixElement.loadFromData(out);
                 element.setPixmap(pixElement);
-              });
+                applyPixSize(pixSize.width, pixSize.height, pixSize.resizeMode);
+              })
+              .catch(err => console.log(err));
           } else {
             pixElement.load(source.uri);
             element.setPixmap(pixElement);
