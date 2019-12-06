@@ -30,7 +30,6 @@ export default class Button extends Component {
 
 const styles = {
   button: {
-    elevation: 4,
     borderRadius: 2,
     justifyContent: 'center',
     alignItems: 'center',

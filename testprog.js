@@ -22,13 +22,14 @@ class Example extends Component {
   };
   componentDidMount() {
     //setTimeout(() => this.setState({ test: "dsawewwww" }), 3000);
-    setTimeout(() => this.setState({ a: false }), 3000);
+    //setTimeout(() => this.setState({ a: false }), 3000);
   }
   render() {
     return (
       <App>
-        <Window style={{ height: '50%', width: '10%' }}>
-          <View>
+        {/*<Window style={{ height: 400, width: 500 }}>*/}
+        <Window style={{ height: '25%', width: '25%' }}>
+          <View style={{ alignItems: 'center' }}>
             <Button title="Hello" onPress={() => console.log('Pressed')} />
             <Picker onValueChange={(i, text) => console.log(i, text)}>
               <Picker.Item label="Item1" value="i1" />

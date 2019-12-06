@@ -6,10 +6,13 @@ class Example extends Component {
   render() {
     return (
       <App>
-        <Window title="Example" size={{ w: 300, h: 300 }} menuBar={false}>
-          <Button stretchy={false} onClick={() => console.log('Hello')}>
-            Button
-          </Button>
+        <Window style={{ height: '50%', width: '10%' }}>
+          <View>
+            <Button title="Hello" onPress={() => console.log('Pressed')} />
+            <Picker onValueChange={(i, text) => console.log(i, text)}>
+              <Picker.Item label="Item1" value="i1" />
+            </Picker>
+          </View>
         </Window>
       </App>
     );

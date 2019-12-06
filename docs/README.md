@@ -1,6 +1,15 @@
 # Proton Native
 
-> Create native desktop applications through a React syntax, on all platforms
+> Create native desktop applications with React Native syntax, on all platforms
+
+## What's new in V2?
+
+V2 brought along a complete overhaul, written from the ground up. The source code is better organized, we now support flexbox layout, CSS
+styling, the same components as React Native, and are working on unit testing. More components and features can now be added easily. It is easier to install, with no compiling required.
+
+For the user,
+you can now copy and paste your React Native code with minimal to no changes. For our collaborators, it should now be more easy and friendly to
+bring this project right in line as the desktop port of React Native.
 
 ## Why?
 
@@ -22,7 +31,7 @@ React packages such as Redux still work.
 
 ## Features
 
-- Same syntax as React Native
+- Same syntax and components as React Native
 - Works with existing React libraries such as Redux
 - Cross platform
 - Native components. No more Electron

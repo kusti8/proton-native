@@ -1,4 +1,4 @@
-import yoga from 'yoga-layout';
+import yoga from 'yoga-layout-prebuilt';
 
 const mixedYogaValueTransformers = {
   display(value) {

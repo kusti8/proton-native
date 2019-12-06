@@ -66,7 +66,10 @@ export default p => {
       element.setCurrentText(value);
     },
     children: children => {
-      if (children.map(x => x.props.label).toString() == itemList.toString())
+      if (
+        children.map(x => (x.props ? x.props.label : x)).toString() ==
+        itemList.toString()
+      )
         return;
       for (let i = itemList.length - 1; i >= 0; i--) {
         itemList.splice(i, 1);

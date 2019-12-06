@@ -48,9 +48,13 @@ export default p => {
 
   const updateProps = propsUpdater([handlers, 'onResize'], {
     style: style => {
+      const width = style.width;
+      const height = style.height;
+      delete style.width; // cause we don't want to resize with yoga, only with our pipeline
+      delete style.height;
       element.setStyleSheet(convertStyleSheet(style));
       yogaProps.applyYogaStyle(style);
-      const size = percentToSize(style.width, style.height);
+      const size = percentToSize(width, height);
       if (size.h && size.w) {
         element.resize(size.w, size.h);
       } else if (size.w) {
