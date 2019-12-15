@@ -2,7 +2,7 @@
 
 <div style='text-align:center'>
 <div style='color:white; font-size:300%; overflow:hidden; display:inline-block; text-align:left;  line-height: 120%'>
-<img src='http://protonnative-af51.kxcdn.com/images/icon_white.svg' style='position:relative; top: 0px; padding-right: 10px;' width='5%' height='' alt='' /> Create native desktop applications<br />
+<img src='http://protonnative-af51.kxcdn.com/images/icon_white.svg' style='position:relative; top: 0px; padding-right: 10px;' width='5%' height='' alt='' /> Create desktop applications<br />
 <div style='padding-left: 6.5%'>through a React syntax, on all platforms.</div>
 </div>
 </div>
@@ -46,10 +46,10 @@
 <a href='#/?id=proton-native' id="last">Get Started</a>
 
 <ul style='color:white;'>
-<li>Same syntax as React Native <li/>
+<li>Same syntax & components as React Native <li/>
 <li>Works with existing React libraries such as Redux <li/>
 <li>Cross platform <li/>
-<li>Native components. No more Electron <li/>
+<li>No more Electron <li/>
 <li>Compatible with all normal Node.js packages <li/>
 </ul>
 

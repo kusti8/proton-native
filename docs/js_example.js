@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { render, Window, App, Button } from 'proton-native';
+import { AppRegistry, Window, App, Button, Picker, View } from 'proton-native';
 
 class Example extends Component {
   render() {
@@ -19,4 +19,4 @@ class Example extends Component {
   }
 }
 
-render(<Example />);
+AppRegistry.registerComponent('example', <Example />);

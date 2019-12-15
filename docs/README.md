@@ -1,6 +1,6 @@
 # Proton Native
 
-> Create native desktop applications with React Native syntax, on all platforms
+> Create desktop applications with React Native components, on all platforms
 
 ## What's new in V2?
 
@@ -10,6 +10,15 @@ styling, the same components as React Native, and are working on unit testing. M
 For the user,
 you can now copy and paste your React Native code with minimal to no changes. For our collaborators, it should now be more easy and friendly to
 bring this project right in line as the desktop port of React Native.
+
+For more information, see the [V2 page](v2_changes.md).
+
+## Native Components?
+
+Currently we use Qt, which does not ship with true native components. Performance is basically the same and the look is very similar on almost all
+platforms, but we realize there is still a large demand for true native components in this project. Currently work is being done to integrate
+wxWidgets and allow the user to choose the backend. I am releasing V2 in its current state because it will take some time, due to this project
+being run by a single student with limited time.
 
 ## Why?
 
@@ -25,7 +34,7 @@ Proton Native does the same
 to desktop that React Native did to mobile. Build cross-platform apps for the desktop, all while never leaving the React eco-system. Popular
 React packages such as Redux still work.
 
-**Here's a simple Hello World in Proton Native:**
+**Here's a simple example in Proton Native:**
 
 [js_example.js](js_example.js ':include :type=code jsx')
 

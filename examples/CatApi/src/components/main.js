@@ -93,47 +93,6 @@ class Main extends Component {
               />
             </View>
           </View>
-
-          {/* <Box padded>
-            <Form stretchy={false} padded>
-              <TextInput
-                stretchy={false}
-                label="ID"
-                onChange={id => this.props.setId(id)}
-              />
-              <Picker
-                stretchy={false}
-                label="Size"
-                selected={sizeConsts.length - 1}
-                onSelect={index => this.props.setSize(sizeConsts[index])}
-              >
-                {sizeConsts.map((s, i) => (
-                  <Picker.Item key={i}>{s}</Picker.Item>
-                ))}
-              </Picker>
-              <Picker
-                stretchy={false}
-                label="Type"
-                selected={0}
-                onSelect={index => this.props.setType(typeConsts[index])}
-              >
-                {typeConsts.map((s, i) => (
-                  <Picker.Item key={i}>{s}</Picker.Item>
-                ))}
-              </Picker>
-            </Form>
-            <Button
-              onClick={() => {
-                this.props.search();
-              }}
-              stretchy={false}
-            >
-              Submit
-            </Button>
-            <TextInput stretchy={true} readOnly={true}>
-              {this.props.url}
-            </TextInput>
-          </Box> */}
         </Window>
       </App>
     );
