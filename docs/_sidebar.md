@@ -2,7 +2,8 @@
 - [About](about.md)
 - [V2 Changes](v2_changes.md)
 - [Quick start](quickstart.md)
+- [Components](components.md)
+- Advanced
 - [Packaging](packaging.md)
 - [Debugging](debugging.md)
 - [External Functionality](external_functionality.md)
-- Components

@@ -28,7 +28,6 @@ Here's an excerpt from our CatApi demo. The code is the same as React Native, ex
 the fact that it is wrapped with an App and Window component. An important part of V2 is that
 we keep as close to React Native as possible, but will still make changes so as not to make the API
 too convoluted. Mobile and desktop are still slightly different.
-
 ![CatApi](catapi_v2.png)
 
-[main.js](../examples/CatApi/src/components/main.js ':include :type=code jsx')
+[main.js](main.js ':include :type=code jsx')
