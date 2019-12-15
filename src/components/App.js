@@ -14,8 +14,10 @@ export default p => {
   const updateProps = propsUpdater({});
 
   const appendChild = child => {
-    children.push(child);
-    child.element.show();
+    if (child.element) {
+      children.push(child);
+      child.element.show();
+    }
   };
 
   const insertChild = (child, beforeChild) => {
