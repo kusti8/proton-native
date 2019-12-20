@@ -1,9 +1,9 @@
 import propChecker from '../utils/propChecker';
-import qt from 'node-qt-napi';
 import propsUpdater from '../utils/propsUpdater';
 import PropTypes from 'prop-types';
 import { TextFuncs } from './TextFuncs';
 import { YogaComponent } from './YogaComponent';
+import { TextElement } from '../backends/qt';
 
 export default p => {
   const propTypes = {
@@ -13,7 +13,7 @@ export default p => {
     style: {},
   };
 
-  const element = new qt.QLabel();
+  const element = new TextElement();
 
   let props = { ...p };
   props = propChecker(props, propTypes, defaultProps, 'Text');

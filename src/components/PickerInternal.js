@@ -1,11 +1,11 @@
 import propChecker from '../utils/propChecker';
 import { disconnectDevtools } from '../devtools';
-import qt from 'node-qt-napi';
 import { Container } from './Container';
 import PropTypes from 'prop-types';
 import propsUpdater from '../utils/propsUpdater';
 import convertStyleSheet from '../utils/convertStyleSheet';
 import { YogaComponent } from './YogaComponent';
+import { PickerElement } from '../backends/qt';
 
 export default p => {
   const propTypes = {
@@ -19,7 +19,7 @@ export default p => {
     selectedValue: '',
   };
 
-  const element = new qt.QComboBox();
+  const element = new PickerElement();
   const items = {};
   const itemList = [];
 

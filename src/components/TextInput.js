@@ -1,11 +1,11 @@
 import propChecker from '../utils/propChecker';
 import { disconnectDevtools } from '../devtools';
-import qt from 'node-qt-napi';
 import { Container } from './Container';
 import PropTypes from 'prop-types';
 import propsUpdater from '../utils/propsUpdater';
 import convertStyleSheet from '../utils/convertStyleSheet';
 import { YogaComponent } from './YogaComponent';
+import { TextInputElement } from '../backends/qt';
 
 export default p => {
   const propTypes = {
@@ -21,7 +21,7 @@ export default p => {
     multiline: false,
   };
 
-  const element = p.multiline ? new qt.QPlainTextEdit() : new qt.QLineEdit();
+  const element = new TextInputElement(p.multiline);
 
   let props = { ...p };
   props = propChecker(props, propTypes, defaultProps, 'TextInput');

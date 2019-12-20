@@ -1,12 +1,12 @@
 import propChecker from '../utils/propChecker';
 import { disconnectDevtools } from '../devtools';
-import qt from 'node-qt-napi';
 import { Container } from './Container';
 import PropTypes from 'prop-types';
 import propsUpdater from '../utils/propsUpdater';
 import convertStyleSheet from '../utils/convertStyleSheet';
 import { YogaComponent } from './YogaComponent';
 import fetch from 'node-fetch';
+import { ImageElement } from '../backends/qt';
 
 export default p => {
   const propTypes = {
@@ -28,9 +28,7 @@ export default p => {
     onResponderRelease: () => {},
   };
 
-  const element = new qt.QLabel();
-  element.setScaledContents(false);
-  const pixElement = new qt.QPixmap();
+  const element = new ImageElement();
 
   let props = { ...p };
   props = propChecker(props, propTypes, defaultProps, 'Image');
@@ -38,35 +36,12 @@ export default p => {
   const resizeMode = { r: props.resizeMode || 'stretch' };
   const pixSize = {};
 
-  const applyPixSize = (width, height, mode) => {
-    element.setAlignment(qt.Alignment.AlignLeft | qt.Alignment.AlignVCenter);
-    if (mode == 'cover') {
-      pixElement.scaled(
-        width,
-        height,
-        qt.AspectRatioMode.KeepAspectRatioByExpanding
-      );
-    } else if (mode == 'contain') {
-      pixElement.scaled(width, height, qt.AspectRatioMode.KeepAspectRatio);
-    } else if (mode == 'stretch') {
-      pixElement.scaled(width, height, qt.AspectRatioMode.IgnoreAspectRatio);
-    } else if (mode == 'center') {
-      element.setAlignment(qt.Alignment.AlignCenter);
-      pixElement.scaled(width, height, qt.AspectRatioMode.KeepAspectRatio);
-    } else if (mode == 'repeat') {
-      pixElement.scaledTile(width, height);
-    }
-    element.setPixmap(pixElement);
-    element.show();
-    element.adjustSize();
-  };
-
   const yogaProps = YogaComponent(element, layout => {
     pixSize.width = layout.width;
     pixSize.height = layout.height;
     pixSize.resizeMode = resizeMode.r;
-    if (!pixElement.isNull())
-      applyPixSize(layout.width, layout.height, resizeMode.r);
+    if (!element.isNull())
+      element.scaleImage(layout.width, layout.height, resizeMode.r);
   });
 
   const handlers = {
@@ -131,14 +106,21 @@ export default p => {
             })
               .then(out => out.buffer())
               .then(out => {
-                pixElement.loadFromData(out);
-                element.setPixmap(pixElement);
-                applyPixSize(pixSize.width, pixSize.height, pixSize.resizeMode);
+                element.setFromData(out);
+                element.scaleImage(
+                  pixSize.width,
+                  pixSize.height,
+                  pixSize.resizeMode
+                );
               })
               .catch(err => console.log(err));
           } else {
-            pixElement.load(source.uri);
-            element.setPixmap(pixElement);
+            element.setFromUri(source.uri);
+            element.scaleImage(
+              pixSize.width,
+              pixSize.height,
+              pixSize.resizeMode
+            );
           }
         }
       },
@@ -151,7 +133,6 @@ export default p => {
     ...containerProps,
     ...yogaProps,
     element,
-    pixElement,
     updateProps,
     resizeMode,
   };

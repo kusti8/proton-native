@@ -1,17 +1,20 @@
 import propChecker from '../utils/propChecker';
 import { disconnectDevtools } from '../devtools';
-import qt from 'node-qt-napi';
 import { Container } from './Container';
+import { AppElement } from '../backends/qt';
 
 export default props => {
   const propTypes = {};
   const defaultProps = {};
 
-  const element = new qt.QApplication();
+  const element = new AppElement();
 
   props = propChecker(props, propTypes, defaultProps, 'Root');
 
-  const containerProps = Container(() => {}, () => {});
+  const containerProps = Container(
+    () => {},
+    () => {}
+  );
 
   const quit = () => {
     for (let i = 0; i < containerProps.children[0].children.length; i++) {
@@ -23,8 +26,7 @@ export default props => {
     for (let i = 0; i < containerProps.children[0].children.length; i++) {
       const closed = containerProps.children[0].children[i].element.getClosed();
       if (!closed) {
-        element.sendPostedEvents();
-        element.processEvents();
+        element.runLoop();
         return;
       }
     }

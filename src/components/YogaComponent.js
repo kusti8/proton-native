@@ -51,8 +51,8 @@ export const YogaComponent = (element, postApplyYoga, standardMeasure) => {
   if (standardMeasure) {
     const measure = (width, widthMode, height, heightMode) => {
       return {
-        height: element.minimumSizeHint().h,
-        width: element.minimumSizeHint().w,
+        height: element.minSize().h,
+        width: element.minSize().w,
       };
     };
 

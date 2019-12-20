@@ -1,6 +1,5 @@
 import propChecker from '../utils/propChecker';
 import { disconnectDevtools } from '../devtools';
-import qt from 'node-qt-napi';
 import propsUpdater from '../utils/propsUpdater';
 import PropTypes from 'prop-types';
 import { TextFuncs } from './TextFuncs';
