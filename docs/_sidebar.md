@@ -3,6 +3,8 @@
 - [V2 Changes](v2_changes.md)
 - [Quick start](quickstart.md)
 - [Components](components.md)
+- Different Components
+- [Window](components/Window.md)
 - Advanced
 - [Packaging](packaging.md)
 - [Debugging](debugging.md)

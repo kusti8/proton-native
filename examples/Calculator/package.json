@@ -1,13 +1,15 @@
 {
-  "name": "notepad",
+  "name": "calculator",
   "version": "1.0.0",
-  "description": "a notepad app built using proton-native",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "proton-native": "^2.0.0"
+    "proton-native": "^1.1.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -16,8 +18,8 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
-    "@babel/preset-stage-0": "^7.0.0"
-  },
-  "author": "",
-  "license": "ISC"
+    "@babel/preset-stage-0": "^7.0.0",
+    "react-devtools": "^3.6.3",
+    "ws": "^7.2.1"
+  }
 }

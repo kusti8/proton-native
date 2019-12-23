@@ -10,7 +10,7 @@ The root wrapper around your entire code.
 ## Window
 
 Takes the same props as View. Each window instance corresponds to a new window on the
-desktop.
+desktop. More detailed information can be seen [here](components/Window.md)
 
 ## Other components
 

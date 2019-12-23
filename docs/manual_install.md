@@ -5,17 +5,14 @@ To install, simply download it from NPM:
 
 You also need to have babel-cli and these babel-presets prepared in devDependencies
 
-`npm install --save-dev babel-cli babel-preset-env babel-preset-stage-0 babel-preset-react`
+`npm install --save-dev @babel/cli @babel/preset-env @babel/preset-stage-0 @babel/preset-react @babel/plugin-proposal-class-properties`
 
 Then create `.babelrc`:
 
 ```
 {
-    "presets": [
-      "env",
-      "stage-0",
-      "react"
-    ]
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
 }
 ```
 

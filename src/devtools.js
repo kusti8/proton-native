@@ -12,22 +12,30 @@ const prequire = function(id) {
 
 if (process.env.NODE_ENV !== 'production') {
   try {
-    global.window = global;
-    WebSocket = prequire('ws');
-    connectToDevTools = prequire('react-devtools-core').connectToDevTools;
+    const defineProperty = Object.defineProperty;
+    defineProperty(global, 'WebSocket', {
+      value: require('ws'),
+    });
+    defineProperty(global, 'window', {
+      value: global,
+    });
+    connectToDevTools = require('react-devtools-core').connectToDevTools;
   } catch (e) {}
 }
 
 let ws;
 
 function connectDevtools(reconciler) {
-  if (connectToDevTools && WebSocket) {
-    ws = new WebSocket('ws://localhost:8097');
-    connectToDevTools({ websocket: ws });
+  if (connectToDevTools) {
+    connectToDevTools({
+      host: 'localhost',
+      port: 8097,
+      resolveRNStyle: null,
+    });
     reconciler.injectIntoDevTools({
       bundleType: 1,
-      version: '0.1.0',
-      rendererPackageName: 'custom-renderer',
+      version: '2.0.0',
+      rendererPackageName: 'proton-renderer',
       findHostInstanceByFiber: reconciler.findHostInstance,
     });
   }

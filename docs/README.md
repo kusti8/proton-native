@@ -2,6 +2,9 @@
 
 > Create desktop applications with React Native components, on all platforms
 
+<img src="calculator.png" alt="calculator" width="200"/>
+<img src="catapi_v2.png" alt="catapi_v2" height="300"/>
+
 ## What's new in V2?
 
 V2 brought along a complete overhaul, written from the ground up. The source code is better organized, we now support flexbox layout, CSS

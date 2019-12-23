@@ -37,7 +37,8 @@
     "node-fetch": "^2.6.0",
     "node-qt-napi": "0.0.2",
     "react": "^16.12.0",
-    "react-reconciler": "^0.20.4",
+    "react-devtools-core": "^4.3.0",
+    "react-reconciler": "^0.24.0",
     "read-chunk": "^3.2.0",
     "yoga-layout-prebuilt": "^1.9.3"
   },

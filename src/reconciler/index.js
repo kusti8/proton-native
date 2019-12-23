@@ -130,6 +130,7 @@ const DesktopRenderer = Reconciler({
   commitTextUpdate(textInstance, oldText, newText) {
     if (DEBUG) console.log('commitTextUpdate');
     textInstance.text = newText;
+    textInstance.parent.updateText();
   },
 
   supportsMutation: true,
