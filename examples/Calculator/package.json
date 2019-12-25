@@ -19,7 +19,7 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-stage-0": "^7.0.0",
-    "react-devtools": "^3.6.3",
+    "react-devtools": "^4.0.0",
     "ws": "^7.2.1"
   }
 }
