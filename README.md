@@ -12,15 +12,23 @@
 [![MIT License](https://img.shields.io/github/license/kusti8/proton-native.svg)](https://github.com/kusti8/proton-native/blob/master/LICENSE)
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Proton-Native)
 
-Create native desktop applications through a React syntax, on all platforms
+Create native desktop applications through a React syntax, on all platforms.
+
+## V2 is released!
+
+V2 has been released and it brings a whole host of improvements including new
+components that are identical to React Native, styling, flexbox, hot reloading,
+and more. You can read the full writeup [here](https://proton-native.js.org/#/v2_changes).
+To try it out, visit the documentation for instructions on how to get started!
 
 ## Features
 
-- Same syntax as React Native
+- Same syntax and components as React Native
 - Works with existing React libraries such as Redux
 - Cross platform
-- Native components. No more Electron
+- No more Electron
 - Compatible with all normal Node.js packages
+- Hot reloading
 
 ## Images
 
@@ -37,12 +45,6 @@ Examples can be found in `examples/`.
 
 ## Contributing
 
-All contributions are welcome. Just make a PR. Below is a list of general improvements that need to be added that I would love help with:
-
-- [ ] More examples and improve documentation
-- [x] Add UiArea
-- [ ] Clean up code
-- [ ] Make packaging easier
-- [x] Make creating a new app easier (something similar to `create-react-app`): https://github.com/albe-rosado/create-proton-app
+All contributions are welcome. Just make a PR.
 
 <a href="https://www.keycdn.com/"><sub><sup>Accelerated by KeyCDN</sup></sub></a>

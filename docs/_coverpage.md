@@ -51,6 +51,7 @@
 <li>Cross platform <li/>
 <li>No more Electron <li/>
 <li>Compatible with all normal Node.js packages <li/>
+<li>Hot reloading <li/>
 </ul>
 
 ![color](linear-gradient(to left bottom, #2e4466 0%, #afc1e0 100%))
