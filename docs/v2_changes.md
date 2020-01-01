@@ -4,13 +4,94 @@ The following is written basically as a blog post of everything that it took to
 get to V2. If you would rather skip ahead and just see the high level changelog,
 click [here](#changelog)
 
+## ToC
+
+- [The Start](<#the\ start>)
+- [Lack of Components](<#lack\ of\ components>)
+  - [Native Components?](<#native\ components?>)
+  - [Licensing?](#licensing?)
+- [Difficult Layout](<#difficult\ layout>)
+- [Lack of Styling](<#lack\ of\ styling>)
+- [Difficult Installation](<#difficult\ installation>)
+- [And finally, a little treat...](<#and\ finally,\ a\ little\ treat...>)
+- [To get started](<#to\ get\ started>)
+- [Changelog](#changelog)
+- [Examples](#examples)
+- [Contributions](#contributions)
+- [What's Next?](<#<what's\ next?>)
+
 ## The Start
 
-Proton Native was started two years ago when I was using React Native for desktop
+Proton Native was started two years ago when I was using React Native for mobile
 apps, but wanted to write desktop apps. There was no tool available at the time,
-so I decided to create my own. There was very little documentation on
+so I decided to create my own. It is supposed to allow you to
+write React code for desktop apps, without the need for Electron.
+There was very little documentation on
 working on the internals of React. `react-reconciler` had no documentation. The state
 of GUI libraries on Node.js was abysmal, so I used `libui-node`.
+
+This was the best look you could do, and while the code did work and it was React, it was not
+similar to anything before it.
+
+![CatApiV1](images/CatApi.gif)
+
+```jsx
+class Main extends Component {
+  render() {
+    return (
+      <App>
+        <Window
+          title="CatApi (Patent Pending)"
+          size={{ h: 500, w: 500 }}
+          menuBar={false}
+          margined
+        >
+          <Box padded>
+            <Form stretchy={false} padded>
+              <TextInput
+                stretchy={false}
+                label="ID"
+                onChange={id => this.props.setId(id)}
+              />
+              <Picker
+                stretchy={false}
+                label="Size"
+                selected={sizeConsts.length - 1}
+                onSelect={index => this.props.setSize(sizeConsts[index])}
+              >
+                {sizeConsts.map((s, i) => (
+                  <Picker.Item key={i}>{s}</Picker.Item>
+                ))}
+              </Picker>
+              <Picker
+                stretchy={false}
+                label="Type"
+                selected={0}
+                onSelect={index => this.props.setType(typeConsts[index])}
+              >
+                {typeConsts.map((s, i) => (
+                  <Picker.Item key={i}>{s}</Picker.Item>
+                ))}
+              </Picker>
+            </Form>
+            <Button
+              onClick={() => {
+                this.props.search();
+              }}
+              stretchy={false}
+            >
+              Submit
+            </Button>
+            <TextInput stretchy={true} readOnly={true}>
+              {this.props.url}
+            </TextInput>
+          </Box>
+        </Window>
+      </App>
+    );
+  }
+}
+```
 
 After 2 years, some of the deficiencies of V1 started coming to light, which can mainly
 be summarized in the following categories. All the rest of the changes stem from these problems.
@@ -55,6 +136,7 @@ public feedback on the work already done.
 ### Licensing?
 
 _Note that I am not a lawyer._
+
 Licensing is always an issue when developing code. Qt is licensed under LGPL, a variation
 on GPL. GPL by itself means that any changes must be made public. LGPL is a bit more
 permissive, essentially saying that if the Qt binaries can be replaced your code can be closed source.
@@ -141,7 +223,69 @@ npm run dev
 ## Examples
 
 There are plenty of examples in the examples folder to showcase what Proton Native
-can do.
+can do. Here's one of a calculator, modeled on the iOS calculator. The full code can be
+found in the examples folder.
+
+<img style="align-self: center;" src="calculator.png" alt="calculator" width="200"/>
+
+```jsx
+class Calculator extends Component {
+  // ...
+  render() {
+    return (
+      <App>
+        <Window style={{ width: 450, height: 900, backgroundColor: 'black' }}>
+          <View
+            style={{
+              width: '100%',
+              height: '30%',
+              justifyContent: 'flex-end',
+              alignItems: 'flex-end',
+            }}
+          >
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 80,
+                textAlign: 'right',
+                marginRight: 35,
+                marginBottom: 15,
+                fontWeight: 200,
+              }}
+            >
+              {this.state.primary.toString().length >= 7
+                ? this.state.primary.toExponential(4)
+                : this.state.primary}
+            </Text>
+          </View>
+          {this.getButtons().map((buttonGroup, index1) => (
+            <View
+              key={index1.toString()}
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'space-evenly',
+              }}
+            >
+              {buttonGroup.map((button, index2) => (
+                <CircleButton
+                  key={index1.toString() + index2.toString()}
+                  {...buttonStyle[button.type]}
+                  onPress={button.onPress}
+                  width={button.width}
+                  start={button.start}
+                >
+                  {button.text}
+                </CircleButton>
+              ))}
+            </View>
+          ))}
+        </Window>
+      </App>
+    );
+  }
+}
+```
 
 ## Contributions
 
@@ -149,6 +293,10 @@ Currently, Proton Native is headed by one high school senior with not enough tim
 V2 took a lot longer than I would have liked it to. There is still a lot more work to
 be done. PRs are always welcomed and I would love to advance this project as quickly
 as possible.
+
+If you don't want to contribute with code, you can also sponsor me by clicking
+on the sponsor button on the [GitHub page](https://github.com/kusti8/proton-native).
+However, there is no obligation on your part to sponsor.
 
 ## What's Next?
 
