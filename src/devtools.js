@@ -1,14 +1,4 @@
-let connectToDevTools, WebSocket;
-
-// from jaredhanson/node-parent-require
-const prequire = function(id) {
-  for (let parent = module.parent; parent; parent = parent.parent) {
-    try {
-      return parent.require(id);
-    } catch (e) {}
-  }
-  throw new Error("Cannot find module '" + id + "' from parent");
-};
+let connectToDevTools;
 
 if (process.env.NODE_ENV !== 'production') {
   try {
@@ -22,8 +12,6 @@ if (process.env.NODE_ENV !== 'production') {
     connectToDevTools = require('react-devtools-core').connectToDevTools;
   } catch (e) {}
 }
-
-let ws;
 
 function connectDevtools(reconciler) {
   if (connectToDevTools) {
@@ -42,13 +30,7 @@ function connectDevtools(reconciler) {
 }
 
 function disconnectDevtools() {
-  if (
-    ws &&
-    WebSocket &&
-    (ws.readyState === WebSocket.CONNECTING || ws.readyState === WebSocket.OPEN)
-  ) {
-    ws.close();
-  }
+  process.exit(0); // TODO: There has to be a better way to disconnect
 }
 
 export { connectDevtools, disconnectDevtools };

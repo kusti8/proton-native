@@ -20,6 +20,7 @@ export default props => {
     for (let i = 0; i < containerProps.children[0].children.length; i++) {
       containerProps.children[0].children[i].element.close();
     }
+    disconnectDevtools();
   };
 
   const interval = setInterval(() => {
