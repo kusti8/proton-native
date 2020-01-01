@@ -8,7 +8,7 @@ import {
   Picker,
   Button,
   Image,
-} from '../../../../bin';
+} from 'proton-native';
 import * as Actions from '../actions';
 import { sizeConsts, typeConsts } from '../consts';
 import { connect } from 'react-redux';
@@ -18,7 +18,7 @@ class Main extends Component {
   render() {
     return (
       <App>
-        <Window>
+        <Window style={{ width: 600, height: 600 }}>
           <View style={{ margin: 10, flex: 1 }}>
             <View
               style={{
@@ -27,7 +27,7 @@ class Main extends Component {
                 marginBottom: 10,
               }}
             >
-              <Text style={{ fontSize: 45 }}>CatApi</Text>
+              <Text style={{ fontSize: 55 }}>CatApi</Text>
             </View>
             <View style={{ flexDirection: 'row', marginBottom: 10 }}>
               <Text style={{ marginRight: 15, fontSize: 20 }}>ID</Text>
@@ -112,7 +112,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

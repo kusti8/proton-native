@@ -51,12 +51,15 @@ const DesktopRenderer = Reconciler({
     const diff = {};
     for (let key of propKeys) {
       if (
-        // key !== "children" && // children are already handled by react-reconciler
+        //key !== "children" && // children are already handled by react-reconciler
         oldProps[key] !== newProps[key]
       ) {
         diff[key] = newProps[key];
       }
     }
+
+    //console.log(diff);
+    //console.log(oldProps, newProps);
 
     return diff;
   },
@@ -119,6 +122,7 @@ const DesktopRenderer = Reconciler({
 
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
     if (DEBUG) console.log('commitUpdate');
+    //console.log("UPDATE", instance, updatePayload);
     instance.updateProps(updatePayload);
   },
 
@@ -129,6 +133,7 @@ const DesktopRenderer = Reconciler({
 
   commitTextUpdate(textInstance, oldText, newText) {
     if (DEBUG) console.log('commitTextUpdate');
+    //console.log("TEXT UPDATE", newText);
     textInstance.text = newText;
     textInstance.parent.updateText();
   },
@@ -138,15 +143,18 @@ const DesktopRenderer = Reconciler({
 });
 
 const appendChild = (container, child) => {
+  //console.log("ADD", child);
   if (container.appendChild) {
     if (typeof child == 'object') child.parent = container;
     container.appendChild(child, container);
+    if (child.element && child.element.show) child.element.show(); // TODO: Should this be here?
   } else {
     throw new Error(`Can't append child to ${container.constructor.name}`);
   }
 };
 
 const removeChild = (container, child) => {
+  //console.log("REMOVE", child);
   if (container.removeChild) {
     container.removeChild(child, container);
   } else {
@@ -158,6 +166,7 @@ const insertChild = (container, child, beforeChild) => {
   if (container.insertChild) {
     if (typeof child == 'object') child.parent = container;
     container.insertChild(child, beforeChild, container);
+    if (child.element && child.element.show) child.element.show(); // TODO: Should this be here?
   } else {
     throw new Error(`Can't append child to ${container.constructor.name}`);
   }

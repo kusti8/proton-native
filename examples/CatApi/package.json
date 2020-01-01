@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "babel-node index.js",
-    "build": "babel index.js -d bin/index.js"
+    "dev": "webpack --mode=development ",
+    "webpackRun": "babel-node dist/index.out.js",
+    "build": "babel index.js -d bin/"
   },
   "dependencies": {
     "node-fetch": "^2.1.2",
@@ -22,6 +24,10 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
-    "@babel/preset-stage-0": "^7.0.0"
+    "@babel/preset-stage-0": "^7.0.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2",
+    "babel-loader": "^8.0.6"
   }
 }

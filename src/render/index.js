@@ -1,9 +1,8 @@
+import deepForceUpdate from 'react-deep-force-update';
 import { connectDevtools } from '../devtools';
 import DesktopRenderer from '../reconciler';
 import { createElement } from '../utils/createElement';
 import { hot } from '../misc/hot';
-import { getForceUpdate } from 'react-proxy';
-import React from 'react';
 
 export let ROOT_NODE = {};
 
@@ -21,9 +20,9 @@ const AppRegistry = {
   },
   updateProxy: app => {
     if (container) {
-      const mountedInstances = hot(app);
-      const forceUpdate = getForceUpdate(React);
-      mountedInstances.forEach(forceUpdate);
+      hot(app);
+      container._reactInternalInstance = container.current;
+      deepForceUpdate(container);
     }
   },
 };
