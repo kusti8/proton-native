@@ -12,22 +12,16 @@
 
 ```bash
 # install the cli app
-npm install -g create-proton-app
+npm install -g proton-native-cli
 # create your project
-create-proton-app my-app
+proton-native init my-app
 # move to your project directory
 cd my-app
+
 # run your app
 npm run start
+# OR to run with hot reloading
+npm run dev
 ```
 
 You can alternatively use `npx` if you prefer.
-
-### Manual
-
-The old manual instructions are still available [here](manual_install.md)
-
-## Optional Extras
-
-If you love using TypeScript, thanks to the efforts of @khanhas, typings
-are provided through the `@types/proton-native` package.

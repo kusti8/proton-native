@@ -8,4 +8,5 @@
 - Advanced
 - [Packaging](packaging.md)
 - [Debugging](debugging.md)
+- [Hot Reloading](hot_reloading.md)
 - [External Functionality](external_functionality.md)

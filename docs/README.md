@@ -8,13 +8,13 @@
 ## What's new in V2?
 
 V2 brought along a complete overhaul, written from the ground up. The source code is better organized, we now support flexbox layout, CSS
-styling, the same components as React Native, and are working on unit testing. More components and features can now be added easily. It is easier to install, with no compiling required.
+styling, the same components as React Native, hot reloading, and are working on unit testing. More components and features can now be added easily. It is easier to install, with no compiling required.
 
 For the user,
 you can now copy and paste your React Native code with minimal to no changes. For our collaborators, it should now be more easy and friendly to
 bring this project right in line as the desktop port of React Native.
 
-For more information, see the [V2 page](v2_changes.md).
+For more information and a full writeup, see the [V2 page](v2_changes.md).
 
 ## Native Components?
 
@@ -46,8 +46,11 @@ React packages such as Redux still work.
 - Same syntax and components as React Native
 - Works with existing React libraries such as Redux
 - Cross platform
-- Native components. No more Electron
+- No more Electron
 - Compatible with all normal Node.js packages
+- Hot reloading
+- Flexbox
+- CSS styling
 
 ## Examples
 
