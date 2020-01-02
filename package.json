@@ -15,7 +15,7 @@
     "testprog": "babel-node testprog.js",
     "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'test/**/*.js' 'examples/*.js' './**/*.md' testprog.js",
     "build": "babel src -d bin",
-    "pub": "babel src -d bin && npm publish",
+    "prepack": "babel src -d bin",
     "precommit": "lint-staged"
   },
   "repository": {
