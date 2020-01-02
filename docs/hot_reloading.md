@@ -8,7 +8,7 @@ and see the results appear instantly, without modifying any of the state.
 All of this is baked into your Proton Native application when it is created with the
 `proton-native-cli`.
 
-```
+```bash
 npm run dev # Starts the server and your application with it
 ```
 
