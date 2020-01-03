@@ -219,6 +219,8 @@ npm run dev
   - The `react-devtool` support is now much more robust for better debugging.
 - `proton-native-cli`
   - An entirely new management utility which allows for future additions if needed as well.
+- Typescript
+  - All of the code was converted over to Typescript to reduce bugs. The implementation needs to be better and more safe, but it works for now.
 
 ## Examples
 
