@@ -13,7 +13,7 @@ import {
   Image,
   TextInput,
   Picker,
-} from './src/';
+} from './bin/';
 
 class Example extends Component {
   state = {

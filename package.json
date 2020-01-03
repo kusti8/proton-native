@@ -1,6 +1,6 @@
 {
   "name": "proton-native",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "React Native for the desktop, cross compatible",
   "main": "bin/index.js",
   "lint-staged": {
@@ -14,8 +14,8 @@
     "test-update": "Xvfb :34 -screen 0, 1280x720x24 & DISPLAY=:34 jest -u",
     "testprog": "babel-node testprog.js",
     "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'test/**/*.js' 'examples/*.js' './**/*.md' testprog.js",
-    "build": "babel src -d bin",
-    "prepack": "babel src -d bin",
+    "build": "tsc -b",
+    "prepack": "npm run build",
     "precommit": "lint-staged"
   },
   "repository": {
@@ -30,7 +30,6 @@
   "homepage": "https://github.com/kusti8/proton-native#readme",
   "dependencies": {
     "color": "^3.1.2",
-    "fbjs": "^1.0.0",
     "file-type": "^12.4.2",
     "image-size": "^0.7.5",
     "lodash": "^4.17.15",
@@ -52,6 +51,12 @@
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
     "@babel/preset-stage-0": "^7.0.0",
+    "@types/color": "^3.0.1",
+    "@types/lodash": "^4.14.149",
+    "@types/node-fetch": "^2.5.4",
+    "@types/react": "^16.9.17",
+    "@types/react-reconciler": "^0.18.0",
+    "@types/yoga-layout": "^1.9.1",
     "babel-jest": "^24.9.0",
     "husky": "^0.14.3",
     "jest": "^24.9.0",
@@ -59,7 +64,8 @@
     "jest-util": "^24.9.0",
     "lint-staged": "^7.1.0",
     "prettier": "^1.19.1",
-    "react-devtools": "^3.6.3"
+    "react-devtools": "^3.6.3",
+    "typescript": "^3.7.4"
   },
   "files": [
     "bin"

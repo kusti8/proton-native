@@ -11,7 +11,7 @@ import {
 } from '../../../../bin';
 import * as Actions from '../actions';
 import { sizeConsts, typeConsts } from '../consts';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux/lib/alternate-renderers';
 import { bindActionCreators } from 'redux';
 
 class Main extends Component {
@@ -112,7 +112,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
