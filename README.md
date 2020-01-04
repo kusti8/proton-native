@@ -12,7 +12,7 @@
 [![MIT License](https://img.shields.io/github/license/kusti8/proton-native.svg)](https://github.com/kusti8/proton-native/blob/master/LICENSE)
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Proton-Native)
 
-Create native desktop applications through a React syntax, on all platforms.
+Create desktop applications through a React syntax, on all platforms.
 
 ## V2 is released!
 
@@ -32,8 +32,10 @@ To try it out, visit the documentation for instructions on how to get started!
 
 ## Images
 
-![Windows](http://protonnative-af51.kxcdn.com/images/windows_example.png)
-![CatApi](http://protonnative-af51.kxcdn.com/images/CatApi.gif)
+<span style="display: flex;">
+<img src="docs/calculator.png" height="400" style="margin: 10;">
+<img src="docs/catapi_v2.png" style="margin: 10;">
+</span>
 
 ## [Documentation](https://proton-native.js.org)
 
