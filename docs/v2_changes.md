@@ -236,23 +236,23 @@ class Calculator extends Component {
   render() {
     return (
       <App>
-        <Window style={{ width: 450, height: 900, backgroundColor: 'black' }}>
+        <Window style={{ width: 450, height: 900, backgroundColor: "black" }}>
           <View
             style={{
-              width: '100%',
-              height: '30%',
-              justifyContent: 'flex-end',
-              alignItems: 'flex-end',
+              width: "100%",
+              height: "30%",
+              justifyContent: "flex-end",
+              alignItems: "flex-end"
             }}
           >
             <Text
               style={{
-                color: 'white',
+                color: "white",
                 fontSize: 80,
-                textAlign: 'right',
+                textAlign: "right",
                 marginRight: 35,
                 marginBottom: 15,
-                fontWeight: 200,
+                fontWeight: 200
               }}
             >
               {this.state.primary.toString().length >= 7
@@ -265,8 +265,8 @@ class Calculator extends Component {
               key={index1.toString()}
               style={{
                 flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'space-evenly',
+                flexDirection: "row",
+                justifyContent: "space-evenly"
               }}
             >
               {buttonGroup.map((button, index2) => (
@@ -288,6 +288,25 @@ class Calculator extends Component {
   }
 }
 ```
+
+## Proton Native vs. Others
+
+Since Proton Native started, a lot of other projects have started with the same
+objective. The goals of Proton Native are always to have an easy development
+experience for the user, with plenty of documentation, ability to use tools
+they are familiar with, and eventually be stable.
+
+The most notable projects similar to Proton Native are `react-nodegui` and
+`react-native-desktop`.
+
+- `react-nodegui`
+  - Aims to port Qt to React. Features an API similar to Qt, not to React Native.
+  - Uses `qode`, a fork of `node`
+  - Relatively good documentation
+- `react-native-desktop`
+  - A fork of React Native, to add desktop as a new target.
+  - Means that React Native code should just work, but also means no support for windows, menus etc.
+  - Relatively little documentation
 
 ## Contributions
 
