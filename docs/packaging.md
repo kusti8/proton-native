@@ -42,5 +42,5 @@ cp -r node_modules/node-qt-napi/bindings out/node_modules/node-qt-napi/ # Copy o
 ```bat
 cd project-root # We're in the project root
 mkdir out\node_modules\node-qt-napi
-xcopy node_modules\node-qt-napi\bindings out\node_modules\node-qt-napi\ /s /e
+xcopy node_modules\node-qt-napi\bindings out\node_modules\node-qt-napi\bindings\ /s /e
 ```
