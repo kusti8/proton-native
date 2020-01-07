@@ -315,8 +315,7 @@ V2 took a lot longer than I would have liked it to. There is still a lot more wo
 be done. PRs are always welcomed and I would love to advance this project as quickly
 as possible.
 
-If you don't want to contribute with code, you can also sponsor me by clicking
-on the sponsor button on the [GitHub page](https://github.com/kusti8/proton-native).
+If you don't want to contribute with code, you can also [sponsor me through GitHub](https://github.com/sponsors/kusti8).
 However, there is no obligation on your part to sponsor.
 
 ## What's Next?
