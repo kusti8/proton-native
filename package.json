@@ -30,7 +30,7 @@
   "homepage": "https://github.com/kusti8/proton-native#readme",
   "dependencies": {
     "color": "^3.1.2",
-    "file-type": "^12.4.2",
+    "file-type": "12.4.2",
     "image-size": "^0.7.5",
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.0",

@@ -3,7 +3,7 @@ import propsUpdater from "../utils/propsUpdater";
 import * as PropTypes from "prop-types";
 import { TextFuncs } from "./TextFuncs";
 import { YogaComponent } from "./YogaComponent";
-import { TextElement } from "../backends/qt";
+import { getBackend } from '../backends/index'
 
 interface Props {
   style: React.CSSProperties;
@@ -25,6 +25,7 @@ export default (p: Props) => {
     style: {}
   };
 
+  const TextElement = getBackend()["TextElement"]
   const element = new TextElement();
 
   let props = { ...p };

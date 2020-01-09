@@ -5,7 +5,7 @@ import { ROOT_NODE } from "../render";
 import * as PropTypes from "prop-types";
 import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
-import { WindowElement, desktopSize } from "../backends/qt";
+import { getBackend } from '../backends/index'
 
 interface Props {
   style: React.CSSProperties;
@@ -19,9 +19,12 @@ export default (p: Props) => {
   };
   const defaultProps = {
     style: {},
-    onResize: () => {}
+    onResize: () => { }
   };
 
+  const backend = getBackend()
+  const WindowElement = backend["WindowElement"]
+  const desktopSize = backend["desktopSize"]
   const element = new WindowElement();
 
   let props = { ...p };
@@ -33,7 +36,7 @@ export default (p: Props) => {
     onResize: props.onResize
   };
 
-  element.resizeEvent((w, h) => {
+  element.resizeEvent((w: number, h: number) => {
     ROOT_NODE.afterCommit(ROOT_NODE);
     handlers.onResize({ w, h });
   });

@@ -8,6 +8,7 @@ import {
   Picker,
 } from './react-components';
 import { StyleSheet } from './misc';
+import { setBackend } from './backends'
 
 require('./utils/requireImpl');
 
@@ -38,4 +39,5 @@ export {
   TextInput,
   PickerInternal,
   Picker,
+  setBackend
 };

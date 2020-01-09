@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types";
 import propsUpdater from "../utils/propsUpdater";
 import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
-import { TextInputElement } from "../backends/qt";
+import { getBackend } from '../backends/index'
 
 interface Props {
   style: React.CSSProperties;
@@ -22,11 +22,12 @@ export default (p: Props) => {
   };
   const defaultProps = {
     style: {},
-    onChangeText: () => {},
+    onChangeText: () => { },
     value: "",
     multiline: false
   };
 
+  const TextInputElement = getBackend()["TextInputElement"]
   const element = new TextInputElement(p.multiline);
 
   let props = { ...p };
@@ -38,7 +39,7 @@ export default (p: Props) => {
     onChangeText: props.onChangeText
   };
 
-  element.textChangedEvent(text => {
+  element.textChangedEvent((text: string) => {
     handlers.onChangeText(text);
   });
 

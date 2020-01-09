@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types";
 import propsUpdater from "../utils/propsUpdater";
 import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
-import { ViewElement } from "../backends/qt";
+import { getBackend } from '../backends/index'
 
 interface Props {
   style: React.CSSProperties;
@@ -28,10 +28,11 @@ export default (p: Props) => {
   };
   const defaultProps = {
     style: {},
-    onResponderGrant: () => {},
-    onResponderRelease: () => {}
+    onResponderGrant: () => { },
+    onResponderRelease: () => { }
   };
 
+  const ViewElement = getBackend()["ViewElement"]
   const element = new ViewElement();
 
   let props = { ...p };

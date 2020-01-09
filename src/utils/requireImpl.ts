@@ -9,14 +9,16 @@ import sizeOf from "image-size";
 const originalLoader = Module._load;
 
 //@ts-ignore
-Module._load = function(request, parent) {
+Module._load = function (request, parent) {
   let buffer;
   try {
     buffer = readChunk.sync(request, 0, fileType.minimumBytes);
   } catch {
     return originalLoader.apply(this, arguments);
   }
-  const type = fileType(buffer)!.mime;
+  const fullType = fileType(buffer)
+  if (!fullType) return originalLoader.apply(this, arguments);
+  const type = fullType.mime
   if (type.split("/")[0] != "image")
     return originalLoader.apply(this, arguments);
 

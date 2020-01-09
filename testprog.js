@@ -13,7 +13,10 @@ import {
   Image,
   TextInput,
   Picker,
+  setBackend,
 } from './bin/';
+
+setBackend('wx');
 
 class Example extends Component {
   state = {
@@ -28,15 +31,7 @@ class Example extends Component {
     return (
       <App>
         {/*<Window style={{ height: 400, width: 500 }}>*/}
-        <Window style={{ height: '25%', width: '25%' }}>
-          <View style={{ alignItems: 'center' }}>
-            <Button title="Hello" onPress={() => console.log('Pressed')} />
-            <Picker onValueChange={(i, text) => console.log(i, text)}>
-              <Picker.Item label="Item1" value="i1" />
-              {this.state.a && <Picker.Item label="Item2" />}
-            </Picker>
-          </View>
-        </Window>
+        <Window style={{ height: '25%', width: '25%' }}></Window>
       </App>
     );
   }

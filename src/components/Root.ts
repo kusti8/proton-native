@@ -1,7 +1,7 @@
 import propChecker from "../utils/propChecker";
 import { disconnectDevtools } from "../devtools";
 import { Container } from "./Container";
-import { AppElement } from "../backends/qt";
+import { getBackend } from '../backends/index'
 import { Component } from "./Base";
 
 export interface Root {
@@ -13,13 +13,14 @@ export default (props: {}) => {
   const propTypes = {};
   const defaultProps = {};
 
+  const AppElement = getBackend()["AppElement"]
   const element = new AppElement();
 
   props = propChecker(props, propTypes, defaultProps, "Root");
 
   const containerProps = Container(
-    () => {},
-    () => {}
+    () => { },
+    () => { }
   );
 
   const quit = () => {

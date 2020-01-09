@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types";
 import propsUpdater from "../utils/propsUpdater";
 import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
-import { PickerElement } from "../backends/qt";
+import { getBackend } from '../backends/index'
 
 interface Props {
   style: React.CSSProperties;
@@ -29,10 +29,11 @@ export default (p: Props) => {
   };
   const defaultProps = {
     style: {},
-    onValueChange: () => {},
+    onValueChange: () => { },
     selectedValue: ""
   };
 
+  const PickerElement = getBackend()["PickerElement"]
   const element = new PickerElement();
   const items: { [key: string]: string } = {};
   const itemList: string[] = [];
@@ -46,7 +47,7 @@ export default (p: Props) => {
     onValueChange: props.onValueChange
   };
 
-  element.activatedEvent(text => {
+  element.activatedEvent((text: string) => {
     handlers.onValueChange(items[text] || text, element.currentIndex());
   });
 
