@@ -16,7 +16,7 @@ desktop. More detailed information can be seen [here](components/Window.md)
 
 | Component                | Implemented Props                                         |
 | ------------------------ | --------------------------------------------------------- |
-| Button                   | style, onPress, color                                     |
+| Button                   | style, onPress, title                                     |
 | Image                    | style, resizeMode, source                                 |
 | Picker                   | style, onValueChange, selectedValue                       |
 | Picker.Item              | label, value                                              |

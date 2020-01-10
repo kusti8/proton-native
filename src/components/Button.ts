@@ -8,27 +8,24 @@ import { getBackend } from "../backends/index";
 
 interface Props {
   style: React.CSSProperties;
-  onChangeText: (text: string) => void;
-  value: string;
-  multiline: boolean;
+  onPress: () => void;
+  title: string;
 }
 
 export default (p: Props) => {
   const propTypes = {
     style: PropTypes.object,
-    onChangeText: PropTypes.func,
-    value: PropTypes.string,
-    multiline: PropTypes.bool
+    onPress: PropTypes.func,
+    title: PropTypes.string
   };
   const defaultProps = {
     style: {},
-    onChangeText: () => {},
-    value: "",
-    multiline: false
+    onPress: () => { },
+    title: "Button"
   };
 
-  const TextInputElement = getBackend()["TextInputElement"];
-  const element = new TextInputElement(p.multiline);
+  const ButtonElement = getBackend()["ButtonElement"];
+  const element = new ButtonElement();
 
   let props = { ...p };
   props = propChecker(props, propTypes, defaultProps, "TextInput");
@@ -36,11 +33,11 @@ export default (p: Props) => {
   const yogaProps = YogaComponent(element, undefined, true);
 
   const handlers = {
-    onChangeText: props.onChangeText
+    onPress: props.onPress
   };
 
-  element.textChangedEvent((text: string) => {
-    handlers.onChangeText(text);
+  element.buttonReleasedEvent(() => {
+    handlers.onPress();
   });
 
   const containerProps = Container(
@@ -64,13 +61,13 @@ export default (p: Props) => {
     }
   );
 
-  const updateProps = propsUpdater([handlers, "onChangeText"], {
+  const updateProps = propsUpdater([handlers, "onPress"], {
     style: (style: React.CSSProperties) => {
       element.setStyleSheet(style);
       yogaProps.applyYogaStyle(style);
     },
-    value: (value: string) => {
-      element.setText(value);
+    title: (title: string) => {
+      element.setText(title);
     }
   });
 

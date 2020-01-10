@@ -5,7 +5,7 @@ import { ROOT_NODE } from "../render";
 import * as PropTypes from "prop-types";
 import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
-import { getBackend } from '../backends/index'
+import { getBackend } from "../backends/index";
 
 interface Props {
   style: React.CSSProperties;
@@ -19,12 +19,12 @@ export default (p: Props) => {
   };
   const defaultProps = {
     style: {},
-    onResize: () => { }
+    onResize: () => {}
   };
 
-  const backend = getBackend()
-  const WindowElement = backend["WindowElement"]
-  const desktopSize = backend["desktopSize"]
+  const backend = getBackend();
+  const WindowElement = backend["WindowElement"];
+  const desktopSize = backend["desktopSize"];
   const element = new WindowElement();
 
   let props = { ...p };
@@ -62,9 +62,10 @@ export default (p: Props) => {
       const height = style.height;
       delete style.width; // cause we don't want to resize with yoga, only with our pipeline
       delete style.height;
-      element.setStyleSheet(convertStyleSheet(style));
+      element.setStyleSheet(style);
       yogaProps.applyYogaStyle(style);
       const size = percentToSize(width, height);
+      //console.log("My size", size, width, height);
       if (size.h && size.w) {
         element.resize(size.w, size.h);
       } else if (size.w) {

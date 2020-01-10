@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types";
 import propsUpdater from "../utils/propsUpdater";
 import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
-import { getBackend } from '../backends/index'
+import { getBackend } from "../backends/index";
 
 interface Props {
   style: React.CSSProperties;
@@ -28,11 +28,11 @@ export default (p: Props) => {
   };
   const defaultProps = {
     style: {},
-    onResponderGrant: () => { },
-    onResponderRelease: () => { }
+    onResponderGrant: () => {},
+    onResponderRelease: () => {}
   };
 
-  const ViewElement = getBackend()["ViewElement"]
+  const ViewElement = getBackend()["ViewElement"];
   const element = new ViewElement();
 
   let props = { ...p };
@@ -78,7 +78,7 @@ export default (p: Props) => {
     [handlers, "onResponderGrant", "onResponderRelease"],
     {
       style: (style: React.CSSProperties) => {
-        element.setStyleSheet(convertStyleSheet(style));
+        element.setStyleSheet(style);
         yogaProps.applyYogaStyle(style);
       }
     }

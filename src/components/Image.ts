@@ -5,7 +5,7 @@ import propsUpdater from "../utils/propsUpdater";
 import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent, Layout } from "./YogaComponent";
 import fetch from "node-fetch";
-import { getBackend } from '../backends/index'
+import { getBackend } from "../backends/index";
 import { Component } from "./Base";
 
 type ResizeMode = "cover" | "contain" | "stretch" | "repeat" | "center";
@@ -51,11 +51,11 @@ export default (p: Props) => {
   };
   const defaultProps = {
     style: {},
-    onResponderGrant: () => { },
-    onResponderRelease: () => { }
+    onResponderGrant: () => {},
+    onResponderRelease: () => {}
   };
 
-  const ImageElement = getBackend()["ImageElement"]
+  const ImageElement = getBackend()["ImageElement"];
   const element = new ImageElement();
 
   let props = { ...p };
@@ -113,7 +113,7 @@ export default (p: Props) => {
         if (style.resizeMode) {
           resizeMode.r = style.resizeMode;
         }
-        element.setStyleSheet(convertStyleSheet(style));
+        element.setStyleSheet(style);
         yogaProps.applyYogaStyle(style);
       },
       resizeMode: (r: ResizeMode) => {

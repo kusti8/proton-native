@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types";
 import propsUpdater from "../utils/propsUpdater";
 import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
-import { getBackend } from '../backends/index'
+import { getBackend } from "../backends/index";
 
 interface Props {
   style: React.CSSProperties;
@@ -29,11 +29,11 @@ export default (p: Props) => {
   };
   const defaultProps = {
     style: {},
-    onValueChange: () => { },
+    onValueChange: () => {},
     selectedValue: ""
   };
 
-  const PickerElement = getBackend()["PickerElement"]
+  const PickerElement = getBackend()["PickerElement"];
   const element = new PickerElement();
   const items: { [key: string]: string } = {};
   const itemList: string[] = [];
@@ -74,7 +74,7 @@ export default (p: Props) => {
 
   const updateProps = propsUpdater([handlers, "onValueChange"], {
     style: (style: React.CSSProperties) => {
-      element.setStyleSheet(convertStyleSheet(style));
+      element.setStyleSheet(style);
       yogaProps.applyYogaStyle(style);
     },
     selectedValue: (value: string) => {

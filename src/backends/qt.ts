@@ -1,4 +1,5 @@
 import * as qt from "node-qt-napi";
+import convertStyleSheet from "../utils/convertStyleSheet";
 
 interface Size {
   w: number;
@@ -17,8 +18,8 @@ export abstract class BaseElement {
   mouseReleaseEvent(func: () => void) {
     this.element.mouseReleaseEvent(func);
   }
-  setStyleSheet(obj: string) {
-    this.element.setStyleSheet(obj);
+  setStyleSheet(obj: object) {
+    this.element.setStyleSheet(convertStyleSheet(obj));
   }
   setParent(elem: BaseElement) {
     //console.log("Set parent", this.element, elem.element);
@@ -187,6 +188,21 @@ export class TextInputElement extends BaseElement {
 
   textChangedEvent(func: (newText: string) => void) {
     this.element.textChangedEvent(func);
+  }
+
+  setText(text: string) {
+    this.element.setText(text);
+  }
+}
+
+export class ButtonElement extends BaseElement {
+  constructor() {
+    super();
+    this.element = new qt.QPushButton();
+  }
+
+  buttonReleasedEvent(func: () => void) {
+    this.element.buttonReleasedEvent(func);
   }
 
   setText(text: string) {

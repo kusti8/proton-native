@@ -1,26 +1,26 @@
-import AppRegistry from './render';
+import AppRegistry from "./render";
 import {
   Text,
   TouchableWithoutFeedback,
   TouchableOpacity,
   TouchableHighlight,
-  Button,
-  Picker,
-} from './react-components';
-import { StyleSheet } from './misc';
-import { setBackend } from './backends'
+  Picker
+} from "./react-components";
+import { StyleSheet } from "./misc";
+import { setBackend } from "./backends";
 
-require('./utils/requireImpl');
+require("./utils/requireImpl");
 
 // Aliases for createElement method
-const Window = 'WINDOW';
-const View = 'VIEW';
-const App = 'APP';
-const VirtualText = 'VIRTUALTEXT';
-const RootText = 'ROOTTEXT';
-const Image = 'IMAGE';
-const TextInput = 'TEXTINPUT';
-const PickerInternal = 'PICKERINTERNAL';
+const Window = "WINDOW";
+const View = "VIEW";
+const App = "APP";
+const VirtualText = "VIRTUALTEXT";
+const RootText = "ROOTTEXT";
+const Image = "IMAGE";
+const TextInput = "TEXTINPUT";
+const PickerInternal = "PICKERINTERNAL";
+const Button = "BUTTON";
 
 export {
   AppRegistry,

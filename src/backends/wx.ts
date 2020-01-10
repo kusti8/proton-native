@@ -1,4 +1,6 @@
 import * as wx from "node-wx-napi";
+import convertStyleSheet from "../utils/convertStyleSheet";
+import * as Color from "color";
 
 interface Size {
   w: number;
@@ -11,18 +13,59 @@ export function desktopSize(): Size {
 
 export abstract class BaseElement {
   element: any;
-  //   mousePressEvent(func: () => void) {
-  //     this.element.mousePressEvent(func);
-  //   }
-  //   mouseReleaseEvent(func: () => void) {
-  //     this.element.mouseReleaseEvent(func);
-  //   }
-  //   setStyleSheet(obj: string) {
-  //     this.element.setStyleSheet(obj);
-  //   }
-  setParent(elem: BaseElement) {
-    //console.log("Set parent", this.element, elem.element);
-    this.element.setParent(elem.element);
+  records: any;
+
+  makeRecords(funcs: string[]) {
+    const out: any = {
+      FAKE: true
+    };
+    for (let func of funcs) {
+      out[func] = (...args: any[]) =>
+        this.records.push({
+          f: (...args: any[]) => this.element[func](...args),
+          a: args
+        });
+    }
+    return out;
+  }
+
+  applyRecords() {
+    for (let i = 0; i < this.records.length; i++) {
+      this.records[i].f(...this.records[i].a);
+    }
+  }
+
+  checkFakeParent(obj: BaseElement) {
+    if (obj.element.FAKE) {
+      obj.records.push({
+        f: (...args: any[]) => (this as any).setParent(...args),
+        a: [obj]
+      })
+      return true;
+    }
+    return false;
+  }
+
+  mousePressEvent(func: () => void) {
+    //noop
+    console.warn("MousePressEvent noop");
+    //this.element.mousePressEvent(func);
+  }
+  mouseReleaseEvent(func: () => void) {
+    //noop
+    console.warn("MouseReleaseEvent noop");
+    //this.element.mouseReleaseEvent(func);
+  }
+  setStyleSheet(obj: any) {
+    if ("backgroundColor" in obj) {
+      const color = Color(obj.backgroundColor);
+      this.element.SetBackgroundColour(
+        color.rgb().red(),
+        color.rgb().green(),
+        color.rgb().blue()
+      );
+    }
+    //this.element.setStyleSheet(obj);
   }
   //   del() {
   //     this.element.del();
@@ -33,15 +76,15 @@ export abstract class BaseElement {
   move(left: number, top: number) {
     this.element.SetLoc(left, top);
   }
-  //   minSize(): Size {
-  //     return this.element.minimumSizeHint();
-  //   }
+  minSize(): Size {
+    return this.element.GetBestSize();
+  }
   show() {
     this.element.Show(true);
   }
-  //   close() {
-  //     this.element.close();
-  //   }
+  close() {
+    this.element.Close();
+  }
   width(): number {
     return this.element.GetSize().w;
   }
@@ -120,12 +163,25 @@ export class WindowElement extends BaseElement {
   }
 }
 
-// export class ViewElement extends BaseElement {
-//   constructor() {
-//     super();
-//     this.element = new qt.QWidget();
-//   }
-// }
+export class ViewElement extends BaseElement {
+  constructor() {
+    super();
+    this.records = [];
+    this.element = this.makeRecords([
+      "Show",
+      "SetSize",
+      "GetSize",
+      "SetLoc",
+      "SetBackgroundColour"
+    ]);
+  }
+  setParent(obj: BaseElement) {
+    if (!this.checkFakeParent(obj)) {
+      this.element = new wx.WxPanel(obj.element);
+      this.applyRecords();
+    }
+  }
+}
 
 // export class PickerElement extends BaseElement {
 //   constructor() {
@@ -192,3 +248,33 @@ export class AppElement {
 //     this.element.setText(text);
 //   }
 // }
+
+export class ButtonElement extends BaseElement {
+  constructor() {
+    super();
+    this.records = [];
+    this.element = this.makeRecords([
+      "Show",
+      "SetSize",
+      "GetSize",
+      "SetLoc",
+      "SetBackgroundColour",
+      "SetLabel",
+      "OnPress"
+    ]);
+  }
+  setParent(obj: BaseElement) {
+    if (!this.checkFakeParent(obj)) {
+      this.element = new wx.WxButton(obj.element);
+      this.applyRecords();
+    }
+  }
+
+  buttonReleasedEvent(func: () => void) {
+    this.element.OnPress(func);
+  }
+
+  setText(text: string) {
+    this.element.SetLabel(text);
+  }
+}

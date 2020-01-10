@@ -31,7 +31,19 @@ class Example extends Component {
     return (
       <App>
         {/*<Window style={{ height: 400, width: 500 }}>*/}
-        <Window style={{ height: '25%', width: '25%' }}></Window>
+        <Window
+          style={{ height: '25%', width: '25%', backgroundColor: 'blue' }}
+        >
+          <View
+            style={{ height: '50%', width: '100%', backgroundColor: 'green' }}
+          >
+            <Button
+              title="My button"
+              onPress={() => console.log('Button pressed')}
+            />
+          </View>
+          {/* <Button onPress={() => console.log("PRessed")} title="My button" /> */}
+        </Window>
       </App>
     );
   }
