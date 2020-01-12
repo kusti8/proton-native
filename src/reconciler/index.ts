@@ -1,9 +1,8 @@
 import { createElement } from "../utils/createElement";
 import { Component } from "../components/Base";
 import { TextChild } from "../components/TextFuncs";
-import { ROOT_NODE } from "../render";
 import { Root } from "../components/Root";
-import * as _ from "lodash";
+import { uniq } from "lodash";
 
 const Reconciler = require("react-reconciler");
 
