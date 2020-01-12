@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./bin",
+    "allowJs": true,
+    "strictNullChecks": true,
+    "module": "commonjs",
+    "jsx": "react",
+    "noImplicitAny": true,
+    "target": "es5",
+    "declaration": true,
+    "moduleResolution": "node",
+    "strict": true
+  },
+  "include": ["./src/**/*"]
+}

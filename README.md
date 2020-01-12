@@ -12,20 +12,30 @@
 [![MIT License](https://img.shields.io/github/license/kusti8/proton-native.svg)](https://github.com/kusti8/proton-native/blob/master/LICENSE)
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Proton-Native)
 
-Create native desktop applications through a React syntax, on all platforms
+Create desktop applications through a React syntax, on all platforms.
+
+## V2 is released!
+
+V2 has been released and it brings a whole host of improvements including new
+components that are identical to React Native, styling, flexbox, hot reloading,
+and more. You can read the full writeup [here](https://proton-native.js.org/#/v2_changes).
+To try it out, visit the documentation for instructions on how to get started!
 
 ## Features
 
-* Same syntax as React Native
-* Works with existing React libraries such as Redux
-* Cross platform
-* Native components. No more Electron
-* Compatible with all normal Node.js packages
+- Same syntax and components as React Native
+- Works with existing React libraries such as Redux
+- Cross platform
+- No more Electron
+- Compatible with all normal Node.js packages
+- Hot reloading
 
 ## Images
 
-![Windows](http://protonnative-af51.kxcdn.com/images/windows_example.png)
-![CatApi](http://protonnative-af51.kxcdn.com/images/CatApi.gif)
+<span style="display: flex;">
+<img src="docs/calculator.png" height="400" style="margin: 10;">
+<img src="docs/catapi_v2.png" style="margin: 10;">
+</span>
 
 ## [Documentation](https://proton-native.js.org)
 
@@ -37,12 +47,6 @@ Examples can be found in [`examples/`](https://github.com/kusti8/proton-native/t
 
 ## Contributing
 
-All contributions are welcome. Just make a PR. Below is a list of general improvements that need to be added that I would love help with:
-
-* [ ] More examples and improve documentation
-* [x] Add UiArea
-* [ ] Clean up code
-* [ ] Make packaging easier
-* [x] Make creating a new app easier (something similar to `create-react-app`): https://github.com/albe-rosado/create-proton-app
+All contributions are welcome. Just make a PR.
 
 <a href="https://www.keycdn.com/"><sub><sup>Accelerated by KeyCDN</sup></sub></a>

@@ -2,15 +2,11 @@
 
 ## Getting Started
 
-Clone the repository, and install dependencies with `npm i`. To test changes, add your test script to Demo.js and run `npm run demo`. Just don't commit any changes to this file.
+Clone the repository, and install dependencies with `npm i`. To test changes, make changes to `testprog.js` and run `npm run testprog`. Just don't commit any changes to this file.
 
 ### Docs
 
 All documentation is housed in `docs/`, and is written in Markdown. Follow the format for all other pages. If you're making a page that doesn't follow previous formats, ask me. Changes made to `index.html` will not be made lightly and 99% of cases don't need to change that. The format is set for documentation, so don't try and change it.
-
-## Src
-
-How `src/` works is already shown in About. Most PRs modifying `src/` will be about fixing small errors or adding a component. When adding a component however, it should be named logically, usually the same as the libui-node name. Easiest way to get started is to copy a file like `Button.js` and modify that. Any component should extend `DesktopComponent.js`!
 
 ## Important Points
 
@@ -22,4 +18,4 @@ Proton Native welcomes contributions to constantly improve. Contributions are ac
 
 3.  Minimize hacks. If there's a clean way to do it, do it.
 
-4.  **Document everything**! Even if you add a prop, it should be well documented.
+4.  **Document everything**! Every additional feature should be well documented.
