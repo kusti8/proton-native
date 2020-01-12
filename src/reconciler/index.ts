@@ -11,7 +11,7 @@ const DEBUG = false;
 const DesktopRenderer = Reconciler({
   appendInitialChild(parentInstance: Component, child: Component) {
     if (DEBUG) console.log("appendInitialChild");
-    appendChild(parentInstance, child);
+    insertChild(parentInstance, child);
   },
 
   createInstance(type: string, props: object) {
@@ -99,12 +99,12 @@ const DesktopRenderer = Reconciler({
 
   appendChild(parentInstance: Component, child: Component) {
     if (DEBUG) console.log("appendChild");
-    appendChild(parentInstance, child);
+    insertChild(parentInstance, child);
   },
 
   appendChildToContainer(parentInstance: Component, child: Component) {
     if (DEBUG) console.log("appendChildToContainer");
-    appendChild(parentInstance, child);
+    insertChild(parentInstance, child);
   },
 
   removeChild(parentInstance: Component, child: Component) {
@@ -148,17 +148,6 @@ const DesktopRenderer = Reconciler({
   supportsPersistence: false
 });
 
-const appendChild = (container: Component, child: Component) => {
-  //console.log("ADD", child);
-  if (container.appendChild) {
-    if (typeof child == "object") child.parent = container;
-    container.appendChild(child);
-    if (child.element && child.element.show) child.element.show(); // TODO: Should this be here?
-  } else {
-    throw new Error(`Can't append child to ${container.constructor.name}`);
-  }
-};
-
 const removeChild = (container: Component, child: Component) => {
   //console.log("REMOVE", child);
   if (container.removeChild) {
@@ -168,18 +157,21 @@ const removeChild = (container: Component, child: Component) => {
   }
 };
 
-const insertChild = (
-  container: Component,
-  child: Component,
-  beforeChild: Component
-) => {
-  if (container.insertChild) {
-    if (typeof child == "object") child.parent = container;
-    container.insertChild(child, beforeChild);
-    if (child.element && child.element.show) child.element.show(); // TODO: Should this be here?
+const insertChild = (container: Component, child: Component, beforeChild?: Component) => {
+  const operation = beforeChild ? 'insertChild' : 'appendChild';
+  const params = beforeChild ? [child, beforeChild] : [child];
+  if (container[operation]) {
+    setParent(container, child);
+    //@ts-ignore
+    container[operation](...params);
+    child?.element?.show?.(); // TODO: Should this be here?
   } else {
     throw new Error(`Can't append child to ${container.constructor.name}`);
   }
+};
+
+const setParent = (container: Component, child: Component) => {
+  if (typeof child == "object") child.parent = container;
 };
 
 export default DesktopRenderer;
