@@ -43,7 +43,7 @@ See the documentation for how to get started and details on all the components.
 
 ## Examples
 
-Examples can be found in `examples/`.
+Examples can be found in [`examples/`](https://github.com/kusti8/proton-native/tree/master/examples).
 
 ## Contributing
 
