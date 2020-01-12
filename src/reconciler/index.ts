@@ -1,9 +1,8 @@
 import { createElement } from "../utils/createElement";
 import { Component } from "../components/Base";
 import { TextChild } from "../components/TextFuncs";
-import { ROOT_NODE } from "../render";
 import { Root } from "../components/Root";
-import * as _ from "lodash";
+import { uniq } from "lodash";
 
 const Reconciler = require("react-reconciler");
 
@@ -12,7 +11,7 @@ const DEBUG = false;
 const DesktopRenderer = Reconciler({
   appendInitialChild(parentInstance: Component, child: Component) {
     if (DEBUG) console.log("appendInitialChild");
-    appendChild(parentInstance, child);
+    insertChild(parentInstance, child);
   },
 
   createInstance(type: string, props: object) {
@@ -43,21 +42,19 @@ const DesktopRenderer = Reconciler({
   prepareUpdate(
     wordElement: any,
     type: string,
-    oldProps: object,
-    newProps: object
+    oldProps: { [key: string]: any },
+    newProps: { [key: string]: any }
   ) {
     if (DEBUG) console.log("prepareUpdate");
-    const propKeys = _.uniq(
-      Object.keys(newProps).concat(Object.keys(oldProps))
-    );
+    const propKeys = uniq(Object.keys(newProps).concat(Object.keys(oldProps)));
 
-    const diff = {};
+    const diff: { [key: string]: any } = {};
     for (let key of propKeys) {
       if (
         //key !== "children" && // children are already handled by react-reconciler
-        (oldProps as any)[key] !== (newProps as any)[key]
+        oldProps[key] !== newProps[key]
       ) {
-        (diff as any)[key] = (newProps as any)[key];
+        diff[key] = newProps[key];
       }
     }
 
@@ -100,12 +97,12 @@ const DesktopRenderer = Reconciler({
 
   appendChild(parentInstance: Component, child: Component) {
     if (DEBUG) console.log("appendChild");
-    appendChild(parentInstance, child);
+    insertChild(parentInstance, child);
   },
 
   appendChildToContainer(parentInstance: Component, child: Component) {
     if (DEBUG) console.log("appendChildToContainer");
-    appendChild(parentInstance, child);
+    insertChild(parentInstance, child);
   },
 
   removeChild(parentInstance: Component, child: Component) {
@@ -149,17 +146,6 @@ const DesktopRenderer = Reconciler({
   supportsPersistence: false
 });
 
-const appendChild = (container: Component, child: Component) => {
-  //console.log("ADD", child);
-  if (container.appendChild) {
-    if (typeof child == "object") child.parent = container;
-    container.appendChild(child);
-    if (child.element && child.element.show) child.element.show(); // TODO: Should this be here?
-  } else {
-    throw new Error(`Can't append child to ${container.constructor.name}`);
-  }
-};
-
 const removeChild = (container: Component, child: Component) => {
   //console.log("REMOVE", child);
   if (container.removeChild) {
@@ -172,15 +158,22 @@ const removeChild = (container: Component, child: Component) => {
 const insertChild = (
   container: Component,
   child: Component,
-  beforeChild: Component
+  beforeChild?: Component
 ) => {
-  if (container.insertChild) {
-    if (typeof child == "object") child.parent = container;
-    container.insertChild(child, beforeChild);
-    if (child.element && child.element.show) child.element.show(); // TODO: Should this be here?
+  const operation = beforeChild ? "insertChild" : "appendChild";
+  const params = beforeChild ? [child, beforeChild] : [child];
+  if (container[operation]) {
+    setParent(container, child);
+    //@ts-ignore
+    container[operation](...params);
+    child?.element?.show?.(); // TODO: Should this be here?
   } else {
     throw new Error(`Can't append child to ${container.constructor.name}`);
   }
+};
+
+const setParent = (container: Component, child: Component) => {
+  if (typeof child == "object") child.parent = container;
 };
 
 export default DesktopRenderer;
