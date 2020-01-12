@@ -42,21 +42,21 @@ const DesktopRenderer = Reconciler({
   prepareUpdate(
     wordElement: any,
     type: string,
-    oldProps: object,
-    newProps: object
+    oldProps: {[key: string]: any},
+    newProps: {[key: string]: any}
   ) {
     if (DEBUG) console.log("prepareUpdate");
-    const propKeys = _.uniq(
+    const propKeys = uniq(
       Object.keys(newProps).concat(Object.keys(oldProps))
     );
 
-    const diff = {};
+    const diff: {[key: string]: any} = {};
     for (let key of propKeys) {
       if (
         //key !== "children" && // children are already handled by react-reconciler
-        (oldProps as any)[key] !== (newProps as any)[key]
+        oldProps[key] !== newProps[key]
       ) {
-        (diff as any)[key] = (newProps as any)[key];
+        diff[key] = newProps[key];
       }
     }
 
