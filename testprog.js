@@ -16,7 +16,7 @@ import {
   setBackend,
 } from './bin/';
 
-setBackend('wx');
+setBackend('qt');
 
 class Example extends Component {
   state = {
@@ -38,11 +38,12 @@ class Example extends Component {
             style={{ height: '50%', width: '100%', backgroundColor: 'green' }}
           >
             <Button
+              style={{ backgroundColor: 'white' }}
+              onPress={() => console.log('PRessed')}
               title="My button"
-              onPress={() => console.log('Button pressed')}
             />
+            <Text>Hello</Text>
           </View>
-          {/* <Button onPress={() => console.log("PRessed")} title="My button" /> */}
         </Window>
       </App>
     );
