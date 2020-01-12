@@ -42,15 +42,13 @@ const DesktopRenderer = Reconciler({
   prepareUpdate(
     wordElement: any,
     type: string,
-    oldProps: {[key: string]: any},
-    newProps: {[key: string]: any}
+    oldProps: { [key: string]: any },
+    newProps: { [key: string]: any }
   ) {
     if (DEBUG) console.log("prepareUpdate");
-    const propKeys = uniq(
-      Object.keys(newProps).concat(Object.keys(oldProps))
-    );
+    const propKeys = uniq(Object.keys(newProps).concat(Object.keys(oldProps)));
 
-    const diff: {[key: string]: any} = {};
+    const diff: { [key: string]: any } = {};
     for (let key of propKeys) {
       if (
         //key !== "children" && // children are already handled by react-reconciler
@@ -157,8 +155,12 @@ const removeChild = (container: Component, child: Component) => {
   }
 };
 
-const insertChild = (container: Component, child: Component, beforeChild?: Component) => {
-  const operation = beforeChild ? 'insertChild' : 'appendChild';
+const insertChild = (
+  container: Component,
+  child: Component,
+  beforeChild?: Component
+) => {
+  const operation = beforeChild ? "insertChild" : "appendChild";
   const params = beforeChild ? [child, beforeChild] : [child];
   if (container[operation]) {
     setParent(container, child);
