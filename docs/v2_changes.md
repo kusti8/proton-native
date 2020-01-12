@@ -126,12 +126,19 @@ seamessly added to Proton Native.
 
 ### Native Components?
 
-As I was developing, many of you expressed concern about the fact that Qt
-components are not truly native (which is why CSS styling is so easy). This was never
-the main focus of the project, but I recognize that this is a concern, which is why
-work is being done to add wxWidgets as a secondary backend that can be chosen at runtime.
-The framework is already in place for this, but I wanted to release first to get
-public feedback on the work already done.
+Different GUI designers have different priorities. Some want something that looks pretty while others
+want something that will ensure a great experience on every platform. Qt gives you the ability to
+customize everything, and still has a pretty good experience with its components. But those components
+are not native, meaning they are drawn by Qt instead of using the components provided by the OS.
+
+Proton Native was mainly built to emulate React Native, which doesn't use many native components
+for drawing. But native components on the desktop are important for some people and for that,
+Proton Native V2 has two backends: Qt and wxWidgets.
+
+Qt will always be the main backend, and right now the wxWidgets backend has very little components,
+customizability, and is still experimental. It is actively being worked on to bring it up to par
+with Qt (although it will never support the same easy styling as Qt). To use wxWidgets, see
+the [dedicated page](wx_backend.md), but remember that it is still experimental.
 
 ### Licensing?
 
@@ -236,23 +243,23 @@ class Calculator extends Component {
   render() {
     return (
       <App>
-        <Window style={{ width: 450, height: 900, backgroundColor: "black" }}>
+        <Window style={{ width: 450, height: 900, backgroundColor: 'black' }}>
           <View
             style={{
-              width: "100%",
-              height: "30%",
-              justifyContent: "flex-end",
-              alignItems: "flex-end"
+              width: '100%',
+              height: '30%',
+              justifyContent: 'flex-end',
+              alignItems: 'flex-end',
             }}
           >
             <Text
               style={{
-                color: "white",
+                color: 'white',
                 fontSize: 80,
-                textAlign: "right",
+                textAlign: 'right',
                 marginRight: 35,
                 marginBottom: 15,
-                fontWeight: 200
+                fontWeight: 200,
               }}
             >
               {this.state.primary.toString().length >= 7
@@ -265,8 +272,8 @@ class Calculator extends Component {
               key={index1.toString()}
               style={{
                 flex: 1,
-                flexDirection: "row",
-                justifyContent: "space-evenly"
+                flexDirection: 'row',
+                justifyContent: 'space-evenly',
               }}
             >
               {buttonGroup.map((button, index2) => (
