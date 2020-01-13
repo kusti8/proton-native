@@ -1,5 +1,4 @@
 import * as wx from "node-wx-napi";
-import convertStyleSheet from "../utils/convertStyleSheet";
 import * as Color from "color";
 
 interface Size {
@@ -51,11 +50,13 @@ export abstract class BaseElement {
     console.warn("MousePressEvent noop");
     //this.element.mousePressEvent(func);
   }
+
   mouseReleaseEvent(func: () => void) {
     //noop
     console.warn("MouseReleaseEvent noop");
     //this.element.mouseReleaseEvent(func);
   }
+
   setStyleSheet(obj: any) {
     if ("backgroundColor" in obj) {
       const color = Color(obj.backgroundColor);
@@ -67,27 +68,35 @@ export abstract class BaseElement {
     }
     //this.element.setStyleSheet(obj);
   }
+
   //   del() {
   //     this.element.del();
   //   }
+
   resize(width: number, height: number) {
     this.element.SetSize(width, height);
   }
+
   move(left: number, top: number) {
     this.element.SetLoc(left, top);
   }
+
   minSize(): Size {
     return this.element.GetBestSize();
   }
+
   show() {
     this.element.Show(true);
   }
+
   close() {
     this.element.Close();
   }
+
   width(): number {
     return this.element.GetSize().w;
   }
+  
   height(): number {
     return this.element.GetSize().h;
   }
@@ -150,38 +159,6 @@ export abstract class BaseElement {
 //   }
 // }
 
-export class WindowElement extends BaseElement {
-  constructor() {
-    super();
-    this.element = new wx.WxFrame();
-  }
-  resizeEvent(func: (width: number, height: number) => void) {
-    this.element.OnResize(func);
-  }
-  getClosed(): boolean {
-    return this.element.getClosed();
-  }
-}
-
-export class ViewElement extends BaseElement {
-  constructor() {
-    super();
-    this.records = [];
-    this.element = this.makeRecords([
-      "Show",
-      "SetSize",
-      "GetSize",
-      "SetLoc",
-      "SetBackgroundColour"
-    ]);
-  }
-  setParent(obj: BaseElement) {
-    if (!this.checkFakeParent(obj)) {
-      this.element = new wx.WxPanel(obj.element);
-      this.applyRecords();
-    }
-  }
-}
 
 // export class PickerElement extends BaseElement {
 //   constructor() {
@@ -213,16 +190,6 @@ export class ViewElement extends BaseElement {
 //   }
 // }
 
-export class AppElement {
-  element: any;
-  constructor() {
-    this.element = new wx.WxApp();
-  }
-
-  runLoop() {
-    this.element.loop();
-  }
-}
 
 // export class TextElement extends BaseElement {
 //   constructor() {
@@ -248,33 +215,3 @@ export class AppElement {
 //     this.element.setText(text);
 //   }
 // }
-
-export class ButtonElement extends BaseElement {
-  constructor() {
-    super();
-    this.records = [];
-    this.element = this.makeRecords([
-      "Show",
-      "SetSize",
-      "GetSize",
-      "SetLoc",
-      "SetBackgroundColour",
-      "SetLabel",
-      "OnPress"
-    ]);
-  }
-  setParent(obj: BaseElement) {
-    if (!this.checkFakeParent(obj)) {
-      this.element = new wx.WxButton(obj.element);
-      this.applyRecords();
-    }
-  }
-
-  buttonReleasedEvent(func: () => void) {
-    this.element.OnPress(func);
-  }
-
-  setText(text: string) {
-    this.element.SetLabel(text);
-  }
-}
