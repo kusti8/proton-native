@@ -20,6 +20,7 @@ export const TextFuncs = (
     for (let i = 0; i < children.length; i++) {
       childText.push(children[i].text);
     }
+    // TODO: shall we use JSX instead?
     text[0] = `<span style="${convertStyleSheet(styleProp)}">${childText.join(
       ""
     )}</span>`;

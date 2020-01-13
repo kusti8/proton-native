@@ -12,18 +12,19 @@ interface Props {
   title: string;
 }
 
-export default (p: Props) => {
-  const propTypes = {
-    style: PropTypes.object,
-    onPress: PropTypes.func,
-    title: PropTypes.string
-  };
-  const defaultProps = {
-    style: {},
-    onPress: () => { },
-    title: "Button"
-  };
+const propTypes = {
+  style: PropTypes.object,
+  onPress: PropTypes.func,
+  title: PropTypes.string
+};
 
+const defaultProps = {
+  style: {},
+  onPress: () => { },
+  title: "Button"
+};
+
+export default (p: Props) => {
   const ButtonElement = getBackend()["ButtonElement"];
   const element = new ButtonElement();
 

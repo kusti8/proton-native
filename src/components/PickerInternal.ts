@@ -21,18 +21,19 @@ interface PickerItem {
   props: PickerItemProps;
 }
 
-export default (p: Props) => {
-  const propTypes = {
-    style: PropTypes.object,
-    onValueChange: PropTypes.func,
-    selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  };
-  const defaultProps = {
-    style: {},
-    onValueChange: () => {},
-    selectedValue: ""
-  };
+const propTypes = {
+  style: PropTypes.object,
+  onValueChange: PropTypes.func,
+  selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+};
 
+const defaultProps = {
+  style: {},
+  onValueChange: () => {},
+  selectedValue: ""
+};
+
+export default (p: Props) => {
   const PickerElement = getBackend()["PickerElement"];
   const element = new PickerElement();
   const items: { [key: string]: string } = {};

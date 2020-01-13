@@ -20,18 +20,19 @@ declare global {
   }
 }
 
-export default (p: Props) => {
-  const propTypes = {
-    style: PropTypes.object,
-    onResponderGrant: PropTypes.func,
-    onResponderRelease: PropTypes.func
-  };
-  const defaultProps = {
-    style: {},
-    onResponderGrant: () => {},
-    onResponderRelease: () => {}
-  };
+const propTypes = {
+  style: PropTypes.object,
+  onResponderGrant: PropTypes.func,
+  onResponderRelease: PropTypes.func
+};
 
+const defaultProps = {
+  style: {},
+  onResponderGrant: () => {},
+  onResponderRelease: () => {}
+};
+
+export default (p: Props) => {
   const ViewElement = getBackend()["ViewElement"];
   const element = new ViewElement();
 

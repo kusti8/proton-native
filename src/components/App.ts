@@ -2,11 +2,11 @@ import propChecker from "../utils/propChecker";
 import propsUpdater from "../utils/propsUpdater";
 import { Component } from "./Base";
 
+const propTypes = {};
+const defaultProps = {};
+
 export default (p: {}) => {
   const children: Component[] = [];
-
-  const propTypes = {};
-  const defaultProps = {};
 
   let props = { ...p };
   props = propChecker(props, propTypes, defaultProps, "App");

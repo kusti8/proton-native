@@ -13,20 +13,21 @@ interface Props {
   multiline: boolean;
 }
 
-export default (p: Props) => {
-  const propTypes = {
-    style: PropTypes.object,
-    onChangeText: PropTypes.func,
-    value: PropTypes.string,
-    multiline: PropTypes.bool
-  };
-  const defaultProps = {
-    style: {},
-    onChangeText: () => {},
-    value: "",
-    multiline: false
-  };
+const propTypes = {
+  style: PropTypes.object,
+  onChangeText: PropTypes.func,
+  value: PropTypes.string,
+  multiline: PropTypes.bool
+};
 
+const defaultProps = {
+  style: {},
+  onChangeText: () => {},
+  value: "",
+  multiline: false
+};
+
+export default (p: Props) => {
   const TextInputElement = getBackend()["TextInputElement"];
   const element = new TextInputElement(p.multiline);
 

@@ -17,14 +17,15 @@ declare global {
   }
 }
 
-export default (p: Props) => {
-  const propTypes = {
-    style: PropTypes.object
-  };
-  const defaultProps = {
-    style: {}
-  };
+const propTypes = {
+  style: PropTypes.object
+};
 
+const defaultProps = {
+  style: {}
+};
+
+export default (p: Props) => {
   const TextElement = getBackend()["TextElement"]
   const element = new TextElement();
 

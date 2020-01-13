@@ -12,16 +12,17 @@ interface Props {
   onResize: (size: { w: number; h: number }) => void;
 }
 
-export default (p: Props) => {
-  const propTypes = {
-    style: PropTypes.object,
-    onResize: PropTypes.func
-  };
-  const defaultProps = {
-    style: {},
-    onResize: () => {}
-  };
+const propTypes = {
+  style: PropTypes.object,
+  onResize: PropTypes.func
+};
 
+const defaultProps = {
+  style: {},
+  onResize: () => {}
+};
+
+export default (p: Props) => {
   const backend = getBackend();
   const WindowElement = backend["WindowElement"];
   const desktopSize = backend["desktopSize"];

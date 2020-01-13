@@ -9,10 +9,10 @@ export interface Root {
   afterCommit: (host: Root) => void;
 }
 
-export default (props: {}) => {
-  const propTypes = {};
-  const defaultProps = {};
+const propTypes = {};
+const defaultProps = {};
 
+export default (props: {}) => {
   const AppElement = getBackend()["AppElement"]
   const element = new AppElement();
 

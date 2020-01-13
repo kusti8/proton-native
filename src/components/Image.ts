@@ -35,26 +35,27 @@ interface Props {
   source: ImageSource;
 }
 
-export default (p: Props) => {
-  const propTypes = {
-    style: PropTypes.object,
-    onResponderGrant: PropTypes.func,
-    onResponderRelease: PropTypes.func,
-    resizeMode: PropTypes.oneOf([
-      "cover",
-      "contain",
-      "stretch",
-      "repeat",
-      "center"
-    ]),
-    source: PropTypes.object
-  };
-  const defaultProps = {
-    style: {},
-    onResponderGrant: () => {},
-    onResponderRelease: () => {}
-  };
+const propTypes = {
+  style: PropTypes.object,
+  onResponderGrant: PropTypes.func,
+  onResponderRelease: PropTypes.func,
+  resizeMode: PropTypes.oneOf([
+    "cover",
+    "contain",
+    "stretch",
+    "repeat",
+    "center"
+  ]),
+  source: PropTypes.object
+};
 
+const defaultProps = {
+  style: {},
+  onResponderGrant: () => {},
+  onResponderRelease: () => {}
+};
+
+export default (p: Props) => {
   const ImageElement = getBackend()["ImageElement"];
   const element = new ImageElement();
 
