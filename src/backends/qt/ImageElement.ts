@@ -3,7 +3,7 @@ import { BaseElement } from "./BaseElement";
 
 export class ImageElement extends BaseElement {
   pixElement: any;
-  
+
   constructor() {
     super();
     this.element = new qt.QLabel();
@@ -29,25 +29,34 @@ export class ImageElement extends BaseElement {
     this.element.setAlignment(
       qt.Alignment.AlignLeft | qt.Alignment.AlignVCenter
     );
-    if (mode == "cover") {
-      this.pixElement.scaled(
-        width,
-        height,
-        qt.AspectRatioMode.KeepAspectRatioByExpanding
-      );
-    } else if (mode == "contain") {
-      this.pixElement.scaled(width, height, qt.AspectRatioMode.KeepAspectRatio);
-    } else if (mode == "stretch") {
-      this.pixElement.scaled(
-        width,
-        height,
-        qt.AspectRatioMode.IgnoreAspectRatio
-      );
-    } else if (mode == "center") {
-      this.element.setAlignment(qt.Alignment.AlignCenter);
-      this.pixElement.scaled(width, height, qt.AspectRatioMode.KeepAspectRatio);
-    } else if (mode == "repeat") {
-      this.pixElement.scaledTile(width, height);
+    switch(mode) {
+      case "cover":
+        this.pixElement.scaled(
+          width,
+          height,
+          qt.AspectRatioMode.KeepAspectRatioByExpanding
+        );
+        break;
+      case "contain":
+        this.pixElement.scaled(width, height, qt.AspectRatioMode.KeepAspectRatio);
+        break;
+      case "stretch":
+        this.pixElement.scaled(
+          width,
+          height,
+          qt.AspectRatioMode.IgnoreAspectRatio
+        );
+        break;
+      case "center":
+        this.element.setAlignment(qt.Alignment.AlignCenter);
+        this.pixElement.scaled(width, height, qt.AspectRatioMode.KeepAspectRatio);
+        break;
+      case "repeat":
+        this.pixElement.scaledTile(width, height);
+        break;
+      default:
+        console.log(`unexpected mode value - ${mode}`);
+        break;
     }
     this.element.setPixmap(this.pixElement);
     this.element.show();
