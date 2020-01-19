@@ -1,0 +1,23 @@
+language: node_js
+dist: xenial
+cache: false
+node_js:
+  - "9.3"
+  - "10"
+  - "11"
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - xvfb
+      - qtbase5-dev
+      - build-essential
+      - qt5-default
+      - g++-6
+      - x11-apps
+      - imagemagick
+before_install:
+  - export CXX="g++-6"
+install:
+  - npm install

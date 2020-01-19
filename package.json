@@ -1,6 +1,6 @@
 {
   "name": "proton-native",
-  "version": "1.1.11",
+  "version": "2.0.3",
   "description": "React Native for the desktop, cross compatible",
   "main": "bin/index.js",
   "lint-staged": {
@@ -10,11 +10,12 @@
     ]
   },
   "scripts": {
-    "demo": "babel-node Demo.js",
-    "prettier":
-      "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'examples/*.js' './**/*.md' Demo.js",
-    "build": "babel src -d bin",
-    "pub": "babel src -d bin && npm publish",
+    "test": "Xvfb :34 -screen 0, 1280x720x24 & DISPLAY=:34 jest",
+    "test-update": "Xvfb :34 -screen 0, 1280x720x24 & DISPLAY=:34 jest -u",
+    "testprog": "babel-node testprog.js",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.js' 'test/**/*.js' 'examples/*.js' './**/*.md' testprog.js",
+    "build": "tsc -b",
+    "prepack": "npm run build",
     "precommit": "lint-staged"
   },
   "repository": {
@@ -26,25 +27,47 @@
   "bugs": {
     "url": "https://github.com/kusti8/proton-native/issues"
   },
-  "homepage": "https://proton-native.js.org",
+  "homepage": "https://github.com/kusti8/proton-native#readme",
   "dependencies": {
-    "color": "^3.0.0",
-    "fbjs": "^0.8.16",
-    "libui-node": "^0.2.1",
-    "prop-types": "^15.6.1",
-    "react": "^16.8.2",
-    "react-reconciler": "^0.20.0",
-    "svg-path-parser": "^1.1.0"
+    "color": "^3.1.2",
+    "file-type": "12.4.2",
+    "image-size": "^0.7.5",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0",
+    "node-qt-napi": "^0.0.3",
+    "react": "^16.12.0",
+    "react-deep-force-update": "^2.1.3",
+    "react-devtools-core": "^4.3.0",
+    "react-proxy": "^2.0.8",
+    "react-reconciler": "^0.24.0",
+    "read-chunk": "^3.2.0",
+    "yoga-layout-prebuilt": "^1.9.3"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-stage-0": "^7.0.0",
+    "@types/color": "^3.0.1",
+    "@types/lodash": "^4.14.149",
+    "@types/node-fetch": "^2.5.4",
+    "@types/react": "^16.9.17",
+    "@types/react-reconciler": "^0.18.0",
+    "@types/yoga-layout": "^1.9.1",
+    "babel-jest": "^24.9.0",
     "husky": "^0.14.3",
+    "jest": "^24.9.0",
+    "jest-image-snapshot": "^2.11.1",
+    "jest-util": "^24.9.0",
     "lint-staged": "^7.1.0",
-    "prettier": "^1.12.1",
-    "react-devtools": "^3.4.3"
+    "prettier": "^1.19.1",
+    "react-devtools": "^3.6.3",
+    "typescript": "^3.7.4"
   },
-  "files": ["bin"]
+  "files": [
+    "bin"
+  ]
 }

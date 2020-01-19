@@ -1,21 +1,15 @@
-import React, { Component } from 'react'; // import from react
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import rootReducer from './src/reducers';
-import Main from './src/components/main';
-import { render, Window, App } from 'proton-native'; // import the proton-native components
+import React from 'react';
+import { AppRegistry } from 'proton-native';
+import CatApi from './app';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+AppRegistry.registerComponent('CatApi', <CatApi />); // and finally render your main component
 
-class CatApi extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Main />
-      </Provider>
-    );
-  }
+// ================================================================================
+// This is for hot reloading (this will be stripped off in production by webpack)
+// THIS SHOULD NOT BE CHANGED
+if (module.hot) {
+  module.hot.accept(['./app'], function() {
+    const app = require('./app')['default'];
+    AppRegistry.updateProxy(app);
+  });
 }
-
-render(<CatApi />); // and finally render your main component

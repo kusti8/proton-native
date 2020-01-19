@@ -58,6 +58,7 @@ typings/
 .env
 
 bin
+dist/
 
 # ide
 .idea/

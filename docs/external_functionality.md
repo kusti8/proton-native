@@ -5,8 +5,8 @@ This is a list of external tools found that help common tasks. **All of these ar
 
 ## Tools
 
-* [System Tray](#System-Tray)
-* [Notifications](#Notifications)
+- [System Tray](#System-Tray)
+- [Notifications](#Notifications)
 
 ## System Tray
 
@@ -17,7 +17,7 @@ import React, { Component } from 'react';
 import SysTray from 'systray';
 import fs from 'fs';
 
-import { render, Window, App, Box, TextInput, Menu } from 'proton-native';
+import { AppRegistry, Window, App, View, TextInput } from 'proton-native';
 
 const systray = new SysTray({
   menu: {
@@ -57,26 +57,18 @@ const stop = () => {
 class Example extends Component {
   render() {
     return (
-      <App onShouldQuit={stop}>
-        <Menu>
-          <Menu.Item type="Quit" />
-        </Menu>
-        <Window
-          onClose={stop}
-          title="Proton Native Rocks!"
-          size={{ w: 400, h: 400 }}
-          menuBar={false}
-        >
-          <Box>
-            <TextInput>Hi</TextInput>
-          </Box>
+      <App>
+        <Window style={{ width: 400, height: 400 }}>
+          <View>
+            <TextInput />
+          </View>
         </Window>
       </App>
     );
   }
 }
 
-render(<Example />);
+AppRegistry.registerComponent('example', <Example />);
 ```
 
 ## Notifications
