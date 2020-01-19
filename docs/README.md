@@ -19,9 +19,8 @@ For more information and a full writeup, see the [V2 page](v2_changes.md).
 ## Native Components?
 
 Currently we use Qt, which does not ship with true native components. Performance is basically the same and the look is very similar on almost all
-platforms, but we realize there is still a large demand for true native components in this project. Currently work is being done to integrate
-wxWidgets and allow the user to choose the backend. I am releasing V2 in its current state because it will take some time, due to this project
-being run by a single student with limited time.
+platforms, but we realize there is still a large demand for true native components in this project. There is a current experimental
+backend for wxWidgets and is described [here](wx_backend.md). Please note this is very not complete and still needs a lot more work.
 
 ## Why?
 
