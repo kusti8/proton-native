@@ -1,7 +1,7 @@
 - [Home](/)
-- [About](about.md)
-- [V2 Changes](v2_changes.md)
 - [Quick start](quickstart.md)
+- [V2 Changes](v2_changes.md)
+- [About](about.md)
 - [Components](components.md)
 - Different Components
 - [Window](components/Window.md)
