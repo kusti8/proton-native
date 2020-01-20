@@ -126,7 +126,7 @@ export default class Calculator extends Component {
           onPress: () => this.addDigit(4),
         },
         {
-          text: '2',
+          text: '5',
           type: 'number',
           onPress: () => this.addDigit(2),
         },
