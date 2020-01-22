@@ -82,7 +82,7 @@ export default (p: Props) => {
     },
     children: (children: PickerItem[]) => {
       if (
-        children.map(x => (x.props ? x.props.label : x)).toString() ==
+        children?.map?.(x => (x.props ? x.props.label : x)).toString() ==
         itemList.toString()
       )
         return;
