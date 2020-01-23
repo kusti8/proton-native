@@ -1,10 +1,10 @@
 import * as PropTypes from "prop-types";
 import * as _ from "lodash";
 
-function propChecker(
-  props: any,
-  propTypes: any,
-  defaultProps: any,
+function propChecker<P = any, T = any, D = any>(
+  props: P,
+  propTypes: T,
+  defaultProps: D,
   name: string
 ): any {
   // for (let prop in defaultProps) {

@@ -3,18 +3,18 @@ import propsUpdater from "../utils/propsUpdater";
 import * as PropTypes from "prop-types";
 import { TextFuncs } from "./TextFuncs";
 import { YogaComponent } from "./YogaComponent";
-import { getBackend } from '../backends/index'
-
-interface Props {
-  style: React.CSSProperties;
-}
+import { getBackend } from '../backends/index';
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      ROOTTEXT: any;
+      ROOTTEXT: React.PropsWithChildren<Props>;
     }
   }
+}
+
+export interface Props {
+  style?: React.CSSProperties;
 }
 
 export default (p: Props) => {
@@ -49,7 +49,7 @@ export default (p: Props) => {
     element.setText(text);
     yogaProps.node.markDirty();
     yogaProps.f.f && yogaProps.f.f();
-  }, styleProp.s);
+  }, styleProp.s || {});
 
   updateProps(props);
 

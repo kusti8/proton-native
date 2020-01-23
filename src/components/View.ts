@@ -6,18 +6,24 @@ import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
 import { getBackend } from "../backends/index";
 
-interface Props {
-  style: React.CSSProperties;
-  onResponderGrant: () => void;
-  onResponderRelease: () => void;
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      VIEW: any;
+      VIEW: React.PropsWithChildren<Props>;
     }
   }
+}
+
+type a = {
+  text?: string
+} & {
+  text: string
+}
+
+export interface Props {
+  style?: React.CSSProperties;
+  onResponderGrant?: () => void;
+  onResponderRelease?: () => void;
 }
 
 export default (p: Props) => {
@@ -46,11 +52,15 @@ export default (p: Props) => {
   };
 
   element.mousePressEvent(() => {
-    handlers.onResponderGrant();
+    if (handlers.onResponderGrant) {
+      handlers.onResponderGrant();
+    }
   });
 
   element.mouseReleaseEvent(() => {
-    handlers.onResponderRelease();
+    if (handlers.onResponderRelease) {
+      handlers.onResponderRelease();
+    }
   });
 
   const containerProps = Container(
