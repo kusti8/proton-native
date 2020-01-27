@@ -24,18 +24,22 @@ export default (props: {}) => {
   );
 
   const quit = () => {
-    for (let i = 0; i < containerProps.children[0].children.length; i++) {
-      containerProps.children[0].children[i].element.close();
+    if (containerProps.children && containerProps.children.length) {
+      for (let i = 0; i < containerProps.children[0].children.length; i++) {
+        containerProps.children[0].children[i].element.close();
+      }
     }
     disconnectDevtools();
   };
 
   const interval = setInterval(() => {
-    for (let i = 0; i < containerProps.children[0].children.length; i++) {
-      const closed = containerProps.children[0].children[i].element.getClosed();
-      if (!closed) {
-        element.runLoop();
-        return;
+    if (containerProps.children && containerProps.children.length) {
+      for (let i = 0; i < containerProps.children[0].children.length; i++) {
+        const closed = containerProps.children[0].children[i].element.getClosed();
+        if (!closed) {
+          element.runLoop();
+          return;
+        }
       }
     }
     quit();
