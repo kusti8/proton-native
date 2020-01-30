@@ -6,10 +6,18 @@ import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
 import { getBackend } from "../backends/index";
 
-interface Props {
-  style: React.CSSProperties;
-  onPress: () => void;
-  title: string;
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      BUTTON: React.PropsWithChildren<Props>
+    }
+  }
+}
+
+export interface Props {
+  style?: React.CSSProperties;
+  onPress?: () => void;
+  title?: string;
 }
 
 export default (p: Props) => {
@@ -37,7 +45,9 @@ export default (p: Props) => {
   };
 
   element.buttonReleasedEvent(() => {
-    handlers.onPress();
+    if (handlers.onPress) {
+      handlers.onPress();
+    }
   });
 
   const containerProps = Container(

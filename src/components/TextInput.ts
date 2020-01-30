@@ -6,11 +6,19 @@ import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
 import { getBackend } from "../backends/index";
 
-interface Props {
-  style: React.CSSProperties;
-  onChangeText: (text: string) => void;
-  value: string;
-  multiline: boolean;
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      TEXTINPUT: Props
+    }
+  }
+}
+
+export interface Props {
+  style?: React.CSSProperties;
+  onChangeText?: (text: string) => void;
+  value?: string;
+  multiline?: boolean;
 }
 
 export default (p: Props) => {
@@ -40,7 +48,9 @@ export default (p: Props) => {
   };
 
   element.textChangedEvent((text: string) => {
-    handlers.onChangeText(text);
+    if (handlers.onChangeText) {
+      handlers.onChangeText(text);
+    }
   });
 
   const containerProps = Container(

@@ -94,7 +94,7 @@ export const YogaComponent = (
       };
     };
 
-    node.setMeasureFunc((...args) => measure(...args));
+    node.setMeasureFunc(() => measure());
   }
 
   return {

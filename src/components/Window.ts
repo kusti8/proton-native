@@ -7,9 +7,17 @@ import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
 import { getBackend } from "../backends/index";
 
-interface Props {
-  style: React.CSSProperties;
-  onResize: (size: { w: number; h: number }) => void;
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      WINDOW: React.PropsWithChildren<Props>;
+    }
+  }
+}
+
+export interface Props {
+  style?: React.CSSProperties;
+  onResize?: (size: { w: number; h: number }) => void;
 }
 
 export default (p: Props) => {
@@ -38,7 +46,9 @@ export default (p: Props) => {
 
   element.resizeEvent((w: number, h: number) => {
     ROOT_NODE.afterCommit(ROOT_NODE);
-    handlers.onResize({ w, h });
+    if (handlers.onResize) {
+      handlers.onResize({ w, h });
+    }
   });
 
   const percentToSize = (

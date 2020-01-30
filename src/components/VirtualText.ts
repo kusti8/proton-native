@@ -3,16 +3,16 @@ import propsUpdater from "../utils/propsUpdater";
 import * as PropTypes from "prop-types";
 import { TextFuncs } from "./TextFuncs";
 
-interface Props {
-  style: React.CSSProperties;
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      VIRTUALTEXT: any;
+      VIRTUALTEXT: React.PropsWithChildren<Props>;
     }
   }
+}
+
+export interface Props {
+  style?: React.CSSProperties;
 }
 
 export default (p: Props) => {
@@ -36,7 +36,7 @@ export default (p: Props) => {
     }
   });
 
-  const textProps = TextFuncs(() => {}, styleProp);
+  const textProps = TextFuncs(() => {}, styleProp || {});
 
   updateProps(props);
 
