@@ -65,6 +65,14 @@ interface MouseMoveEvent {
 
 Called every time mouse cursor enters the view.
 
+| **Type**   | **Required** | **Default** |
+| ---------- | ------------ | ----------- |
+| () => void | No           | () => {}    |
+
 ### onMouseLeave
 
 Called every time mouse cursor goes out of the view.
+
+| **Type**   | **Required** | **Default** |
+| ---------- | ------------ | ----------- |
+| () => void | No           | () => {}    |
