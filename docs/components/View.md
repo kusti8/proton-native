@@ -1,4 +1,4 @@
-# Window
+# View
 
 `View` is a generic view component similar to `<div>` on the web. Views should be used to construct the layout.
 
