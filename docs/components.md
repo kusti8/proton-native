@@ -24,4 +24,4 @@ desktop. More detailed information can be seen [here](components/Window.md)
 | TouchableHighlight       | activeOpacity, underlayColor, style, onPress, onLongPress |
 | TouchableOpacity         | activeOpacity, style, onPress, onLongPress                |
 | TouchableWithoutFeedback | onPress, onLongPress                                      |
-| View                     | style                                                     |
+| View                     | style, onMouseMove, onMouseEnter, onMouseLeave            |
