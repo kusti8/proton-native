@@ -27,12 +27,20 @@ interface ImageStyle extends React.CSSProperties {
   resizeMode: ResizeMode;
 }
 
-interface Props {
-  style: React.CSSProperties;
-  onResponderGrant: () => void;
-  onResponderRelease: () => void;
-  resizeMode: ResizeMode;
-  source: ImageSource;
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      IMAGE: Props
+    }
+  }
+}
+
+export interface Props {
+  style?: React.CSSProperties;
+  onResponderGrant?: () => void;
+  onResponderRelease?: () => void;
+  resizeMode?: ResizeMode;
+  source?: ImageSource;
 }
 
 export default (p: Props) => {
@@ -78,11 +86,15 @@ export default (p: Props) => {
   };
 
   element.mousePressEvent(() => {
-    handlers.onResponderGrant();
+    if (handlers.onResponderGrant) {
+      handlers.onResponderGrant();
+    }
   });
 
   element.mouseReleaseEvent(() => {
-    handlers.onResponderRelease();
+    if (handlers.onResponderRelease) {
+      handlers.onResponderRelease();
+    }
   });
 
   const containerProps = Container(

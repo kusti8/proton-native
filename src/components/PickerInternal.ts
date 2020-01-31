@@ -6,10 +6,18 @@ import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
 import { getBackend } from "../backends/index";
 
-interface Props {
-  style: React.CSSProperties;
-  onValueChange: (text: string, index: number) => void;
-  selectedValue: string | number;
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      PICKERINTERNAL: React.PropsWithChildren<Props>
+    }
+  }
+}
+
+export interface Props {
+  style?: React.CSSProperties;
+  onValueChange?: (text: string, index: number) => void;
+  selectedValue?: string | number;
 }
 
 interface PickerItemProps {
@@ -48,7 +56,9 @@ export default (p: Props) => {
   };
 
   element.activatedEvent((text: string) => {
-    handlers.onValueChange(items[text] || text, element.currentIndex());
+    if (handlers.onValueChange) {
+      handlers.onValueChange(items[text] || text, element.currentIndex());
+    }
   });
 
   const containerProps = Container(
@@ -82,7 +92,7 @@ export default (p: Props) => {
     },
     children: (children: PickerItem[]) => {
       if (
-        children.map(x => (x.props ? x.props.label : x)).toString() ==
+        children?.map?.(x => (x.props ? x.props.label : x)).toString() ==
         itemList.toString()
       )
         return;

@@ -2,7 +2,17 @@ import propChecker from "../utils/propChecker";
 import propsUpdater from "../utils/propsUpdater";
 import { Component } from "./Base";
 
-export default (p: {}) => {
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      APP: React.PropsWithChildren<Props>
+    }
+  }
+}
+
+export interface Props {}
+
+export default (p: Props) => {
   const children: Component[] = [];
 
   const propTypes = {};
