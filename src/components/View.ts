@@ -15,15 +15,6 @@ interface MouseMoveEvent {
   point: Point;
 }
 
-interface Props {
-  style: React.CSSProperties;
-  onResponderGrant: () => void;
-  onResponderRelease: () => void;
-  onMouseMove: (event: MouseMoveEvent) => void;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -33,15 +24,18 @@ declare global {
 }
 
 type a = {
-  text?: string
+  text?: string;
 } & {
-  text: string
-}
+  text: string;
+};
 
 export interface Props {
   style?: React.CSSProperties;
   onResponderGrant?: () => void;
   onResponderRelease?: () => void;
+  onMouseMove?: (event: MouseMoveEvent) => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 export default (p: Props) => {
@@ -91,15 +85,15 @@ export default (p: Props) => {
   });
 
   element.mouseMoveEvent((x: number, y: number) => {
-    handlers.onMouseMove({ point: { x, y } });
+    handlers.onMouseMove!({ point: { x, y } });
   });
 
   element.enterEvent(() => {
-    handlers.onMouseEnter();
+    handlers.onMouseEnter!();
   });
 
   element.leaveEvent(() => {
-    handlers.onMouseLeave();
+    handlers.onMouseLeave!();
   });
 
   const containerProps = Container(
