@@ -9,7 +9,7 @@ import { getBackend } from "../backends/index";
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      BUTTON: React.PropsWithChildren<Props>
+      BUTTON: React.PropsWithChildren<Props>;
     }
   }
 }
@@ -28,7 +28,7 @@ export default (p: Props) => {
   };
   const defaultProps = {
     style: {},
-    onPress: () => { },
+    onPress: () => {},
     title: "Button"
   };
 
@@ -52,6 +52,11 @@ export default (p: Props) => {
 
   const containerProps = Container(
     child => {
+      if (child.type === "text")
+        throw new Error(
+          "Button takes no children. If you are trying to set the title, use the title prop."
+        );
+
       child.element.setParent(element);
       if (child.node) {
         yogaProps.node.insertChild(child.node, yogaProps.node.getChildCount());

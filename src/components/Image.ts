@@ -30,7 +30,7 @@ interface ImageStyle extends React.CSSProperties {
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      IMAGE: Props
+      IMAGE: Props;
     }
   }
 }
@@ -124,6 +124,8 @@ export default (p: Props) => {
       style: (style: ImageStyle) => {
         if (style.resizeMode) {
           resizeMode.r = style.resizeMode;
+        } else {
+          resizeMode.r = "cover";
         }
         element.setStyleSheet(style);
         yogaProps.applyYogaStyle(style);
