@@ -1,6 +1,6 @@
 import * as yoga from "yoga-layout-prebuilt";
 import { getYogaValueTransformer } from "../utils/yogaHelper";
-import { BaseElement } from "../backends/qt";
+import { BaseElement, WindowElement } from "../backends/qt";
 
 export declare class Layout {
   readonly left: number;
@@ -78,8 +78,7 @@ export const YogaComponent = (
     }
     if (!shouldUpdate) return;
 
-    // @ts-ignore
-    if (typeof element == "MainWindowElement") {
+    if (element instanceof WindowElement) {
       return;
     }
 
