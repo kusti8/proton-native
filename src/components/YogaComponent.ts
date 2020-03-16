@@ -78,12 +78,13 @@ export const YogaComponent = (
     }
     if (!shouldUpdate) return;
 
-    if (typeof element === "MainWindowElement") {
+    // @ts-ignore
+    if (typeof element == "MainWindowElement") {
       return;
     }
 
-    element.resize(layout.width, layout.height);
-    element.move(layout.left, layout.top);
+    element!.resize(layout.width, layout.height);
+    element!.move(layout.left, layout.top);
 
     if (postApplyYoga) {
       postApplyYoga(layout);
