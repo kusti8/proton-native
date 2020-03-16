@@ -22,6 +22,9 @@ class Example extends Component {
   state = {
     test: 'dsdasdsa',
     a: true,
+    mouseState: 'idle',
+    x: 50,
+    y: 50,
   };
   componentDidMount() {
     //setTimeout(() => this.setState({ test: "dsawewwww" }), 3000);
@@ -35,6 +38,9 @@ class Example extends Component {
           style={{ height: '25%', width: '25%', backgroundColor: 'blue' }}
         >
           <View
+            onMouseEnter={() => this.setState({ mouseState: 'MOUSE ENTERED' })}
+            onMouseLeave={() => this.setState({ mouseState: 'MOUSE LEFT' })}
+            onMouseMove={event => this.setState(event.point)}
             style={{ height: '50%', width: '100%', backgroundColor: 'green' }}
           >
             <Button
@@ -42,7 +48,17 @@ class Example extends Component {
               onPress={() => console.log('PRessed')}
               title="My button"
             />
-            <Text>Hello</Text>
+            <Text>{`Mouse state: ${this.state.mouseState}`}</Text>
+            <View
+              style={{
+                width: 40,
+                height: 40,
+                backgroundColor: 'black',
+                position: 'absolute',
+                top: this.state.y,
+                left: this.state.x,
+              }}
+            ></View>
           </View>
         </Window>
       </App>
