@@ -1,6 +1,6 @@
 {
   "name": "proton-native",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "React Native for the desktop, cross compatible",
   "main": "bin/index.js",
   "lint-staged": {
@@ -34,7 +34,7 @@
     "image-size": "^0.7.5",
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.0",
-    "node-qt-napi": "^0.0.3",
+    "node-qt-napi": "^0.0.4",
     "react": "^16.12.0",
     "react-deep-force-update": "^2.1.3",
     "react-devtools-core": "^4.3.0",
