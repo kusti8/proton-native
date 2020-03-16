@@ -40,7 +40,7 @@ export abstract class BaseElement {
       obj.records.push({
         f: (...args: any[]) => (this as any).setParent(...args),
         a: [obj]
-      })
+      });
       return true;
     }
     return false;
@@ -54,6 +54,11 @@ export abstract class BaseElement {
   mouseReleaseEvent(func: () => void) {
     //noop
     console.warn("MouseReleaseEvent noop");
+    //this.element.mouseReleaseEvent(func);
+  }
+  moveEvent(func: (x: number, y: number) => void) {
+    //noop
+    console.warn("MoveEvent noop");
     //this.element.mouseReleaseEvent(func);
   }
   setStyleSheet(obj: any) {

@@ -6,6 +6,7 @@ import * as PropTypes from "prop-types";
 import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
 import { getBackend } from "../backends/index";
+import * as yoga from "yoga-layout-prebuilt";
 
 declare global {
   namespace JSX {
@@ -18,6 +19,7 @@ declare global {
 export interface Props {
   style?: React.CSSProperties;
   onResize?: (size: { w: number; h: number }) => void;
+  onMove?: (pos: { x: number; y: number }) => void;
 }
 
 export default (p: Props) => {
@@ -41,13 +43,20 @@ export default (p: Props) => {
   const yogaProps = YogaComponent(element);
 
   const handlers = {
-    onResize: props.onResize
+    onResize: props.onResize,
+    onMove: props.onMove
   };
 
   element.resizeEvent((w: number, h: number) => {
     ROOT_NODE.afterCommit(ROOT_NODE);
     if (handlers.onResize) {
       handlers.onResize({ w, h });
+    }
+  });
+
+  element.moveEvent((x: number, y: number) => {
+    if (handlers.onMove) {
+      handlers.onMove({ x, y });
     }
   });
 

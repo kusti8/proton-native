@@ -40,6 +40,9 @@ export abstract class BaseElement {
   leaveEvent(func: () => void) {
     this.element.leaveEvent(func);
   }
+  moveEvent(func: (x: number, y: number) => void) {
+    this.element.moveEvent(func);
+  }
   setStyleSheet(obj: object) {
     this.element.setStyleSheet(convertStyleSheet(obj));
   }

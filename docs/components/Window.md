@@ -27,6 +27,7 @@ AppRegistry.registerComponent('Test', <Example />);
 
 - [style](#style)
 - [onResize](#onResize)
+- [onMove](#onMove)
 
 ## Reference
 
@@ -47,3 +48,12 @@ object: `{w, h}`
 | **Type**                         | **Required** | **Default** |
 | -------------------------------- | ------------ | ----------- |
 | function({h: number, w: number}) | No           | () => {})   |
+
+### onMove
+
+Called when the window is moved. An object is passed into the function, with the following
+object: `{x, y}`
+
+| **Type**                         | **Required** | **Default** |
+| -------------------------------- | ------------ | ----------- |
+| function({x: number, y: number}) | No           | () => {})   |
