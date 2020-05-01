@@ -31,7 +31,12 @@ interface PickerItem {
 
 export default (p: Props) => {
   const propTypes = {
-    style: PropTypes.object,
+    sstyle: PropTypes.oneOfType(
+      [
+        PropTypes.object,
+        PropTypes.array,
+      ]
+    ),
     onValueChange: PropTypes.func,
     selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   };
