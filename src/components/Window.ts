@@ -5,7 +5,7 @@ import { ROOT_NODE } from "../render";
 import * as PropTypes from "prop-types";
 import convertStyleSheet from "../utils/convertStyleSheet";
 import { YogaComponent } from "./YogaComponent";
-import { getBackend } from "../backends/index";
+import { getBackend, BACKEND } from "../backends/index";
 import * as yoga from "yoga-layout-prebuilt";
 
 declare global {
@@ -20,16 +20,19 @@ export interface Props {
   style?: React.CSSProperties;
   onResize?: (size: { w: number; h: number }) => void;
   onMove?: (pos: { x: number; y: number }) => void;
+  flags: number[];
 }
 
 export default (p: Props) => {
   const propTypes = {
     style: PropTypes.object,
-    onResize: PropTypes.func
+    onResize: PropTypes.func,
+    flags: PropTypes.array,
   };
   const defaultProps = {
     style: {},
-    onResize: () => {}
+    onResize: () => {},
+    flags: [],
   };
 
   const backend = getBackend();
@@ -92,6 +95,12 @@ export default (p: Props) => {
       } else if (size.h) {
         element.resize(element.width(), size.h);
       }
+    },
+    flags: (flags: number[]) => {
+      if (flags.length < 1 || BACKEND !== 'qt') {
+        return;
+      }
+      element.setWindowFlags(flags);
     }
   });
 
