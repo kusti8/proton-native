@@ -5,6 +5,9 @@
   Logo by <a href="https://twitter.com/elisiri_">@elisiri</a>
 </p>
 
+# Announcement
+**Sadly I don't have time to dedicate time to this project. Some others have created a fork here to continue the work: https://github.com/proton-nativejs/proton-native**
+
 [![npm](https://img.shields.io/npm/v/proton-native.svg)](https://www.npmjs.com/package/proton-native)
 [![npm](https://img.shields.io/npm/dm/proton-native.svg)](https://www.npmjs.com/package/proton-native)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
