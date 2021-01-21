@@ -23,7 +23,12 @@ export interface Props {
 
 export default (p: Props) => {
   const propTypes = {
-    style: PropTypes.object,
+    style: PropTypes.oneOfType(
+      [
+        PropTypes.object,
+        PropTypes.array,
+      ]
+    ),
     onChangeText: PropTypes.func,
     value: PropTypes.string,
     multiline: PropTypes.bool

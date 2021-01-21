@@ -22,13 +22,18 @@ export interface Props {
 
 export default (p: Props) => {
   const propTypes = {
-    style: PropTypes.object,
+    style: PropTypes.oneOfType(
+      [
+        PropTypes.object,
+        PropTypes.array,
+      ]
+    ),
     onPress: PropTypes.func,
     title: PropTypes.string
   };
   const defaultProps = {
     style: {},
-    onPress: () => {},
+    onPress: () => { },
     title: "Button"
   };
 

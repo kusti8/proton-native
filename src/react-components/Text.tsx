@@ -9,7 +9,12 @@ export default class Text extends React.Component {
     style: {}
   };
   static propTypes = {
-    style: PropTypes.object
+    style: PropTypes.oneOfType(
+      [
+        PropTypes.object,
+        PropTypes.array,
+      ]
+    )
   };
   render() {
     return (

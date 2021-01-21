@@ -29,7 +29,12 @@ export default class TouchableOpacity extends React.Component<Props, State> {
   };
   static propTypes = {
     activeOpacity: PropTypes.number,
-    style: PropTypes.object,
+    style: PropTypes.oneOfType(
+      [
+        PropTypes.object,
+        PropTypes.array,
+      ]
+    ),
     onPress: PropTypes.func,
     onLongPress: PropTypes.func
   };

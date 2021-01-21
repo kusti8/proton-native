@@ -40,7 +40,12 @@ export interface Props {
 
 export default (p: Props) => {
   const propTypes = {
-    style: PropTypes.object,
+    style: PropTypes.oneOfType(
+      [
+        PropTypes.object,
+        PropTypes.array,
+      ]
+    ),
     onResponderGrant: PropTypes.func,
     onResponderRelease: PropTypes.func,
     onMouseMove: PropTypes.func,

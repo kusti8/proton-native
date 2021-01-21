@@ -37,8 +37,10 @@ const excluded = [
 
 const convertToPx = ["fontSize"];
 
-const convertStyleSheet = (style: React.CSSProperties) =>
-  Object.entries(style).reduce((styleString, [propName, propValue]) => {
+const convertStyleSheet = (style: React.CSSProperties) => {
+  style = Array.isArray(style)? Object.assign({}, ...style.flat(2)): style
+  
+  return Object.entries(style).reduce((styleString, [propName, propValue]) => {
     if (excluded.includes(propName)) {
       return styleString;
     }
@@ -54,5 +56,7 @@ const convertStyleSheet = (style: React.CSSProperties) =>
 
     return `${styleString}${propName}:${propValue};`;
   }, "");
+}
+ 
 
 export default convertStyleSheet;

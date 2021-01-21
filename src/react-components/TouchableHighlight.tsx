@@ -34,7 +34,12 @@ export default class TouchableHighlight extends React.Component<Props, State> {
   static propTypes = {
     activeOpacity: PropTypes.number,
     underlayColor: PropTypes.string,
-    style: PropTypes.object,
+    style: PropTypes.oneOfType(
+      [
+        PropTypes.object,
+        PropTypes.array,
+      ]
+    ),
     onPress: PropTypes.func,
     onLongPress: PropTypes.func
   };
