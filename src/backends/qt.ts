@@ -144,6 +144,9 @@ export class WindowElement extends BaseElement {
   getClosed(): boolean {
     return this.element.getClosed();
   }
+  setWindowFlags(flags: number[]): boolean {
+    return this.element.setWindowFlags(flags.reduce((prev, curr) => prev | curr, 0));
+  }
 }
 
 export class ViewElement extends BaseElement {
