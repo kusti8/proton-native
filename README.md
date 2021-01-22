@@ -31,7 +31,7 @@ To try it out, visit the documentation for instructions on how to get started!
 - Cross platform
 - No more Electron
 - Compatible with all normal Node.js packages
-- Hot reloading
+- Hot module replacement
 
 ## Images
 
