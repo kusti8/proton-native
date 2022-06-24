@@ -9,7 +9,7 @@
     "build": "babel index.js -d bin/"
   },
   "dependencies": {
-    "node-fetch": "^2.1.2",
+    "node-fetch": "^2.6.7",
     "opn": "^5.3.0",
     "proton-native": "^2.0.0",
     "react-redux": "^7.0.0",
