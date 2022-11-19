@@ -25,7 +25,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-stage-0": "^7.0.0",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2",
     "babel-loader": "^8.0.6"
   }
